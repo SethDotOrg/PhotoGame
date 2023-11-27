@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgry1rvsu8w85"]
+
+[ext_resource type="Script" path="res://Scripts/UI Scripts/PauseUI.gd" id="1_1kx74"]
+[ext_resource type="PackedScene" uid="uid://bn08n3vujde03" path="res://Scenes/UI/options_ui.tscn" id="2_7m8w0"]
+[ext_resource type="PackedScene" uid="uid://bsdnfol5k5loy" path="res://Scenes/UI/base_pause_ui.tscn" id="2_yfxep"]
+[ext_resource type="PackedScene" uid="uid://cop8fq6e7ib8d" path="res://Scenes/UI/Further_Options_UI.tscn" id="4_yf0ru"]
+
+[node name="PauseUI" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1kx74")
+
+[node name="BasePauseUI" parent="." instance=ExtResource("2_yfxep")]
+layout_mode = 1
+
+[node name="OptionsUI" parent="." instance=ExtResource("2_7m8w0")]
+visible = false
+layout_mode = 1
+
+[node name="Further_Options_UI" parent="." instance=ExtResource("4_yf0ru")]
+process_mode = 2
+visible = false
+layout_mode = 1

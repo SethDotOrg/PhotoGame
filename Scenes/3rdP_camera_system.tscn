@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn4lebtea4isk"]
+
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_lpebv"]
+[ext_resource type="CameraAttributesPractical" uid="uid://ci6pph6ys3qck" path="res://CameraAttributes.tres" id="2_fpsq3"]
+
+[node name="3PCameraSystem" type="Node3D" node_paths=PackedStringArray("_aim_check")]
+script = ExtResource("1_lpebv")
+_aim_check = NodePath("RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/Camera3D/AimCheck")
+
+[node name="RotateNodeHorizontal" type="Node3D" parent="."]
+
+[node name="RotateNodeVertical" type="Node3D" parent="RotateNodeHorizontal"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="RotateNodeHorizontal/RotateNodeVertical"]
+spring_length = 11.0
+
+[node name="Camera3D" type="Camera3D" parent="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D"]
+attributes = ExtResource("2_fpsq3")
+current = true
+
+[node name="AimCheck" type="RayCast3D" parent="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/Camera3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, 0, 100)
+collide_with_areas = true
+
+[node name="EndOfRay" type="Node3D" parent="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/Camera3D/AimCheck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)

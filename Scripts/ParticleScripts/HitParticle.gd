@@ -1,0 +1,2 @@
+class_name HitParticle
+extends GPUParticles3D

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwixhuwksxmyc"]
+
+[ext_resource type="PackedScene" uid="uid://cy4qb0ji3i174" path="res://Scenes/Particles/HandGunHitParticle.tscn" id="1_luuva"]
+
+[node name="Particles" type="Node3D"]
+
+[node name="HandGunHit" parent="." instance=ExtResource("1_luuva")]

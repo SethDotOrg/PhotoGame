@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dudtbosbre4mv"]
+
+[ext_resource type="Script" path="res://Scripts/HitscanProjectileBase.gd" id="1_7mr2s"]
+[ext_resource type="AudioStream" uid="uid://ct2j3ttx6htvw" path="res://Sounds/BaseProjectile/BaseProjectileHit.mp3" id="2_cmch5"]
+
+[node name="HitscanProjectileBase" type="Node3D" node_paths=PackedStringArray("_audio_stream_player_3D")]
+script = ExtResource("1_7mr2s")
+_audio_stream_player_3D = NodePath("ProjectileHitSound")
+
+[node name="ProjectileFireSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cmch5")
+bus = &"Sound Effects"
+
+[node name="ProjectileHitSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_cmch5")
+bus = &"Sound Effects"

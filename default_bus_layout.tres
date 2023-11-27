@@ -1,0 +1,27 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://dofqe6m8s0u85"]
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_rs4sq"]
+resource_name = "PitchShift"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_qxv0t"]
+resource_name = "Distortion"
+mode = 2
+drive = 0.26
+
+[resource]
+bus/1/name = &"Sound Effects"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Projectiles 2"
+bus/1/effect/0/effect = SubResource("AudioEffectPitchShift_rs4sq")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectDistortion_qxv0t")
+bus/1/effect/1/enabled = true
+bus/2/name = &"Music"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -14.6228
+bus/2/send = &"Master"

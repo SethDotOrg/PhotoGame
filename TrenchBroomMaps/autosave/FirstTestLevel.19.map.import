@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cgytfu8eaj32i"
+path="res://.godot/imported/FirstTestLevel.19.map-41d90bef09a1cfb299b5cff8cd6b4565.tres"
+
+[deps]
+
+source_file="res://TrenchBroomMaps/autosave/FirstTestLevel.19.map"
+dest_files=["res://.godot/imported/FirstTestLevel.19.map-41d90bef09a1cfb299b5cff8cd6b4565.tres"]
+
+[params]
+

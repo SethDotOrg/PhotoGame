@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7sk4ydilftwb"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
+[ext_resource type="PackedScene" uid="uid://dsx4gk60y6xk1" path="res://Blender Models/RobotPrototype/Robot_Prototype.glb" id="2_oq0ov"]
+[ext_resource type="PackedScene" uid="uid://b7mlmumu6yp26" path="res://Scenes/GunWeapons/HandGun.tscn" id="3_gpy7d"]
+[ext_resource type="PackedScene" uid="uid://bd4q66qhs04fp" path="res://Blender Models/Pistol.gltf" id="3_s4tnm"]
+[ext_resource type="PackedScene" uid="uid://bwixhuwksxmyc" path="res://Scenes/Particles/PlayerParticles.tscn" id="4_4khwj"]
+[ext_resource type="PackedScene" uid="uid://kg6rwjcc70q2" path="res://Scenes/UI/PlayerUI.tscn" id="5_oiq14"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwlmk"]
+radius = 1.49837
+height = 10.1811
+
+[node name="PlayerKinematicBody" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00247192, 2.13182, -0.000277281)
+collision_layer = 2
+safe_margin = 0.1
+script = ExtResource("1_4wo7u")
+
+[node name="GameModel" parent="." instance=ExtResource("2_oq0ov")]
+
+[node name="Waist" parent="GameModel/Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31323e-10, -6.29874, -0.386412)
+
+[node name="Skeleton3D" parent="GameModel/Armature" index="1"]
+bones/3/rotation = Quaternion(0.120214, -4.47333e-16, 2.86613e-08, 0.992748)
+bones/4/rotation = Quaternion(-0.338684, -0.324398, -0.628304, 0.62072)
+bones/9/rotation = Quaternion(0.131679, -0.147535, 0.691544, 0.694738)
+bones/16/rotation = Quaternion(-0.359712, -0.387033, -0.621887, 0.577987)
+bones/18/rotation = Quaternion(-0.000188701, 0.000135899, 0.0712543, 0.997458)
+bones/19/rotation = Quaternion(-0.547077, 0.58863, 0.435951, 0.405176)
+
+[node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -3.68162e-07, -4.47035e-08, 4.02331e-07, 0.762502, 0.646985, -1.3411e-07, -0.646985, 0.762502, 0.90636, 1.62903, -0.621649)
+bone_idx = 8
+
+[node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 7.26152e-07, -3.29688e-07, -7.86968e-07, 0.783839, -0.620964, -1.75089e-07, 0.620964, 0.783839, -0.90636, 1.62876, -0.629545)
+bone_idx = 13
+
+[node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, 0, 1, 0.476315, -0.854799, -0.228398)
+bone_idx = 14
+
+[node name="RightLegConnecter" parent="GameModel/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, 0, 1, -0.476315, -0.854799, -0.228398)
+bone_idx = 15
+
+[node name="LeftArmIK" type="SkeletonIK3D" parent="GameModel/Armature/Skeleton3D" index="12"]
+process_priority = 1
+root_bone = &"Bicep.r"
+tip_bone = &"Hand.r"
+override_tip_basis = false
+target_node = NodePath("../../../ArmEndRightHandle/ArmEndRightTarget")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="GameModel/Armature/Skeleton3D" index="13"]
+transform = Transform3D(-1, -7.18959e-07, 1.27808e-07, 5.01921e-07, -0.783839, -0.620964, 5.27817e-07, -0.620964, 0.783839, -1.36039, -1.23226, -2.90028)
+bone_name = "Hand.r"
+bone_idx = 12
+
+[node name="CutePistol" parent="GameModel/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_s4tnm")]
+transform = Transform3D(1, -1.13687e-13, -2.84217e-14, 0, -2.98023e-08, -1, 2.84217e-14, 1, -2.98023e-08, -2.38419e-07, 0.21, -0.0928659)
+
+[node name="HandGun" parent="GameModel" instance=ExtResource("3_gpy7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3521, 7.58656, 4.24877)
+
+[node name="ArmEndRightHandle" type="Marker3D" parent="GameModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33889, 7.5711, 4.248)
+
+[node name="ArmEndRightTarget" type="Marker3D" parent="GameModel/ArmEndRightHandle"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53785e-08, 5.27848, 0.290439)
+shape = SubResource("CapsuleShape3D_dwlmk")
+
+[node name="CameraPointShoulder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.63337, 0)
+
+[node name="CameraPointJump" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.40514, 0)
+
+[node name="CameraPointAimPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.254, 0)
+
+[node name="CameraPointAimTarget" type="Node3D" parent="CameraPointAimPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29685, 0.332739, -1.1365e-07)
+
+[node name="Particles" parent="." instance=ExtResource("4_4khwj")]
+
+[node name="Player HUD" parent="." instance=ExtResource("5_oiq14")]
+
+[editable path="GameModel"]
+[editable path="GameModel/HandGun"]
+[editable path="Particles"]

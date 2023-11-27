@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://kg6rwjcc70q2"]
+
+[ext_resource type="Script" path="res://Scripts/UI Scripts/PlayerUI.gd" id="1_kq1bm"]
+[ext_resource type="PackedScene" uid="uid://bc2afxeie17vs" path="res://Scenes/UI/live_ui.tscn" id="2_gwtgd"]
+[ext_resource type="PackedScene" uid="uid://bgry1rvsu8w85" path="res://Scenes/UI/pause_ui.tscn" id="3_inj10"]
+
+[node name="PlayerUI" type="Control" node_paths=PackedStringArray("_live_ui", "_pause_ui")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("1_kq1bm")
+_live_ui = NodePath("LiveUI")
+_pause_ui = NodePath("PauseUI")
+
+[node name="LiveUI" parent="." instance=ExtResource("2_gwtgd")]
+process_mode = 1
+layout_mode = 1
+
+[node name="PauseUI" parent="." instance=ExtResource("3_inj10")]
+layout_mode = 1

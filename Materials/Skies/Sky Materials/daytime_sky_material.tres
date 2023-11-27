@@ -1,0 +1,6 @@
+[gd_resource type="PhysicalSkyMaterial" format=3 uid="uid://c16vf4an0npc"]
+
+[resource]
+ground_color = Color(0.415686, 0.854902, 0.992157, 1)
+energy_multiplier = 0.25
+use_debanding = false

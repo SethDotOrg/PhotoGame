@@ -1,0 +1,144 @@
+[gd_scene load_steps=6 format=3 uid="uid://cop8fq6e7ib8d"]
+
+[ext_resource type="Script" path="res://Scripts/UI Scripts/FurtherOptionsUI.gd" id="1_e17sc"]
+[ext_resource type="Script" path="res://Scenes/UI/OptionsConfig.gd" id="2_atn4d"]
+[ext_resource type="Script" path="res://Scripts/ResolutionOptionButton.gd" id="2_klvr4"]
+[ext_resource type="Script" path="res://Scripts/UI Scripts/ScreenTypeOptionButton.gd" id="3_0iagt"]
+[ext_resource type="Script" path="res://Scripts/UI Scripts/SoundOptions.gd" id="4_pi4ep"]
+
+[node name="Further_Options_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e17sc")
+
+[node name="OptionsConfig" type="Node" parent="."]
+script = ExtResource("2_atn4d")
+
+[node name="PauseBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.807843, 0.592157, 0.843137)
+
+[node name="PauseText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 40.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]PAUSED"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 33.0
+offset_bottom = 31.0
+text = "<---"
+
+[node name="SaveButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Save"
+
+[node name="VBoxContainerGraphics" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -74.0
+offset_right = 230.0
+offset_bottom = 75.0
+grow_vertical = 2
+alignment = 1
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="VBoxContainerGraphics"]
+layout_mode = 2
+script = ExtResource("2_klvr4")
+
+[node name="ScreenTypeOptionButton" type="OptionButton" parent="VBoxContainerGraphics"]
+layout_mode = 2
+script = ExtResource("3_0iagt")
+
+[node name="VBoxContainerSound" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -74.0
+offset_right = 230.0
+offset_bottom = 75.0
+grow_vertical = 2
+alignment = 1
+script = ExtResource("4_pi4ep")
+
+[node name="MasterVolumeText" type="RichTextLabel" parent="VBoxContainerSound"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Master:"
+fit_content = true
+
+[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainerSound"]
+layout_mode = 2
+tick_count = 10
+ticks_on_borders = true
+
+[node name="SoundEffectVolumeText" type="RichTextLabel" parent="VBoxContainerSound"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Sound Effects:"
+fit_content = true
+
+[node name="SoundEffectVolumeSlider" type="HSlider" parent="VBoxContainerSound"]
+layout_mode = 2
+tick_count = 10
+ticks_on_borders = true
+
+[node name="MusicVolumeText" type="RichTextLabel" parent="VBoxContainerSound"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Music:"
+fit_content = true
+
+[node name="MusicVolumeSlider" type="HSlider" parent="VBoxContainerSound"]
+layout_mode = 2
+tick_count = 10
+ticks_on_borders = true
+
+[node name="VBoxContainerControl" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -74.0
+offset_right = 230.0
+offset_bottom = 75.0
+grow_vertical = 2
+alignment = 1
+
+[connection signal="button_down" from="BackButton" to="." method="_on_back_button_button_down"]
+[connection signal="button_down" from="SaveButton" to="OptionsConfig" method="_on_save_button_button_down"]
+[connection signal="item_selected" from="VBoxContainerGraphics/ResolutionOptionButton" to="VBoxContainerGraphics/ResolutionOptionButton" method="_on_item_selected"]
+[connection signal="item_selected" from="VBoxContainerGraphics/ScreenTypeOptionButton" to="VBoxContainerGraphics/ScreenTypeOptionButton" method="_on_item_selected"]
+[connection signal="drag_ended" from="VBoxContainerSound/MasterVolumeSlider" to="VBoxContainerSound" method="_on_master_volume_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainerSound/SoundEffectVolumeSlider" to="VBoxContainerSound" method="_on_sound_effect_volume_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainerSound/MusicVolumeSlider" to="VBoxContainerSound" method="_on_music_volume_slider_drag_ended"]

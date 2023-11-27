@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2nqic8stf60q"
+path="res://.godot/imported/Game music slowwishhh.mp3-857a62218abbdbd3f3feccf0a18fd6ba.mp3str"
+
+[deps]
+
+source_file="res://Music/Game music slowwishhh.mp3"
+dest_files=["res://.godot/imported/Game music slowwishhh.mp3-857a62218abbdbd3f3feccf0a18fd6ba.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

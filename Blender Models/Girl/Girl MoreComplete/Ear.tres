@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://daecyt315x1or"]
+
+[ext_resource type="Texture2D" uid="uid://ddpl50s7wdey6" path="res://Blender Models/Girl/Girl MoreComplete/Girl2_Ear.png" id="1_8oicb"]
+
+[resource]
+resource_name = "Ear"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_8oicb")
+roughness = 0.5
+texture_filter = 2
+texture_repeat = false

@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pd61jewaa1bs"
+uid="uid://diainemxq7dht"
 path="res://.godot/imported/grass.png-c637977c146fec1b1e97e5c999cb4594.ctex"
 metadata={
 "vram_texture": false
@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/grass.png-c637977c146fec1b1e97e5c999cb4594.ct
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

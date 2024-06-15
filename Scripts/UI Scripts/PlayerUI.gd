@@ -1,8 +1,9 @@
 class_name UI
-extends Control
+extends BaseUI
 
 @export var _live_ui:Live_UI
 @export var _pause_ui:Pause_UI
+
 var ammo_count
 var current_state
 
@@ -38,3 +39,6 @@ func handle_game_resume():
 	_live_ui.visible = true
 	_pause_ui.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func get_live_ui():
+	return get_child(0)

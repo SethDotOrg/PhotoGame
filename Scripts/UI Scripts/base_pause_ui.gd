@@ -6,6 +6,7 @@ extends Control
 @onready var _quit_button = $BoxContainer/QuitButton
 @onready var _player_ui = get_parent().get_parent()
 
+
 func _on_resume_button_button_down():
 	get_parent().handle_game_resume()
 

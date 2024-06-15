@@ -17,8 +17,8 @@ const dB_max = 0
 
 func _ready():
 	# Load data from a file.
-	#err = config.load("user://options.ini")
-	err = config.load("res://options.ini")
+	err = config.load("user://options.ini")
+	#err = config.load("res://options.ini")
 	
 	# If the file didn't load, ignore it.
 	if err != OK:
@@ -31,15 +31,15 @@ func _ready():
 	var file_sound_effect_volume = config.get_value("Sound_Options","SFX_Volume","SFX vol not set")
 	var file_music_volume = config.get_value("Sound_Options","Music_Volume","music vol not set")
 	
-	print("file master----",file_master_volume)
-	print("file SFX----",file_sound_effect_volume)
-	print("file music----",file_music_volume)
+	#print("file master----",file_master_volume)
+	#print("file SFX----",file_sound_effect_volume)
+	#print("file music----",file_music_volume)
 	curr_master_volume = file_master_volume
 	curr_sound_effect_volume = file_sound_effect_volume
 	curr_music_volume = file_music_volume
-	print("curr master----",curr_master_volume)
-	print("curr SFX----",curr_sound_effect_volume)
-	print("curr music----",curr_music_volume)
+	#print("curr master----",curr_master_volume)
+	#print("curr SFX----",curr_sound_effect_volume)
+	#print("curr music----",curr_music_volume)
 	
 	var curr_master_volume_dB = (((curr_master_volume - sliders_min) * (dB_max - dB_min)) / (sliders_max - sliders_min)) + dB_min
 	AudioServer.set_bus_volume_db(0, curr_master_volume_dB)#master volume

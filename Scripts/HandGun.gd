@@ -17,3 +17,5 @@ func reload():
 	current_ammo = _mag_size
 	_player_ui.update_hud_ammo(current_ammo,_mag_size)
 
+func set_weapon():
+	weapon = _weapon_manager.Weapons.CUTE_PISTOL

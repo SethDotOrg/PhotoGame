@@ -28,7 +28,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		#vertical
 		_rotate_node_vertical.rotate_x(-event.relative.y * mouse_sensitivity)
-		_rotate_node_vertical.rotation.x = clamp(_rotate_node_vertical.rotation.x, deg_to_rad(-90), deg_to_rad(30))
+		_rotate_node_vertical.rotation.x = clamp(_rotate_node_vertical.rotation.x, deg_to_rad(-90), deg_to_rad(55))
 		#horizontal
 		_rotate_node_horizontal.rotate_y(-event.relative.x * mouse_sensitivity)
 
@@ -88,3 +88,16 @@ func tween_fov(end_fov:float):
 func set_raycast_distance(raycast_length:float):
 	_aim_check.target_position.z = raycast_length
 
+func toggle_dof(dof_state: bool):
+	_camera_3D = $RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/Camera3D
+	_camera_3D.attributes.dof_blur_far_enabled = dof_state
+	_camera_3D.attributes.dof_blur_near_enabled = dof_state	
+
+func set_camera_rotation(horizontal,vertical):
+	_rotate_node_vertical.rotation.x = -vertical
+	_rotate_node_horizontal.rotation.y = horizontal
+
+func get_camera_rotation_horizontal():
+	return _rotate_node_horizontal.rotation.y
+func get_camera_rotation_vertical():
+	return _rotate_node_vertical.rotation.x

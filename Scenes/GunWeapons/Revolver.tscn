@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://37kank6ydn7v"]
+
+[ext_resource type="Script" path="res://Scripts/Revolver.gd" id="1_5d8yh"]
+[ext_resource type="AudioStream" uid="uid://ct2j3ttx6htvw" path="res://Sounds/BaseProjectile/BaseProjectileHit.mp3" id="2_eyjvq"]
+
+[node name="Revolver" type="Node3D"]
+script = ExtResource("1_5d8yh")
+
+[node name="ProjectileFireSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eyjvq")
+bus = &"Sound Effects"
+
+[node name="ProjectileHitSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_eyjvq")
+bus = &"Sound Effects"

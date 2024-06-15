@@ -21,26 +21,26 @@ func _ready():
 		# Fetch the data for graphics options.
 	var file_screen_type = config.get_value("Graphic_Options","Screen_Type","screen type not set")
 		
-	print("file screen type----",file_screen_type)
+	#print("file screen type----",file_screen_type)
 	curr_screen_type = file_screen_type
-	print("curr screen type----",curr_screen_type)
+	#print("curr screen type----",curr_screen_type)
 	
 	if(curr_screen_type == "Windowed Fullscreen"):
 		select(0)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		print("WF")
+		#print("WF")
 	elif(curr_screen_type == "Exclusive Fullscreen"):
 		select(1)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-		print("EF")
+		#print("EF")
 	elif(curr_screen_type == "Taskbar Fullscreen"):
 		select(2)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
-		print("TF")
+		#print("TF")
 	elif(curr_screen_type == "Windowed"):
 		select(3)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		print("W")
+		#print("W")
 
 
 func add_screen_types():

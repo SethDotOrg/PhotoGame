@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://0yjqlvxbh8nm"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectiveCheck.gd" id="2_o14a2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ia7o"]
+albedo_color = Color(0.807843, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.94902, 0, 0, 1)
+refraction_enabled = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5cljc"]
+height = 0.638468
+radius = 1.8215
+
+[node name="ObjectiveCheckMarker" type="Node3D"]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+inner_radius = 1.57187
+outer_radius = 1.94759
+material = SubResource("StandardMaterial3D_3ia7o")
+
+[node name="Area3D" type="Area3D" parent="CSGTorus3D"]
+collision_layer = 2
+monitorable = false
+script = ExtResource("2_o14a2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGTorus3D/Area3D"]
+shape = SubResource("CylinderShape3D_5cljc")
+
+[connection signal="area_entered" from="CSGTorus3D/Area3D" to="CSGTorus3D/Area3D" method="_on_area_entered"]

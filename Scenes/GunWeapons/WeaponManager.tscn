@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfrp41877e1tk"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponManager.gd" id="1_msfsu"]
+[ext_resource type="PackedScene" uid="uid://b7mlmumu6yp26" path="res://Scenes/GunWeapons/CutePistol.tscn" id="1_nddj0"]
+[ext_resource type="PackedScene" uid="uid://37kank6ydn7v" path="res://Scenes/GunWeapons/Revolver.tscn" id="2_jp1yo"]
+[ext_resource type="AudioStream" uid="uid://30qjdlaqy12n" path="res://Sounds/Revolver/revolvershot.mp3" id="4_amp70"]
+[ext_resource type="AudioStream" uid="uid://bt4wkebrulaq1" path="res://Sounds/Revolver/revolverhit.mp3" id="5_e2of8"]
+
+[node name="WeaponManager" type="Node3D"]
+script = ExtResource("1_msfsu")
+
+[node name="CutePistol" parent="." node_paths=PackedStringArray("_audio_stream_player_3D") instance=ExtResource("1_nddj0")]
+_audio_stream_player_3D = NodePath("ProjectileHitSound")
+
+[node name="Revolver" parent="." node_paths=PackedStringArray("_audio_stream_player_3D") instance=ExtResource("2_jp1yo")]
+_audio_stream_player_3D = NodePath("ProjectileHitSound")
+_mag_size = 6
+_damage = 10
+_weapon_range = 2000.0
+
+[node name="ProjectileFireSound" parent="Revolver" index="0"]
+stream = ExtResource("4_amp70")
+
+[node name="ProjectileHitSound" parent="Revolver" index="1"]
+stream = ExtResource("5_e2of8")
+volume_db = 37.333
+max_db = 6.0
+
+[editable path="CutePistol"]
+[editable path="Revolver"]

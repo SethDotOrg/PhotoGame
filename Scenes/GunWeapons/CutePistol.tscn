@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7mlmumu6yp26"]
+
+[ext_resource type="Script" path="res://Scripts/HandGun.gd" id="1_g273b"]
+[ext_resource type="AudioStream" uid="uid://ctcgt46lgejrp" path="res://Sounds/Handgun/drop.mp3" id="2_18rnu"]
+[ext_resource type="AudioStream" uid="uid://chyff1dfi50xs" path="res://Sounds/Handgun/HandgunHit.mp3" id="3_2seub"]
+
+[node name="CutePistol" type="Node3D"]
+script = ExtResource("1_g273b")
+_mag_size = 12
+_damage = 5
+_weapon_range = 3000.0
+
+[node name="ProjectileFireSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_18rnu")
+volume_db = -8.0
+bus = &"Sound Effects"
+
+[node name="ProjectileHitSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_2seub")
+bus = &"Sound Effects"

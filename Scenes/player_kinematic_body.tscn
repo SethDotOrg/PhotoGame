@@ -1,21 +1,88 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=22 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
+[ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
+[ext_resource type="Script" path="res://Scripts/PlayerStateMachine.gd" id="2_o5i76"]
 [ext_resource type="PackedScene" uid="uid://dsx4gk60y6xk1" path="res://Blender Models/RobotPrototype/Robot_Prototype.glb" id="2_oq0ov"]
-[ext_resource type="PackedScene" uid="uid://b7mlmumu6yp26" path="res://Scenes/GunWeapons/HandGun.tscn" id="3_gpy7d"]
-[ext_resource type="PackedScene" uid="uid://bd4q66qhs04fp" path="res://Blender Models/Pistol.gltf" id="3_s4tnm"]
+[ext_resource type="Script" path="res://Scripts/State.gd" id="2_uperh"]
+[ext_resource type="PackedScene" uid="uid://c12nhendl2t1r" path="res://Blender Models/Pistol.gltf" id="3_s4tnm"]
 [ext_resource type="PackedScene" uid="uid://bwixhuwksxmyc" path="res://Scenes/Particles/PlayerParticles.tscn" id="4_4khwj"]
-[ext_resource type="PackedScene" uid="uid://kg6rwjcc70q2" path="res://Scenes/UI/PlayerUI.tscn" id="5_oiq14"]
+[ext_resource type="Script" path="res://Scripts/Idle.gd" id="4_muoqk"]
+[ext_resource type="PackedScene" uid="uid://bfrp41877e1tk" path="res://Scenes/GunWeapons/WeaponManager.tscn" id="5_e2upq"]
+[ext_resource type="Script" path="res://Scripts/Walk.gd" id="5_fxeox"]
+[ext_resource type="Script" path="res://Scripts/Jump.gd" id="5_hqxe7"]
+[ext_resource type="PackedScene" uid="uid://d2x18mvklkjgh" path="res://Blender Models/Revolver2.glb" id="5_pvvfr"]
+[ext_resource type="Script" path="res://Scripts/Run.gd" id="6_i6177"]
+[ext_resource type="PackedScene" uid="uid://t7snq77r54hq" path="res://Scenes/UI/BaseUI.tscn" id="7_lkktq"]
+[ext_resource type="Script" path="res://Scripts/Fall.gd" id="8_2a85m"]
+[ext_resource type="PackedScene" uid="uid://c7h2vpdo88ram" path="res://Blender Models/PackageV1/PackageV1.glb" id="9_1isq8"]
+[ext_resource type="Script" path="res://Scripts/Pickup.gd" id="9_24x63"]
+[ext_resource type="Script" path="res://Scripts/Climb.gd" id="9_ytu47"]
+[ext_resource type="AudioStream" uid="uid://cgt22hue1urok" path="res://Sounds/Footsteps/footsteptry1.mp3" id="11_ysiku"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwlmk"]
-radius = 1.49837
+radius = 1.0
 height = 10.1811
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgvhq"]
+radius = 1.75426
+height = 10.939
 
 [node name="PlayerKinematicBody" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00247192, 2.13182, -0.000277281)
-collision_layer = 2
 safe_margin = 0.1
 script = ExtResource("1_4wo7u")
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("_starting_state")]
+script = ExtResource("2_o5i76")
+_starting_state = NodePath("Idle")
+
+[node name="State" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("2_uperh")
+
+[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "walk_state", "climb_state")]
+script = ExtResource("4_muoqk")
+fall_state = NodePath("../Fall")
+jump_state = NodePath("../Jump")
+walk_state = NodePath("../Walk")
+climb_state = NodePath("../Climb")
+
+[node name="Walk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "run_state", "climb_state")]
+script = ExtResource("5_fxeox")
+fall_state = NodePath("../Fall")
+jump_state = NodePath("../Jump")
+idle_state = NodePath("../Idle")
+run_state = NodePath("../Run")
+climb_state = NodePath("../Climb")
+
+[node name="Run" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "walk_state", "climb_state")]
+script = ExtResource("6_i6177")
+fall_state = NodePath("../Fall")
+jump_state = NodePath("../Jump")
+idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")
+climb_state = NodePath("../Climb")
+
+[node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "climb_state")]
+script = ExtResource("5_hqxe7")
+fall_state = NodePath("../Fall")
+climb_state = NodePath("../Climb")
+
+[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_state")]
+script = ExtResource("8_2a85m")
+idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")
+run_state = NodePath("../Run")
+climb_state = NodePath("../Climb")
+
+[node name="Climb" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("9_ytu47")
+idle_state = NodePath("../Idle")
+
+[node name="HandheldCamera" parent="." node_paths=PackedStringArray("_base_ui", "_player") instance=ExtResource("2_ifbpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+_base_ui = NodePath("../BaseUI")
+_player = NodePath("..")
 
 [node name="GameModel" parent="." instance=ExtResource("2_oq0ov")]
 
@@ -23,28 +90,42 @@ script = ExtResource("1_4wo7u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31323e-10, -6.29874, -0.386412)
 
 [node name="Skeleton3D" parent="GameModel/Armature" index="1"]
+bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(-0.135812, 1.18105e-07, -1.61901e-08, 0.990735)
 bones/3/rotation = Quaternion(0.120214, -4.47333e-16, 2.86613e-08, 0.992748)
 bones/4/rotation = Quaternion(-0.338684, -0.324398, -0.628304, 0.62072)
+bones/5/rotation = Quaternion(0.0121538, 0.00402048, -0.707095, 0.707002)
+bones/5/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.00132025, -1.32174e-14, 5.14124e-10, 0.999999)
+bones/8/rotation = Quaternion(0.00808697, -0.0080873, 0.707061, 0.707061)
 bones/9/rotation = Quaternion(0.131679, -0.147535, 0.691544, 0.694738)
-bones/16/rotation = Quaternion(-0.359712, -0.387033, -0.621887, 0.577987)
+bones/10/rotation = Quaternion(0.0121538, -0.00402048, 0.707095, 0.707002)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(-0.00707146, -9.91939e-10, 2.73216e-09, 0.999975)
+bones/12/rotation = Quaternion(0.00132025, 1.32174e-14, -5.14124e-10, 0.999999)
+bones/13/rotation = Quaternion(0.00808696, 0.0080873, -0.707061, 0.707061)
+bones/16/rotation = Quaternion(0.359712, 0.387033, 0.621887, -0.577987)
+bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250573, 0.706663)
+bones/17/scale = Vector3(1, 1, 1)
 bones/18/rotation = Quaternion(-0.000188701, 0.000135899, 0.0712543, 0.997458)
 bones/19/rotation = Quaternion(-0.547077, 0.58863, 0.435951, 0.405176)
+bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250573, 0.706663)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(5.67155e-10, 2.42564e-07, -0.00256307, 0.999997)
+bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, -3.68162e-07, -4.47035e-08, 4.02331e-07, 0.762502, 0.646985, -1.3411e-07, -0.646985, 0.762502, 0.90636, 1.62903, -0.621649)
-bone_idx = 8
+transform = Transform3D(1, -1.8948e-07, -2.6077e-08, 2.98023e-07, 0.762502, 0.646985, -7.07805e-08, -0.646985, 0.762502, 0.90636, 1.62903, -0.621649)
 
 [node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 7.26152e-07, -3.29688e-07, -7.86968e-07, 0.783839, -0.620964, -1.75089e-07, 0.620964, 0.783839, -0.90636, 1.62876, -0.629545)
-bone_idx = 13
+transform = Transform3D(1, 5.47428e-07, -3.40864e-07, -7.00355e-07, 0.783839, -0.620964, -9.31323e-08, 0.620965, 0.783839, -0.90636, 1.62876, -0.629545)
 
 [node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, 0, 1, 0.476315, -0.854799, -0.228398)
-bone_idx = 14
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.476315, -0.854799, -0.228398)
 
 [node name="RightLegConnecter" parent="GameModel/Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, 0, 1, -0.476315, -0.854799, -0.228398)
-bone_idx = 15
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.476315, -0.854799, -0.228398)
 
 [node name="LeftArmIK" type="SkeletonIK3D" parent="GameModel/Armature/Skeleton3D" index="12"]
 process_priority = 1
@@ -54,15 +135,19 @@ override_tip_basis = false
 target_node = NodePath("../../../ArmEndRightHandle/ArmEndRightTarget")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="GameModel/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-1, -7.18959e-07, 1.27808e-07, 5.01921e-07, -0.783839, -0.620964, 5.27817e-07, -0.620964, 0.783839, -1.36039, -1.23226, -2.90028)
+transform = Transform3D(-1, -5.98128e-07, 9.38049e-08, 4.28347e-07, -0.783839, -0.620964, 4.29097e-07, -0.620964, 0.783839, -1.36039, -1.23225, -2.90028)
 bone_name = "Hand.r"
 bone_idx = 12
 
 [node name="CutePistol" parent="GameModel/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_s4tnm")]
 transform = Transform3D(1, -1.13687e-13, -2.84217e-14, 0, -2.98023e-08, -1, 2.84217e-14, 1, -2.98023e-08, -2.38419e-07, 0.21, -0.0928659)
 
-[node name="HandGun" parent="GameModel" instance=ExtResource("3_gpy7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3521, 7.58656, 4.24877)
+[node name="Revolver2" parent="GameModel/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("5_pvvfr")]
+transform = Transform3D(0.22, 1.42109e-14, 0, 2.84217e-14, 7.45058e-09, -0.22, 7.10543e-15, 0.22, 0, 1.19209e-07, -0.0501733, 0.182128)
+visible = false
+
+[node name="WeaponManager" parent="GameModel" node_paths=PackedStringArray("_base_ui") instance=ExtResource("5_e2upq")]
+_base_ui = NodePath("../../BaseUI")
 
 [node name="ArmEndRightHandle" type="Marker3D" parent="GameModel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33889, 7.5711, 4.248)
@@ -72,6 +157,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33889, 7.5711, 4.248)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53785e-08, 5.27848, 0.290439)
 shape = SubResource("CapsuleShape3D_dwlmk")
+
+[node name="WallJumpArea3D" type="Area3D" parent="." node_paths=PackedStringArray("_player")]
+monitoring = false
+monitorable = false
+script = ExtResource("9_24x63")
+_player = NodePath("..")
+
+[node name="WallJumpCollisionShape3D" type="CollisionShape3D" parent="WallJumpArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.24146, 0)
+shape = SubResource("CapsuleShape3D_mgvhq")
+
+[node name="PickupArea3D" type="Area3D" parent="." node_paths=PackedStringArray("_player")]
+monitoring = false
+script = ExtResource("9_24x63")
+_player = NodePath("..")
+
+[node name="PickupCollisionShape3D" type="CollisionShape3D" parent="PickupArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.24146, 0)
+shape = SubResource("CapsuleShape3D_mgvhq")
 
 [node name="CameraPointShoulder" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.63337, 0)
@@ -85,10 +189,118 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.254, 0)
 [node name="CameraPointAimTarget" type="Node3D" parent="CameraPointAimPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29685, 0.332739, -1.1365e-07)
 
+[node name="BaseUI" parent="." instance=ExtResource("7_lkktq")]
+
 [node name="Particles" parent="." instance=ExtResource("4_4khwj")]
 
-[node name="Player HUD" parent="." instance=ExtResource("5_oiq14")]
+[node name="Inventory" type="Node" parent="."]
+
+[node name="ClimbingRayPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.38419e-07, -2.03727e-10)
+
+[node name="PackageV1_1" parent="ClimbingRayPivot" instance=ExtResource("9_1isq8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 8.74228e-08, -4.37114e-08, -1, -7.10543e-15, -1, 4.37114e-08, 0, 7, -0.8)
+
+[node name="PackageV1_2" parent="ClimbingRayPivot" instance=ExtResource("9_1isq8")]
+transform = Transform3D(1, -1.50996e-07, 8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -1.50996e-07, -1, -4.37114e-08, 5.60889e-07, 7, -1.4)
+
+[node name="PackageV1_3" parent="ClimbingRayPivot" instance=ExtResource("9_1isq8")]
+transform = Transform3D(-1, 2.84217e-14, -2.62268e-07, 2.62268e-07, -4.37114e-08, -1, -2.84217e-14, -1, 4.37114e-08, -5.07571e-08, 7, -2.03416)
+
+[node name="ClimbingRayPositionCheck" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32831e-10, 12.4742, 1.458)
+target_position = Vector3(0, -10.935, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="AirRayCenter" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayPositionCheck"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -0.3, 0)
+
+[node name="ClimbingRayPositionCheckLeft" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 12.4742, 1.458)
+target_position = Vector3(0, -10.935, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="AirRayLeft" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayPositionCheckLeft"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -0.3, 0)
+
+[node name="ClimbingRayPositionCheckRight" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 12.4742, 1.458)
+target_position = Vector3(0, -10.935, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="AirRayRight" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayPositionCheckRight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -0.3, 0)
+
+[node name="ClimbingRayGeoCheck" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11.03, 0.6)
+visible = false
+target_position = Vector3(0, -1.975, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="ClimbingRayAirCheck" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.4488, 0.6)
+visible = false
+target_position = Vector3(0, -0.94, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="ClimbingRayGeoCheckWaist" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.175, 0.6)
+visible = false
+target_position = Vector3(0, -1.975, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="ClimbingRayAirCheckWaist" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.532, 0.6)
+visible = false
+target_position = Vector3(0, -1.975, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="ClimbingRayGeoCheckKnee" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.574, 0.6)
+visible = false
+target_position = Vector3(0, -2.5, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="ClimbingRayAirCheckKnee" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.32831e-10, 3.5932, 0.6)
+visible = false
+target_position = Vector3(0, -1.975, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="StairRayPositionCheck" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.514, 1.258)
+target_position = Vector3(0, -1.4, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="StairRayAirCheck" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.65661e-10, 1.4932, 0.9)
+target_position = Vector3(0, -1.4, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="StairRayGeoCheck" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.174, 0.9)
+target_position = Vector3(0, -1.4, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="FootstepAudioPlayer" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("11_ysiku")
 
 [editable path="GameModel"]
-[editable path="GameModel/HandGun"]
 [editable path="Particles"]

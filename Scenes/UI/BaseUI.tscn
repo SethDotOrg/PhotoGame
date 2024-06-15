@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://t7snq77r54hq"]
+
+[ext_resource type="Script" path="res://Scripts/UI Scripts/BaseUI.gd" id="1_13tba"]
+[ext_resource type="PackedScene" uid="uid://kg6rwjcc70q2" path="res://Scenes/UI/PlayerUI.tscn" id="2_y53af"]
+
+[node name="BaseUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_13tba")
+
+[node name="PlayerUI" parent="." instance=ExtResource("2_y53af")]
+layout_mode = 1

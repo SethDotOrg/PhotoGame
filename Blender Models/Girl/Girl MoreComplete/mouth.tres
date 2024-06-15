@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b0r8n6pd0ki7c"]
+
+[ext_resource type="Texture2D" uid="uid://dto1t0i03mtov" path="res://Blender Models/Girl/Girl MoreComplete/Girl2_mouth.png" id="1_bn656"]
+
+[resource]
+resource_name = "mouth"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_bn656")
+roughness = 0.5
+texture_filter = 2
+texture_repeat = false

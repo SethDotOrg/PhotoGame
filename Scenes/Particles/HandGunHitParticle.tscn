@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://cy4qb0ji3i174"]
 
-[ext_resource type="Texture2D" uid="uid://bvmm3mmgaoxgv" path="res://Materials/TexturePNG's/spark.png" id="1_sv8l4"]
+[ext_resource type="Texture2D" uid="uid://bvmm3mmgaoxgv" path="res://TexturePNG's/spark.png" id="1_sv8l4"]
 [ext_resource type="Script" path="res://Scripts/ParticleScripts/HitParticle.gd" id="2_w1bk4"]
 
 [sub_resource type="Gradient" id="Gradient_1nmgw"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6e8a3"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f0yd7"]
 gradient = SubResource("Gradient_1nmgw")
 
 [sub_resource type="Curve" id="Curve_838v8"]
@@ -13,14 +13,14 @@ min_value = -1.0
 _data = [Vector2(0, 0.309091), 0.0, 0.0, 0, 0, Vector2(0.497436, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_260y3"]
+[sub_resource type="CurveTexture" id="CurveTexture_suvp8"]
 curve = SubResource("Curve_838v8")
 
 [sub_resource type="Curve" id="Curve_xmdk0"]
 _data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(0.0717949, 1), 0.0, 0.0, 0, 0, Vector2(0.964103, 0.409091), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_3ib3s"]
+[sub_resource type="CurveTexture" id="CurveTexture_6ejd6"]
 curve = SubResource("Curve_xmdk0")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fyilu"]
@@ -34,14 +34,14 @@ damping_min = 31.52
 damping_max = 31.52
 scale_min = 0.47
 scale_max = 0.47
-scale_curve = SubResource("CurveTexture_3ib3s")
+scale_curve = SubResource("CurveTexture_6ejd6")
 color = Color(1, 0.780392, 0.333333, 1)
-color_ramp = SubResource("GradientTexture1D_6e8a3")
+color_ramp = SubResource("GradientTexture1D_f0yd7")
 hue_variation_min = -0.05
 hue_variation_max = 0.01
-hue_variation_curve = SubResource("CurveTexture_260y3")
+hue_variation_curve = SubResource("CurveTexture_suvp8")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o38ge"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_quose"]
 transparency = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
@@ -49,7 +49,7 @@ albedo_texture = ExtResource("1_sv8l4")
 albedo_texture_force_srgb = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yyym7"]
-material = SubResource("StandardMaterial3D_o38ge")
+material = SubResource("StandardMaterial3D_quose")
 
 [node name="HandGunHit" type="Node3D"]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyxhupj0f2jhb"]
+
+[ext_resource type="Script" path="res://Scripts/HandheldCamera.gd" id="1_05dyf"]
+[ext_resource type="AudioStream" uid="uid://c0lgkfts6178c" path="res://Sounds/Camera/CameraShot.mp3" id="2_o73cf"]
+
+[node name="HandheldCamera" type="Node3D"]
+script = ExtResource("1_05dyf")
+_handheld_camera_sesitivity = 0.001
+
+[node name="RotateNodeHorizontal" type="Node3D" parent="."]
+
+[node name="RotateNodeVertical" type="Node3D" parent="RotateNodeHorizontal"]
+
+[node name="CameraCamera" type="Camera3D" parent="RotateNodeHorizontal/RotateNodeVertical"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CameraSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o73cf")

@@ -6,6 +6,7 @@
 
 [node name="PlayerUI" type="Control" node_paths=PackedStringArray("_live_ui", "_pause_ui")]
 process_mode = 3
+layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

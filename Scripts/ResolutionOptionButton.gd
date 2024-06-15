@@ -11,7 +11,7 @@ func _ready():
 	
 	# Load data from a file.
 	#err = config.load("user://options.ini")
-	err = config.load("res://options.ini")
+	err = config.load("user://options.ini")
 	
 	# If the file didn't load, ignore it.
 	if err != OK:
@@ -22,22 +22,22 @@ func _ready():
 		# Fetch the data for graphics options.
 	var file_resolution = config.get_value("Graphic_Options","Resolution","resolution not set")
 		
-	print("file resolution----",file_resolution)
+	#print("file resolution----",file_resolution)
 	curr_resolution = file_resolution
-	print("curr resolution----",file_resolution)
+	#print("curr resolution----",file_resolution)
 	
 	if(curr_resolution == "1152x648"):
 		select(0)
 		change_resolution("1152x648")
-		print("1152x648 ready if")
+		#print("1152x648 ready if")
 	elif(curr_resolution == "1366x768"):
 		select(1)
 		change_resolution("1366x768")
-		print("1366x768 ready if")
+		#print("1366x768 ready if")
 	elif(curr_resolution == "1920x1080"):
 		select(2)
 		change_resolution("1920x1080")
-		print("1920x1080 ready if")
+		#print("1920x1080 ready if")
 
 
 func add_resolutions():
@@ -52,7 +52,7 @@ func _on_item_selected(index):
 
 func change_resolution(resolution:String):
 	var resolution_split = resolution.split("x")
-	print("made it to change_resolution",resolution_split)
+	#print("made it to change_resolution",resolution_split)
 	
 	get_tree().root.content_scale_size = Vector2i(int(resolution_split[0]), int(resolution_split[1])) #changes the resolution in any screen type
 	DisplayServer.window_set_size(Vector2i(int(resolution_split[0]), int(resolution_split[1]))) #changes the size of the window. but not the resolution

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfgvvctffrp41"]
+
+[ext_resource type="Script" path="res://Scripts/PickupBase.gd" id="1_gwhn0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncik0"]
+albedo_color = Color(0.607843, 0.0941176, 0.913725, 1)
+emission_enabled = true
+emission = Color(0.709804, 0.52549, 0.501961, 1)
+refraction_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_61sef"]
+radius = 2.39886
+height = 4.79772
+
+[node name="PickupBase" type="Node3D"]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+inner_radius = 0.23
+outer_radius = 0.891
+material = SubResource("StandardMaterial3D_ncik0")
+
+[node name="Area3D" type="Area3D" parent="CSGTorus3D"]
+collision_layer = 2
+monitorable = false
+script = ExtResource("1_gwhn0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGTorus3D/Area3D"]
+shape = SubResource("CapsuleShape3D_61sef")
+
+[connection signal="area_entered" from="CSGTorus3D/Area3D" to="CSGTorus3D/Area3D" method="_on_area_entered"]

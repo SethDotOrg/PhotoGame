@@ -31,19 +31,16 @@ func _unhandled_input(event):
 		_rotate_node_vertical.rotation.x = clamp(_rotate_node_vertical.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		#horizontal
 		_rotate_node_horizontal.rotate_y(-event.relative.x * _handheld_camera_sesitivity)
-	
-	if Input.is_action_just_pressed("mouse_left") and _player.is_in_handheld_camera() == true: # TODO the first photo will take twice I think hot loading would fix this
-		#turn off UI for a second here eventually
-		take_photo()
-		_base_ui.get_player_ui().get_live_ui().update_pictures()
 
-func take_photo():
+func take_photo(): # TODO the first photo will take twice I think hot loading would fix this
+	#turn off UI for a second here eventually
 	_camera_sound_player.play()
 	await RenderingServer.frame_post_draw
 	var viewport = get_viewport()
 	var img = viewport.get_texture().get_image()
 	img.save_png("user://ingame_camera_photos/picture"+str(picture_count)+".png")
 	picture_count+=1
+	_base_ui.get_player_ui().get_live_ui().update_pictures()
 
 func get_direction_from_mouse(direction):
 	direction = direction.rotated(Vector3.UP, _rotate_node_horizontal.rotation.y)

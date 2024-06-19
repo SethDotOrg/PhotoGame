@@ -7,6 +7,8 @@ extends Control
 @onready var _text_background = $TextBackground
 @onready var _text_background_text = $TextBackground/VBoxContainer/Text
 
+@onready var _state_background = $StateBackground
+@onready var _state_text = $StateBackground/StateText
 
 var dir
 var user_photos_array: Array
@@ -21,6 +23,9 @@ func _ready():
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("photo_appear(p)"):
 		_picture_background.visible = !_picture_background.visible
+	
+	if Input.is_action_just_pressed("debug_toggle"):
+		_state_background.visible = !_state_background.visible
 	
 	if Input.is_action_just_pressed("ui_left"):
 		array_pos-=1
@@ -56,12 +61,11 @@ func update_pictures():
 	else:
 		print("An error occurred when trying to access the path.")
 
-func get_ammo_count_node():
-	return $AmmoBackground/AmmoCount
+#func get_ammo_count_node():
+#	return $AmmoBackground/AmmoCount
 
-func update_hud_ammo(current_ammo:int, mag_size:int):
-	var ammo_count = get_ammo_count_node()
-	ammo_count.text = str(current_ammo) + "/" + str(mag_size)
+func update_state_text(current_state:String):
+	_state_text.text = current_state
 
 func display_text_message(text:String):
 	_text_background.visible = true

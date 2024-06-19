@@ -70,6 +70,8 @@ func get_camera_node():
 
 func get_live_ui():
 	return live_ui
+func get_base_ui():
+	return _base_ui
 
 func add_package(package_num:int):
 	if package_num == 1:

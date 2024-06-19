@@ -4,10 +4,12 @@ extends Node
 @export var _starting_state: State
 
 var current_state: State
+var player: Player
 
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
 func init(parent: Player):
+	player = parent
 	for child in get_children():
 		child.parent = parent
 
@@ -18,9 +20,11 @@ func init(parent: Player):
 func change_state(new_state: State):
 	if current_state:
 		current_state.exit()
-	print("old state ",current_state)
 	current_state = new_state
-	print("new state ",new_state)
+	
+	var live_ui = player.get_base_ui().get_player_ui().get_live_ui()
+	live_ui.update_state_text(new_state.get_state_name())
+	print(new_state.get_state_name())
 	current_state.enter()
 	
 # Pass through functions for the Player to call,

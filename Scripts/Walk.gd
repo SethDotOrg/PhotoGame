@@ -5,9 +5,12 @@ extends State
 @export var idle_state: State
 @export var run_state: State
 @export var climb_state: State
+@export var stairs_state: State
+@export var _camera_walk_state: State
 
 func enter() -> void:
 	super()
+	number_of_wall_jumps = 0
 
 func process_input(event: InputEvent) -> State:
 	if parent.is_on_floor():
@@ -15,6 +18,9 @@ func process_input(event: InputEvent) -> State:
 			return jump_state
 		if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_pressed("run"):
 			return run_state
+			
+		if Input.is_action_pressed("ctrl"):
+			return _camera_walk_state
 			
 	if Input.is_action_pressed("mouse_right"):
 		return climb_state
@@ -24,7 +30,7 @@ func process_physics(delta: float) -> State:
 	super(delta)
 	speed = parent.WALK_SPEED
 	parent.velocity.y -= (gravity * 2) * delta
-	 # REDO MOVEMENT CODE IN HERE FOR 3D MOVEMENT
+	direction = parent._camera_controller.get_direction_from_mouse(direction)
 	
 	#move player toward the direction value and rotate the model
 	if direction:
@@ -40,4 +46,9 @@ func process_physics(delta: float) -> State:
 		return idle_state
 	if parent.velocity.y < 0:
 		return fall_state
+		
+	if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor():
+		return stairs_state
+	
 	return null
+	

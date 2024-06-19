@@ -103,21 +103,23 @@ text = "[center]100[/center]
 "
 fit_content = true
 
-[node name="AmmoBackground" type="ColorRect" parent="."]
+[node name="StateBackground" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -36.95
-offset_right = 83.225
+offset_top = -81.0
+offset_right = 361.0
 grow_vertical = 0
 color = Color(0.152941, 0.152941, 0.152941, 1)
 
-[node name="AmmoCount" type="RichTextLabel" parent="AmmoBackground"]
+[node name="StateText" type="RichTextLabel" parent="StateBackground"]
 layout_mode = 1
-offset_left = 1.22
-offset_right = 84.22
-offset_bottom = 36.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 26
 theme_override_font_sizes/bold_font_size = 26

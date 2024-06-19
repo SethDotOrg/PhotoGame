@@ -12,6 +12,7 @@ var parent: Player
 var input_dir
 var direction
 var speed
+var number_of_wall_jumps
 
 func enter() -> void:
 	#parent.animations.play(_animation_name)    add this back when deaing with animations
@@ -27,13 +28,16 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	# I believe I should handle camera here since it is used in all states
-	
 	#We get input direction here and change the direction of of player based on that and the camera
 	input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	direction = (parent.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	direction = parent._camera_controller.get_direction_from_mouse(direction)
+	#direction = parent._camera_controller.get_direction_from_mouse(direction)
+	
+	parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
 	
 	#handle camera
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
 	return null
+
+func get_state_name() -> String:
+	return self.get_name()

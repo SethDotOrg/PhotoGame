@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=22 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -18,15 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c7h2vpdo88ram" path="res://Blender Models/PackageV1/PackageV1.glb" id="9_1isq8"]
 [ext_resource type="Script" path="res://Scripts/Pickup.gd" id="9_24x63"]
 [ext_resource type="Script" path="res://Scripts/Climb.gd" id="9_ytu47"]
-[ext_resource type="Script" path="res://Scripts/CameraIdle.gd" id="10_rb8qh"]
-[ext_resource type="Script" path="res://Scripts/Stairs.gd" id="10_wu825"]
-[ext_resource type="Script" path="res://Scripts/WallJump.gd" id="11_66qvv"]
-[ext_resource type="Script" path="res://Scripts/CameraWalk.gd" id="11_thocv"]
 [ext_resource type="AudioStream" uid="uid://cgt22hue1urok" path="res://Sounds/Footsteps/footsteptry1.mp3" id="11_ysiku"]
-[ext_resource type="Script" path="res://Scripts/CameraRun.gd" id="12_p1j8a"]
-[ext_resource type="Script" path="res://Scripts/CameraJump.gd" id="13_uxvwb"]
-[ext_resource type="Script" path="res://Scripts/CameraFall.gd" id="14_fgl6l"]
-[ext_resource type="Script" path="res://Scripts/CameraStairs.gd" id="15_7flgm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwlmk"]
 radius = 1.0
@@ -48,115 +40,45 @@ _starting_state = NodePath("Idle")
 [node name="State" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("2_uperh")
 
-[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "walk_state", "climb_state", "camera_state")]
+[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "walk_state", "climb_state")]
 script = ExtResource("4_muoqk")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 walk_state = NodePath("../Walk")
 climb_state = NodePath("../Climb")
-camera_state = NodePath("../CameraIdle")
+_animation_name = null
 
-[node name="Walk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "run_state", "climb_state", "stairs_state", "_camera_walk_state")]
+[node name="Walk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "run_state", "climb_state")]
 script = ExtResource("5_fxeox")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 idle_state = NodePath("../Idle")
 run_state = NodePath("../Run")
 climb_state = NodePath("../Climb")
-stairs_state = NodePath("../Stairs")
-_camera_walk_state = NodePath("../CameraWalk")
 
-[node name="Run" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "walk_state", "climb_state", "stairs_state", "_camera_run_state")]
+[node name="Run" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "walk_state", "climb_state")]
 script = ExtResource("6_i6177")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 climb_state = NodePath("../Climb")
-stairs_state = NodePath("../Stairs")
-_camera_run_state = NodePath("../CameraRun")
 
-[node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "climb_state", "wall_jump_state", "_camera_jump_state")]
+[node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "climb_state")]
 script = ExtResource("5_hqxe7")
 fall_state = NodePath("../Fall")
 climb_state = NodePath("../Climb")
-wall_jump_state = NodePath("../WallJump")
-_camera_jump_state = NodePath("../CameraJump")
 
-[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_state", "wall_jump_state", "_camera_fall_state")]
+[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_state")]
 script = ExtResource("8_2a85m")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
 climb_state = NodePath("../Climb")
-wall_jump_state = NodePath("../WallJump")
-_camera_fall_state = NodePath("../CameraFall")
 
-[node name="Climb" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "walk_state", "run_state")]
+[node name="Climb" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("9_ytu47")
 idle_state = NodePath("../Idle")
-jump_state = NodePath("../Jump")
-fall_state = NodePath("../Fall")
-walk_state = NodePath("../Walk")
-run_state = NodePath("../Run")
-
-[node name="CameraIdle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_idle_state", "_camera_walk_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state")]
-script = ExtResource("10_rb8qh")
-_idle_state = NodePath("../Idle")
-_camera_walk_state = NodePath("../CameraWalk")
-_camera_run_state = NodePath("../CameraRun")
-_camera_jump_state = NodePath("../CameraJump")
-_camera_fall_state = NodePath("../CameraFall")
-
-[node name="CameraWalk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_walk_state", "_camera_idle_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state")]
-script = ExtResource("11_thocv")
-_walk_state = NodePath("../Walk")
-_camera_idle_state = NodePath("../CameraIdle")
-_camera_run_state = NodePath("../CameraRun")
-_camera_jump_state = NodePath("../CameraJump")
-_camera_fall_state = NodePath("../CameraFall")
-_camera_stairs_state = NodePath("../CameraStairs")
-
-[node name="CameraRun" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_run_state", "_camera_idle_state", "_camera_walk_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state")]
-script = ExtResource("12_p1j8a")
-_run_state = NodePath("../Run")
-_camera_idle_state = NodePath("../CameraIdle")
-_camera_walk_state = NodePath("../CameraWalk")
-_camera_jump_state = NodePath("../CameraJump")
-_camera_fall_state = NodePath("../CameraFall")
-_camera_stairs_state = NodePath("../CameraStairs")
-
-[node name="CameraJump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_jump_state", "_camera_fall_state")]
-script = ExtResource("13_uxvwb")
-_jump_state = NodePath("../Jump")
-_camera_fall_state = NodePath("../CameraFall")
-
-[node name="CameraFall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_fall_state", "_camera_idle_state", "_camera_walk_state", "_camera_run_state", "_camera_jump_state")]
-script = ExtResource("14_fgl6l")
-_fall_state = NodePath("../Fall")
-_camera_idle_state = NodePath("../CameraIdle")
-_camera_walk_state = NodePath("../CameraWalk")
-_camera_run_state = NodePath("../CameraRun")
-_camera_jump_state = NodePath("../CameraJump")
-
-[node name="CameraStairs" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_stairs_state", "_camera_idle_state", "_camera_walk_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state")]
-script = ExtResource("15_7flgm")
-_stairs_state = NodePath("../Stairs")
-_camera_idle_state = NodePath("../CameraIdle")
-_camera_walk_state = NodePath("../CameraWalk")
-_camera_run_state = NodePath("../CameraRun")
-_camera_jump_state = NodePath("../CameraJump")
-_camera_fall_state = NodePath("../CameraFall")
-
-[node name="WallJump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("jump_state")]
-script = ExtResource("11_66qvv")
-jump_state = NodePath("../Jump")
-
-[node name="Stairs" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state")]
-script = ExtResource("10_wu825")
-idle_state = NodePath("../Idle")
-walk_state = NodePath("../Walk")
-run_state = NodePath("../Run")
 
 [node name="HandheldCamera" parent="." node_paths=PackedStringArray("_base_ui", "_player") instance=ExtResource("2_ifbpa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
@@ -359,20 +281,20 @@ debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
 [node name="StairRayPositionCheck" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.514, 1.258)
-target_position = Vector3(0, -2.493, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.514, 1.258)
+target_position = Vector3(0, -1.4, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
 [node name="StairRayAirCheck" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.65661e-10, 2.4932, 0.9)
-target_position = Vector3(0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.65661e-10, 1.4932, 0.9)
+target_position = Vector3(0, -1.4, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
 [node name="StairRayGeoCheck" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.299475, 0.9)
-target_position = Vector3(0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.174, 0.9)
+target_position = Vector3(0, -1.4, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 

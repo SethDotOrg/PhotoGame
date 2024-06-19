@@ -209,6 +209,7 @@ func _physics_process(delta):
 			can_move=true
 			self.global_position = _climbing_ray_position_check_right.get_collision_point()
 	
+	#Walljump 
 	if is_on_wall_only() and Input.is_action_pressed("jump") and can_wall_grab == true: #is there a need to count how many wall grabs have happen before touching the ground?
 		velocity=Vector3.ZERO
 		can_move= false
@@ -221,7 +222,6 @@ func _physics_process(delta):
 		can_move= true
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 		can_wall_grab = false
-	
 	if is_on_floor():
 		number_of_wall_jumps = 0
 	if (not is_on_floor() and velocity == Vector3.ZERO) or (not is_on_floor() and velocity != Vector3.ZERO):

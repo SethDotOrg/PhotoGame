@@ -15,8 +15,8 @@ func _ready():
 	_pause_ui.visible = false
 	current_state = MENU_STATES.LIVE_STATE
 
-func update_hud_ammo(current_ammo:int, mag_size:int):
-	_live_ui.update_hud_ammo(current_ammo, mag_size)
+#func update_hud_ammo(current_ammo:int, mag_size:int):
+#	_live_ui.update_hud_ammo(current_ammo, mag_size)
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_cancel") and current_state == MENU_STATES.LIVE_STATE:

@@ -24,7 +24,7 @@ func _ready():
 	_player_ui = self.get_parent().get_player_ui() #Will access the WeaponManagerNode
 	_weapon_manager = self.get_parent()
 	set_weapon()
-	_player_ui.update_hud_ammo(current_ammo, _mag_size)
+#	_player_ui.update_hud_ammo(current_ammo, _mag_size)
 	_camera_controller.set_raycast_distance(_weapon_range)
 
 func _unhandled_input(_event):

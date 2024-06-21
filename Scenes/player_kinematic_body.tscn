@@ -48,13 +48,14 @@ _starting_state = NodePath("Idle")
 [node name="State" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("2_uperh")
 
-[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "walk_state", "climb_state", "camera_state")]
+[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "walk_state", "climb_state", "camera_state", "stairs_state")]
 script = ExtResource("4_muoqk")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 walk_state = NodePath("../Walk")
 climb_state = NodePath("../Climb")
 camera_state = NodePath("../CameraIdle")
+stairs_state = NodePath("../Stairs")
 
 [node name="Walk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "run_state", "climb_state", "stairs_state", "_camera_walk_state")]
 script = ExtResource("5_fxeox")
@@ -100,13 +101,14 @@ fall_state = NodePath("../Fall")
 walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
 
-[node name="CameraIdle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_idle_state", "_camera_walk_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state")]
+[node name="CameraIdle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_idle_state", "_camera_walk_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state")]
 script = ExtResource("10_rb8qh")
 _idle_state = NodePath("../Idle")
 _camera_walk_state = NodePath("../CameraWalk")
 _camera_run_state = NodePath("../CameraRun")
 _camera_jump_state = NodePath("../CameraJump")
 _camera_fall_state = NodePath("../CameraFall")
+_camera_stairs_state = NodePath("../CameraStairs")
 
 [node name="CameraWalk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_walk_state", "_camera_idle_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state")]
 script = ExtResource("11_thocv")
@@ -360,6 +362,12 @@ debug_shape_thickness = 5
 
 [node name="StairRayPositionCheck" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.514, 1.258)
+target_position = Vector3(0, -2.493, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
+[node name="StairRayPosition" type="RayCast3D" parent="ClimbingRayPivot/StairRayPositionCheck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32831e-10, 0, 0.358)
 target_position = Vector3(0, -2.493, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5

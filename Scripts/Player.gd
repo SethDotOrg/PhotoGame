@@ -33,6 +33,7 @@ const LERP_VAL = 0.15
 @onready var _climbing_ray_geo_check_knee = $ClimbingRayPivot/ClimbingRayGeoCheckKnee
 @onready var _climbing_ray_air_check_knee = $ClimbingRayPivot/ClimbingRayAirCheckKnee
 @onready var _stair_ray_position_check = $ClimbingRayPivot/StairRayPositionCheck
+@onready var _stair_ray_position = $ClimbingRayPivot/StairRayPositionCheck/StairRayPosition
 @onready var _stair_ray_geo_check = $ClimbingRayPivot/StairRayGeoCheck
 @onready var _stair_ray_air_check = $ClimbingRayPivot/StairRayAirCheck
 

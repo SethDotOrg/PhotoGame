@@ -5,6 +5,7 @@ extends State
 @export var walk_state: State
 @export var climb_state: State
 @export var camera_state: State
+@export var stairs_state: State
 
 func enter() -> void:
 	super()
@@ -33,4 +34,11 @@ func process_physics(delta: float) -> State:
 	
 	if !parent.is_on_floor():
 		return fall_state
+	
+	if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor() and check_movement():
+		return stairs_state
+	
 	return null
+
+func check_movement() -> bool:
+	return Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")

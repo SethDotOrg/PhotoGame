@@ -31,7 +31,6 @@ func process_physics(delta: float) -> State:
 	speed = parent.RUN_SPEED
 	parent.velocity.y -= (gravity * 2) * delta
 	direction = parent._camera_controller.get_direction_from_mouse(direction)
-	
 	#move player toward the direction value and rotate the model
 	if direction:
 		parent.velocity.x = -direction.x * speed

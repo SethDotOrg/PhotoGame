@@ -15,8 +15,7 @@ var speed
 var number_of_wall_jumps
 
 func enter() -> void:
-	#parent.animations.play(_animation_name)    add this back when deaing with animations
-	pass
+	parent._animations.play(_animation_name)  
 
 func exit() -> void:
 	pass

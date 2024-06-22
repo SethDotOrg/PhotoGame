@@ -28,6 +28,7 @@ func process_input(event: InputEvent) -> State:
 
 func process_physics(delta: float) -> State:
 	super(delta)
+	parent._animations.play(_animation_name)
 	speed = parent.WALK_SPEED
 	parent.velocity.y -= (gravity * 2) * delta
 	direction = parent._camera_controller.get_direction_from_mouse(direction)

@@ -5,6 +5,7 @@ extends State
 @export var _camera_run_state: State
 @export var _camera_jump_state: State
 @export var _camera_fall_state: State
+@export var _camera_stairs_state: State
 
 var in_handheld_camera
 
@@ -32,6 +33,9 @@ func process_physics(delta: float) -> State:
 		#need a aim handler to be called here too similar to the third person one
 		parent._handheld_camera.toggle_camera_active(true)
 		parent._model.visible = false
+		if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor() and parent.is_on_wall() and check_movement():
+			return _camera_stairs_state
+		
 		if Input.is_action_pressed("ctrl"):
 			parent._handheld_camera.set_camera_rotation(parent._camera_controller.get_camera_rotation_horizontal(),parent._camera_controller.get_camera_rotation_vertical())
 	elif in_handheld_camera == false:
@@ -42,3 +46,7 @@ func process_physics(delta: float) -> State:
 		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y
 		return _idle_state
 	return null
+
+func check_movement() -> bool:
+	return Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
+

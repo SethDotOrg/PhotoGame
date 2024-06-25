@@ -14,9 +14,10 @@ func process_physics(delta: float) -> State:
 	#direction = parent._camera_controller.get_direction_from_mouse(direction)
 	
 	#Handle Climb
-	parent._climbing_ray_position_check.add_exception(parent)
-	parent._climbing_ray_geo_check_knee.add_exception(parent)
+	parent._climbing_ray_position_check.add_exception(parent) #exclude the player from getting collided with
+	parent._climbing_ray_geo_check_knee.add_exception(parent) #exclude the player from getting collided with
 	
+	#check the climbing points for collision on the vertical raycasts. but not teh horizontal
 	if parent._climbing_ray_position_check.is_colliding() and !parent._air_ray_center.is_colliding():
 		parent.velocity = Vector3.ZERO
 		#parent.set_process_input(false)
@@ -42,16 +43,15 @@ func process_physics(delta: float) -> State:
 		print("right")
 		return idle_state
 	
-	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0:
+	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0: #if the player is on the floor and not moving horizontally
 		return idle_state
-	elif parent.is_on_floor() and (parent.velocity.x != 0 or parent.velocity.z != 0) and Input.is_action_pressed("run"):
+	elif parent.is_on_floor() and (parent.velocity.x != 0 or parent.velocity.z != 0) and Input.is_action_pressed("run"): #if the player is moving and on the floor and pressing the run button
 		return run_state
-	elif parent.is_on_floor() and (parent.velocity.x != 0 or parent.velocity.z != 0):
+	elif parent.is_on_floor() and (parent.velocity.x != 0 or parent.velocity.z != 0): #if the player is moving and on the floor
 		return walk_state
 	
-	if !parent.is_on_floor() and parent.velocity.y <= 0:
+	if !parent.is_on_floor() and parent.velocity.y <= 0: #if not on the floor and velocity is negative then the player is falling
 		return fall_state
-	elif !parent.is_on_floor() and parent.velocity.y > 0:
+	elif !parent.is_on_floor() and parent.velocity.y > 0: #if not on the floor and the velocity is positive then the player is jumping
 		return jump_state
-	print("HITTING NULL")
 	return null

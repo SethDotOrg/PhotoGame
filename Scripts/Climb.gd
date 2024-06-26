@@ -17,7 +17,7 @@ func process_physics(delta: float) -> State:
 	parent._climbing_ray_position_check.add_exception(parent) #exclude the player from getting collided with
 	parent._climbing_ray_geo_check_knee.add_exception(parent) #exclude the player from getting collided with
 	
-	#check the climbing points for collision on the vertical raycasts. but not teh horizontal
+	#check the climbing points for collision on the vertical raycasts. but not the horizontal
 	if parent._climbing_ray_position_check.is_colliding() and !parent._air_ray_center.is_colliding():
 		parent.velocity = Vector3.ZERO
 		#parent.set_process_input(false)

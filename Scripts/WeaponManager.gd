@@ -31,16 +31,17 @@ func get_camera_controller():
 func get_player_ui():
 	return _base_ui.get_player_ui()
 
-func _unhandled_input(event):
+#kept here incase it can be usefull later
+#func _unhandled_input(event):
 	
-	#handle weapon changes (COULD DEFINITELY BE BETTER)
-	if Input.is_action_just_pressed("num_1"):
-		set_curr_weapon(Weapons.CUTE_PISTOL)
-		_cute_pistol_object.visible = true
-		_revolver_object.visible = false
-		cute_pistol.update_ammo_in_hud()
-	if Input.is_action_just_pressed("num_2"):
-		set_curr_weapon(Weapons.REVOLVER)
-		_cute_pistol_object.visible = false
-		_revolver_object.visible = true
-		revolver.update_ammo_in_hud()
+	#handle weapon changes (COULD DEFINITELY BE BETTER)----- kept here incase it can be usefull later
+	#if Input.is_action_just_pressed("num_1"):
+		#set_curr_weapon(Weapons.CUTE_PISTOL)
+		#_cute_pistol_object.visible = true
+		#_revolver_object.visible = false
+		#cute_pistol.update_ammo_in_hud()
+	#if Input.is_action_just_pressed("num_2"):
+		#set_curr_weapon(Weapons.REVOLVER)
+		#_cute_pistol_object.visible = false
+		#_revolver_object.visible = true
+		#revolver.update_ammo_in_hud()

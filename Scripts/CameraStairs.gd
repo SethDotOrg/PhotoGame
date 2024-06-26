@@ -18,7 +18,6 @@ func enter():
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false
-		#print("set jump pressed false")
 	if Input.is_action_just_pressed("jump"):
 		return _camera_jump_state
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_back"): 
@@ -29,30 +28,27 @@ func process_input(event: InputEvent) -> State:
 
 func process_physics(delta: float) -> State:
 	if in_handheld_camera == true:
-		#fps camera (camera camera)
-		#need a aim handler to be called here too similar to the third person one
 		parent._handheld_camera.toggle_camera_active(true)
 		parent._model.visible = false
 		
 		#--------stairs code
-		parent._stair_ray_position_check.global_position = parent._stair_ray_geo_check.get_collision_point()
-		parent._stair_ray_position_check.position.y = parent._stair_ray_air_check.position.y
-		parent.global_position = (parent.global_position * Vector3(1,0,1))+(parent._stair_ray_position.get_collision_point() * Vector3(0,1,0))
-		if (parent.velocity.x != 0 or parent.velocity.z != 0) and Input.is_action_pressed("run"):
+		#if we are in the camera stairs state then we know we hit the checks to go up a step
+		parent._stair_ray_position_check.global_position = parent._stair_ray_geo_check.get_collision_point() #set the vertical stair raycast to the horizontal position the geo check hit
+		parent._stair_ray_position_check.position.y = parent._stair_ray_air_check.position.y #set the vertical stair raycast to the y pos of the stair air check
+		parent.global_position = (parent.global_position * Vector3(1,0,1))+(parent._stair_ray_position.get_collision_point() * Vector3(0,1,0)) #move the player to the second vertical raycast that moves with the first one
+		if (parent.velocity.x != 0 or parent.velocity.z != 0) and Input.is_action_pressed("run"):#if moving and pressing run
 			return _camera_run_state
-		elif (parent.velocity.x != 0 or parent.velocity.z != 0):
+		elif (parent.velocity.x != 0 or parent.velocity.z != 0):#if moving
 			return _camera_walk_state
-		elif parent.velocity.x == 0 and parent.velocity.z == 0:
+		elif parent.velocity.x == 0 and parent.velocity.z == 0:#if not moving horizontal
 			return _camera_idle_state
 		#--------stairs code end
-		
-		if Input.is_action_pressed("ctrl"):
-			parent._handheld_camera.set_camera_rotation(parent._camera_controller.get_camera_rotation_horizontal(),parent._camera_controller.get_camera_rotation_vertical())
+		parent._handheld_camera.set_camera_rotation(parent._camera_controller.get_camera_rotation_horizontal(),parent._camera_controller.get_camera_rotation_vertical())#set handheld camera rotation to the third person camera rotation
 	elif in_handheld_camera == false:
 		#reset camera to third person
 		parent._handheld_camera.toggle_camera_active(false)
 		parent._model.visible = true
-		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical())
+		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical())#set the 3rd person camera rotation to the handheld camera rotation
 		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y
 		return _camera_idle_state
 	return null

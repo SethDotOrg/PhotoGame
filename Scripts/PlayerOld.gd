@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#playerOld is the player before the implementation of the state machine
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 const WALK_SPEED = 14.0
 const RUN_SPEED = 26.0

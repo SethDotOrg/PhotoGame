@@ -186,7 +186,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31323e-10, -6.29874, -0.386
 
 [node name="Skeleton3D" parent="GameModel/Armature" index="1"]
 bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(-0.135812, 1.18105e-07, -1.61901e-08, 0.990735)
 bones/3/rotation = Quaternion(0.120214, -4.47333e-16, 2.86613e-08, 0.992748)
@@ -212,16 +211,16 @@ bones/21/rotation = Quaternion(5.67155e-10, 2.42564e-07, -0.00256307, 0.999997)
 bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, 1.08717e-07, 1.32248e-07, -1.14553e-07, 0.762503, 0.646985, -8.3819e-08, -0.646985, 0.762503, 0.90636, 1.62903, -0.621649)
+transform = Transform3D(1, -1.8948e-07, -2.6077e-08, 2.98023e-07, 0.762502, 0.646985, -7.07805e-08, -0.646985, 0.762502, 0.90636, 1.62903, -0.621649)
 
 [node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 1.08752e-08, 0, 3.35276e-08, 0.783839, -0.620964, -9.31323e-09, 0.620964, 0.783839, -0.90636, 1.62876, -0.629545)
+transform = Transform3D(1, 5.47428e-07, -3.40864e-07, -7.00355e-07, 0.783839, -0.620964, -9.31323e-08, 0.620965, 0.783839, -0.90636, 1.62876, -0.629545)
 
 [node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -5.96046e-08, 1, 0.476315, -0.854798, -0.228398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.476315, -0.854799, -0.228398)
 
 [node name="RightLegConnecter" parent="GameModel/Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -5.96046e-08, 1, -0.476315, -0.854798, -0.228398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.476315, -0.854799, -0.228398)
 
 [node name="LeftArmIK" type="SkeletonIK3D" parent="GameModel/Armature/Skeleton3D" index="12"]
 process_priority = 1
@@ -231,7 +230,7 @@ override_tip_basis = false
 target_node = NodePath("../../../ArmEndRightHandle/ArmEndRightTarget")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="GameModel/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-1, -1.22854e-07, 4.55061e-07, -2.2451e-07, -0.783839, -0.620964, 4.34685e-07, -0.620964, 0.783839, -1.36039, -1.23226, -2.90028)
+transform = Transform3D(-1, -5.98128e-07, 9.38049e-08, 4.28347e-07, -0.783839, -0.620964, 4.29097e-07, -0.620964, 0.783839, -1.36039, -1.23225, -2.90028)
 bone_name = "Hand.r"
 bone_idx = 12
 

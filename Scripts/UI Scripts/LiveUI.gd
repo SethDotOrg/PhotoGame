@@ -40,6 +40,7 @@ func _unhandled_input(event):
 
 func display_picture(array_pos):
 	if user_photos_array.size() != 0:
+		#get image and convert it to a texture so that it can be displayed in the ui
 		var picture_to_display_img = Image.load_from_file("user://ingame_camera_photos/"+str(user_photos_array[array_pos]))
 		var picture_to_display_texture = ImageTexture.create_from_image(picture_to_display_img)
 		_photo_texture_rect.texture = picture_to_display_texture

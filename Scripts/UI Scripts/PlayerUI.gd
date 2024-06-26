@@ -10,7 +10,7 @@ var current_state
 enum MENU_STATES {LIVE_STATE, PAUSE_STATE, OPTIONS_STATE, GRAPHICS_OPTIONS_STATE, SOUND_OPTIONS_STATE, CONTROL_OPTIONS_STATE}
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #captured mouse will hide the cursor
 	_live_ui.visible = true
 	_pause_ui.visible = false
 	current_state = MENU_STATES.LIVE_STATE
@@ -20,17 +20,17 @@ func _ready():
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_cancel") and current_state == MENU_STATES.LIVE_STATE:
-		await get_tree().create_timer(0.1).timeout #seconds
+		await get_tree().create_timer(0.1).timeout #seconds 
 		current_state = MENU_STATES.PAUSE_STATE
-		get_tree().paused = true
+		get_tree().paused = true #pause the game but not the things marked as not being able to in the inspector
 		_live_ui.visible = false
 		_pause_ui.visible = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) #this allows the mouse to be seen :>
 	
-	if Input.is_action_pressed("mouse_right") and current_state == MENU_STATES.LIVE_STATE:
-		_live_ui.toggle_reticle(true)
-	else:
-		_live_ui.toggle_reticle(false)
+	#if Input.is_action_pressed("mouse_right") and current_state == MENU_STATES.LIVE_STATE:
+		#_live_ui.toggle_reticle(true)
+	#else:
+		#_live_ui.toggle_reticle(false)
 
 func handle_game_resume():
 	await get_tree().create_timer(0.1).timeout #seconds

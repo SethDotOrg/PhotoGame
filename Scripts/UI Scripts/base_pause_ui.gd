@@ -12,12 +12,12 @@ func _on_resume_button_button_down():
 
 func _on_options_button_button_down():
 	visible = false
-	get_parent().get_node("OptionsUI").visible = true
+	get_parent().get_node("OptionsUI").visible = true 
 	_player_ui.current_state = _player_ui.MENU_STATES.OPTIONS_STATE
 
 func _on_quit_button_button_down():
 	get_tree().quit()
 
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("ui_cancel") and _player_ui.current_state == _player_ui.MENU_STATES.PAUSE_STATE:
+	if Input.is_action_just_pressed("ui_cancel") and _player_ui.current_state == _player_ui.MENU_STATES.PAUSE_STATE: #ui cancel is esc
 		get_parent().handle_game_resume()

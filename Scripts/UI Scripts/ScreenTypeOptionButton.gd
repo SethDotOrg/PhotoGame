@@ -10,7 +10,7 @@ func _ready():
 	
 	# Load data from a file.
 	#err = config.load("user://options.ini")
-	err = config.load("res://options.ini")
+	err = config.load("user://options.ini")
 	
 	# If the file didn't load, ignore it.
 	if err != OK:
@@ -28,19 +28,15 @@ func _ready():
 	if(curr_screen_type == "Windowed Fullscreen"):
 		select(0)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		#print("WF")
 	elif(curr_screen_type == "Exclusive Fullscreen"):
 		select(1)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-		#print("EF")
 	elif(curr_screen_type == "Taskbar Fullscreen"):
 		select(2)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
-		#print("TF")
 	elif(curr_screen_type == "Windowed"):
 		select(3)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		#print("W")
 
 
 func add_screen_types():

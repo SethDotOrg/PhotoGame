@@ -16,38 +16,36 @@ func process_input(event: InputEvent) -> State:
 	if parent.is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			return jump_state
-		if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_just_released("run"):
+		if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_just_released("run"):#if the player is moving and just released the walk button
 			return walk_state
-	
 	if Input.is_action_pressed("ctrl"):
 		return _camera_run_state
-	
 	if Input.is_action_pressed("mouse_right"):
 		return climb_state
 	return null
 
 func process_physics(delta: float) -> State:
 	super(delta)
-	parent._animations.play(_animation_name)
-	speed = parent.RUN_SPEED
-	parent.velocity.y -= (gravity * 2) * delta
+	parent._animations.play(_animation_name)#need this here so the animation can loop
+	speed = parent.RUN_SPEED #we know we should be running so set the speed as such
+	parent.velocity.y -= (gravity * 2) * delta #apply gravity while running
 	direction = parent._camera_controller.get_direction_from_mouse(direction)
 	#move player toward the direction value and rotate the model
 	if direction:
-		parent.velocity.x = -direction.x * speed
-		parent.velocity.z = -direction.z * speed
-		parent._model.rotation.y = lerp_angle(parent._model.rotation.y, atan2(-parent.velocity.x, -parent.velocity.z), parent.LERP_VAL)
+		parent.velocity.x = -direction.x * speed #we get the amount of direction in the x direction and apply speed to it. Speed allows us to not be super slow
+		parent.velocity.z = -direction.z * speed #same but in the z direction
+		parent._model.rotation.y = lerp_angle(parent._model.rotation.y, atan2(-parent.velocity.x, -parent.velocity.z), parent.LERP_VAL) # we rotate the model to match direction, but we dont do it instantaineous
 	else:
-		parent.velocity.x = move_toward(-parent.velocity.x, 0, speed)
-		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed)
+		parent.velocity.x = move_toward(-parent.velocity.x, 0, speed) #else we bring the player to a
+		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
 	
-	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0:
+	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0: #if on the floor and not moving
 		return idle_state
-	if parent.velocity.y < 0:
+	if parent.velocity.y < 0:#if the players y velocity is negative they are falling
 		return fall_state
 	
-	if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor():
+	if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor(): #if the stair checks are good and the player is on the floor
 		return stairs_state
 	
 	return null

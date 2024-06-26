@@ -27,15 +27,13 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	parent.velocity.y -= (gravity * 2) * delta
+	parent.velocity.y -= (gravity * 2) * delta#apply some gravity to the player while idle
 	parent.move_and_slide()
-	
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
-	
-	if parent.is_on_wall() and parent.velocity.x == 0 and parent.velocity.z == 0 and check_movement():
+	if parent.is_on_wall() and parent.velocity.x == 0 and parent.velocity.z == 0 and check_movement():#if on the wall and not moving but trying to move(in other words the player is stuck on a wall
 		#nudge the players velocities so that the player rotates
 		parent.velocity.y = 0.1
-		parent.velocity.z = 0.1
+		parent.velocity.z = 0.1#bump the player slightly to get the unstuck
 		parent.velocity.x = 0.1
 		#check at the same time of the stair checks have hit. In this case we want to use the stairs state
 		if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor() and check_movement():
@@ -47,7 +45,7 @@ func process_physics(delta: float) -> State:
 	if !parent.is_on_floor():
 		return fall_state
 	
-	if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor() and check_movement():
+	if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor() and check_movement(): #if on floor and moving and the stairs checks pass
 		return stairs_state
 	
 	return null

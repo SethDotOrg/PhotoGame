@@ -27,10 +27,10 @@ func toggle_camera_active(camera_state:bool):
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		#vertical
-		_rotate_node_vertical.rotate_x(event.relative.y * _handheld_camera_sesitivity)
-		_rotate_node_vertical.rotation.x = clamp(_rotate_node_vertical.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		_rotate_node_vertical.rotate_x(event.relative.y * _handheld_camera_sesitivity) #rotate the handheld cameras vertical node using the y input from the mouse
+		_rotate_node_vertical.rotation.x = clamp(_rotate_node_vertical.rotation.x, deg_to_rad(-90), deg_to_rad(90)) #limit the angle the camera can rotate
 		#horizontal
-		_rotate_node_horizontal.rotate_y(-event.relative.x * _handheld_camera_sesitivity)
+		_rotate_node_horizontal.rotate_y(-event.relative.x * _handheld_camera_sesitivity)#rotate the handheld cameras horizontal node. This does need to be limited
 
 func take_photo(): # TODO the first photo will take twice I think hot loading would fix this
 	#turn off UI for a second here eventually
@@ -43,7 +43,7 @@ func take_photo(): # TODO the first photo will take twice I think hot loading wo
 	_base_ui.get_player_ui().get_live_ui().update_pictures()
 
 func get_direction_from_mouse(direction):
-	direction = direction.rotated(Vector3.UP, _rotate_node_horizontal.rotation.y)
+	direction = direction.rotated(Vector3.UP, _rotate_node_horizontal.rotation.y)#rotate the direction vector how much the horizontal camera node as rotated on the y axis. Vector 3 UP being the y axis of a Vector3
 	return direction
 
 func set_camera_rotation(horizontal,vertical):

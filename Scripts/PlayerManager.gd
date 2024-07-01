@@ -3,9 +3,20 @@ extends Node3D
 @export var _camera_controller: CameraController
 @export var _spawn_point: Node3D
 @export var _player: Player
+@export var _player_spawn: SpawnPoint
+
+var direction
+
+#TODO
+# 1: set players (global?) position to the spawn points (global?) position on load
+# 2: hide the marker on game load
+# 3: make respawn button that will put you back at the marker
+# 3: add support for multiple markers? Have a current respawn point that can change somehow, will probably just need to 
+#		go through the node tree of spawn points and store their locations
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_camera_controller.get_rotate_node_horizontal().rotate_y(_spawn_point.rotation.y)#match the cameras rotation and thus the players direction to the spawn points y rotation
-	_player.move_player_forward()
-	_player._model.rotation.y = lerp_angle(_player._model.rotation.y, atan2(-_player.velocity.x, -_player.velocity.z), _player.LERP_VAL) # we rotate the model to match direction, but we dont do it instantaineous
+	direction = (_player.transform.basis * Vector3(0, 0, -1)).normalized()  #this is the forward direction input. we need to get this direction to use with getting direction from mouse rotation
+	direction = _camera_controller.get_direction_from_mouse(direction)
+	_player._model.rotate_y(atan2(direction.x, direction.z))#with direction calculated rotate the model instantly to match where the camera is pointing

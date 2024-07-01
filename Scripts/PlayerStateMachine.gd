@@ -43,10 +43,3 @@ func process_frame(delta: float):
 	var new_state = current_state.process_frame(delta)
 	if new_state:
 		change_state(new_state)
-
-func move_player_forward():
-	var walk_event = InputEventAction.new()
-	walk_event.action = "KEY_W"
-	walk_event.pressed = true
-	Input.parse_input_event(walk_event)
-	walk_event.pressed = false

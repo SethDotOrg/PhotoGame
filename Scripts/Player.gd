@@ -69,6 +69,10 @@ func _process(delta: float):
 func get_camera_node():
 	return _camera_controller
 
+func get_direction_from_player(direction):
+	direction = direction.rotated(Vector3.UP, self.rotation.y) #rotate the direction vector how much the horizontal camera node as rotated on the y axis. Vector 3 UP being the y axis of a Vector3
+	return direction
+
 func get_live_ui():
 	return live_ui
 func get_base_ui():

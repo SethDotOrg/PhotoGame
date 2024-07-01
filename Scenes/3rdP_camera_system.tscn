@@ -12,9 +12,11 @@ _aim_check = NodePath("RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/Camer
 [node name="RotateNodeVertical" type="Node3D" parent="RotateNodeHorizontal"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="RotateNodeHorizontal/RotateNodeVertical"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0818781, 0)
 spring_length = 11.0
 
 [node name="Camera3D" type="Camera3D" parent="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
 attributes = ExtResource("2_fpsq3")
 current = true
 

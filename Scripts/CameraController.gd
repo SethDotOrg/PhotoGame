@@ -42,11 +42,6 @@ func get_direction_from_mouse(direction):
 	direction = direction.rotated(Vector3.UP, _rotate_node_horizontal.rotation.y) #rotate the direction vector how much the horizontal camera node as rotated on the y axis. Vector 3 UP being the y axis of a Vector3
 	return direction
 
-func get_horizontal_rotation():
-	return _rotate_node_horizontal.rotation.y #* mouse_sensitivity
-
-func get_vertical_rotation():
-	return _rotate_node_vertical.rotation.x #* mouse_sensitivity
 
 func get_aim_cast():
 	return _aim_check
@@ -95,7 +90,17 @@ func set_camera_rotation(horizontal,vertical): #matches the camera rotation to t
 	_rotate_node_vertical.rotation.x = -vertical
 	_rotate_node_horizontal.rotation.y = horizontal
 
+func set_camera_horizontal_rotation(horizontal):
+	_rotate_node_horizontal.rotation.y = horizontal
+
+func get_rotate_node_horizontal():
+	return _rotate_node_horizontal
+
 func get_camera_rotation_horizontal():
 	return _rotate_node_horizontal.rotation.y
 func get_camera_rotation_vertical():
 	return _rotate_node_vertical.rotation.x
+func get_horizontal_rotation():
+	return _rotate_node_horizontal.rotation.y #* mouse_sensitivity
+func get_vertical_rotation():
+	return _rotate_node_vertical.rotation.x #* mouse_sensitivity

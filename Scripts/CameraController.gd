@@ -23,6 +23,8 @@ const RESET_CAM_MOVE_DURATION = 0.2 #seconds
 
 func _ready():
 	_camera_3D.fov = FOLLOW_FOV
+	_spring_arm.add_excluded_object(get_parent().get_node("PlayerKinematicBody"))#exclude the player from colliding with the spring arm(which is what gives the camera collision
+# to explain the add_excluded_object.. the parent is the playerholder and so we can get the playerkinematicbody as a node from the playerholder node
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:

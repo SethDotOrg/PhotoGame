@@ -29,6 +29,7 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	super(delta)
 	if in_handheld_camera == true:
+		parent.hide_current_packages()
 		parent._handheld_camera.toggle_camera_active(true)
 		parent._model.visible = false
 		parent._handheld_camera.set_camera_rotation(parent._camera_controller.get_camera_rotation_horizontal(),parent._camera_controller.get_camera_rotation_vertical())#set handheld camera rotation to match the 3rd person rotation
@@ -56,11 +57,13 @@ func process_physics(delta: float) -> State:
 		
 	elif in_handheld_camera == false:
 		#reset camera to third person
+		parent.unhide_current_packages()
 		direction = parent._camera_controller.get_direction_from_mouse(direction)
 		parent._handheld_camera.toggle_camera_active(false)
 		parent._model.visible = true
 		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical()) #set the 3rd person camera rotation to the handheld camera rotation
 		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y
+		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
 		if parent.velocity.x == 0 or parent.velocity.z == 0:#if stopped moving horizontally
 			return _camera_idle_state
 		else:

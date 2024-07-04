@@ -47,6 +47,8 @@ const LERP_VAL = 0.15
 @onready var _base_ui = $BaseUI
 var live_ui
 
+var current_package_num
+
 func _ready():
 	# Initialize the state machine, passing a reference of the player to the states,
 	# so that we can do what we want with the player
@@ -78,6 +80,22 @@ func get_live_ui():
 func get_base_ui():
 	return _base_ui
 
+func hide_current_packages():
+	package1.visible = false
+	package2.visible = false
+	package3.visible = false
+func unhide_current_packages():
+	#based on package number display the amount picked up
+	if current_package_num == 1:
+		package1.visible = true
+	if current_package_num == 2:
+		package1.visible = true
+		package2.visible = true
+	if current_package_num == 3:
+		package1.visible = true
+		package2.visible = true
+		package3.visible = true
+
 func add_package(package_num:int):
 	if package_num == 1:
 		package1.visible = true
@@ -85,6 +103,8 @@ func add_package(package_num:int):
 		package2.visible = true
 	if package_num == 3:
 		package3.visible = true
+	current_package_num = package_num
+	print("CURR PACK: ",current_package_num)
 func remove_package(package_num:int):
 	if package_num == 0:
 		package1.visible = false
@@ -92,3 +112,4 @@ func remove_package(package_num:int):
 		package2.visible = false
 	if package_num == 2:
 		package3.visible = false
+	current_package_num = package_num

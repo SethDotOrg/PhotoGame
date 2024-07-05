@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bc2afxeie17vs"]
 
 [ext_resource type="Script" path="res://Scripts/UI Scripts/LiveUI.gd" id="1_butqn"]
-[ext_resource type="Texture2D" uid="uid://biopwwlihdo8v" path="res://UI Images/reticle.png" id="1_swth3"]
 [ext_resource type="Texture2D" uid="uid://bhf2urhxgqbnw" path="res://TexturePNG's/picture3 monica.png" id="3_i5ru2"]
 [ext_resource type="Texture2D" uid="uid://bv5w5d45ewyuw" path="res://TexturePNG's/Buttons/ArrowLeft.png" id="3_qjde4"]
 [ext_resource type="Texture2D" uid="uid://btbtwljly3co1" path="res://TexturePNG's/Buttons/ArrowRight.png" id="4_87pjc"]
+[ext_resource type="Texture2D" uid="uid://dck448pwbn5bv" path="res://UI Images/CameraReticle.png" id="5_yccpg"]
 
 [node name="LiveUI" type="Control"]
 layout_mode = 3
@@ -132,7 +132,6 @@ text = "???/???
 fit_content = true
 
 [node name="Reticle" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -146,4 +145,4 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("1_swth3")
+texture = ExtResource("5_yccpg")

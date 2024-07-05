@@ -25,8 +25,6 @@ func enter():
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false
-	if Input.is_action_pressed("run"):
-		speed = parent.RUN_SPEED
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
 	return null
@@ -35,6 +33,7 @@ func process_physics(delta: float) -> State:
 	super(delta)
 	if in_handheld_camera == true:
 		parent.hide_current_packages()
+		parent.toggle_camera_reticle(true)#true means reticle is visible
 		direction = parent._handheld_camera.get_direction_from_mouse(direction)
 		parent._handheld_camera.toggle_camera_active(true)
 		parent._model.visible = false
@@ -42,7 +41,9 @@ func process_physics(delta: float) -> State:
 		#--------jump code
 		parent.velocity.y -= (gravity * 1.5) * delta # we add what gravity we want to effect the jumping player. In this case less than the fall
 		
-		if !Input.is_action_pressed("run"):
+		if Input.is_action_pressed("run"):
+			speed = parent.RUN_SPEED
+		elif !Input.is_action_pressed("run"):
 			speed = parent.WALK_SPEED
 		
 		#move player toward the direction value and rotate the model
@@ -62,6 +63,7 @@ func process_physics(delta: float) -> State:
 	elif in_handheld_camera == false:
 		#reset camera to third person
 		parent.unhide_current_packages()
+		parent.toggle_camera_reticle(false)#false means reticle is not visible
 		direction = parent._camera_controller.get_direction_from_mouse(direction)
 		parent._handheld_camera.toggle_camera_active(false)
 		parent._model.visible = true

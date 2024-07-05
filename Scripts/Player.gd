@@ -53,8 +53,8 @@ func _ready():
 	# Initialize the state machine, passing a reference of the player to the states,
 	# so that we can do what we want with the player
 	_state_machine.init(self)
-	
 	live_ui = _base_ui.get_player_ui().get_live_ui()
+	toggle_camera_reticle(false)#false means the camera reticle is not visible
 	package1.visible = false
 	package2.visible = false
 	package3.visible = false
@@ -67,6 +67,9 @@ func _physics_process(delta: float):
 
 func _process(delta: float):
 	_state_machine.process_frame(delta)
+
+func toggle_camera_reticle(visible: bool):
+	live_ui.toggle_reticle(visible)
 
 func get_camera_node():
 	return _camera_controller

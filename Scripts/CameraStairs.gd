@@ -29,6 +29,7 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	if in_handheld_camera == true:
 		parent.hide_current_packages()
+		parent.toggle_camera_reticle(true)#true means reticle is visible
 		parent._handheld_camera.toggle_camera_active(true)
 		parent._model.visible = false
 		
@@ -48,6 +49,7 @@ func process_physics(delta: float) -> State:
 	elif in_handheld_camera == false:
 		#reset camera to third person
 		parent.unhide_current_packages()
+		parent.toggle_camera_reticle(false)#false means reticle is not visible
 		parent._handheld_camera.toggle_camera_active(false)
 		parent._model.visible = true
 		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical())#set the 3rd person camera rotation to the handheld camera rotation

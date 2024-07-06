@@ -39,6 +39,7 @@ func _unhandled_input(event):
 		_rotate_node_horizontal.rotate_y(-event.relative.x * _handheld_camera_sesitivity)#rotate the handheld cameras horizontal node. This does need to be limited
 
 func take_photo(): # TODO the first photo will take twice I think hot loading would fix this
+	print("in take photo")
 	_camera_sound_player.play()
 	_base_ui.get_player_ui().get_live_ui().visible = false
 	await RenderingServer.frame_post_draw

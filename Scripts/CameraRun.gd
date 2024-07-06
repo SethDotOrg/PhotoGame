@@ -1,5 +1,6 @@
 extends State
 
+@export var _walk_state: State
 @export var _run_state: State
 @export var _camera_idle_state: State
 @export var _camera_walk_state: State
@@ -19,7 +20,7 @@ func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false
 		#print("set jump pressed false")
-		if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_just_released("run"): #if moving and
+		if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_just_released("run") and Input.is_action_pressed("ctrl"): #if moving and
 			return _camera_walk_state
 	if Input.is_action_just_pressed("jump"):
 			return _camera_jump_state
@@ -69,5 +70,8 @@ func process_physics(delta: float) -> State:
 		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical()) #set the third person camera to the handheld cameras rotation
 		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y
 		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
-		return _run_state
+		if Input.is_action_pressed("run"):
+			return _run_state
+		elif !Input.is_action_pressed("run"):
+			return _walk_state
 	return null

@@ -15,7 +15,11 @@ var picture_count
 var live_ui
 
 func _ready():
-	var dir = DirAccess.open("user://ingame_camera_photos")
+	var dir = DirAccess.open("user://")
+	if dir.dir_exists("user://ingame_camera_photos") == false: #true if exists false if not
+		dir.make_dir("user://ingame_camera_photos")
+	else:
+		dir = DirAccess.open("user://ingame_camera_photos")
 	var pictures_array = dir.get_files()
 	if pictures_array.size() != 0:
 		picture_count = pictures_array.size()
@@ -35,7 +39,6 @@ func _unhandled_input(event):
 		_rotate_node_horizontal.rotate_y(-event.relative.x * _handheld_camera_sesitivity)#rotate the handheld cameras horizontal node. This does need to be limited
 
 func take_photo(): # TODO the first photo will take twice I think hot loading would fix this
-	#turn off UI for a second here eventually
 	_camera_sound_player.play()
 	_base_ui.get_player_ui().get_live_ui().visible = false
 	await RenderingServer.frame_post_draw

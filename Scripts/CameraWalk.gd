@@ -22,7 +22,7 @@ func process_input(event: InputEvent) -> State:
 			return _camera_jump_state
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
-	if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_pressed("run"):#if moving and pressing run
+	if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_pressed("run") and Input.is_action_pressed("ctrl"):#if moving and pressing run
 			return _camera_run_state
 	return null
 

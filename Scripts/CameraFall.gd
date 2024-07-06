@@ -17,8 +17,6 @@ func enter():
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false
-	if Input.is_action_pressed("run"):
-		speed = parent.RUN_SPEED
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
 	return null
@@ -26,13 +24,17 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	super(delta)
 	if in_handheld_camera == true:
+		parent.hide_current_packages()
+		parent.toggle_camera_reticle(true)#true means reticle is visible
 		direction = parent._handheld_camera.get_direction_from_mouse(direction)
 		parent._handheld_camera.toggle_camera_active(true)
 		parent._model.visible = false
 		#--------fall code
 		parent.velocity.y -= (gravity * 2) * delta #can apply different forces on the player for fall state. In this case we want the player to fall faster then when jumping
 		
-		if !Input.is_action_pressed("run"):
+		if Input.is_action_pressed("run"):
+			speed = parent.RUN_SPEED
+		elif !Input.is_action_pressed("run"):
 			speed = parent.WALK_SPEED
 		
 		#move player toward the direction value and rotate the model
@@ -55,9 +57,12 @@ func process_physics(delta: float) -> State:
 		parent._handheld_camera.set_camera_rotation(parent._camera_controller.get_camera_rotation_horizontal(),parent._camera_controller.get_camera_rotation_vertical()) #set the handheld camera to match the 3rd person cameras rotation
 	elif in_handheld_camera == false:
 		#reset camera to third person
+		parent.unhide_current_packages()
+		parent.toggle_camera_reticle(false)#false means reticle is not visible
 		parent._handheld_camera.toggle_camera_active(false)
 		parent._model.visible = true
 		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical()) # set third person camera to match handhld cameras rotation
 		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y
+		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
 		return _fall_state
 	return null

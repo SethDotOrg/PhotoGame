@@ -128,8 +128,9 @@ _camera_fall_state = NodePath("../CameraFall")
 _camera_stairs_state = NodePath("../CameraStairs")
 _animation_name = "Stand"
 
-[node name="CameraRun" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_run_state", "_camera_idle_state", "_camera_walk_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state")]
+[node name="CameraRun" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_walk_state", "_run_state", "_camera_idle_state", "_camera_walk_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state")]
 script = ExtResource("12_p1j8a")
+_walk_state = NodePath("../Walk")
 _run_state = NodePath("../Run")
 _camera_idle_state = NodePath("../CameraIdle")
 _camera_walk_state = NodePath("../CameraWalk")

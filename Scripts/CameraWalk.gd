@@ -22,13 +22,15 @@ func process_input(event: InputEvent) -> State:
 			return _camera_jump_state
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
-	if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_pressed("run"):#if moving and pressing run
+	if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_pressed("run") and Input.is_action_pressed("ctrl"):#if moving and pressing run
 			return _camera_run_state
 	return null
 
 func process_physics(delta: float) -> State:
 	super(delta)
 	if in_handheld_camera == true:
+		parent.hide_current_packages()
+		parent.toggle_camera_reticle(true)#true means reticle is visible
 		parent._handheld_camera.toggle_camera_active(true)
 		parent._model.visible = false
 		parent._handheld_camera.set_camera_rotation(parent._camera_controller.get_camera_rotation_horizontal(),parent._camera_controller.get_camera_rotation_vertical())#set handheld camera rotation to match the 3rd person rotation
@@ -56,11 +58,14 @@ func process_physics(delta: float) -> State:
 		
 	elif in_handheld_camera == false:
 		#reset camera to third person
+		parent.unhide_current_packages()
+		parent.toggle_camera_reticle(false)#false means reticle is not visible
 		direction = parent._camera_controller.get_direction_from_mouse(direction)
 		parent._handheld_camera.toggle_camera_active(false)
 		parent._model.visible = true
 		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical()) #set the 3rd person camera rotation to the handheld camera rotation
 		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y
+		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
 		if parent.velocity.x == 0 or parent.velocity.z == 0:#if stopped moving horizontally
 			return _camera_idle_state
 		else:

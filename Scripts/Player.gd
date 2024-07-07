@@ -26,6 +26,8 @@ const LERP_VAL = 0.15
 @onready var _air_ray_left = $ClimbingRayPivot/ClimbingRayPositionCheckLeft/AirRayLeft
 @onready var _air_ray_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight/AirRayRight
 
+@onready var ledge_anchor = $ClimbingRayPivot/LedgeAnchor
+
 @onready var _climbing_ray_geo_check = $ClimbingRayPivot/ClimbingRayGeoCheck
 @onready var _climbing_ray_air_check = $ClimbingRayPivot/ClimbingRayAirCheck
 @onready var _climbing_ray_geo_check_waist = $ClimbingRayPivot/ClimbingRayGeoCheckWaist

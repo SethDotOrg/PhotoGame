@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=32 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://Scripts/CameraJump.gd" id="13_uxvwb"]
 [ext_resource type="Script" path="res://Scripts/CameraFall.gd" id="14_fgl6l"]
 [ext_resource type="Script" path="res://Scripts/CameraStairs.gd" id="15_7flgm"]
+[ext_resource type="Script" path="res://Scripts/LedgeHang.gd" id="18_td1sj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwlmk"]
 radius = 1.0
@@ -36,8 +37,10 @@ height = 10.1811
 radius = 1.75426
 height = 10.939
 
+[sub_resource type="SphereMesh" id="SphereMesh_g1tvl"]
+
 [node name="PlayerKinematicBody" type="CharacterBody3D" groups=["Player"]]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00247192, 2.13182, -0.000277281)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 safe_margin = 0.1
 script = ExtResource("1_4wo7u")
 
@@ -99,13 +102,14 @@ wall_jump_state = NodePath("../WallJump")
 _camera_fall_state = NodePath("../CameraFall")
 _animation_name = "Climb"
 
-[node name="Climb" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "walk_state", "run_state")]
+[node name="Climb" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "walk_state", "run_state", "ledge_hang_state")]
 script = ExtResource("9_ytu47")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
 walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
+ledge_hang_state = NodePath("../LedgeHang")
 _animation_name = "Climb"
 
 [node name="CameraIdle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_idle_state", "_camera_walk_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state")]
@@ -175,6 +179,11 @@ walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
 _animation_name = "Walk"
 
+[node name="LedgeHang" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("jump_state", "ledge_hang_state")]
+script = ExtResource("18_td1sj")
+jump_state = NodePath("../Jump")
+ledge_hang_state = NodePath(".")
+
 [node name="HandheldCamera" parent="." node_paths=PackedStringArray("_base_ui", "_player") instance=ExtResource("2_ifbpa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 _base_ui = NodePath("../BaseUI")
@@ -189,33 +198,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31323e-10, -6.29874, -0.386
 bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(-0.135812, 1.18105e-07, -1.61901e-08, 0.990735)
-bones/3/rotation = Quaternion(0.120214, -4.47333e-16, 2.86613e-08, 0.992748)
-bones/4/rotation = Quaternion(-0.338684, -0.324398, -0.628304, 0.62072)
+bones/4/rotation = Quaternion(-0.705817, -0.706609, 0.0265311, -0.0426861)
 bones/5/rotation = Quaternion(0.0121538, 0.00402048, -0.707095, 0.707002)
 bones/5/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.00132025, -1.32174e-14, 5.14124e-10, 0.999999)
 bones/8/rotation = Quaternion(0.00808697, -0.0080873, 0.707061, 0.707061)
-bones/9/rotation = Quaternion(0.131679, -0.147535, 0.691544, 0.694738)
+bones/9/rotation = Quaternion(-0.705817, 0.706609, -0.0265311, -0.0426861)
 bones/10/rotation = Quaternion(0.0121538, -0.00402048, 0.707095, 0.707002)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(-0.00707146, -9.91939e-10, 2.73216e-09, 0.999975)
 bones/12/rotation = Quaternion(0.00132025, 1.32174e-14, -5.14124e-10, 0.999999)
 bones/13/rotation = Quaternion(0.00808696, 0.0080873, -0.707061, 0.707061)
-bones/16/rotation = Quaternion(0.359712, 0.387033, 0.621887, -0.577987)
+bones/16/rotation = Quaternion(0.481384, 0.517947, 0.517947, -0.481384)
 bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250573, 0.706663)
 bones/17/scale = Vector3(1, 1, 1)
-bones/18/rotation = Quaternion(-0.000188701, 0.000135899, 0.0712543, 0.997458)
-bones/19/rotation = Quaternion(-0.547077, 0.58863, 0.435951, 0.405176)
+bones/19/rotation = Quaternion(-0.481384, 0.517947, 0.517947, 0.481384)
 bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250573, 0.706663)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/rotation = Quaternion(5.67155e-10, 2.42564e-07, -0.00256307, 0.999997)
 bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, -1.8948e-07, -2.6077e-08, 2.98023e-07, 0.762502, 0.646985, -7.07805e-08, -0.646985, 0.762502, 0.90636, 1.62903, -0.621649)
+transform = Transform3D(1, 5.25775e-07, 2.08616e-07, 4.51691e-07, -0.984808, 0.173648, 2.86847e-07, -0.173648, -0.984808, 0.90636, 1.63986, -0.624778)
 
 [node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 5.47428e-07, -3.40864e-07, -7.00355e-07, 0.783839, -0.620964, -9.31323e-08, 0.620965, 0.783839, -0.90636, 1.62876, -0.629545)
+transform = Transform3D(1, -5.25456e-07, -2.21655e-07, -4.49363e-07, -0.984808, 0.173648, -2.99886e-07, -0.173648, -0.984808, -0.90636, 1.63986, -0.624777)
 
 [node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.476315, -0.854799, -0.228398)
@@ -231,7 +238,7 @@ override_tip_basis = false
 target_node = NodePath("../../../ArmEndRightHandle/ArmEndRightTarget")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="GameModel/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-1, -5.98128e-07, 9.38049e-08, 4.28347e-07, -0.783839, -0.620964, 4.29097e-07, -0.620964, 0.783839, -1.36039, -1.23225, -2.90028)
+transform = Transform3D(-1, 4.74773e-07, 2.12324e-07, 5.29044e-07, 0.984808, 0.173648, -1.24145e-07, 0.173648, -0.984808, -1.36038, 5.23642, 0.0127432)
 bone_name = "Hand.r"
 bone_idx = 12
 
@@ -314,7 +321,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 target_position = Vector3(0, -0.3, 0)
 
 [node name="ClimbingRayPositionCheckLeft" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 12.4742, 1.458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 12.474, 1.458)
 target_position = Vector3(0, -10.935, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
@@ -324,7 +331,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 target_position = Vector3(0, -0.3, 0)
 
 [node name="ClimbingRayPositionCheckRight" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 12.4742, 1.458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.474, 1.458)
 target_position = Vector3(0, -10.935, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
@@ -332,48 +339,6 @@ debug_shape_thickness = 5
 [node name="AirRayRight" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayPositionCheckRight"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -0.3, 0)
-
-[node name="ClimbingRayGeoCheck" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11.03, 0.6)
-visible = false
-target_position = Vector3(0, -1.975, 0)
-debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
-debug_shape_thickness = 5
-
-[node name="ClimbingRayAirCheck" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.4488, 0.6)
-visible = false
-target_position = Vector3(0, -0.94, 0)
-debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
-debug_shape_thickness = 5
-
-[node name="ClimbingRayGeoCheckWaist" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.175, 0.6)
-visible = false
-target_position = Vector3(0, -1.975, 0)
-debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
-debug_shape_thickness = 5
-
-[node name="ClimbingRayAirCheckWaist" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.532, 0.6)
-visible = false
-target_position = Vector3(0, -1.975, 0)
-debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
-debug_shape_thickness = 5
-
-[node name="ClimbingRayGeoCheckKnee" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.574, 0.6)
-visible = false
-target_position = Vector3(0, -2.5, 0)
-debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
-debug_shape_thickness = 5
-
-[node name="ClimbingRayAirCheckKnee" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.32831e-10, 3.5932, 0.6)
-visible = false
-target_position = Vector3(0, -1.975, 0)
-debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
-debug_shape_thickness = 5
 
 [node name="StairRayPositionCheck" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.514, 1.258)
@@ -398,6 +363,12 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.2
 target_position = Vector3(0, -2, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
+
+[node name="LedgeAnchor" type="Node3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.593, 1.454)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchor"]
+mesh = SubResource("SphereMesh_g1tvl")
 
 [node name="Sounds" type="Node3D" parent="."]
 

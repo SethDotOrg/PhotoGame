@@ -24,7 +24,7 @@ func process_physics(delta: float) -> State:
 		#await get_tree().create_timer(0.2).timeout#seconds
 		#parent.set_process_input(true)
 		var ledge_point = parent._climbing_ray_position_check.get_collision_point() #get the collision of the ray
-		var ledge_y = ledge_point.y-parent.ledge_anchor.position.y #since the position of the player is at the models feet we want to minus the height from the feet to where we want the player to grab the ledge
+		var ledge_y = ledge_point.y-parent._ledge_anchor.position.y #since the position of the player is at the models feet we want to minus the height from the feet to where we want the player to grab the ledge
 		var player_ledge_point = Vector3(parent.global_position.x,ledge_y,parent.global_position.z)#store a variable with the players x and z coords but use the ledges y coord
 		parent.global_position = player_ledge_point #bring the player to that mix of coords
 		#print("center")
@@ -35,7 +35,7 @@ func process_physics(delta: float) -> State:
 		#await get_tree().create_timer(0.2).timeout#seconds
 		#parent.set_process_input(true)
 		var ledge_point = parent._climbing_ray_position_check_left.get_collision_point() #get the collision of the ray
-		var ledge_y = ledge_point.y-parent.ledge_anchor.position.y #since the position of the player is at the models feet we want to minus the height from the feet to where we want the player to grab the ledge
+		var ledge_y = ledge_point.y-parent._ledge_anchor.position.y #since the position of the player is at the models feet we want to minus the height from the feet to where we want the player to grab the ledge
 		var player_ledge_point = Vector3(parent.global_position.x,ledge_y,parent.global_position.z)#store a variable with the players x and z coords but use the ledges y coord
 		parent.global_position = player_ledge_point #bring the player to that mix of coords
 		#print("left")
@@ -46,7 +46,7 @@ func process_physics(delta: float) -> State:
 		#await get_tree().create_timer(0.2).timeout#seconds
 		#parent.set_process_input(true)
 		var ledge_point = parent._climbing_ray_position_check_right.get_collision_point() #get the collision of the ray
-		var ledge_y = ledge_point.y-parent.ledge_anchor.position.y #since the position of the player is at the models feet we want to minus the height from the feet to where we want the player to grab the ledge
+		var ledge_y = ledge_point.y-parent._ledge_anchor.position.y #since the position of the player is at the models feet we want to minus the height from the feet to where we want the player to grab the ledge
 		var player_ledge_point = Vector3(parent.global_position.x,ledge_y,parent.global_position.z)#store a variable with the players x and z coords but use the ledges y coord
 		parent.global_position = player_ledge_point #bring the player to that mix of coords
 		#print("right")

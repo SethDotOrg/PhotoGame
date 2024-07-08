@@ -184,6 +184,8 @@ script = ExtResource("18_td1sj")
 jump_state = NodePath("../Jump")
 ledge_hang_state = NodePath(".")
 
+[node name="Timer" type="Timer" parent="PlayerStateMachine/LedgeHang"]
+
 [node name="HandheldCamera" parent="." node_paths=PackedStringArray("_base_ui", "_player") instance=ExtResource("2_ifbpa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 _base_ui = NodePath("../BaseUI")
@@ -368,6 +370,18 @@ debug_shape_thickness = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.593, 1.454)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchor"]
+mesh = SubResource("SphereMesh_g1tvl")
+
+[node name="LedgeAnchorLeft" type="Node3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 11.593, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchorLeft"]
+mesh = SubResource("SphereMesh_g1tvl")
+
+[node name="LedgeAnchorRight" type="Node3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 11.593, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchorRight"]
 mesh = SubResource("SphereMesh_g1tvl")
 
 [node name="Sounds" type="Node3D" parent="."]

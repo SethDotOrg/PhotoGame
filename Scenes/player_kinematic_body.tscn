@@ -40,7 +40,6 @@ height = 10.939
 [sub_resource type="SphereMesh" id="SphereMesh_g1tvl"]
 
 [node name="PlayerKinematicBody" type="CharacterBody3D" groups=["Player"]]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 safe_margin = 0.1
 script = ExtResource("1_4wo7u")
 
@@ -183,8 +182,6 @@ _animation_name = "Walk"
 script = ExtResource("18_td1sj")
 jump_state = NodePath("../Jump")
 ledge_hang_state = NodePath(".")
-
-[node name="Timer" type="Timer" parent="PlayerStateMachine/LedgeHang"]
 
 [node name="HandheldCamera" parent="." node_paths=PackedStringArray("_base_ui", "_player") instance=ExtResource("2_ifbpa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
@@ -332,6 +329,12 @@ debug_shape_thickness = 5
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -0.3, 0)
 
+[node name="CRPDoubleCheckLeft" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayPositionCheckLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, 0)
+target_position = Vector3(0, -10.935, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
+
 [node name="ClimbingRayPositionCheckRight" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.474, 1.458)
 target_position = Vector3(0, -10.935, 0)
@@ -341,6 +344,12 @@ debug_shape_thickness = 5
 [node name="AirRayRight" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayPositionCheckRight"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -0.3, 0)
+
+[node name="CRPDoubleCheckRight" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayPositionCheckRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, 0)
+target_position = Vector3(0, -10.935, 0)
+debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
+debug_shape_thickness = 5
 
 [node name="StairRayPositionCheck" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.514, 1.258)
@@ -373,16 +382,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.593, 1.454)
 mesh = SubResource("SphereMesh_g1tvl")
 
 [node name="LedgeAnchorLeft" type="Node3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 11.593, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchorLeft"]
 mesh = SubResource("SphereMesh_g1tvl")
 
 [node name="LedgeAnchorRight" type="Node3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 11.593, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchorRight"]
 mesh = SubResource("SphereMesh_g1tvl")
+
+[node name="WallNormalGetter" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.63183e-08, 11.2864, 1.5197)
+target_position = Vector3(0, -2, 0)
+debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
+debug_shape_thickness = 5
 
 [node name="Sounds" type="Node3D" parent="."]
 

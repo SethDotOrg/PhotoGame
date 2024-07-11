@@ -21,10 +21,14 @@ const LERP_VAL = 0.15
 @onready var _climbing_ray_pivot = $ClimbingRayPivot
 @onready var _climbing_ray_position_check = $ClimbingRayPivot/ClimbingRayPositionCheck
 @onready var _climbing_ray_position_check_left = $ClimbingRayPivot/ClimbingRayPositionCheckLeft
+@onready var _climbing_ray_position_double_check_left = $ClimbingRayPivot/ClimbingRayPositionCheckLeft/CRPDoubleCheckLeft
 @onready var _climbing_ray_position_check_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight
+@onready var _climbing_ray_position_double_check_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight/CRPDoubleCheckRight
 @onready var _air_ray_center = $ClimbingRayPivot/ClimbingRayPositionCheck/AirRayCenter
 @onready var _air_ray_left = $ClimbingRayPivot/ClimbingRayPositionCheckLeft/AirRayLeft
 @onready var _air_ray_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight/AirRayRight
+
+@onready var _wall_normal_getter = $ClimbingRayPivot/WallNormalGetter 
 
 @onready var _ledge_anchor = $ClimbingRayPivot/LedgeAnchor
 @onready var _ledge_anchor_left = $ClimbingRayPivot/LedgeAnchorLeft

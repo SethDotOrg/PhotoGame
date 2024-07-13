@@ -28,7 +28,9 @@ const LERP_VAL = 0.15
 @onready var _air_ray_left = $ClimbingRayPivot/ClimbingRayPositionCheckLeft/AirRayLeft
 @onready var _air_ray_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight/AirRayRight
 
-@onready var _wall_normal_getter = $ClimbingRayPivot/WallNormalGetter 
+@onready var _climbing_ray_forward_center = $ClimbingRayPivot/ClimbingRayForwardCenter
+@onready var _climbing_ray_45_left = $ClimbingRayPivot/ClimbingRay45Left
+@onready var _climbing_ray_45_right = $ClimbingRayPivot/ClimbingRay45Right
 
 @onready var _ledge_anchor = $ClimbingRayPivot/LedgeAnchor
 @onready var _ledge_anchor_left = $ClimbingRayPivot/LedgeAnchorLeft
@@ -72,6 +74,11 @@ func _unhandled_input(event: InputEvent):
 
 func _physics_process(delta: float):
 	_state_machine.process_physics(delta)
+	#print("player rotation y:: ",self.rotation.y)
+	#print("camera horiz rotation:: ",_camera_controller.get_camera_rotation_horizontal())
+	#print("player basis y", self.global_transform.basis.y)
+	#print("camera basis y", _camera_point_aim_pivot.global_transform.basis.y)
+	#print(_climbing_ray_pivot.rotation)
 
 func _process(delta: float):
 	_state_machine.process_frame(delta)

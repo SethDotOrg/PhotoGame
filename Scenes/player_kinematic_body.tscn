@@ -357,6 +357,11 @@ target_position = Vector3(0, -3.5, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
 
+[node name="LedgeVerticalCheck" type="RayCast3D" parent="ClimbingRayPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.474, 2.90959)
+target_position = Vector3(0, -3, 0)
+debug_shape_custom_color = Color(0.501961, 0.94902, 0, 1)
+
 [node name="ClimbingRay45Left" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(0.822144, -0.56928, -2.4884e-08, 0, -4.37114e-08, 1, -0.56928, -0.822144, -3.59371e-08, -8.63183e-08, 10.5212, 0)
 target_position = Vector3(0, -3, 0)

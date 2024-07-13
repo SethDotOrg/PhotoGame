@@ -29,6 +29,7 @@ const LERP_VAL = 0.15
 @onready var _air_ray_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight/AirRayRight
 
 @onready var _climbing_ray_forward_center = $ClimbingRayPivot/ClimbingRayForwardCenter
+@onready var _ledge_vertical_check = $ClimbingRayPivot/LedgeVerticalCheck
 @onready var _climbing_ray_45_left = $ClimbingRayPivot/ClimbingRay45Left
 @onready var _climbing_ray_45_right = $ClimbingRayPivot/ClimbingRay45Right
 
@@ -53,6 +54,7 @@ const LERP_VAL = 0.15
 @onready var package3 = $ClimbingRayPivot/PackageV1_3
 
 @export var _camera_controller: CameraController
+@export var _world_ledge_anchor: WorldLedgeAnchor
 
 @onready var _base_ui = $BaseUI
 var live_ui

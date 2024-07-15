@@ -26,17 +26,20 @@ func enter() -> void:
 		
 		parent._world_ledge_anchor.rotate_y(atan2(wall_normal1.x,wall_normal1.z))
 		
-		parent.look_at(parent._world_ledge_anchor.get_point_to_look_at())
+		#parent.look_at(parent._world_ledge_anchor.get_point_to_look_at())
 		# TODO tips player on side when looking at point. wont work the way i need to anyway as the point can be slightly to the left or right
 		#what i  need to do is match the rotation of the marker somehow. maybe i can change the code below that worked with spawn points
 		
 		#TODO parent  <--- set variables in parent(a.k.a the player) and whatever neccesary children or sibling nodes  
 		#to the same values that the project starts in with. so that the below code can work better. could use it for respawns in spawn point too if i get it working
-		
-		parent._camera_controller.get_rotate_node_horizontal().rotate_y(parent._world_ledge_anchor.rotation.y)#match the cameras rotation and thus the players direction to the spawn points y rotation
-		direction = (parent.transform.basis * Vector3(0, 0, -1)).normalized()  #this is the forward direction input. we need to get this direction to use with getting direction from mouse rotation
+		#^^^^^^ IT WORKED lol
+	
+		parent._model.rotation.y = 0
+		parent._camera_controller.set_camera_horizontal_rotation(0)
+		parent._camera_controller.get_rotate_node_horizontal().rotate_y(parent._world_ledge_anchor.rotation.y)
+		direction = (parent.transform.basis * Vector3(0, 0, -1)).normalized()
 		direction = parent._camera_controller.get_direction_from_mouse(direction)
-		parent._model.rotate_y(atan2(direction.x, direction.z))#with direction calculated rotate the model instantly to match where the camera is pointing
+		parent._model.rotate_y(atan2(direction.x, direction.z))
 
 #TODO Disable player collision wit environment when ledge hanging? will that stop the jitters
 func process_input(event: InputEvent) -> State:

@@ -9,6 +9,8 @@ const LERP_VAL = 0.15
 @onready var _animations = $GameModel/AnimationPlayer
 @onready var _state_machine = $PlayerStateMachine
 
+@onready var _player_collision_shape = $CollisionShape3D
+
 @onready var _model = $GameModel
 @onready var _camera_point_shoulder = $CameraPointShoulder
 @onready var _camera_point_jump = $CameraPointJump
@@ -30,8 +32,6 @@ const LERP_VAL = 0.15
 
 @onready var _climbing_ray_forward_center = $ClimbingRayPivot/ClimbingRayForwardCenter
 @onready var _ledge_vertical_check = $ClimbingRayPivot/LedgeVerticalCheck
-@onready var _climbing_ray_45_left = $ClimbingRayPivot/ClimbingRay45Left
-@onready var _climbing_ray_45_right = $ClimbingRayPivot/ClimbingRay45Right
 
 @onready var _ledge_anchor = $ClimbingRayPivot/LedgeAnchor
 @onready var _ledge_anchor_left = $ClimbingRayPivot/LedgeAnchorLeft
@@ -81,6 +81,7 @@ func _physics_process(delta: float):
 	#print("player basis y", self.global_transform.basis.y)
 	#print("camera basis y", _camera_point_aim_pivot.global_transform.basis.y)
 	#print(_climbing_ray_pivot.rotation)
+	#print(_camera_point_shoulder.rotation)
 
 func _process(delta: float):
 	_state_machine.process_frame(delta)

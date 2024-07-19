@@ -23,4 +23,7 @@ func get_pickup_count():
 func get_live_ui(): #need live ui to send messages of packages picked up and if the level is complete etc
 	return _player.get_live_ui()
 
+func get_model():
+	return _player._model
+
 #TODO this might be a good place to access stats. Have the data stored somewhere else but this communicates with other areas and check so yee 

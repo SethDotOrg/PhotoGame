@@ -26,24 +26,6 @@ func enter() -> void:
 		
 		parent._world_ledge_anchor.rotate_y(atan2(wall_normal.x,wall_normal.z)) #rotate the wall anchor to rotate towards the wall
 		
-		#TODO need to math this to state in the range of -180 to 180ish 
-		low_clamp_angle = rad_to_deg(parent._world_ledge_anchor.rotation.y) - 85
-		print("world ledge rotation y::",parent._world_ledge_anchor.rotation.y)
-		print("world ledge rotation y::",rad_to_deg(parent._world_ledge_anchor.rotation.y))
-		print("low clamp::", low_clamp_angle)
-		high_clamp_angle = rad_to_deg(parent._world_ledge_anchor.rotation.y) + 85
-		print("high clamp::", high_clamp_angle)
-		if low_clamp_angle < -180:
-			XX = true
-			low_clamp_angle = -low_clamp_angle - 180
-			var temp = low_clamp_angle
-			low_clamp_angle = high_clamp_angle
-			high_clamp_angle = temp
-			print("low clamp2::", low_clamp_angle)
-			print("high clamp2::", high_clamp_angle)
-		else: 
-			XX = false
-		
 		#TODO parent  <--- set variables in parent(a.k.a the player) and whatever neccesary children or sibling nodes  
 		#to the same values that the project starts in with. so that the below code can work better. could use it for respawns in spawn point too if i get it working
 		#^^^^^^ IT WORKED lol
@@ -81,16 +63,6 @@ func process_input(event: InputEvent) -> State: #TODO clamp the camera 90 degree
 		#var angle_to_wall = parent._camera_point_shoulder.rotation.signed_angle_to(wall_normal, Vector3.UP)
 		#var angle_to_wall = rad_to_deg(acos(parent._camera_point_shoulder.rotation.dot(wall_normal)))
 		var angle_to_wall = rad_to_deg(acos(wall_normal.dot(parent._camera_point_shoulder.rotation)))
-		#var low_clamp_angle = angle_to_wall-85
-		#var high_clamp_angle = angle_to_wall+85
-		#parent._camera_controller.get_rotate_node_horizontal().rotation.y = clamp(parent._camera_controller.get_rotate_node_horizontal().rotation.y, deg_to_rad(low_clamp_angle), deg_to_rad(high_clamp_angle))
-		parent._camera_controller.get_rotate_node_horizontal().rotation.y = clamp(parent._camera_controller.get_camera_rotation_horizontal_degrees(), deg_to_rad(90), deg_to_rad(270))
-		if XX == true:
-			#TODO math out the rotation for -x axis to be positive when XX is true
-			#-84 to 85... -84 = 84,-
-			pass
-		#parent._camera_controller.get_rotate_node_horizontal().rotation.y = clamp(parent._camera_controller.get_rotate_node_horizontal().rotation.y, deg_to_rad(-45), deg_to_rad(45))
-		#need to use math to get the angles we want clamped ^^^^
 	return null
 
 func process_physics(delta: float) -> State:

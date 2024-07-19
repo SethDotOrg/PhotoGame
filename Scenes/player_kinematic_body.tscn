@@ -270,7 +270,7 @@ _player = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.24146, 0)
 shape = SubResource("CapsuleShape3D_mgvhq")
 
-[node name="PickupArea3D" type="Area3D" parent="." node_paths=PackedStringArray("_player")]
+[node name="PickupArea3D" type="Area3D" parent="." node_paths=PackedStringArray("_player") groups=["HideCameraGroup"]]
 monitoring = false
 script = ExtResource("9_24x63")
 _player = NodePath("..")
@@ -353,13 +353,13 @@ debug_shape_thickness = 5
 
 [node name="ClimbingRayForwardCenter" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.63183e-08, 10.5212, 0)
-target_position = Vector3(0, -3.5, 0)
+target_position = Vector3(0, -4.5, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
 
 [node name="ClimbingRayForwardCenterLower" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayForwardCenter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.06914e-09, -0.207478)
-target_position = Vector3(0, -3.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1035e-08, -0.481224)
+target_position = Vector3(0, -4.5, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
 

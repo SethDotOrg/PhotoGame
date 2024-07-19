@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn4lebtea4isk"]
+[gd_scene load_steps=5 format=3 uid="uid://dn4lebtea4isk"]
 
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_lpebv"]
 [ext_resource type="CameraAttributesPractical" uid="uid://ci6pph6ys3qck" path="res://CameraAttributes.tres" id="2_fpsq3"]
+[ext_resource type="Script" path="res://Scripts/CameraArea3D.gd" id="3_7mg7s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u5jdt"]
 
 [node name="3PCameraSystem" type="Node3D" node_paths=PackedStringArray("_aim_check")]
 script = ExtResource("1_lpebv")
@@ -28,3 +31,13 @@ collide_with_areas = true
 
 [node name="EndOfRay" type="Node3D" parent="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/Camera3D/AimCheck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
+
+[node name="CameraArea3D" type="Area3D" parent="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.0002)
+script = ExtResource("3_7mg7s")
+
+[node name="CameraCollisionShape3D" type="CollisionShape3D" parent="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/CameraArea3D"]
+shape = SubResource("SphereShape3D_u5jdt")
+
+[connection signal="area_entered" from="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/CameraArea3D" to="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/CameraArea3D" method="_on_area_entered"]
+[connection signal="area_exited" from="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/CameraArea3D" to="RotateNodeHorizontal/RotateNodeVertical/SpringArm3D/CameraArea3D" method="_on_area_exited"]

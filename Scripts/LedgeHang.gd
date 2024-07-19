@@ -14,21 +14,18 @@ func enter() -> void:
 	parent._climbing_ray_forward_center.add_exception(parent) #exclude the player from getting collided with
 	
 	parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
-	#TODO if elif elif statement for collisions of which climbing ray. would probably just need to change the y value of the c_r_fwd_c though
+	parent._climbing_ray_forward_center_lower.force_raycast_update() #force the raycast to update in order to get more reliable collision checks
 	if parent._climbing_ray_forward_center_lower.is_colliding(): #if the ray to get wall normals is colliding
 		var fwd_collision = parent._climbing_ray_forward_center_lower.get_collision_point() #get the collision from the pink raycast that will help us get the direction the wall is facing
-		parent._ledge_vertical_check.global_position = Vector3(fwd_collision.x, parent._ledge_vertical_check.global_position.y, fwd_collision.z)
+		parent._ledge_vertical_check.global_position = Vector3(fwd_collision.x, parent._ledge_vertical_check.global_position.y, fwd_collision.z)#set the vertical collision to the ledge
+		parent._ledge_vertical_check.force_raycast_update()#force the raycast update to insure we get a reliable collision point reading
 		var ledge_y = parent._ledge_vertical_check.get_collision_point().y #get the collision of of the vertical check that will get the y coord of the ledge
-		var ledge_point = Vector3(fwd_collision.x,ledge_y,fwd_collision.z) #store the edge point (TODO the above fix will make this true)
+		var ledge_point = Vector3(fwd_collision.x,ledge_y,fwd_collision.z) #store the edge point
 		parent._world_ledge_anchor.global_position = ledge_point #set the ledge anchor to the ledge the player is trying to climb
 		
 		var wall_normal = parent._climbing_ray_forward_center_lower.get_collision_normal() #get the walls normal to find out the direction the wall is
 		
 		parent._world_ledge_anchor.rotate_y(atan2(wall_normal.x,wall_normal.z)) #rotate the wall anchor to rotate towards the wall
-		
-		#TODO parent  <--- set variables in parent(a.k.a the player) and whatever neccesary children or sibling nodes  
-		#to the same values that the project starts in with. so that the below code can work better. could use it for respawns in spawn point too if i get it working
-		#^^^^^^ IT WORKED lol
 		
 		#set the model and camera horizontal rotation node to zero so that the rotations will work correctly
 		#remember that the players forward direction is always -z in our case but that it wont always match up with the global axis
@@ -44,7 +41,7 @@ func enter() -> void:
 
 #TODO Disable player collision wit environment when ledge hanging? will that stop the jitters?? can check that the player has enough room to move left and right still tho
 
-func process_input(event: InputEvent) -> State: #TODO clamp the camera 90 degrees each side of the player when climbing
+func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump"):
 		parent._world_ledge_anchor.rotation.y = 0
 	if Input.is_action_pressed("move_left") and (parent._climbing_ray_position_check_left.is_colliding() or parent._climbing_ray_position_double_check_left.is_colliding()):
@@ -57,12 +54,6 @@ func process_input(event: InputEvent) -> State: #TODO clamp the camera 90 degree
 		var ledge_move_direction = parent.global_position.direction_to(ledge_anchor_position) #get the direction to the marker
 		parent.velocity = ledge_move_direction * speed #move towards its at a desired speed	
 		parent.move_and_slide()
-	if event is InputEventMouseMotion:
-		#_rotate_node_horizontal.rotate_y(-event.relative.x * mouse_sensitivity) #using the recieved x axis get mouse sensitivity multiplied into it and rotate that amount for the y axis
-		var wall_normal = parent._climbing_ray_forward_center_lower.get_collision_normal()
-		#var angle_to_wall = parent._camera_point_shoulder.rotation.signed_angle_to(wall_normal, Vector3.UP)
-		#var angle_to_wall = rad_to_deg(acos(parent._camera_point_shoulder.rotation.dot(wall_normal)))
-		var angle_to_wall = rad_to_deg(acos(wall_normal.dot(parent._camera_point_shoulder.rotation)))
 	return null
 
 func process_physics(delta: float) -> State:

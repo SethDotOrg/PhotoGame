@@ -400,12 +400,14 @@ mesh = SubResource("SphereMesh_g1tvl")
 
 [node name="LedgeAnchorLeft" type="Node3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchorLeft"]
 mesh = SubResource("SphereMesh_g1tvl")
 
 [node name="LedgeAnchorRight" type="Node3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchorRight"]
 mesh = SubResource("SphereMesh_g1tvl")

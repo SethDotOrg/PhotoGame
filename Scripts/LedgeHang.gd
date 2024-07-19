@@ -10,7 +10,7 @@ var XX: bool
 func enter() -> void:
 	super()
 	gravity = 0 
-	speed = 6 
+	speed = 3 
 	parent._climbing_ray_forward_center.add_exception(parent) #exclude the player from getting collided with
 	
 	parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
@@ -44,6 +44,14 @@ func enter() -> void:
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump"):
 		parent._world_ledge_anchor.rotation.y = 0
+	return null
+
+func process_physics(delta: float) -> State:
+	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
+	if Input.is_action_just_pressed("jump"):
+		parent.velocity.y = 20 #change this but it looks like just putting the player into the jump state wont do
+		return jump_state
+	
 	if Input.is_action_pressed("move_left") and (parent._climbing_ray_position_check_left.is_colliding() or parent._climbing_ray_position_double_check_left.is_colliding()):
 		var ledge_anchor_position = parent._ledge_anchor_left.global_position #use the pre determined left side marker as the position to move towards
 		var ledge_move_direction = parent.global_position.direction_to(ledge_anchor_position)# get the direction to the marker
@@ -54,11 +62,4 @@ func process_input(event: InputEvent) -> State:
 		var ledge_move_direction = parent.global_position.direction_to(ledge_anchor_position) #get the direction to the marker
 		parent.velocity = ledge_move_direction * speed #move towards its at a desired speed	
 		parent.move_and_slide()
-	return null
-
-func process_physics(delta: float) -> State:
-	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
-	if Input.is_action_just_pressed("jump"):
-		parent.velocity.y = 20 #change this but it looks like just putting the player into the jump state wont do
-		return jump_state
 	return null

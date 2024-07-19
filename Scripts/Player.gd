@@ -30,7 +30,8 @@ const LERP_VAL = 0.15
 @onready var _air_ray_left = $ClimbingRayPivot/ClimbingRayPositionCheckLeft/AirRayLeft
 @onready var _air_ray_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight/AirRayRight
 
-@onready var _climbing_ray_forward_center = $ClimbingRayPivot/ClimbingRayForwardCenter
+@onready var _climbing_ray_forward_center = $ClimbingRayPivot/ClimbingRayForwardCenter 
+@onready var _climbing_ray_forward_center_lower = $ClimbingRayPivot/ClimbingRayForwardCenter/ClimbingRayForwardCenterLower
 @onready var _ledge_vertical_check = $ClimbingRayPivot/LedgeVerticalCheck
 
 @onready var _ledge_anchor = $ClimbingRayPivot/LedgeAnchor
@@ -78,10 +79,12 @@ func _physics_process(delta: float):
 	_state_machine.process_physics(delta)
 	#print("player rotation y:: ",self.rotation.y)
 	#print("camera horiz rotation:: ",_camera_controller.get_camera_rotation_horizontal())
+	#print("camera horiz rotation:: ",_camera_controller.get_camera_rotation_horizontal_degrees())
 	#print("player basis y", self.global_transform.basis.y)
 	#print("camera basis y", _camera_point_aim_pivot.global_transform.basis.y)
 	#print(_climbing_ray_pivot.rotation)
 	#print(_camera_point_shoulder.rotation)
+	#print("camera horiz rotation:: ", wrapf(rad_to_deg(_camera_controller.get_camera_rotation_horizontal()),0, 360))
 
 func _process(delta: float):
 	_state_machine.process_frame(delta)

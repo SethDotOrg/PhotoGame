@@ -33,7 +33,7 @@ func _unhandled_input(event):
 		_rotate_node_vertical.rotate_x(-event.relative.y * mouse_sensitivity) #using the recieved y axis get mouse sensitivity multiplied into it and rotate that amount for the x axis
 		_rotate_node_vertical.rotation.x = clamp(_rotate_node_vertical.rotation.x, deg_to_rad(-90), deg_to_rad(55)) #stop the player camera from going around in vertical circles choosing the degrees we want
 		#horizontal
-		_rotate_node_horizontal.rotate_y(-event.relative.x * mouse_sensitivity) #using the recieved x axis get mouse sensitivity multiplied into it and rotate that amount for the y axis
+		_rotate_node_horizontal.rotate_y(-event.relative.x * mouse_sensitivity) #using the recieved x axis get mouse sensitivity multiplied into it and rotate that amount for the y 
 
 func get_end_of_raycast_position():
 	return _end_of_ray.global_position
@@ -101,6 +101,8 @@ func get_rotate_node_horizontal():
 
 func get_camera_rotation_horizontal():
 	return _rotate_node_horizontal.rotation.y
+func get_camera_rotation_horizontal_degrees():
+	return wrapf(rad_to_deg(_rotate_node_horizontal.rotation.y),0,360)
 func get_camera_rotation_vertical():
 	return _rotate_node_vertical.rotation.x
 func get_horizontal_rotation():

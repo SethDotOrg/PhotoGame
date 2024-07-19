@@ -15,14 +15,14 @@ func enter() -> void:
 	
 	parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
 	#TODO if elif elif statement for collisions of which climbing ray. would probably just need to change the y value of the c_r_fwd_c though
-	if parent._climbing_ray_forward_center.is_colliding(): #if the ray to get wall normals is colliding
-		var fwd_collision = parent._climbing_ray_forward_center.get_collision_point() #get the collision from the pink raycast that will help us get the direction the wall is facing
+	if parent._climbing_ray_forward_center_lower.is_colliding(): #if the ray to get wall normals is colliding
+		var fwd_collision = parent._climbing_ray_forward_center_lower.get_collision_point() #get the collision from the pink raycast that will help us get the direction the wall is facing
 		parent._ledge_vertical_check.global_position = Vector3(fwd_collision.x, parent._ledge_vertical_check.global_position.y, fwd_collision.z)
 		var ledge_y = parent._ledge_vertical_check.get_collision_point().y #get the collision of of the vertical check that will get the y coord of the ledge
 		var ledge_point = Vector3(fwd_collision.x,ledge_y,fwd_collision.z) #store the edge point (TODO the above fix will make this true)
 		parent._world_ledge_anchor.global_position = ledge_point #set the ledge anchor to the ledge the player is trying to climb
 		
-		var wall_normal = parent._climbing_ray_forward_center.get_collision_normal() #get the walls normal to find out the direction the wall is
+		var wall_normal = parent._climbing_ray_forward_center_lower.get_collision_normal() #get the walls normal to find out the direction the wall is
 		
 		parent._world_ledge_anchor.rotate_y(atan2(wall_normal.x,wall_normal.z)) #rotate the wall anchor to rotate towards the wall
 		
@@ -39,10 +39,10 @@ func enter() -> void:
 			var temp = low_clamp_angle
 			low_clamp_angle = high_clamp_angle
 			high_clamp_angle = temp
-			#high_clamp_angle = -high_clamp_angle
 			print("low clamp2::", low_clamp_angle)
 			print("high clamp2::", high_clamp_angle)
-		
+		else: 
+			XX = false
 		
 		#TODO parent  <--- set variables in parent(a.k.a the player) and whatever neccesary children or sibling nodes  
 		#to the same values that the project starts in with. so that the below code can work better. could use it for respawns in spawn point too if i get it working
@@ -77,15 +77,18 @@ func process_input(event: InputEvent) -> State: #TODO clamp the camera 90 degree
 		parent.move_and_slide()
 	if event is InputEventMouseMotion:
 		#_rotate_node_horizontal.rotate_y(-event.relative.x * mouse_sensitivity) #using the recieved x axis get mouse sensitivity multiplied into it and rotate that amount for the y axis
-		var wall_normal = parent._climbing_ray_forward_center.get_collision_normal()
+		var wall_normal = parent._climbing_ray_forward_center_lower.get_collision_normal()
 		#var angle_to_wall = parent._camera_point_shoulder.rotation.signed_angle_to(wall_normal, Vector3.UP)
 		#var angle_to_wall = rad_to_deg(acos(parent._camera_point_shoulder.rotation.dot(wall_normal)))
 		var angle_to_wall = rad_to_deg(acos(wall_normal.dot(parent._camera_point_shoulder.rotation)))
 		#var low_clamp_angle = angle_to_wall-85
 		#var high_clamp_angle = angle_to_wall+85
-		parent._camera_controller.get_rotate_node_horizontal().rotation.y = clamp(parent._camera_controller.get_rotate_node_horizontal().rotation.y, deg_to_rad(low_clamp_angle), deg_to_rad(high_clamp_angle))
+		#parent._camera_controller.get_rotate_node_horizontal().rotation.y = clamp(parent._camera_controller.get_rotate_node_horizontal().rotation.y, deg_to_rad(low_clamp_angle), deg_to_rad(high_clamp_angle))
+		parent._camera_controller.get_rotate_node_horizontal().rotation.y = clamp(parent._camera_controller.get_camera_rotation_horizontal_degrees(), deg_to_rad(90), deg_to_rad(270))
 		if XX == true:
-			parent._camera_controller.get_rotate_node_horizontal().rotation.y = clamp(parent._camera_controller.get_rotate_node_horizontal().rotation.y, deg_to_rad(high_clamp_angle), deg_to_rad(low_clamp_angle))
+			#TODO math out the rotation for -x axis to be positive when XX is true
+			#-84 to 85... -84 = 84,-
+			pass
 		#parent._camera_controller.get_rotate_node_horizontal().rotation.y = clamp(parent._camera_controller.get_rotate_node_horizontal().rotation.y, deg_to_rad(-45), deg_to_rad(45))
 		#need to use math to get the angles we want clamped ^^^^
 	return null

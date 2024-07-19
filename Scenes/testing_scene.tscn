@@ -1586,6 +1586,48 @@ use_collision = true
 size = Vector3(42.895, 14.698, 11.8737)
 material = SubResource("StandardMaterial3D_at41s")
 
+[node name="Box2" type="CSGBox3D" parent="LevelHolder/PrototypeLevel/LevelGeometery/CargoContainers/CargoBunch7"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 116.093, -7.00801, -20.741)
+use_collision = true
+size = Vector3(42.895, 15.016, 11.8737)
+material = SubResource("StandardMaterial3D_at41s")
+
+[node name="Box3" type="CSGBox3D" parent="LevelHolder/PrototypeLevel/LevelGeometery/CargoContainers/CargoBunch7"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 116.093, 7.6584, -20.741)
+use_collision = true
+size = Vector3(42.895, 15.016, 11.8737)
+material = SubResource("StandardMaterial3D_at41s")
+
+[node name="Box4" type="CSGBox3D" parent="LevelHolder/PrototypeLevel/LevelGeometery/CargoContainers/CargoBunch7"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 116.093, 22.6079, -20.741)
+use_collision = true
+size = Vector3(42.895, 15.016, 11.8737)
+material = SubResource("StandardMaterial3D_at41s")
+
+[node name="Box5" type="CSGBox3D" parent="LevelHolder/PrototypeLevel/LevelGeometery/CargoContainers/CargoBunch7"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 116.093, 4.97377, -7.4508)
+use_collision = true
+size = Vector3(42.895, 15.016, 11.8737)
+material = SubResource("StandardMaterial3D_at41s")
+
+[node name="Box6" type="CSGBox3D" parent="LevelHolder/PrototypeLevel/LevelGeometery/CargoContainers/CargoBunch7"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 121.954, -3.23376, 2.81952)
+use_collision = true
+size = Vector3(42.895, 15.016, 11.8737)
+material = SubResource("StandardMaterial3D_at41s")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="LevelHolder/PrototypeLevel/LevelGeometery/CargoContainers/CargoBunch7"]
+transform = Transform3D(0.868986, 0.000146794, 0.494837, 0, 1, -0.000296652, -0.494837, 0.000257786, 0.868986, 133.751, -15.4218, -0.640938)
+use_collision = true
+size = Vector3(12.1235, 11.6778, 8.27727)
+material = ExtResource("8_7fyx1")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="LevelHolder/PrototypeLevel/LevelGeometery/CargoContainers/CargoBunch7"]
+transform = Transform3D(0.868986, 0.000146794, 0.494837, 0, 1, -0.000296652, -0.494837, 0.000257786, 0.868986, 104.805, -15.4611, 14.954)
+use_collision = true
+size = Vector3(12.1235, 11.6778, 8.27727)
+material = ExtResource("8_7fyx1")
+
 [node name="TutorialButtons" type="Node3D" parent="LevelHolder/PrototypeLevel/LevelGeometery"]
 
 [node name="Sprite3D" type="Sprite3D" parent="LevelHolder/PrototypeLevel/LevelGeometery/TutorialButtons"]

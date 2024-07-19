@@ -29,7 +29,7 @@ func process_physics(delta: float) -> State:
 		parent.global_position = player_ledge_point #bring the player to that mix of coords
 		#print("center")
 		return ledge_hang_state
-	elif parent._climbing_ray_position_check_left.is_colliding() and !parent._air_ray_left.is_colliding():
+	elif parent._climbing_ray_position_check_left.is_colliding() and !parent._air_ray_left.is_colliding() and parent._climbing_ray_forward_center_lower.is_colliding():
 		parent.velocity = Vector3.ZERO
 		#parent.set_process_input(false)
 		#await get_tree().create_timer(0.2).timeout#seconds
@@ -40,7 +40,7 @@ func process_physics(delta: float) -> State:
 		parent.global_position = player_ledge_point #bring the player to that mix of coords
 		#print("left")
 		return ledge_hang_state
-	elif parent._climbing_ray_position_check_right.is_colliding() and !parent._air_ray_right.is_colliding():
+	elif parent._climbing_ray_position_check_right.is_colliding() and !parent._air_ray_right.is_colliding() and parent._climbing_ray_forward_center_lower.is_colliding():
 		parent.velocity = Vector3.ZERO
 		#parent.set_process_input(false)
 		#await get_tree().create_timer(0.2).timeout#seconds

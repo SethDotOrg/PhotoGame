@@ -3,7 +3,7 @@ extends Node3D
 
 const FOLLOW_FOV = 70.0
 const AIM_FOV = 45.0
-const RUN_FOV = 75.0
+const RUN_FOV = 90.0
 const JUMP_CAM_MOVE_DURATION = 0.4 #seconds
 const AIM_CAM_MOVE_DURATION = 0.3 #seconds
 const RESET_CAM_MOVE_DURATION = 0.2 #seconds

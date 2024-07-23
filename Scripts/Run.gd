@@ -10,7 +10,12 @@ extends State
 
 func enter() -> void:
 	super()
+	parent._camera_controller.run_fov()
 	number_of_wall_jumps = 0
+
+func exit() -> void:
+	super()
+	parent._camera_controller.reset_fov()
 
 func process_input(event: InputEvent) -> State:
 	if parent.is_on_floor():

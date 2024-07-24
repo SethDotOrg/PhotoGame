@@ -22,7 +22,7 @@ func process_input(event: InputEvent) -> State:
 		return _camera_jump_state
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_back"): 
 		return _camera_walk_state
-	if Input.is_action_just_pressed("mouse_left"):
+	if Input.is_action_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
 	return null
 

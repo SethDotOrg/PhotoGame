@@ -198,8 +198,9 @@ walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
 _animation_name = "Walk"
 
-[node name="LedgeHang" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "ledge_jump_state", "ledge_hang_state")]
+[node name="LedgeHang" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "jump_state", "ledge_jump_state", "ledge_hang_state")]
 script = ExtResource("18_td1sj")
+idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 ledge_jump_state = NodePath("../LedgeJump")

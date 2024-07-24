@@ -1,5 +1,6 @@
 extends State
 
+@export var idle_state: State
 @export var fall_state: State
 @export var jump_state: State
 @export var ledge_jump_state: State
@@ -48,9 +49,6 @@ func enter() -> void:
 
 #TODO Disable player collision wit environment when ledge hanging? will that stop the jitters?? can check that the player has enough room to move left and right still tho
 
-#func exit() -> void:
-	#parent._player_collision_shape.disabled=false
-	#parent._player_collision_shape_wall.disabled=true
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump"):
@@ -60,13 +58,18 @@ func process_input(event: InputEvent) -> State:
 			parent._standing_collision_check.enabled = false
 			parent._world_ledge_anchor.rotation.y = 0
 			return fall_state
+		elif parent._standing_collision_check.is_colliding() == true:
+			parent._standing_collision_check.enabled = false
+			parent._world_ledge_anchor.rotation.y = 0
+			parent._player_collision_shape.disabled=false
+			parent._player_collision_shape_wall.disabled=true
+			parent.global_position = parent._standing_collision_check.get_collision_point()
+			return idle_state
 	return null
 
 func process_physics(delta: float) -> State:
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
 	if Input.is_action_just_pressed("jump"):
-			#parent._standing_collision_check.enabled = false
-			#parent.velocity.y = 20 #change this but it looks like just putting the player into the jump state wont do
 		return ledge_jump_state
 	
 	if Input.is_action_pressed("move_left") and (parent._climbing_ray_position_check_left.is_colliding() or parent._climbing_ray_position_double_check_left.is_colliding()):

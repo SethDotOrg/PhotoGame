@@ -9,7 +9,9 @@ const LERP_VAL = 0.15
 @onready var _animations = $GameModel/AnimationPlayer
 @onready var _state_machine = $PlayerStateMachine
 
-@onready var _player_collision_shape = $CollisionShape3D
+@onready var _player_collision_shape = $CollisionShapeNormal
+@onready var _standing_collision_check = $CollisionShapeNormal/StandingCollisionCheck
+@onready var _player_collision_shape_wall = $CollisionShapeWallHang
 
 @onready var _model = $GameModel
 @onready var _camera_point_shoulder = $CameraPointShoulder
@@ -137,3 +139,13 @@ func remove_package(package_num:int):
 	if package_num == 2:
 		package3.visible = false
 	current_package_num = package_num
+
+func climb_checks():
+	if _climbing_ray_position_check.is_colliding() and !_air_ray_center.is_colliding():
+		return true
+	elif _climbing_ray_position_check_left.is_colliding() and !_air_ray_left.is_colliding() and _climbing_ray_forward_center_lower.is_colliding():
+		return true
+	elif _climbing_ray_position_check_right.is_colliding() and !_air_ray_right.is_colliding() and _climbing_ray_forward_center_lower.is_colliding():
+		return true
+	else:
+		return false

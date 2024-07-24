@@ -3,7 +3,7 @@ extends State
 @export var idle_state: State
 @export var walk_state: State
 @export var run_state: State
-@export var climb_state: State
+@export var climb_fall_state: State
 @export var wall_jump_state: State
 @export var _camera_fall_state: State
 
@@ -12,8 +12,8 @@ func process_input(event: InputEvent) -> State:
 		speed = parent.RUN_SPEED
 	if Input.is_action_pressed("ctrl"):
 		return _camera_fall_state
-	if Input.is_action_pressed("mouse_right"):
-		return climb_state
+	if Input.is_action_pressed("mouse_right") and !parent.is_on_floor():
+		return climb_fall_state
 	return null
 
 func process_physics(delta: float) -> State:

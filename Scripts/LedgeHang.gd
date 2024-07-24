@@ -2,6 +2,7 @@ extends State
 
 @export var fall_state: State
 @export var jump_state: State
+@export var ledge_jump_state: State
 @export var ledge_hang_state: State
 
 var low_clamp_angle: float
@@ -12,6 +13,11 @@ func enter() -> void:
 	super()
 	gravity = 0 
 	speed = 3 
+	parent._standing_collision_check.enabled = true
+	parent._standing_collision_check.add_exception(parent)
+	
+	parent._player_collision_shape.disabled=true
+	parent._player_collision_shape_wall.disabled=false
 	parent._climbing_ray_forward_center.add_exception(parent) #exclude the player from getting collided with
 	
 	parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
@@ -42,19 +48,26 @@ func enter() -> void:
 
 #TODO Disable player collision wit environment when ledge hanging? will that stop the jitters?? can check that the player has enough room to move left and right still tho
 
+#func exit() -> void:
+	#parent._player_collision_shape.disabled=false
+	#parent._player_collision_shape_wall.disabled=true
+
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump"):
 		parent._world_ledge_anchor.rotation.y = 0
 	if Input.is_action_just_pressed("run"):
-		parent._world_ledge_anchor.rotation.y = 0
-		return fall_state
+		if parent._standing_collision_check.is_colliding() == false:
+			parent._standing_collision_check.enabled = false
+			parent._world_ledge_anchor.rotation.y = 0
+			return fall_state
 	return null
 
 func process_physics(delta: float) -> State:
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
 	if Input.is_action_just_pressed("jump"):
-		parent.velocity.y = 20 #change this but it looks like just putting the player into the jump state wont do
-		return jump_state
+			#parent._standing_collision_check.enabled = false
+			#parent.velocity.y = 20 #change this but it looks like just putting the player into the jump state wont do
+		return ledge_jump_state
 	
 	if Input.is_action_pressed("move_left") and (parent._climbing_ray_position_check_left.is_colliding() or parent._climbing_ray_position_double_check_left.is_colliding()):
 		var ledge_anchor_position = parent._ledge_anchor_left.global_position #use the pre determined left side marker as the position to move towards

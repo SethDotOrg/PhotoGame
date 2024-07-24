@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=32 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -20,9 +20,7 @@
 [ext_resource type="Script" path="res://Scripts/Climb.gd" id="9_ytu47"]
 [ext_resource type="Script" path="res://Scripts/CameraIdle.gd" id="10_rb8qh"]
 [ext_resource type="Script" path="res://Scripts/Stairs.gd" id="10_wu825"]
-[ext_resource type="Script" path="res://Scripts/ClimbJump.gd" id="10_yixqp"]
 [ext_resource type="Script" path="res://Scripts/WallJump.gd" id="11_66qvv"]
-[ext_resource type="Script" path="res://Scripts/ClimbFall.gd" id="11_j3iar"]
 [ext_resource type="Script" path="res://Scripts/CameraWalk.gd" id="11_thocv"]
 [ext_resource type="AudioStream" uid="uid://cgt22hue1urok" path="res://Sounds/Footsteps/footsteptry1.mp3" id="11_ysiku"]
 [ext_resource type="Script" path="res://Scripts/CameraRun.gd" id="12_p1j8a"]
@@ -30,15 +28,10 @@
 [ext_resource type="Script" path="res://Scripts/CameraFall.gd" id="14_fgl6l"]
 [ext_resource type="Script" path="res://Scripts/CameraStairs.gd" id="15_7flgm"]
 [ext_resource type="Script" path="res://Scripts/LedgeHang.gd" id="18_td1sj"]
-[ext_resource type="Script" path="res://Scripts/LedgeJump.gd" id="19_qjxhd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwlmk"]
 radius = 1.0
 height = 10.1811
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3h5dw"]
-radius = 1.0
-height = 7.15628
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgvhq"]
 radius = 1.75426
@@ -90,19 +83,20 @@ stairs_state = NodePath("../Stairs")
 _camera_run_state = NodePath("../CameraRun")
 _animation_name = "Walk"
 
-[node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "climb_jump_state", "wall_jump_state", "_camera_jump_state")]
+[node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "climb_state", "wall_jump_state", "_camera_jump_state")]
 script = ExtResource("5_hqxe7")
 fall_state = NodePath("../Fall")
-climb_jump_state = NodePath("../ClimbJump")
+climb_state = NodePath("../Climb")
 wall_jump_state = NodePath("../WallJump")
 _camera_jump_state = NodePath("../CameraJump")
 _animation_name = "Climb"
 
-[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "wall_jump_state", "_camera_fall_state")]
+[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_state", "wall_jump_state", "_camera_fall_state")]
 script = ExtResource("8_2a85m")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
+climb_state = NodePath("../Climb")
 wall_jump_state = NodePath("../WallJump")
 _camera_fall_state = NodePath("../CameraFall")
 _animation_name = "Climb"
@@ -116,20 +110,6 @@ walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
 ledge_hang_state = NodePath("../LedgeHang")
 _animation_name = "Climb"
-
-[node name="ClimbJump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("climb_state", "climb_fall_state", "wall_jump_state")]
-script = ExtResource("10_yixqp")
-climb_state = NodePath("../Climb")
-climb_fall_state = NodePath("../ClimbFall")
-wall_jump_state = NodePath("../WallJump")
-
-[node name="ClimbFall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_state", "wall_jump_state")]
-script = ExtResource("11_j3iar")
-idle_state = NodePath("../Idle")
-walk_state = NodePath("../Walk")
-run_state = NodePath("../Run")
-climb_state = NodePath("../Climb")
-wall_jump_state = NodePath("../WallJump")
 
 [node name="CameraIdle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_idle_state", "_camera_walk_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state")]
 script = ExtResource("10_rb8qh")
@@ -198,18 +178,10 @@ walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
 _animation_name = "Walk"
 
-[node name="LedgeHang" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "jump_state", "ledge_jump_state", "ledge_hang_state")]
+[node name="LedgeHang" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("jump_state", "ledge_hang_state")]
 script = ExtResource("18_td1sj")
-idle_state = NodePath("../Idle")
-fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
-ledge_jump_state = NodePath("../LedgeJump")
 ledge_hang_state = NodePath(".")
-
-[node name="LedgeJump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_jump_state", "_camera_jump_state")]
-script = ExtResource("19_qjxhd")
-_jump_state = NodePath("../Jump")
-_camera_jump_state = NodePath("../CameraJump")
 
 [node name="HandheldCamera" parent="." node_paths=PackedStringArray("_base_ui", "_player") instance=ExtResource("2_ifbpa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
@@ -284,19 +256,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33889, 7.5711, 4.248)
 
 [node name="ArmEndRightTarget" type="Marker3D" parent="GameModel/ArmEndRightHandle"]
 
-[node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53785e-08, 5.27848, 0.290439)
 shape = SubResource("CapsuleShape3D_dwlmk")
-
-[node name="StandingCollisionCheck" type="RayCast3D" parent="CollisionShapeNormal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.926, 0)
-enabled = false
-target_position = Vector3(0, -4.31, 0)
-
-[node name="CollisionShapeWallHang" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00258157, 7.12188, 0.214467)
-shape = SubResource("CapsuleShape3D_3h5dw")
-disabled = true
 
 [node name="WallJumpArea3D" type="Area3D" parent="." node_paths=PackedStringArray("_player")]
 monitoring = false
@@ -308,7 +270,7 @@ _player = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.24146, 0)
 shape = SubResource("CapsuleShape3D_mgvhq")
 
-[node name="PickupArea3D" type="Area3D" parent="." node_paths=PackedStringArray("_player") groups=["HideCameraGroup"]]
+[node name="PickupArea3D" type="Area3D" parent="." node_paths=PackedStringArray("_player")]
 monitoring = false
 script = ExtResource("9_24x63")
 _player = NodePath("..")
@@ -349,7 +311,7 @@ transform = Transform3D(-1, 2.84217e-14, -2.62268e-07, 2.62268e-07, -4.37114e-08
 
 [node name="ClimbingRayPositionCheck" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32831e-10, 12.4742, 1.458)
-target_position = Vector3(0, -2.5, 0)
+target_position = Vector3(0, -2, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
@@ -359,7 +321,7 @@ target_position = Vector3(0, -0.3, 0)
 
 [node name="ClimbingRayPositionCheckLeft" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 12.474, 1.458)
-target_position = Vector3(0, -2.5, 0)
+target_position = Vector3(0, -2, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
@@ -369,13 +331,13 @@ target_position = Vector3(0, -0.3, 0)
 
 [node name="CRPDoubleCheckLeft" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayPositionCheckLeft"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, 0)
-target_position = Vector3(0, -2.5, 0)
+target_position = Vector3(0, -2, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
 [node name="ClimbingRayPositionCheckRight" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.997252, 12.474, 1.458)
-target_position = Vector3(0, -2.5, 0)
+target_position = Vector3(0, -2, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
@@ -385,31 +347,21 @@ target_position = Vector3(0, -0.3, 0)
 
 [node name="CRPDoubleCheckRight" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayPositionCheckRight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, 0)
-target_position = Vector3(0, -2.5, 0)
+target_position = Vector3(0, -2, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
 [node name="ClimbingRayForwardCenter" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.63183e-08, 10.5212, 0)
-target_position = Vector3(0, -4.5, 0)
+target_position = Vector3(0, -3.5, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
 
 [node name="ClimbingRayForwardCenterLower" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayForwardCenter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1035e-08, -0.481224)
-target_position = Vector3(0, -4.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.06914e-09, -0.207478)
+target_position = Vector3(0, -3.5, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
-
-[node name="MantleRayPositionCheck" type="RayCast3D" parent="ClimbingRayPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32831e-10, 9.66953, 1.458)
-target_position = Vector3(0, -7, 0)
-debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
-debug_shape_thickness = 5
-
-[node name="MantleAirRayCenter" type="RayCast3D" parent="ClimbingRayPivot/MantleRayPositionCheck"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, -0.3, 0)
 
 [node name="LedgeVerticalCheck" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.474, 2.90959)
@@ -442,21 +394,18 @@ debug_shape_thickness = 5
 
 [node name="LedgeAnchor" type="Node3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.593, 1.454)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchor"]
 mesh = SubResource("SphereMesh_g1tvl")
 
 [node name="LedgeAnchorLeft" type="Node3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchorLeft"]
 mesh = SubResource("SphereMesh_g1tvl")
 
 [node name="LedgeAnchorRight" type="Node3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClimbingRayPivot/LedgeAnchorRight"]
 mesh = SubResource("SphereMesh_g1tvl")

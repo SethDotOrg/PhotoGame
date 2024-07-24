@@ -5,6 +5,7 @@ extends State
 @export var fall_state: State
 @export var walk_state: State
 @export var run_state: State
+@export var ledge_hang_state: State
 
 func enter() -> void:
 	super()
@@ -15,7 +16,6 @@ func process_physics(delta: float) -> State:
 	
 	#Handle Climb
 	parent._climbing_ray_position_check.add_exception(parent) #exclude the player from getting collided with
-	parent._climbing_ray_geo_check_knee.add_exception(parent) #exclude the player from getting collided with
 	
 	#check the climbing points for collision on the vertical raycasts. but not the horizontal
 	if parent._climbing_ray_position_check.is_colliding() and !parent._air_ray_center.is_colliding():
@@ -23,25 +23,34 @@ func process_physics(delta: float) -> State:
 		#parent.set_process_input(false)
 		#await get_tree().create_timer(0.2).timeout#seconds
 		#parent.set_process_input(true)
-		parent.global_position = parent._climbing_ray_position_check.get_collision_point()
-		print("center")
-		return idle_state
-	elif parent._climbing_ray_position_check_left.is_colliding() and !parent._air_ray_left.is_colliding():
+		var ledge_point = parent._climbing_ray_position_check.get_collision_point() #get the collision of the ray
+		var ledge_y = ledge_point.y-parent._ledge_anchor.position.y #since the position of the player is at the models feet we want to minus the height from the feet to where we want the player to grab the ledge
+		var player_ledge_point = Vector3(parent.global_position.x,ledge_y,parent.global_position.z)#store a variable with the players x and z coords but use the ledges y coord
+		parent.global_position = player_ledge_point #bring the player to that mix of coords
+		#print("center")
+		return ledge_hang_state
+	elif parent._climbing_ray_position_check_left.is_colliding() and !parent._air_ray_left.is_colliding() and parent._climbing_ray_forward_center_lower.is_colliding():
 		parent.velocity = Vector3.ZERO
 		#parent.set_process_input(false)
 		#await get_tree().create_timer(0.2).timeout#seconds
 		#parent.set_process_input(true)
-		parent.global_position = parent._climbing_ray_position_check_left.get_collision_point()
-		print("left")
-		return idle_state
-	elif parent._climbing_ray_position_check_right.is_colliding() and !parent._air_ray_right.is_colliding():
+		var ledge_point = parent._climbing_ray_position_check_left.get_collision_point() #get the collision of the ray
+		var ledge_y = ledge_point.y-parent._ledge_anchor.position.y #since the position of the player is at the models feet we want to minus the height from the feet to where we want the player to grab the ledge
+		var player_ledge_point = Vector3(parent.global_position.x,ledge_y,parent.global_position.z)#store a variable with the players x and z coords but use the ledges y coord
+		parent.global_position = player_ledge_point #bring the player to that mix of coords
+		#print("left")
+		return ledge_hang_state
+	elif parent._climbing_ray_position_check_right.is_colliding() and !parent._air_ray_right.is_colliding() and parent._climbing_ray_forward_center_lower.is_colliding():
 		parent.velocity = Vector3.ZERO
 		#parent.set_process_input(false)
 		#await get_tree().create_timer(0.2).timeout#seconds
 		#parent.set_process_input(true)
-		parent.global_position = parent._climbing_ray_position_check_right.get_collision_point()
-		print("right")
-		return idle_state
+		var ledge_point = parent._climbing_ray_position_check_right.get_collision_point() #get the collision of the ray
+		var ledge_y = ledge_point.y-parent._ledge_anchor.position.y #since the position of the player is at the models feet we want to minus the height from the feet to where we want the player to grab the ledge
+		var player_ledge_point = Vector3(parent.global_position.x,ledge_y,parent.global_position.z)#store a variable with the players x and z coords but use the ledges y coord
+		parent.global_position = player_ledge_point #bring the player to that mix of coords
+		#print("right")
+		return ledge_hang_state
 	
 	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0: #if the player is on the floor and not moving horizontally
 		return idle_state

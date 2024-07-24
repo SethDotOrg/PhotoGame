@@ -9,6 +9,10 @@ const LERP_VAL = 0.15
 @onready var _animations = $GameModel/AnimationPlayer
 @onready var _state_machine = $PlayerStateMachine
 
+@onready var _player_collision_shape = $CollisionShapeNormal
+@onready var _standing_collision_check = $CollisionShapeNormal/StandingCollisionCheck
+@onready var _player_collision_shape_wall = $CollisionShapeWallHang
+
 @onready var _model = $GameModel
 @onready var _camera_point_shoulder = $CameraPointShoulder
 @onready var _camera_point_jump = $CameraPointJump
@@ -21,10 +25,20 @@ const LERP_VAL = 0.15
 @onready var _climbing_ray_pivot = $ClimbingRayPivot
 @onready var _climbing_ray_position_check = $ClimbingRayPivot/ClimbingRayPositionCheck
 @onready var _climbing_ray_position_check_left = $ClimbingRayPivot/ClimbingRayPositionCheckLeft
+@onready var _climbing_ray_position_double_check_left = $ClimbingRayPivot/ClimbingRayPositionCheckLeft/CRPDoubleCheckLeft
 @onready var _climbing_ray_position_check_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight
+@onready var _climbing_ray_position_double_check_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight/CRPDoubleCheckRight
 @onready var _air_ray_center = $ClimbingRayPivot/ClimbingRayPositionCheck/AirRayCenter
 @onready var _air_ray_left = $ClimbingRayPivot/ClimbingRayPositionCheckLeft/AirRayLeft
 @onready var _air_ray_right = $ClimbingRayPivot/ClimbingRayPositionCheckRight/AirRayRight
+
+@onready var _climbing_ray_forward_center = $ClimbingRayPivot/ClimbingRayForwardCenter 
+@onready var _climbing_ray_forward_center_lower = $ClimbingRayPivot/ClimbingRayForwardCenter/ClimbingRayForwardCenterLower
+@onready var _ledge_vertical_check = $ClimbingRayPivot/LedgeVerticalCheck
+
+@onready var _ledge_anchor = $ClimbingRayPivot/LedgeAnchor
+@onready var _ledge_anchor_left = $ClimbingRayPivot/LedgeAnchorLeft
+@onready var _ledge_anchor_right = $ClimbingRayPivot/LedgeAnchorRight
 
 @onready var _climbing_ray_geo_check = $ClimbingRayPivot/ClimbingRayGeoCheck
 @onready var _climbing_ray_air_check = $ClimbingRayPivot/ClimbingRayAirCheck
@@ -43,6 +57,7 @@ const LERP_VAL = 0.15
 @onready var package3 = $ClimbingRayPivot/PackageV1_3
 
 @export var _camera_controller: CameraController
+@export var _world_ledge_anchor: WorldLedgeAnchor
 
 @onready var _base_ui = $BaseUI
 var live_ui
@@ -64,6 +79,14 @@ func _unhandled_input(event: InputEvent):
 
 func _physics_process(delta: float):
 	_state_machine.process_physics(delta)
+	#print("player rotation y:: ",self.rotation.y)
+	#print("camera horiz rotation:: ",_camera_controller.get_camera_rotation_horizontal())
+	#print("camera horiz rotation:: ",_camera_controller.get_camera_rotation_horizontal_degrees())
+	#print("player basis y", self.global_transform.basis.y)
+	#print("camera basis y", _camera_point_aim_pivot.global_transform.basis.y)
+	#print(_climbing_ray_pivot.rotation)
+	#print(_camera_point_shoulder.rotation)
+	#print("camera horiz rotation:: ", wrapf(rad_to_deg(_camera_controller.get_camera_rotation_horizontal()),0, 360))
 
 func _process(delta: float):
 	_state_machine.process_frame(delta)
@@ -116,3 +139,13 @@ func remove_package(package_num:int):
 	if package_num == 2:
 		package3.visible = false
 	current_package_num = package_num
+
+func climb_checks():
+	if _climbing_ray_position_check.is_colliding() and !_air_ray_center.is_colliding():
+		return true
+	elif _climbing_ray_position_check_left.is_colliding() and !_air_ray_left.is_colliding() and _climbing_ray_forward_center_lower.is_colliding():
+		return true
+	elif _climbing_ray_position_check_right.is_colliding() and !_air_ray_right.is_colliding() and _climbing_ray_forward_center_lower.is_colliding():
+		return true
+	else:
+		return false

@@ -98,11 +98,12 @@ wall_jump_state = NodePath("../WallJump")
 _camera_jump_state = NodePath("../CameraJump")
 _animation_name = "Climb"
 
-[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "wall_jump_state", "_camera_fall_state")]
+[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_fall_state", "wall_jump_state", "_camera_fall_state")]
 script = ExtResource("8_2a85m")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
+climb_fall_state = NodePath("../ClimbFall")
 wall_jump_state = NodePath("../WallJump")
 _camera_fall_state = NodePath("../CameraFall")
 _animation_name = "Climb"
@@ -417,7 +418,7 @@ target_position = Vector3(0, -7, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
-[node name="MantleAirRayCenter" type="RayCast3D" parent="ClimbingRayPivot/MantleRayPositionCheckLeft"]
+[node name="MantleAirRayLeft" type="RayCast3D" parent="ClimbingRayPivot/MantleRayPositionCheckLeft"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -0.3, 0)
 
@@ -427,7 +428,7 @@ target_position = Vector3(0, -7, 0)
 debug_shape_custom_color = Color(1, 0.0627451, 0, 1)
 debug_shape_thickness = 5
 
-[node name="MantleAirRayCenter" type="RayCast3D" parent="ClimbingRayPivot/MantleRayPositionCheckRight"]
+[node name="MantleAirRayRight" type="RayCast3D" parent="ClimbingRayPivot/MantleRayPositionCheckRight"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -0.3, 0)
 

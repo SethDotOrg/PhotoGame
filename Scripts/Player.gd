@@ -40,6 +40,13 @@ const LERP_VAL = 0.15
 @onready var _ledge_anchor_left = $ClimbingRayPivot/LedgeAnchorLeft
 @onready var _ledge_anchor_right = $ClimbingRayPivot/LedgeAnchorRight
 
+@onready var _mantle_ray_check_center = $ClimbingRayPivot/MantleRayPositionCheck
+@onready var _mantle_ray_check_left = $ClimbingRayPivot/MantleRayPositionCheckLeft
+@onready var _mantle_ray_check_right = $ClimbingRayPivot/MantleRayPositionCheckRight
+@onready var _mantle_air_ray_center = $ClimbingRayPivot/MantleRayPositionCheck/MantleAirRayCenter
+@onready var _mantle_air_ray_left = $ClimbingRayPivot/MantleRayPositionCheckLeft/MantleAirRayLeft
+@onready var _mantle_air_ray_right = $ClimbingRayPivot/MantleRayPositionCheckRight/MantleAirRayRight
+
 @onready var _climbing_ray_geo_check = $ClimbingRayPivot/ClimbingRayGeoCheck
 @onready var _climbing_ray_air_check = $ClimbingRayPivot/ClimbingRayAirCheck
 @onready var _climbing_ray_geo_check_waist = $ClimbingRayPivot/ClimbingRayGeoCheckWaist
@@ -146,6 +153,16 @@ func climb_checks():
 	elif _climbing_ray_position_check_left.is_colliding() and !_air_ray_left.is_colliding() and _climbing_ray_forward_center_lower.is_colliding():
 		return true
 	elif _climbing_ray_position_check_right.is_colliding() and !_air_ray_right.is_colliding() and _climbing_ray_forward_center_lower.is_colliding():
+		return true
+	else:
+		return false
+
+func mantle_checks():
+	if _mantle_ray_check_center.is_colliding() and !_mantle_air_ray_center.is_colliding():
+		return true
+	elif _mantle_ray_check_left.is_colliding() and !_mantle_air_ray_left.is_colliding():
+		return true
+	elif _mantle_ray_check_right.is_colliding() and !_mantle_air_ray_right.is_colliding():
 		return true
 	else:
 		return false

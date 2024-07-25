@@ -57,6 +57,8 @@ func process_input(event: InputEvent) -> State:
 		if parent._standing_collision_check.is_colliding() == false:
 			parent._standing_collision_check.enabled = false
 			parent._world_ledge_anchor.rotation.y = 0
+			parent._player_collision_shape.disabled=false
+			parent._player_collision_shape_wall.disabled=true
 			return fall_state
 		elif parent._standing_collision_check.is_colliding() == true:
 			parent._standing_collision_check.enabled = false

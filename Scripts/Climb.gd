@@ -52,6 +52,17 @@ func process_physics(delta: float) -> State:
 		#print("right")
 		return ledge_hang_state
 	
+	#handle mantle
+	if parent._mantle_ray_check_center.is_colliding() and !parent._mantle_air_ray_center.is_colliding():
+		parent.velocity = Vector3.ZERO
+		parent.global_position = parent._mantle_ray_check_center.get_collision_point()
+	if parent._mantle_ray_check_left.is_colliding() and !parent._mantle_air_ray_left.is_colliding():
+		parent.velocity = Vector3.ZERO
+		parent.global_position = parent._mantle_ray_check_left.get_collision_point()
+	if parent._mantle_ray_check_right.is_colliding() and !parent._mantle_air_ray_right.is_colliding():
+		parent.velocity = Vector3.ZERO
+		parent.global_position = parent._mantle_ray_check_right.get_collision_point()
+	
 	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0: #if the player is on the floor and not moving horizontally
 		return idle_state
 	elif parent.is_on_floor() and (parent.velocity.x != 0 or parent.velocity.z != 0) and Input.is_action_pressed("run"): #if the player is moving and on the floor and pressing the run button

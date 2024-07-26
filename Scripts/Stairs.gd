@@ -6,6 +6,7 @@ extends State
 
 func enter():
 	number_of_wall_jumps = 0
+	tried_mantle = false
 	parent._stair_ray_position_check.global_position = parent._stair_ray_geo_check.get_collision_point() #check the lower raycast for a collision and get it
 	parent._stair_ray_position_check.position.y = parent._stair_ray_air_check.position.y#set the closer to the player vertical raycast to match its original y value
 	parent.global_position = (parent.global_position * Vector3(1,0,1))+(parent._stair_ray_position.get_collision_point() * Vector3(0,1,0)) #use the second vertical...

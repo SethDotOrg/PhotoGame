@@ -24,7 +24,7 @@ func change_state(new_state: State):
 	
 	var live_ui = player.get_base_ui().get_player_ui().get_live_ui()
 	live_ui.update_state_text(new_state.get_state_name())
-	#print(new_state.get_state_name())
+	print(new_state.get_state_name())
 	current_state.enter()
 	
 # Pass through functions for the Player to call,

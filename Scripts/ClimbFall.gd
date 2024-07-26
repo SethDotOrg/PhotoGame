@@ -33,7 +33,7 @@ func process_physics(delta: float) -> State:
 	if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"):#if on the wall and not on the floor and the player presses jump
 		return wall_jump_state
 	
-	if parent.climb_checks() == true or parent.mantle_checks() == true:
+	if parent.climb_checks() == true or (tried_mantle == false and parent.mantle_checks() == true):
 		return climb_state
 	
 	if parent.is_on_floor():

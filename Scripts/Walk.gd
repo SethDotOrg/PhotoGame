@@ -11,6 +11,7 @@ extends State
 func enter() -> void:
 	super()
 	number_of_wall_jumps = 0
+	tried_mantle = false
 
 func process_input(event: InputEvent) -> State:
 	if parent.is_on_floor():

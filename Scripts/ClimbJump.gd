@@ -44,7 +44,7 @@ func process_physics(delta: float) -> State:
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
 	
-	if parent.climb_checks() == true or parent.mantle_checks() == true:
+	if parent.climb_checks() == true or (tried_mantle == false and parent.mantle_checks() == true):
 		return climb_state
 	
 	if parent.velocity.y < 0:#if the players velocity is negative then the play is falling

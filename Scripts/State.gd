@@ -13,9 +13,10 @@ var input_dir
 var direction
 var speed
 var number_of_wall_jumps
+var tried_mantle
 
 func enter() -> void:
-	parent._animations.play(_animation_name)  
+	parent._animations.play(_animation_name)
 
 func exit() -> void:
 	pass

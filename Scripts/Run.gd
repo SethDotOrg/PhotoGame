@@ -12,6 +12,7 @@ func enter() -> void:
 	super()
 	parent._camera_controller.run_fov()
 	number_of_wall_jumps = 0
+	tried_mantle = false
 
 func exit() -> void:
 	super()

@@ -46,6 +46,8 @@ const LERP_VAL = 0.15
 @onready var _mantle_air_ray_center = $ClimbingRayPivot/MantleRayPositionCheck/MantleAirRayCenter
 @onready var _mantle_air_ray_left = $ClimbingRayPivot/MantleRayPositionCheckLeft/MantleAirRayLeft
 @onready var _mantle_air_ray_right = $ClimbingRayPivot/MantleRayPositionCheckRight/MantleAirRayRight
+@onready var _mantle_ray_forward_center = $ClimbingRayPivot/MantleRayForwardCenter
+@onready var _mantle_ray_forward_center_higher = $ClimbingRayPivot/MantleRayForwardCenter/MantleRayForwardCenterHigher
 
 @onready var _climbing_ray_geo_check = $ClimbingRayPivot/ClimbingRayGeoCheck
 @onready var _climbing_ray_air_check = $ClimbingRayPivot/ClimbingRayAirCheck

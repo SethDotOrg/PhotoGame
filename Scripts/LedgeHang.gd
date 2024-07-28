@@ -46,8 +46,8 @@ func enter() -> void:
 		direction = parent._camera_controller.get_direction_from_mouse(direction) #then get the direction that the mouse is facing which we have facing the wall now
 		parent._model.rotate_y(atan2(direction.x, direction.z)) #then rotate the model based on the direction we just calculated
 		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y #match the climbing pivot to the walls direction so we can do horizontal wall movement
+	
 
-#TODO Disable player collision wit environment when ledge hanging? will that stop the jitters?? can check that the player has enough room to move left and right still tho
 
 
 func process_input(event: InputEvent) -> State:

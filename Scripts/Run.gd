@@ -4,7 +4,7 @@ extends State
 @export var jump_state: State
 @export var idle_state: State
 @export var walk_state: State
-@export var climb_state: State
+@export var climb_mantle_state: State
 @export var stairs_state: State
 @export var _camera_run_state: State
 
@@ -26,8 +26,8 @@ func process_input(event: InputEvent) -> State:
 			return walk_state
 	if Input.is_action_pressed("ctrl"):
 		return _camera_run_state
-	if Input.is_action_pressed("mouse_right"):
-		return climb_state
+	if Input.is_action_pressed("mouse_right") and parent.mantle_checks():#should be on the ground so mantle 
+		return climb_mantle_state
 	return null
 
 func process_physics(delta: float) -> State:

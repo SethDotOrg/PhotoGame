@@ -3,13 +3,14 @@ extends State
 @export var idle_state: State
 @export var walk_state: State
 @export var run_state: State
+@export var jump_state: State
+@export var fall_state: State
 @export var climb_jump_state: State
 @export var climb_fall_state: State
 @export var ledge_hang_state: State
 
 func enter() -> void:
 	super()
-	print("num of wall jumps", number_of_wall_jumps)
 
 func process_physics(delta: float) -> State:
 	# I dont think this is needed. But incase there i camera glitches then maybe this will help
@@ -53,35 +54,6 @@ func process_physics(delta: float) -> State:
 		#print("right")
 		return ledge_hang_state
 	
-	#handle mantle
-	parent._mantle_ray_forward_center.add_exception(parent)
-	parent._mantle_ray_forward_center_higher.add_exception(parent)
-	print("tried mantle is:: ",tried_mantle)
-	if tried_mantle == false:
-		if parent._mantle_ray_check_center.is_colliding() and !parent._mantle_air_ray_center.is_colliding():
-			parent.velocity = Vector3.ZERO
-			parent._mantle_ray_forward_center.global_position.y = parent._mantle_ray_check_center.get_collision_point().y
-			if !parent._mantle_ray_forward_center_higher.is_colliding():
-				parent.global_position = parent._mantle_ray_check_center.get_collision_point()
-			else:
-				tried_mantle = true
-				return climb_fall_state
-		elif parent._mantle_ray_check_left.is_colliding() and !parent._mantle_air_ray_left.is_colliding():
-			parent.velocity = Vector3.ZERO
-			parent._mantle_ray_forward_center.global_position.y = parent._mantle_ray_check_left.get_collision_point().y
-			if !parent._mantle_ray_forward_center_higher.is_colliding():
-				parent.global_position = parent._mantle_ray_check_left.get_collision_point()
-			else:
-				tried_mantle = true
-				return climb_fall_state
-		elif parent._mantle_ray_check_right.is_colliding() and !parent._mantle_air_ray_right.is_colliding():
-			parent.velocity = Vector3.ZERO
-			parent._mantle_ray_forward_center.global_position.y = parent._mantle_ray_check_right.get_collision_point().y
-			if !parent._mantle_ray_forward_center_higher.is_colliding():
-				parent.global_position = parent._mantle_ray_check_right.get_collision_point()
-			else:
-				tried_mantle = true
-				return climb_fall_state
 	
 	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0: #if the player is on the floor and not moving horizontally
 		return idle_state

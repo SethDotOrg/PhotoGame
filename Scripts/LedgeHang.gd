@@ -73,7 +73,11 @@ func process_physics(delta: float) -> State:
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
 	if Input.is_action_just_pressed("jump"):
 		return ledge_jump_state
-	
+	if Input.is_action_just_pressed("mouse_right") and !parent._climbing_ray_forward_center_higher.is_colliding():
+		parent.global_position = parent._climbing_ray_position_check.global_position
+		parent._player_collision_shape.disabled=false
+		parent._player_collision_shape_wall.disabled=true
+		return idle_state
 	if Input.is_action_pressed("move_left") and (parent._climbing_ray_position_check_left.is_colliding() or parent._climbing_ray_position_double_check_left.is_colliding()):
 		var ledge_anchor_position = parent._ledge_anchor_left.global_position #use the pre determined left side marker as the position to move towards
 		var ledge_move_direction = parent.global_position.direction_to(ledge_anchor_position)# get the direction to the marker

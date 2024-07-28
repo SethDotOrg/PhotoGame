@@ -34,6 +34,7 @@ const LERP_VAL = 0.15
 
 @onready var _climbing_ray_forward_center = $ClimbingRayPivot/ClimbingRayForwardCenter 
 @onready var _climbing_ray_forward_center_lower = $ClimbingRayPivot/ClimbingRayForwardCenter/ClimbingRayForwardCenterLower
+@onready var _climbing_ray_forward_center_higher = $ClimbingRayPivot/ClimbingRayForwardCenter/ClimbingRayForwardCenterHigher
 @onready var _ledge_vertical_check = $ClimbingRayPivot/LedgeVerticalCheck
 @onready var _ledge_vertical_check_mantle = $ClimbingRayPivot/LedgeVerticalCheckMantle
 

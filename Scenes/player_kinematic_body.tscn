@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=37 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -32,7 +32,6 @@
 [ext_resource type="Script" path="res://Scripts/CameraStairs.gd" id="15_7flgm"]
 [ext_resource type="Script" path="res://Scripts/LedgeHang.gd" id="18_td1sj"]
 [ext_resource type="Script" path="res://Scripts/LedgeJump.gd" id="19_qjxhd"]
-[ext_resource type="Script" path="res://Scripts/LedgeHangFromMantleChecks.gd" id="22_1urfn"]
 [ext_resource type="Shape3D" uid="uid://brst4aadrvjgk" path="res://CollisionShapes/HangCollision.tres" id="28_bcv1h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwlmk"]
@@ -211,10 +210,6 @@ fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 ledge_jump_state = NodePath("../LedgeJump")
 ledge_hang_state = NodePath(".")
-
-[node name="LedgeHangFromMantleChecks" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("ledge_hang_state")]
-script = ExtResource("22_1urfn")
-ledge_hang_state = NodePath("../LedgeHang")
 
 [node name="LedgeJump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_jump_state", "_camera_jump_state")]
 script = ExtResource("19_qjxhd")
@@ -407,6 +402,12 @@ debug_shape_thickness = 5
 
 [node name="ClimbingRayForwardCenterLower" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayForwardCenter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1035e-08, -0.481224)
+target_position = Vector3(0, -4.5, 0)
+debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
+debug_shape_thickness = 5
+
+[node name="ClimbingRayForwardCenterHigher" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayForwardCenter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.481)
 target_position = Vector3(0, -4.5, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5

@@ -5,4 +5,3 @@ extends Node3D
 
 func get_point_to_look_at():
 	return _look_at_point.global_position
-	

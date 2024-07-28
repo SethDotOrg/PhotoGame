@@ -47,3 +47,6 @@ func respawn_player():
 	direction = (_player.transform.basis * Vector3(0, 0, -1)).normalized() #set direction to be straight ahead of the player so that we have a value to work with (the below line requires this)
 	direction = _player._camera_controller.get_direction_from_mouse(direction) #then get the direction that the mouse is facing which we have facing the wall now
 	_player._model.rotate_y(atan2(direction.x, direction.z)) #then rotate the model based on the direction we just calculated
+
+func get_player_node():
+	return _player

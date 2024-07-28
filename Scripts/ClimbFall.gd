@@ -6,11 +6,6 @@ extends State
 @export var climb_state: State
 @export var wall_jump_state: State
 
-func process_input(event: InputEvent) -> State:
-	if Input.is_action_pressed("run"):
-		speed = parent.RUN_SPEED
-	return null
-
 func process_physics(delta: float) -> State:
 	super(delta)
 	parent.velocity.y -= (gravity * 2) * delta #apply gravity to the player when falling. In this case we want more force on the player when falling
@@ -19,6 +14,8 @@ func process_physics(delta: float) -> State:
 	parent._camera_controller.jump_camera_handler(parent._camera_point_jump, delta)
 	if !Input.is_action_pressed("run"):
 		speed = parent.WALK_SPEED
+	else:
+		speed = parent.RUN_SPEED
 	
 	#move player toward the direction value and rotate the model
 	if direction:

@@ -1,10 +1,12 @@
 extends State
 
 @export var idle_state: State
-@export var jump_state: State
-@export var fall_state: State
 @export var walk_state: State
 @export var run_state: State
+@export var jump_state: State
+@export var fall_state: State
+@export var climb_jump_state: State
+@export var climb_fall_state: State
 @export var ledge_hang_state: State
 
 func enter() -> void:
@@ -52,6 +54,7 @@ func process_physics(delta: float) -> State:
 		#print("right")
 		return ledge_hang_state
 	
+	
 	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0: #if the player is on the floor and not moving horizontally
 		return idle_state
 	elif parent.is_on_floor() and (parent.velocity.x != 0 or parent.velocity.z != 0) and Input.is_action_pressed("run"): #if the player is moving and on the floor and pressing the run button
@@ -60,7 +63,7 @@ func process_physics(delta: float) -> State:
 		return walk_state
 	
 	if !parent.is_on_floor() and parent.velocity.y <= 0: #if not on the floor and velocity is negative then the player is falling
-		return fall_state
+		return climb_fall_state
 	elif !parent.is_on_floor() and parent.velocity.y > 0: #if not on the floor and the velocity is positive then the player is jumping
-		return jump_state
+		return climb_jump_state
 	return null

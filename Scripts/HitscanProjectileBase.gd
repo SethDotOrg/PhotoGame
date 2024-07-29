@@ -25,7 +25,7 @@ func _ready():
 	_weapon_manager = self.get_parent()
 	set_weapon()
 #	_player_ui.update_hud_ammo(current_ammo, _mag_size)
-	_camera_controller.set_raycast_distance(_weapon_range)
+	#_camera_controller.set_raycast_distance(_weapon_range)
 
 func _unhandled_input(_event):
 	if Input.is_action_pressed("mouse_right"):#Requires aiming down the sights

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=42 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -12,11 +12,15 @@
 [ext_resource type="Script" path="res://Scripts/Walk.gd" id="5_fxeox"]
 [ext_resource type="Script" path="res://Scripts/Jump.gd" id="5_hqxe7"]
 [ext_resource type="PackedScene" uid="uid://d2x18mvklkjgh" path="res://Blender Models/Revolver2.glb" id="5_pvvfr"]
+[ext_resource type="Script" path="res://Scripts/Crouch.gd" id="6_085c4"]
 [ext_resource type="Script" path="res://Scripts/Run.gd" id="6_i6177"]
+[ext_resource type="Script" path="res://Scripts/CrouchWalk.gd" id="7_cepot"]
 [ext_resource type="PackedScene" uid="uid://t7snq77r54hq" path="res://Scenes/UI/BaseUI.tscn" id="7_lkktq"]
 [ext_resource type="Script" path="res://Scripts/Fall.gd" id="8_2a85m"]
+[ext_resource type="Script" path="res://Scripts/CrouchStairs.gd" id="8_x88u5"]
 [ext_resource type="PackedScene" uid="uid://c7h2vpdo88ram" path="res://Blender Models/PackageV1/PackageV1.glb" id="9_1isq8"]
 [ext_resource type="Script" path="res://Scripts/Pickup.gd" id="9_24x63"]
+[ext_resource type="Script" path="res://Scripts/CrouchCamera.gd" id="9_m3uel"]
 [ext_resource type="Script" path="res://Scripts/Climb.gd" id="9_ytu47"]
 [ext_resource type="Script" path="res://Scripts/CameraIdle.gd" id="10_rb8qh"]
 [ext_resource type="Script" path="res://Scripts/Stairs.gd" id="10_wu825"]
@@ -38,6 +42,10 @@
 radius = 1.0
 height = 10.1811
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_st37o"]
+radius = 1.92771
+height = 8.05704
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgvhq"]
 radius = 1.75426
 height = 10.939
@@ -56,7 +64,7 @@ _starting_state = NodePath("Idle")
 script = ExtResource("2_uperh")
 _animation_name = "Stand"
 
-[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "walk_state", "climb_mantle_state", "camera_state", "stairs_state")]
+[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "walk_state", "climb_mantle_state", "camera_state", "stairs_state", "crouch_state")]
 script = ExtResource("4_muoqk")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
@@ -64,6 +72,7 @@ walk_state = NodePath("../Walk")
 climb_mantle_state = NodePath("../ClimbMantle")
 camera_state = NodePath("../CameraIdle")
 stairs_state = NodePath("../Stairs")
+crouch_state = NodePath("../Crouch")
 _animation_name = "Stand"
 
 [node name="Walk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "run_state", "climb_mantle_state", "stairs_state", "_camera_walk_state")]
@@ -76,6 +85,24 @@ climb_mantle_state = NodePath("../ClimbMantle")
 stairs_state = NodePath("../Stairs")
 _camera_walk_state = NodePath("../CameraWalk")
 _animation_name = "Walk"
+
+[node name="Crouch" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("crouch_walk_state", "crouch_camera_state", "crouch_stairs_state")]
+script = ExtResource("6_085c4")
+crouch_walk_state = NodePath("../CrouchWalk")
+crouch_camera_state = NodePath("../CrouchCamera")
+crouch_stairs_state = NodePath("../CrouchStairs")
+_animation_name = "Crouch"
+
+[node name="CrouchWalk" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("7_cepot")
+_animation_name = "CrouchWalk"
+
+[node name="CrouchStairs" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("8_x88u5")
+_animation_name = "CrouchWalk"
+
+[node name="CrouchCamera" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("9_m3uel")
 
 [node name="Run" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "walk_state", "climb_mantle_state", "stairs_state", "_camera_run_state")]
 script = ExtResource("6_i6177")
@@ -230,37 +257,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31323e-10, -6.29874, -0.386
 bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(-0.135812, 1.18105e-07, -1.61901e-08, 0.990735)
-bones/4/rotation = Quaternion(-0.705817, -0.706609, 0.0265311, -0.0426861)
+bones/3/rotation = Quaternion(0.120214, -4.47333e-16, 2.86613e-08, 0.992748)
+bones/4/rotation = Quaternion(-0.338684, -0.324398, -0.628304, 0.62072)
 bones/5/rotation = Quaternion(0.0121538, 0.00402048, -0.707095, 0.707002)
 bones/5/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.00132025, -1.32174e-14, 5.14124e-10, 0.999999)
-bones/8/rotation = Quaternion(0.00808697, -0.0080873, 0.707061, 0.707061)
-bones/9/rotation = Quaternion(-0.705817, 0.706609, -0.0265311, -0.0426861)
+bones/8/rotation = Quaternion(0.00808693, -0.0080873, 0.707061, 0.707061)
+bones/9/rotation = Quaternion(0.131679, -0.147535, 0.691544, 0.694738)
 bones/10/rotation = Quaternion(0.0121538, -0.00402048, 0.707095, 0.707002)
 bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(-0.00707146, -9.91939e-10, 2.73216e-09, 0.999975)
 bones/12/rotation = Quaternion(0.00132025, 1.32174e-14, -5.14124e-10, 0.999999)
-bones/13/rotation = Quaternion(0.00808696, 0.0080873, -0.707061, 0.707061)
-bones/16/rotation = Quaternion(0.481384, 0.517947, 0.517947, -0.481384)
+bones/14/rotation = Quaternion(-0.135813, 9.40033e-10, 9.40032e-10, 0.990735)
+bones/15/rotation = Quaternion(-0.135813, 9.40033e-10, 9.40032e-10, 0.990735)
+bones/16/rotation = Quaternion(0.359712, 0.387033, 0.621887, -0.577987)
 bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250573, 0.706663)
 bones/17/scale = Vector3(1, 1, 1)
-bones/19/rotation = Quaternion(-0.481384, 0.517947, 0.517947, 0.481384)
+bones/18/rotation = Quaternion(-0.000188701, 0.000135899, 0.0712543, 0.997458)
+bones/19/rotation = Quaternion(-0.547077, 0.58863, 0.435951, 0.405176)
 bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250573, 0.706663)
 bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(5.67155e-10, 2.42564e-07, -0.00256307, 0.999997)
 bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, 5.25775e-07, 2.08616e-07, 4.51691e-07, -0.984808, 0.173648, 2.86847e-07, -0.173648, -0.984808, 0.90636, 1.63986, -0.624778)
+transform = Transform3D(1, -1.90758e-07, 2.98023e-08, 2.61702e-07, 0.762502, 0.646985, -1.13621e-07, -0.646985, 0.762502, 0.90636, 1.62903, -0.621649)
 
 [node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, -5.25456e-07, -2.21655e-07, -4.49363e-07, -0.984808, 0.173648, -2.99886e-07, -0.173648, -0.984808, -0.90636, 1.63986, -0.624777)
+transform = Transform3D(1, 7.26962e-07, -3.33413e-07, -7.90693e-07, 0.783839, -0.620964, -1.71363e-07, 0.620964, 0.783839, -0.90636, 1.62877, -0.629545)
 
 [node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.476315, -0.854799, -0.228398)
+transform = Transform3D(1, -2.11798e-09, 1.60731e-09, 2.11798e-09, 1, 8.34465e-07, -1.60731e-09, -8.34465e-07, 1, 0.476315, -0.8548, -0.228398)
 
 [node name="RightLegConnecter" parent="GameModel/Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.476315, -0.854799, -0.228398)
+transform = Transform3D(1, -2.11798e-09, 1.60731e-09, 2.11798e-09, 1, 8.34465e-07, -1.60731e-09, -8.34465e-07, 1, -0.476315, -0.8548, -0.228398)
 
 [node name="LeftArmIK" type="SkeletonIK3D" parent="GameModel/Armature/Skeleton3D" index="12"]
 process_priority = 1
@@ -270,7 +298,7 @@ override_tip_basis = false
 target_node = NodePath("../../../ArmEndRightHandle/ArmEndRightTarget")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="GameModel/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-1, 4.74773e-07, 2.12324e-07, 5.29044e-07, 0.984808, 0.173648, -1.24145e-07, 0.173648, -0.984808, -1.36038, 5.23642, 0.0127432)
+transform = Transform3D(-1, -5.98128e-07, 9.38049e-08, 4.28347e-07, -0.783839, -0.620964, 4.29097e-07, -0.620964, 0.783839, -1.36039, -1.23225, -2.90028)
 bone_name = "Hand.r"
 bone_idx = 12
 
@@ -301,6 +329,11 @@ target_position = Vector3(0, -4.31, 0)
 [node name="CollisionShapeWallHang" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00258157, 7.12188, 0.214467)
 shape = ExtResource("28_bcv1h")
+disabled = true
+
+[node name="CollisionShapeCrouch" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.24053, 0.688849)
+shape = SubResource("CapsuleShape3D_st37o")
 disabled = true
 
 [node name="WallJumpArea3D" type="Area3D" parent="." node_paths=PackedStringArray("_player")]

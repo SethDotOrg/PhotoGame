@@ -8,13 +8,14 @@ extends State
 
 func enter() -> void:
 	super()
-	parent.velocity.x = 0
+	#parent.velocity.x = 0
 	speed = parent.WALK_SPEED
 	number_of_wall_jumps = 0
 	tried_mantle = false
 
 func process_input(event: InputEvent) -> State:
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_back"): 
+	#if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_back"): 
+	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"): 
 		return crouch_walk_state
 	if Input.is_action_pressed("ctrl"):
 		return crouch_camera_state

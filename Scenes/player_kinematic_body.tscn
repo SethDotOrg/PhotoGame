@@ -116,8 +116,11 @@ crouch_stairs_state = NodePath("../CrouchStairs")
 crouch_camera_state = NodePath("../CrouchCamera")
 _animation_name = "CrouchWalk"
 
-[node name="CrouchStairs" type="Node" parent="PlayerStateMachine"]
+[node name="CrouchStairs" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "crouch_state", "crouch_walk_state")]
 script = ExtResource("8_x88u5")
+idle_state = NodePath("../Idle")
+crouch_state = NodePath("../Crouch")
+crouch_walk_state = NodePath("../CrouchWalk")
 _animation_name = "CrouchWalk"
 
 [node name="CrouchCamera" type="Node" parent="PlayerStateMachine"]

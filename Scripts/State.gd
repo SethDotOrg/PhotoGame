@@ -30,7 +30,7 @@ func process_frame(delta: float) -> State:
 func process_physics(delta: float) -> State:
 	#We get input direction here and change the direction of of player based on that and the camera
 	input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")#returns a 2 axis vector (VECTOR 2)
-	direction = (parent.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (parent.transform.basis * Vector3(-input_dir.x, 0, -input_dir.y)).normalized()
 	
 	#direction = -parent.get_direction_from_player(direction)
 	#parent._model.rotation.y = parent.rotation.y

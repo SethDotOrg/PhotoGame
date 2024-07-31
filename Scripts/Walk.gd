@@ -4,6 +4,7 @@ extends State
 @export var jump_state: State
 @export var idle_state: State
 @export var run_state: State
+@export var crouch_walk_state: State
 @export var climb_mantle_state: State
 @export var stairs_state: State
 @export var _camera_walk_state: State
@@ -21,6 +22,8 @@ func process_input(event: InputEvent) -> State:
 			return run_state
 		if Input.is_action_pressed("ctrl"):
 			return _camera_walk_state
+	if Input.is_action_just_pressed("crouch"):
+		return crouch_walk_state
 	if Input.is_action_pressed("mouse_right") and parent.mantle_checks():#should be on the ground so mantle 
 		return climb_mantle_state
 	return null
@@ -36,7 +39,7 @@ func process_physics(delta: float) -> State:
 	if direction:
 		parent.velocity.x = -direction.x * speed #we get the amount of direction in the x direction and apply speed to it. Speed allows us to not be super slow
 		parent.velocity.z = -direction.z * speed #same but in the z direction
-		parent._model.rotation.y = lerp_angle(parent._model.rotation.y, atan2(-parent.velocity.x, -parent.velocity.z), parent.LERP_VAL) # we rotate the model to match direction, but we dont do it instantaineous
+		parent._model.rotation.y = lerp_angle(parent._model.rotation.y, atan2(parent.velocity.x, parent.velocity.z), parent.LERP_VAL) # we rotate the model to match direction, but we dont do it instantaineous
 	else:
 		parent.velocity.x = move_toward(-parent.velocity.x, 0, speed) #else we bring the player to a
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally

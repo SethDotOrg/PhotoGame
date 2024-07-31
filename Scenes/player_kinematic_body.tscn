@@ -75,26 +75,45 @@ stairs_state = NodePath("../Stairs")
 crouch_state = NodePath("../Crouch")
 _animation_name = "Stand"
 
-[node name="Walk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "run_state", "climb_mantle_state", "stairs_state", "_camera_walk_state")]
+[node name="Walk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "run_state", "crouch_walk_state", "climb_mantle_state", "stairs_state", "_camera_walk_state")]
 script = ExtResource("5_fxeox")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 idle_state = NodePath("../Idle")
 run_state = NodePath("../Run")
+crouch_walk_state = NodePath("../CrouchWalk")
 climb_mantle_state = NodePath("../ClimbMantle")
 stairs_state = NodePath("../Stairs")
 _camera_walk_state = NodePath("../CameraWalk")
 _animation_name = "Walk"
 
-[node name="Crouch" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("crouch_walk_state", "crouch_camera_state", "crouch_stairs_state")]
+[node name="Run" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "walk_state", "crouch_walk_state", "climb_mantle_state", "stairs_state", "_camera_run_state")]
+script = ExtResource("6_i6177")
+fall_state = NodePath("../Fall")
+jump_state = NodePath("../Jump")
+idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")
+crouch_walk_state = NodePath("../CrouchWalk")
+climb_mantle_state = NodePath("../ClimbMantle")
+stairs_state = NodePath("../Stairs")
+_camera_run_state = NodePath("../CameraRun")
+_animation_name = "Walk"
+
+[node name="Crouch" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "crouch_walk_state", "crouch_camera_state", "crouch_stairs_state")]
 script = ExtResource("6_085c4")
+idle_state = NodePath("../Idle")
 crouch_walk_state = NodePath("../CrouchWalk")
 crouch_camera_state = NodePath("../CrouchCamera")
 crouch_stairs_state = NodePath("../CrouchStairs")
 _animation_name = "Crouch"
 
-[node name="CrouchWalk" type="Node" parent="PlayerStateMachine"]
+[node name="CrouchWalk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("walk_state", "run_state", "crouch_state", "crouch_stairs_state", "crouch_camera_state")]
 script = ExtResource("7_cepot")
+walk_state = NodePath("../Walk")
+run_state = NodePath("../Run")
+crouch_state = NodePath("../Crouch")
+crouch_stairs_state = NodePath("../CrouchStairs")
+crouch_camera_state = NodePath("../CrouchCamera")
 _animation_name = "CrouchWalk"
 
 [node name="CrouchStairs" type="Node" parent="PlayerStateMachine"]
@@ -104,23 +123,13 @@ _animation_name = "CrouchWalk"
 [node name="CrouchCamera" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("9_m3uel")
 
-[node name="Run" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "walk_state", "climb_mantle_state", "stairs_state", "_camera_run_state")]
-script = ExtResource("6_i6177")
-fall_state = NodePath("../Fall")
-jump_state = NodePath("../Jump")
-idle_state = NodePath("../Idle")
-walk_state = NodePath("../Walk")
-climb_mantle_state = NodePath("../ClimbMantle")
-stairs_state = NodePath("../Stairs")
-_camera_run_state = NodePath("../CameraRun")
-_animation_name = "Walk"
-
-[node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "climb_jump_state", "wall_jump_state", "_camera_jump_state")]
+[node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "climb_jump_state", "wall_jump_state", "_camera_jump_state", "crouch_state")]
 script = ExtResource("5_hqxe7")
 fall_state = NodePath("../Fall")
 climb_jump_state = NodePath("../ClimbJump")
 wall_jump_state = NodePath("../WallJump")
 _camera_jump_state = NodePath("../CameraJump")
+crouch_state = NodePath("../Crouch")
 _animation_name = "Climb"
 
 [node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_fall_state", "wall_jump_state", "_camera_fall_state")]

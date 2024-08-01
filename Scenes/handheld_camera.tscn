@@ -12,7 +12,6 @@ _handheld_camera_sesitivity = 0.001
 [node name="RotateNodeVertical" type="Node3D" parent="RotateNodeHorizontal"]
 
 [node name="CameraCamera" type="Camera3D" parent="RotateNodeHorizontal/RotateNodeVertical"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CameraSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_o73cf")

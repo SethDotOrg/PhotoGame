@@ -26,6 +26,7 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	parent.velocity.y -= (gravity * 2) * delta#apply some gravity to the player while idle
 	#move player toward the direction value and rotate the model
+	parent._camera_controller.crouch_camera_handler(parent._camera_point_crouch, delta)
 	if direction:
 		parent.velocity.x = -direction.x * speed #we get the amount of direction in the x direction and apply speed to it. Speed allows us to not be super slow
 		parent.velocity.z = -direction.z * speed #same but in the z direction

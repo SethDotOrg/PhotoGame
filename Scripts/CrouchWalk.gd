@@ -24,6 +24,7 @@ func process_input(event: InputEvent) -> State:
 
 func process_physics(delta: float) -> State:
 	super(delta)
+	parent._camera_controller.crouch_walk_camera_handler(parent._camera_point_crouch_walk, delta)
 	parent._animations.play(_animation_name) #need this here so the animation can loop
 	speed = parent.WALK_SPEED #if we are in this state then we should be using the walk speed
 	direction = parent._camera_controller.get_direction_from_mouse(direction)

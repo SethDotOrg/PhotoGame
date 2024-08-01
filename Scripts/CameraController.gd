@@ -5,6 +5,7 @@ const FOLLOW_FOV = 70.0
 const AIM_FOV = 45.0
 const RUN_FOV = 90.0
 const JUMP_CAM_MOVE_DURATION = 0.4 #seconds
+const CROUCH_CAM_MOVE_DURATION = 0.3 #seconds
 const AIM_CAM_MOVE_DURATION = 0.3 #seconds
 const RESET_CAM_MOVE_DURATION = 0.2 #seconds
 
@@ -55,6 +56,12 @@ func follow_target(follow_target: Node3D, delta):
 func jump_camera_handler(jump_target: Node3D, delta):
 	tween_camera_position(jump_target.global_position, JUMP_CAM_MOVE_DURATION) #sends the target the camera should follow and how long it should take to do so
 
+func crouch_camera_handler(crouch_target: Node3D, delta):
+	tween_camera_position(crouch_target.global_position, CROUCH_CAM_MOVE_DURATION) #sends the target the camera should follow and how long it should take to do so
+
+func crouch_walk_camera_handler(crouch_walk_target: Node3D, delta):
+	tween_camera_position(crouch_walk_target.global_position, CROUCH_CAM_MOVE_DURATION) #sends the target the camera should follow and how long it should take to do so
+
 func aim_camera_handler(aim_pivot: Node3D, aim_target: Node3D, delta): #reminents from the third person game i was making. just switches a closer aim (I will leave it incase we might use it for something)
 	#position = position.slerp(aim_target.global_position, 1)
 	tween_camera_position(aim_target.global_position, AIM_CAM_MOVE_DURATION)
@@ -90,7 +97,7 @@ func toggle_dof(dof_state: bool):
 	_camera_3D.attributes.dof_blur_near_enabled = dof_state	
 
 func set_camera_rotation(horizontal,vertical): #matches the camera rotation to the desired rotation
-	_rotate_node_vertical.rotation.x = -vertical
+	_rotate_node_vertical.rotation.x = vertical
 	_rotate_node_horizontal.rotation.y = horizontal
 
 func set_camera_horizontal_rotation(horizontal):

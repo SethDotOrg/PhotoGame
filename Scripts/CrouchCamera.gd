@@ -15,6 +15,12 @@ func enter():
 	in_handheld_camera = true
 	number_of_wall_jumps = 0
 	tried_mantle = false
+	parent._player_collision_shape_crouch.disabled = false
+	parent._player_collision_shape.disabled = true
+
+func exit() -> void:
+	parent._player_collision_shape_crouch.disabled = true
+	parent._player_collision_shape.disabled = false
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):

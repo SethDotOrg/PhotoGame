@@ -11,7 +11,12 @@ func enter():
 	parent._stair_ray_position_check.position.y = parent._stair_ray_air_check.position.y#set the closer to the player vertical raycast to match its original y value
 	parent.global_position = (parent.global_position * Vector3(1,0,1))+(parent._stair_ray_position.get_collision_point() * Vector3(0,1,0)) #use the second vertical...
 	# raycast that is farther from the player and teleport the player to it. This raycast changes alongside the closer to player raycast
-	
+	parent._player_collision_shape_crouch.disabled = false
+	parent._player_collision_shape.disabled = true
+
+func exit() -> void:
+	parent._player_collision_shape_crouch.disabled = true
+	parent._player_collision_shape.disabled = false
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("crouch"):

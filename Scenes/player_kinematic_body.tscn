@@ -297,16 +297,16 @@ bones/21/rotation = Quaternion(1.55653e-07, 1.5374e-07, -0.769623, 0.638499)
 bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.965508, 0.0452401, 0.256412, 0.208031, 0.458185, -0.86417, -0.156579, 0.887705, 0.432971, 0.851584, -0.613289, 0.370756)
+transform = Transform3D(0.965508, 0.0452404, 0.256413, 0.208031, 0.458186, -0.86417, -0.15658, 0.887705, 0.432971, 0.851584, -0.613291, 0.370756)
 
 [node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.965508, 0.04524, 0.256412, 0.20803, 0.458185, -0.86417, -0.156579, 0.887705, 0.43297, -0.898612, -0.990389, 0.65459)
+transform = Transform3D(0.965509, 0.0452396, 0.256411, 0.20803, 0.458185, -0.86417, -0.156579, 0.887705, 0.432971, -0.898612, -0.990391, 0.654591)
 
 [node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.965508, 0.0452397, 0.256412, 0.20803, 0.458186, -0.86417, -0.156579, 0.887704, 0.432971, 0.425935, -2.18339, -1.59344)
+transform = Transform3D(0.965508, 0.0452397, 0.256412, 0.208031, 0.458186, -0.86417, -0.156579, 0.887704, 0.432971, 0.425935, -2.1834, -1.59344)
 
 [node name="RightLegConnecter" parent="GameModel/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.965508, 0.0452397, 0.256412, 0.20803, 0.458186, -0.86417, -0.156579, 0.887704, 0.432971, -0.493837, -2.38157, -1.44428)
+transform = Transform3D(0.965508, 0.0452397, 0.256412, 0.208031, 0.458186, -0.86417, -0.156579, 0.887704, 0.432971, -0.493837, -2.38157, -1.44428)
 
 [node name="LeftArmIK" type="SkeletonIK3D" parent="GameModel/Armature/Skeleton3D" index="12"]
 process_priority = 1
@@ -316,7 +316,7 @@ override_tip_basis = false
 target_node = NodePath("../../../ArmEndRightHandle/ArmEndRightTarget")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="GameModel/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-0.90678, 0.257344, 0.333953, 0.186798, -0.464877, 0.865445, 0.377964, 0.84715, 0.37347, -0.876756, -2.77889, 1.07549)
+transform = Transform3D(-0.906779, 0.257344, 0.333954, 0.186799, -0.464878, 0.865445, 0.377965, 0.84715, 0.37347, -0.876756, -2.77889, 1.07549)
 bone_name = "Hand.r"
 bone_idx = 12
 

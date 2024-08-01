@@ -62,7 +62,7 @@ func process_physics(delta: float) -> State:
 		parent._handheld_camera.toggle_camera_active(false)
 		parent._model.visible = true
 		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical()) # set third person camera to match handhld cameras rotation
-		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y
+		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y  + PI# add pi to put the player in the right direction
 		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
 		return _fall_state
 	return null

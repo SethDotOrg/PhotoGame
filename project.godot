@@ -203,6 +203,10 @@ crouch={
 ]
 }
 
+[physics]
+
+3d/default_gravity=20.0
+
 [rendering]
 
 textures/vram_compression/import_s3tc_bptc=true

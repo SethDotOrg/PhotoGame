@@ -6,7 +6,7 @@ extends State
 @export var _camera_jump_state: State
 @export var crouch_state: State
 
-@export var JUMP_VELOCITY: float = 10.0
+@export var JUMP_VELOCITY: float = 18.0
 
 #var speed = parent.WALK_SPEED
 

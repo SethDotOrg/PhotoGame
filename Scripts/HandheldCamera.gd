@@ -36,7 +36,7 @@ func _unhandled_input(event):
 		_rotate_node_vertical.rotate_x(event.relative.y * _handheld_camera_sesitivity) #rotate the handheld cameras vertical node using the y input from the mouse
 		_rotate_node_vertical.rotation.x = clamp(_rotate_node_vertical.rotation.x, deg_to_rad(-90), deg_to_rad(90)) #limit the angle the camera can rotate
 		#horizontal
-		_rotate_node_horizontal.rotate_y(-event.relative.x * _handheld_camera_sesitivity)#rotate the handheld cameras horizontal node. This does need to be limited
+		_rotate_node_horizontal.rotate_y(event.relative.x * _handheld_camera_sesitivity)#rotate the handheld cameras horizontal node. This does need to be limited
 
 func take_photo(): # TODO the first photo will take twice I think hot loading would fix this
 	print("in take photo")
@@ -55,7 +55,7 @@ func get_direction_from_mouse(direction):
 	return direction
 
 func set_camera_rotation(horizontal,vertical):
-	_rotate_node_vertical.rotation.x = -vertical
+	_rotate_node_vertical.rotation.x = vertical
 	_rotate_node_horizontal.rotation.y = horizontal
 
 func get_camera_rotation_horizontal():

@@ -1,12 +1,10 @@
 extends State
 
-@export var _walk_state: State
-@export var _camera_idle_state: State
-@export var _camera_run_state: State
-@export var _camera_jump_state: State
-@export var _camera_fall_state: State
-@export var _camera_stairs_state: State
-@export var _crouch_camera_walk_state: State
+@export var _camera_walk_state: State
+@export var _crouch_state: State
+@export var crouch_walk_state: State
+@export var crouch_camera_state: State
+@export var crouch_camera_stairs_state: State
 
 var in_handheld_camera
 
@@ -16,18 +14,26 @@ func enter():
 	in_handheld_camera = true
 	number_of_wall_jumps = 0
 	tried_mantle = false
+	parent._player_collision_shape_crouch.disabled = false
+	parent._player_collision_shape.disabled = true
+	parent._handheld_camera.global_position = parent._handheld_camera_location_crouch.global_position
+
+func exit() -> void:
+	parent._player_collision_shape_crouch.disabled = true
+	parent._player_collision_shape.disabled = false
+	parent._handheld_camera.global_position = parent._handheld_camera_location_stand.global_position
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false	
-	if Input.is_action_just_pressed("jump"):
-			return _camera_jump_state
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
-	if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_pressed("run") and Input.is_action_pressed("ctrl"):#if moving and pressing run
-			return _camera_run_state
 	if Input.is_action_just_pressed("crouch"):
-		return _crouch_camera_walk_state
+		parent._crouching_collision_check.enabled = true #enable the raycast for ceiling checks when crouched
+		parent._crouching_collision_check.force_raycast_update() #force the raycast update so that we get a good reading no matter the frame
+		if !parent._crouching_collision_check.is_colliding():
+			parent._crouching_collision_check.enabled = false
+			return _camera_walk_state
 	return null
 
 func process_physics(delta: float) -> State:
@@ -53,11 +59,9 @@ func process_physics(delta: float) -> State:
 		parent.move_and_slide()
 		
 		if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0:#if on the floor and not horziontally moving
-			return _camera_idle_state
-		if parent.velocity.y < 0:#if the y velocity is negative the player is falling
-			return _camera_fall_state
+			return crouch_camera_state
 		if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor(): #if on the floor and the stair checks are good
-			return _camera_stairs_state
+			return crouch_camera_stairs_state
 		#---------walk code end
 		
 	elif in_handheld_camera == false:
@@ -71,7 +75,7 @@ func process_physics(delta: float) -> State:
 		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y + PI # add pi to put the player in the right direction
 		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
 		if parent.velocity.x == 0 or parent.velocity.z == 0:#if stopped moving horizontally
-			return _camera_idle_state
+			return _crouch_state
 		else:
-			return _walk_state
+			return crouch_walk_state
 	return null

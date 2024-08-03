@@ -6,6 +6,7 @@ extends State
 @export var _camera_run_state: State
 @export var _camera_jump_state: State
 @export var _camera_fall_state: State
+@export var _crouch_camera_stairs_state: State
 
 var in_handheld_camera
 
@@ -25,6 +26,8 @@ func process_input(event: InputEvent) -> State:
 		return _camera_walk_state
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
+	if Input.is_action_just_pressed("crouch"):
+		return _crouch_camera_stairs_state
 	return null
 
 func process_physics(delta: float) -> State:
@@ -54,7 +57,7 @@ func process_physics(delta: float) -> State:
 		parent._handheld_camera.toggle_camera_active(false)
 		parent._model.visible = true
 		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical())#set the 3rd person camera rotation to the handheld camera rotation
-		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y
+		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y + PI# add pi to put the player in the right direction
 		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
 		return _camera_idle_state
 	return null

@@ -5,6 +5,7 @@ extends State
 @export var _camera_walk_state: State
 @export var _camera_run_state: State
 @export var _camera_jump_state: State
+@export var _crouch_camera_state: State
 
 var in_handheld_camera
 
@@ -19,6 +20,8 @@ func process_input(event: InputEvent) -> State:
 		in_handheld_camera = false
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
+	if Input.is_action_just_pressed("crouch"):
+		return _crouch_camera_state
 	return null
 
 func process_physics(delta: float) -> State:
@@ -41,7 +44,7 @@ func process_physics(delta: float) -> State:
 		if direction:
 			parent.velocity.x = -direction.x * speed #we get the amount of direction in the x direction and apply speed to it. Speed allows us to not be super slow
 			parent.velocity.z = -direction.z * speed #same but in the z direction
-			parent._model.rotation.y = lerp_angle(parent._model.rotation.y, atan2(-parent.velocity.x, -parent.velocity.z), parent.LERP_VAL) # we rotate the model to match direction, but we dont do it instantaineous
+			parent._model.rotation.y = lerp_angle(parent._model.rotation.y, atan2(parent.velocity.x, parent.velocity.z), parent.LERP_VAL) # we rotate the model to match direction, but we dont do it instantaineous
 		else:
 			parent.velocity.x = move_toward(-parent.velocity.x, 0, speed) #else we bring the player to a
 			parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
@@ -62,7 +65,7 @@ func process_physics(delta: float) -> State:
 		parent._handheld_camera.toggle_camera_active(false)
 		parent._model.visible = true
 		parent._camera_controller.set_camera_rotation(parent._handheld_camera.get_camera_rotation_horizontal(),parent._handheld_camera.get_camera_rotation_vertical()) # set third person camera to match handhld cameras rotation
-		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y
+		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y  + PI# add pi to put the player in the right direction
 		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
 		return _fall_state
 	return null

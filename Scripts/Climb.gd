@@ -7,7 +7,7 @@ extends State
 @export var fall_state: State
 @export var climb_jump_state: State
 @export var climb_fall_state: State
-@export var ledge_hang_state: State
+@export var ledge_hang_state: State	
 
 func enter() -> void:
 	super()

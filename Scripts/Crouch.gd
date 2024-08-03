@@ -25,7 +25,13 @@ func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed("ctrl"):
 		return crouch_camera_state
 	if Input.is_action_just_pressed("crouch"):
-		return idle_state
+		parent._crouching_collision_check.enabled = true #enable the raycast for ceiling checks when crouched
+		parent._crouching_collision_check.force_raycast_update() #force the raycast update so that we get a good reading no matter the frame
+		if !parent._crouching_collision_check.is_colliding():
+			parent._crouching_collision_check.enabled = false
+			return idle_state
+		else:
+			parent._crouching_collision_check.enabled = false
 	return null
 
 func process_physics(delta: float) -> State:
@@ -54,8 +60,6 @@ func process_physics(delta: float) -> State:
 		#nudged until the player moves from the wall or rotates toward the stair enough to climb on top
 		return crouch_walk_state
 		
-	#if !parent.is_on_floor():
-		#return fall_state
 	
 	if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor() and check_movement(): #if on floor and moving and the stairs checks pass
 		return crouch_stairs_state

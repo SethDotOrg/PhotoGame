@@ -1,7 +1,8 @@
 extends State
 
+@export var _camera_walk_state: State
 @export var _crouch_state: State
-@export var _walk_crouch_state: State
+@export var crouch_walk_state: State
 @export var crouch_camera_state: State
 @export var crouch_camera_stairs_state: State
 
@@ -27,6 +28,12 @@ func process_input(event: InputEvent) -> State:
 		in_handheld_camera = false	
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
+	if Input.is_action_just_pressed("crouch"):
+		parent._crouching_collision_check.enabled = true #enable the raycast for ceiling checks when crouched
+		parent._crouching_collision_check.force_raycast_update() #force the raycast update so that we get a good reading no matter the frame
+		if !parent._crouching_collision_check.is_colliding():
+			parent._crouching_collision_check.enabled = false
+			return _camera_walk_state
 	return null
 
 func process_physics(delta: float) -> State:
@@ -70,5 +77,5 @@ func process_physics(delta: float) -> State:
 		if parent.velocity.x == 0 or parent.velocity.z == 0:#if stopped moving horizontally
 			return _crouch_state
 		else:
-			return _walk_crouch_state
+			return crouch_walk_state
 	return null

@@ -6,6 +6,7 @@ extends State
 @export var climb_fall_state: State
 @export var wall_jump_state: State
 @export var _camera_fall_state: State
+@export var crouch_state: State
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed("run"):
@@ -14,6 +15,8 @@ func process_input(event: InputEvent) -> State:
 		return _camera_fall_state
 	if Input.is_action_pressed("mouse_right") and !parent.is_on_floor():
 		return climb_fall_state
+	if Input.is_action_just_pressed("crouch"):
+		return crouch_state
 	return null
 
 func process_physics(delta: float) -> State:

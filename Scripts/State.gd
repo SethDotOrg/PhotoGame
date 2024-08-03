@@ -17,6 +17,7 @@ var tried_mantle
 
 func enter() -> void:
 	parent._animations.play(_animation_name)
+	parent._crouching_collision_check.add_exception(parent) #make it so the ceiling check doesnt hit the player
 
 func exit() -> void:
 	pass

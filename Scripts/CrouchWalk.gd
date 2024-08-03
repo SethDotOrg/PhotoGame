@@ -18,14 +18,18 @@ func exit() -> void:
 	parent._player_collision_shape.disabled = false
 
 func process_input(event: InputEvent) -> State:
-	if parent.is_on_floor():
-		if Input.is_action_pressed("ctrl"):
-			return crouch_camera_state
-	if Input.is_action_just_pressed("crouch"):
-		if Input.is_action_pressed("run"):
-			return run_state
-		else:
-			return walk_state
+	if Input.is_action_pressed("ctrl"):
+		return crouch_camera_state
+	if Input.is_action_pressed("crouch"):
+		parent._crouching_collision_check.enabled = true #enable the raycast for ceiling checks when crouched
+		parent._crouching_collision_check.force_raycast_update() #force the raycast update so that we get a good reading no matter the frame
+		if !parent._crouching_collision_check.is_colliding():
+			if Input.is_action_pressed("run"):
+				parent._crouching_collision_check.enabled = false
+				return run_state
+			else:
+				parent._crouching_collision_check.enabled = false
+				return walk_state
 	return null
 
 func process_physics(delta: float) -> State:

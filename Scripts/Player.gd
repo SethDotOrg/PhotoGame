@@ -13,6 +13,7 @@ const LERP_VAL = 0.15
 @onready var _standing_collision_check = $CollisionShapeNormal/StandingCollisionCheck
 @onready var _player_collision_shape_wall = $CollisionShapeWallHang
 @onready var _player_collision_shape_crouch = $CollisionShapeCrouch
+@onready var _crouching_collision_check = $ClimbingRayPivot/CrouchingCollisionCheck
 
 @onready var _model = $GameModel
 @onready var _camera_point_shoulder = $CameraPointShoulder

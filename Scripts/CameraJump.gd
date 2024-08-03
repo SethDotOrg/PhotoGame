@@ -2,7 +2,7 @@ extends State
 
 @export var _jump_state: State
 @export var _camera_fall_state: State
-
+@export var _crouch_camera_state: State
 @export var JUMP_VELOCITY: float = 10.0
 
 var in_handheld_camera
@@ -27,6 +27,8 @@ func process_input(event: InputEvent) -> State:
 		in_handheld_camera = false
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
+	if Input.is_action_just_pressed("crouch"):
+		return _crouch_camera_state
 	return null
 
 func process_physics(delta: float) -> State:

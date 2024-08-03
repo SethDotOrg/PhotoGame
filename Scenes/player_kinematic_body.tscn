@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=44 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -25,12 +25,14 @@
 [ext_resource type="Script" path="res://Scripts/CameraIdle.gd" id="10_rb8qh"]
 [ext_resource type="Script" path="res://Scripts/Stairs.gd" id="10_wu825"]
 [ext_resource type="Script" path="res://Scripts/ClimbJump.gd" id="10_yixqp"]
+[ext_resource type="Script" path="res://Scripts/CrouchCameraWalk.gd" id="11_7e6nh"]
 [ext_resource type="Script" path="res://Scripts/WallJump.gd" id="11_66qvv"]
 [ext_resource type="Script" path="res://Scripts/ClimbFall.gd" id="11_j3iar"]
 [ext_resource type="Script" path="res://Scripts/CameraWalk.gd" id="11_thocv"]
 [ext_resource type="AudioStream" uid="uid://cgt22hue1urok" path="res://Sounds/Footsteps/footsteptry1.mp3" id="11_ysiku"]
 [ext_resource type="Script" path="res://Scripts/ClimbMantle.gd" id="12_ghi6p"]
 [ext_resource type="Script" path="res://Scripts/CameraRun.gd" id="12_p1j8a"]
+[ext_resource type="Script" path="res://Scripts/CrouchCameraStairs.gd" id="12_rxto0"]
 [ext_resource type="Script" path="res://Scripts/CameraJump.gd" id="13_uxvwb"]
 [ext_resource type="Script" path="res://Scripts/CameraFall.gd" id="14_fgl6l"]
 [ext_resource type="Script" path="res://Scripts/CameraStairs.gd" id="15_7flgm"]
@@ -123,8 +125,17 @@ crouch_state = NodePath("../Crouch")
 crouch_walk_state = NodePath("../CrouchWalk")
 _animation_name = "CrouchWalk"
 
-[node name="CrouchCamera" type="Node" parent="PlayerStateMachine"]
+[node name="CrouchCamera" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_crouch_state", "_crouch_camera_walk_state", "_crouch_camera_stairs_state")]
 script = ExtResource("9_m3uel")
+_crouch_state = NodePath("../Crouch")
+_crouch_camera_walk_state = NodePath("../CrouchCameraWalk")
+_crouch_camera_stairs_state = NodePath("../CrouchCameraStairs")
+
+[node name="CrouchCameraWalk" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("11_7e6nh")
+
+[node name="CrouchCameraStairs" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("12_rxto0")
 
 [node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "climb_jump_state", "wall_jump_state", "_camera_jump_state", "crouch_state")]
 script = ExtResource("5_hqxe7")
@@ -254,6 +265,12 @@ ledge_hang_state = NodePath(".")
 script = ExtResource("19_qjxhd")
 _jump_state = NodePath("../Jump")
 _camera_jump_state = NodePath("../CameraJump")
+
+[node name="HandheldCameraLocationStand" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="HandheldCameraLocationCrouch" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.69043, 0)
 
 [node name="HandheldCamera" parent="." node_paths=PackedStringArray("_base_ui", "_player") instance=ExtResource("2_ifbpa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)

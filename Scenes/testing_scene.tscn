@@ -85,7 +85,7 @@ _camera_controller = NodePath("../../../3PCameraSystem")
 _cute_pistol_object = NodePath("../Armature/Skeleton3D/BoneAttachment3D/CutePistol")
 _revolver_object = NodePath("../Armature/Skeleton3D/BoneAttachment3D/Revolver2")
 
-[node name="BaseUI" parent="PlayerHolder/PlayerKinematicBody" index="12" node_paths=PackedStringArray("_camera_controller")]
+[node name="BaseUI" parent="PlayerHolder/PlayerKinematicBody" index="14" node_paths=PackedStringArray("_camera_controller")]
 _camera_controller = NodePath("../../3PCameraSystem")
 
 [node name="DOFCheckButton" parent="PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/PauseUI/Further_Options_UI/VBoxContainerGraphics" index="2" node_paths=PackedStringArray("_camera_controller")]

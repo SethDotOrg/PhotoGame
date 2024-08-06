@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbitskcm2fvi0"]
+
+[ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
+[ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
+[ext_resource type="Environment" uid="uid://c2p5dxa4byyt" path="res://Materials/Environments/daytime.tres" id="2_wkpj7"]
+[ext_resource type="PackedScene" uid="uid://cpq6bfk25paq6" path="res://Blender Models/CargoLevelModels/ShippingCrate.glb" id="4_06ahb"]
+[ext_resource type="PackedScene" uid="uid://drf1euhkjkhx7" path="res://Blender Models/CargoLevelModels/WoodenCrate.glb" id="5_bi1bm"]
+[ext_resource type="PackedScene" uid="uid://bjiw8xqnivef1" path="res://Blender Models/CargoLevelModels/WoodenCrate2.glb" id="6_hwvib"]
+[ext_resource type="PackedScene" uid="uid://cuep57yulaa18" path="res://Blender Models/CargoLevelModels/WoodenCrate3.glb" id="7_ng5qf"]
+[ext_resource type="PackedScene" uid="uid://drlijpqov3lo1" path="res://Blender Models/CargoLevelModels/WoodenCrate4.glb" id="8_ihvrx"]
+
+[node name="CargoLevel" type="Node3D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("1_lu7jt")
+autoplay = true
+bus = &"Music"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_wkpj7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0396074, -0.569772, -0.820848, -0.359449, -0.758374, 0.543751, -0.932324, 0.31659, -0.174767, 0, 21.4957, 0)
+light_color = Color(0.92549, 0.92549, 0.87451, 1)
+light_energy = 1.2
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_blur = 0.444
+directional_shadow_mode = 0
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 180.0
+
+[node name="CargoYardBase" parent="." instance=ExtResource("1_7h8b0")]
+
+[node name="ShippingCrate" parent="." instance=ExtResource("4_06ahb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89, 1.68155, 59)
+
+[node name="WoodenCrate" parent="." instance=ExtResource("5_bi1bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.9727, 1.62758, 82.7911)
+
+[node name="WoodenCrate2" parent="." instance=ExtResource("6_hwvib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.257, 1.61885, 82.7911)
+
+[node name="WoodenCrate3" parent="." instance=ExtResource("7_ng5qf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.0702, 1.62036, 82.7911)
+
+[node name="WoodenCrate4" parent="." instance=ExtResource("8_ihvrx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.938, 1.6192, 82.7911)
+
+[editable path="CargoYardBase"]

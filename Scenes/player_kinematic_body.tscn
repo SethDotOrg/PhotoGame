@@ -487,31 +487,31 @@ debug_shape_thickness = 5
 
 [node name="ClimbingRayForwardCenter" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.63183e-08, 10.5212, 0)
-target_position = Vector3(0, -4.5, 0)
+target_position = Vector3(0, -2.545, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
 
 [node name="ClimbingRayForwardCenterLower" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayForwardCenter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1035e-08, -0.481224)
-target_position = Vector3(0, -4.5, 0)
+target_position = Vector3(0, -2.545, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
 
 [node name="ClimbingRayForwardCenterHigher" type="RayCast3D" parent="ClimbingRayPivot/ClimbingRayForwardCenter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.481)
-target_position = Vector3(0, -4.5, 0)
+target_position = Vector3(0, -2.545, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
 
 [node name="MantleRayForwardCenter" type="RayCast3D" parent="ClimbingRayPivot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.63183e-08, 6.30925, 0)
-target_position = Vector3(0, -4.5, 0)
+target_position = Vector3(0, -2.545, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
 
 [node name="MantleRayForwardCenterHigher" type="RayCast3D" parent="ClimbingRayPivot/MantleRayForwardCenter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.84037e-08, 0.421028)
-target_position = Vector3(0, -4.5, 0)
+target_position = Vector3(0, -2.545, 0)
 debug_shape_custom_color = Color(1, 0.576471, 0.823529, 1)
 debug_shape_thickness = 5
 

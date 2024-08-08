@@ -39,34 +39,33 @@ _world_ledge_anchor = NodePath("../WorldLedgeAnchor")
 [node name="Skeleton3D" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature" index="1"]
 bones/0/position = Vector3(0, -0.872878, -0.519276)
 bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.13693, 0, 0, 0.990581)
-bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(-0.135812, 1.18105e-07, -1.61901e-08, 0.990735)
-bones/4/rotation = Quaternion(-0.10404, -0.0880152, -0.701608, 0.699411)
 bones/5/rotation = Quaternion(0.0121538, 0.00402048, -0.707095, 0.707002)
-bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.00707146, 9.91939e-10, -2.73216e-09, 0.999975)
-bones/7/rotation = Quaternion(0.00132025, -1.32174e-14, 5.14124e-10, 0.999999)
-bones/8/rotation = Quaternion(0.00808693, -0.0080873, 0.707061, 0.707061)
-bones/9/rotation = Quaternion(-0.10404, 0.0880152, 0.701608, 0.699411)
-bones/10/rotation = Quaternion(0.0121538, -0.00402048, 0.707095, 0.707002)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(-0.00707146, -9.91939e-10, 2.73216e-09, 0.999975)
-bones/12/rotation = Quaternion(0.00132025, 1.32174e-14, -5.14124e-10, 0.999999)
-bones/14/rotation = Quaternion(-0.135813, 9.40033e-10, 9.40032e-10, 0.990735)
-bones/15/rotation = Quaternion(-0.135813, 9.40033e-10, 9.40032e-10, 0.990735)
 bones/16/position = Vector3(0, -0.872878, -0.291752)
-bones/16/rotation = Quaternion(0.481384, 0.517947, 0.517947, -0.481384)
 bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250573, 0.706663)
-bones/17/scale = Vector3(1, 1, 1)
 bones/18/rotation = Quaternion(5.67155e-10, -2.42564e-07, 0.00256307, 0.999997)
 bones/19/position = Vector3(0, -0.872878, -0.291752)
 bones/19/rotation = Quaternion(-0.481384, 0.517947, 0.517947, 0.481384)
 bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250573, 0.706663)
-bones/20/scale = Vector3(1, 1, 1)
 bones/21/rotation = Quaternion(5.67155e-10, 2.42564e-07, -0.00256307, 0.999997)
-bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+
+[node name="LeftShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 5.24497e-07, 6.91041e-07, -4.41763e-07, 1, -3.60794e-07, -6.7614e-07, 3.71302e-07, 1, 0.90636, 1.62748, -0.625655)
+
+[node name="RightShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, -3.45922e-07, -6.4075e-07, 3.22553e-07, 1, -3.72901e-07, 6.27711e-07, 3.83772e-07, 1, -0.90636, 1.62748, -0.625655)
+
+[node name="LeftLegConnector" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -2.11798e-09, 1.60731e-09, 2.11798e-09, 1, 2.08616e-07, -1.60731e-09, -2.08616e-07, 1, 0.476315, -0.8548, -0.228399)
+
+[node name="RightLegConnecter" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, -2.11798e-09, 1.60731e-09, 2.11798e-09, 1, 2.08616e-07, -1.60731e-09, -2.08616e-07, 1, -0.476315, -0.8548, -0.228399)
+
+[node name="BoneAttachment3D" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="13"]
+transform = Transform3D(-1, 4.74761e-07, -2.1425e-07, -4.4619e-07, -1, -3.49246e-07, -2.01019e-07, -3.58559e-07, 1, -1.36038, -2.02514, -0.628954)
 
 [node name="CutePistol" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 visible = false

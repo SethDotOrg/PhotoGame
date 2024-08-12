@@ -1,15 +1,26 @@
-[gd_scene load_steps=23 format=3 uid="uid://cbitskcm2fvi0"]
+[gd_scene load_steps=26 format=3 uid="uid://cbitskcm2fvi0"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
 [ext_resource type="Environment" uid="uid://c2p5dxa4byyt" path="res://Materials/Environments/daytime.tres" id="2_wkpj7"]
+[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="4_2bbqn"]
 [ext_resource type="PackedScene" uid="uid://cpq6bfk25paq6" path="res://Blender Models/CargoLevelModels/ShippingCrate.glb" id="4_06ahb"]
+[ext_resource type="Material" uid="uid://m13nbgswj5ai" path="res://Blender Models/CargoLevelModels/CargoYardBaseMaterials/water.tres" id="4_8h6r1"]
 [ext_resource type="PackedScene" uid="uid://drf1euhkjkhx7" path="res://Blender Models/CargoLevelModels/WoodenCrate.glb" id="5_bi1bm"]
 [ext_resource type="PackedScene" uid="uid://cjb01cpqwrv2x" path="res://Blender Models/CargoLevelModels/Crane2.glb" id="5_q3ovb"]
 [ext_resource type="PackedScene" uid="uid://bjiw8xqnivef1" path="res://Blender Models/CargoLevelModels/WoodenCrate2.glb" id="6_hwvib"]
 [ext_resource type="PackedScene" uid="uid://cuep57yulaa18" path="res://Blender Models/CargoLevelModels/WoodenCrate3.glb" id="7_ng5qf"]
 [ext_resource type="PackedScene" uid="uid://drlijpqov3lo1" path="res://Blender Models/CargoLevelModels/WoodenCrate4.glb" id="8_ihvrx"]
 [ext_resource type="PackedScene" uid="uid://5hb27btt2hjw" path="res://Blender Models/CargoLevelModels/Crane.glb" id="9_ehyfr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
+shader = ExtResource("4_2bbqn")
+shader_parameter/WATER_COL = Color(0.176471, 0.635294, 0.85098, 1)
+shader_parameter/WATER2_COL = Color(0.0588235, 0.529412, 0.776471, 1)
+shader_parameter/FOAM_COL = Color(0.87451, 0.988235, 1, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/offset = Vector2(0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bok3a"]
 
@@ -144,11 +155,16 @@ directional_shadow_max_distance = 180.0
 
 [node name="CargoYardBase" parent="." instance=ExtResource("1_7h8b0")]
 
+[node name="Water" parent="CargoYardBase" index="1"]
+transform = Transform3D(600, 0, 0, 0, 0.99997, -4.64951, 0, 0.00774918, 599.982, 0, -1.66032, 0)
+material_override = ExtResource("4_8h6r1")
+surface_material_override/0 = SubResource("ShaderMaterial_0y50y")
+
 [node name="Crane" parent="." instance=ExtResource("9_ehyfr")]
-transform = Transform3D(-0.735648, 0, -0.677364, 0, 1, 0, 0.677364, 0, -0.735648, -203.649, 1.64514, -238.188)
+transform = Transform3D(-0.735648, 0, -0.677364, 0, 1, 0, 0.677364, 0, -0.735648, -204.731, 1.64514, -236.732)
 
 [node name="Crane2" parent="." instance=ExtResource("5_q3ovb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1997, 1.64514, 85.2874)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.151, 1.64514, 85.2874)
 
 [node name="Cube" parent="Crane2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2631, -2.10432, 0)
@@ -162,49 +178,139 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4984, -1.09219, 0.362022)
 [node name="Shipping Crates1" type="Node3D" parent="."]
 
 [node name="ShippingCrate" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.9813, 50.9357, 84.4177)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.9326, 50.9357, 84.4177)
 
 [node name="ShippingCrate2" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60.7584, 1.72455, 84.4177)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 1.72455, 84.4177)
 
 [node name="ShippingCrate3" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48.705, 1.72455, 84.4177)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 1.72455, 84.4177)
 
 [node name="ShippingCrate4" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.9182, 1.72455, 84.4177)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 1.72455, 84.4177)
 
 [node name="ShippingCrate5" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.9182, 14.8319, 84.4177)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 14.8319, 84.4177)
 
 [node name="ShippingCrate6" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.9182, 28.1289, 84.4177)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 28.1289, 84.4177)
 
 [node name="ShippingCrate27" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60.7813, 28.1445, 129.139)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 28.1445, 129.139)
 
 [node name="ShippingCrate28" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48.7283, 28.1445, 129.139)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 28.1445, 129.139)
 
 [node name="ShippingCrate29" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.9413, 28.1445, 129.139)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 28.1445, 129.139)
 
 [node name="ShippingCrate30" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60.7813, 14.7728, 129.139)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 14.7728, 129.139)
 
 [node name="ShippingCrate31" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48.7283, 14.7728, 129.139)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 14.7728, 129.139)
 
 [node name="ShippingCrate32" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.9413, 14.7728, 129.139)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 14.7728, 129.139)
 
 [node name="ShippingCrate33" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60.7813, 1.45729, 129.139)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 1.45729, 129.139)
 
 [node name="ShippingCrate34" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48.7283, 1.45729, 129.139)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 1.45729, 129.139)
 
 [node name="ShippingCrate35" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.9413, 1.45729, 129.139)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 1.45729, 129.139)
+
+[node name="ShippingCrate7" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 1.72455, -4.84681)
+
+[node name="ShippingCrate8" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 1.72455, -4.84681)
+
+[node name="ShippingCrate9" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 1.72455, -4.84681)
+
+[node name="ShippingCrate36" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 1.45729, 39.8745)
+
+[node name="ShippingCrate37" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 1.45729, 39.8745)
+
+[node name="ShippingCrate38" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 1.45729, 39.8745)
+
+[node name="ShippingCrate10" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 2.02677, -94.4047)
+
+[node name="ShippingCrate11" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 2.02677, -94.4047)
+
+[node name="ShippingCrate12" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 2.02677, -94.4047)
+
+[node name="ShippingCrate39" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 1.75951, -49.6834)
+
+[node name="ShippingCrate40" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 1.75951, -49.6834)
+
+[node name="ShippingCrate41" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 1.75951, -49.6834)
+
+[node name="ShippingCrate13" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 15.1057, -4.84681)
+
+[node name="ShippingCrate14" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 15.1057, -4.84681)
+
+[node name="ShippingCrate15" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 15.1057, -4.84681)
+
+[node name="ShippingCrate42" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 14.8385, 39.8745)
+
+[node name="ShippingCrate43" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 14.8385, 39.8745)
+
+[node name="ShippingCrate44" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 14.8385, 39.8745)
+
+[node name="ShippingCrate16" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 15.4079, -94.4047)
+
+[node name="ShippingCrate17" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 15.4079, -94.4047)
+
+[node name="ShippingCrate18" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 15.4079, -94.4047)
+
+[node name="ShippingCrate45" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 15.1407, -49.6834)
+
+[node name="ShippingCrate46" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 15.1407, -49.6834)
+
+[node name="ShippingCrate47" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 15.1407, -49.6834)
+
+[node name="ShippingCrate20" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 28.4173, -4.84681)
+
+[node name="ShippingCrate21" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 28.4173, -4.84681)
+
+[node name="ShippingCrate22" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 28.7196, -94.4047)
+
+[node name="ShippingCrate23" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 28.7196, -94.4047)
+
+[node name="ShippingCrate24" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 28.7196, -94.4047)
+
+[node name="ShippingCrate52" parent="Shipping Crates1" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 28.4523, -49.6834)
 
 [node name="Wooden Crates" type="Node3D" parent="."]
 
@@ -212,25 +318,25 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.94
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.359, 1.62758, -218.977)
 
 [node name="WoodenCrateVer2_1" parent="Wooden Crates" instance=ExtResource("6_hwvib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.9469, 5.84492, 0.138136)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8982, 5.84492, 0.138136)
 
 [node name="WoodenCrateVer3_1" parent="Wooden Crates" instance=ExtResource("7_ng5qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.6749, 13.7426, 5.13458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6262, 13.7426, 5.13458)
 
 [node name="WoodenCrateVer3_2" parent="Wooden Crates" instance=ExtResource("7_ng5qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.6749, 17.752, 5.13458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6262, 17.752, 5.13458)
 
 [node name="WoodenCrateVer3_3" parent="Wooden Crates" instance=ExtResource("7_ng5qf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.9012, 1.68422, 1.04421)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8525, 1.68422, 1.04421)
 
 [node name="WoodenCrateVer4_2" parent="Wooden Crates" instance=ExtResource("8_ihvrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5816, 1.6192, 3.18655)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -77.5329, 1.6192, 3.18655)
 
 [node name="WoodenCrateVer4_3" parent="Wooden Crates" instance=ExtResource("8_ihvrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -85.5816, 13.6796, 3.18655)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -77.5329, 13.6796, 3.18655)
 
 [node name="WoodenCrateVer4_4" parent="Wooden Crates" instance=ExtResource("8_ihvrx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -89.7936, 1.6192, 3.18655)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -81.7449, 1.6192, 3.18655)
 
 [node name="Crane3" parent="." instance=ExtResource("5_q3ovb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.724, 1.64514, 85.2874)
@@ -398,6 +504,93 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.6
 
 [node name="ShippingCrate53" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.848, 1.80192, 84.4919)
+
+[node name="ShippingCrate36" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 28.4891, 173.763)
+
+[node name="ShippingCrate37" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 28.4891, 173.763)
+
+[node name="ShippingCrate38" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 28.4891, 173.763)
+
+[node name="ShippingCrate39" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 15.1174, 173.763)
+
+[node name="ShippingCrate47" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 15.1174, 173.763)
+
+[node name="ShippingCrate54" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1174, 173.763)
+
+[node name="ShippingCrate55" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 1.80192, 173.763)
+
+[node name="ShippingCrate56" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.80192, 173.763)
+
+[node name="ShippingCrate57" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 173.763)
+
+[node name="ShippingCrate58" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.635, 15.1174, 173.763)
+
+[node name="ShippingCrate59" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.848, 15.1174, 173.763)
+
+[node name="ShippingCrate60" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.688, 1.80192, 173.763)
+
+[node name="ShippingCrate61" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.635, 1.80192, 173.763)
+
+[node name="ShippingCrate62" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.848, 1.80192, 173.763)
+
+[node name="ShippingCrate63" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.635, 1.80192, 173.763)
+
+[node name="ShippingCrate67" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 15.1174, 218.393)
+
+[node name="ShippingCrate68" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 15.1174, 218.393)
+
+[node name="ShippingCrate69" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1174, 218.393)
+
+[node name="ShippingCrate70" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 1.80192, 218.393)
+
+[node name="ShippingCrate71" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.80192, 218.393)
+
+[node name="ShippingCrate72" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 218.393)
+
+[node name="ShippingCrate73" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.635, 15.1174, 218.393)
+
+[node name="ShippingCrate74" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.848, 15.1174, 218.393)
+
+[node name="ShippingCrate75" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.848, 1.80192, 218.393)
+
+[node name="ShippingCrate76" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.635, 1.80192, 218.393)
+
+[node name="ShippingCrate77" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.635, 28.331, 173.763)
+
+[node name="ShippingCrate78" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.848, 28.331, 173.763)
+
+[node name="ShippingCrate79" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.635, 28.331, 218.393)
+
+[node name="ShippingCrate80" parent="Shipping Crates2" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.848, 28.331, 218.393)
 
 [node name="Shipping Crates3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8828, 0, -231.814)
@@ -641,6 +834,48 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.6
 
 [node name="ShippingCrate80" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.724, 1.80192, 84.4275)
+
+[node name="ShippingCrate81" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 41.7608, 39.8989)
+
+[node name="ShippingCrate82" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.712, 41.7094, 39.8989)
+
+[node name="ShippingCrate83" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 55.0682, -5.86145)
+
+[node name="ShippingCrate84" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 55.0682, -5.86145)
+
+[node name="ShippingCrate85" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.758, 54.9422, 39.8989)
+
+[node name="ShippingCrate86" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.712, 54.8984, 39.8989)
+
+[node name="ShippingCrate87" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-0.797837, 0, 0.602874, 0, 1, 0, -0.602874, 0, -0.797837, -245.657, 15.1174, -37.9914)
+
+[node name="ShippingCrate88" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-0.797837, 0, 0.602874, 0, 1, 0, -0.602874, 0, -0.797837, -238.391, 15.1174, -47.6077)
+
+[node name="ShippingCrate89" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-0.797837, 0, 0.602874, 0, 1, 0, -0.602874, 0, -0.797837, -252.617, 1.83787, -28.7901)
+
+[node name="ShippingCrate90" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-0.797837, 0, 0.602874, 0, 1, 0, -0.602874, 0, -0.797837, -245.704, 1.80192, -38.0266)
+
+[node name="ShippingCrate91" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-0.797837, 0, 0.602874, 0, 1, 0, -0.602874, 0, -0.797837, -238.437, 1.80192, -47.6429)
+
+[node name="ShippingCrate92" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -232.079, 28.4891, -32.67)
+
+[node name="ShippingCrate93" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -220.026, 28.4891, -32.67)
+
+[node name="ShippingCrate94" parent="Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-0.983022, 0, 0.183488, 0, 1, 0, -0.183488, 0, -0.983022, -181.647, 41.6205, -38.7831)
 
 [node name="Shipping Crates4" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 369.186, 0, -283.988)
@@ -1294,21 +1529,21 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.0837, 1.64514, 85.2874)
 
 [node name="Cube" parent="Crane4" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.10432, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24325, -2.10432, 0)
 mesh = SubResource("ArrayMesh_ufohg")
 
 [node name="CollisionShape3D" parent="Crane4/Cube/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_7qgji")
 
 [node name="Cube_001" parent="Crane4" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1214, -2.10132, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3646, -2.10132, 0)
 mesh = SubResource("ArrayMesh_w57ug")
 
 [node name="CollisionShape3D" parent="Crane4/Cube_001/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_3w60q")
 
 [node name="Cube_002" parent="Crane4" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1793, -1.09219, 45.3395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4225, -1.09219, 45.3395)
 mesh = SubResource("ArrayMesh_uwkwp")
 
 [node name="CollisionShape3D" parent="Crane4/Cube_002/StaticBody3D" index="0"]
@@ -1369,7 +1604,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.3
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.629, 15.1632, -5.80865)
 
 [node name="ShippingCrate3" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 1.83787, -5.80865)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 1.39871, -5.80865)
 
 [node name="ShippingCrate12" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 1.80192, -5.86145)
@@ -1436,6 +1671,33 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.7
 
 [node name="ShippingCrate48" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 41.8792, 83.6272)
+
+[node name="ShippingCrate7" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -51.0038, 1.39871, -5.80865)
+
+[node name="ShippingCrate17" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.6958, 1.80192, -5.86145)
+
+[node name="ShippingCrate45" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.6958, 15.1937, -5.86145)
+
+[node name="ShippingCrate8" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -51.0038, 15.1632, -5.80865)
+
+[node name="ShippingCrate19" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.4785, 1.80192, -5.86145)
+
+[node name="ShippingCrate49" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.4785, 15.1937, -5.86145)
+
+[node name="ShippingCrate50" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.2873, 28.4764, -5.86145)
+
+[node name="ShippingCrate51" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.2343, 28.4764, -5.86145)
+
+[node name="ShippingCrate52" parent="Shipping Crates5" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50.4473, 28.4764, -5.86145)
 
 [node name="Shipping Crates6" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.405, 0, -230.905)
@@ -1611,11 +1873,167 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.7
 [node name="ShippingCrate61" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.711, 1.80192, -50.2907)
 
+[node name="ShippingCrate62" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 1.80192, -50.3072)
+
+[node name="ShippingCrate63" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 15.1937, -50.3072)
+
+[node name="ShippingCrate64" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 28.4764, -50.3072)
+
+[node name="ShippingCrate5" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 1.83787, -50.2544)
+
+[node name="ShippingCrate65" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 1.80192, -50.3072)
+
+[node name="ShippingCrate66" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 1.80192, -50.3072)
+
+[node name="ShippingCrate67" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 15.1937, -50.3072)
+
+[node name="ShippingCrate68" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 15.1937, -50.3072)
+
+[node name="ShippingCrate6" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 15.1632, -50.2544)
+
+[node name="ShippingCrate69" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.924, 1.80192, -50.3072)
+
+[node name="ShippingCrate70" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.764, 15.1937, -50.3072)
+
+[node name="ShippingCrate71" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.711, 15.1937, -50.3072)
+
+[node name="ShippingCrate72" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.924, 15.1937, -50.3072)
+
+[node name="ShippingCrate73" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 41.773, -50.3072)
+
+[node name="ShippingCrate74" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.764, 28.4903, -50.3072)
+
+[node name="ShippingCrate75" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.711, 28.4903, -50.3072)
+
+[node name="ShippingCrate76" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.924, 28.4903, -50.3072)
+
+[node name="ShippingCrate7" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.629, 1.83787, 38.6319)
+
+[node name="ShippingCrate8" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.629, 15.1632, 38.6319)
+
+[node name="ShippingCrate77" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 1.83787, 38.6319)
+
+[node name="ShippingCrate78" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 1.80192, 38.5791)
+
+[node name="ShippingCrate79" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 1.80192, 38.5791)
+
+[node name="ShippingCrate80" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 1.80192, 38.5791)
+
+[node name="ShippingCrate81" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 15.1937, 38.5791)
+
+[node name="ShippingCrate82" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 15.1937, 38.5791)
+
+[node name="ShippingCrate83" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 15.1937, 38.5791)
+
+[node name="ShippingCrate84" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 28.4764, 38.5791)
+
+[node name="ShippingCrate85" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 28.4764, 38.5791)
+
+[node name="ShippingCrate86" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 15.1632, 38.6319)
+
+[node name="ShippingCrate87" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.629, 28.5123, 38.7807)
+
+[node name="ShippingCrate88" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 28.4764, 38.7279)
+
+[node name="ShippingCrate89" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 28.4764, 38.7279)
+
+[node name="ShippingCrate90" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 28.4764, 38.7279)
+
+[node name="ShippingCrate91" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 41.8792, 38.7279)
+
+[node name="ShippingCrate92" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 41.8792, 38.7279)
+
+[node name="ShippingCrate93" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 28.4764, 38.7279)
+
+[node name="ShippingCrate94" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.80192, 83.1578)
+
+[node name="ShippingCrate95" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 83.1578)
+
+[node name="ShippingCrate96" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 15.1937, 83.1578)
+
+[node name="ShippingCrate97" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1937, 83.1578)
+
+[node name="ShippingCrate98" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.629, 1.83787, 83.2213)
+
+[node name="ShippingCrate99" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.629, 15.1632, 83.2213)
+
+[node name="ShippingCrate100" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 1.83787, 83.2213)
+
+[node name="ShippingCrate101" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 1.80192, 83.1685)
+
+[node name="ShippingCrate102" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 1.80192, 83.1685)
+
+[node name="ShippingCrate103" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 1.80192, 83.1685)
+
+[node name="ShippingCrate104" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 15.1937, 83.1685)
+
+[node name="ShippingCrate105" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 15.1937, 83.1685)
+
+[node name="ShippingCrate106" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 15.1937, 83.1685)
+
+[node name="ShippingCrate107" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 28.4764, 83.1685)
+
+[node name="ShippingCrate108" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 28.4764, 83.1685)
+
+[node name="ShippingCrate109" parent="Shipping Crates6" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 15.1632, 83.2213)
+
 [node name="Shipping Crates7" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.433, 0, 0)
 
 [node name="ShippingCrate" parent="Shipping Crates7" instance=ExtResource("4_06ahb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -123.037, 50.9357, 129.642)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -119.794, 50.9357, 129.642)
 
 [node name="Shipping Crates8" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1236, 0, 153.631)
@@ -2069,6 +2487,357 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.78
 
 [node name="ShippingCrate43" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.7882, 28.4764, -5.86145)
+
+[node name="ShippingCrate17" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 1.80192, -50.5346)
+
+[node name="ShippingCrate18" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 1.80192, -50.5346)
+
+[node name="ShippingCrate19" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 1.80192, -50.5346)
+
+[node name="ShippingCrate44" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 15.1937, -50.5346)
+
+[node name="ShippingCrate45" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 15.1937, -50.5346)
+
+[node name="ShippingCrate46" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 15.1937, -50.5346)
+
+[node name="ShippingCrate47" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 28.4764, -50.5346)
+
+[node name="ShippingCrate48" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 28.4764, -50.5346)
+
+[node name="ShippingCrate49" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 28.4764, -50.5346)
+
+[node name="ShippingCrate20" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.3513, 1.80192, -50.5346)
+
+[node name="ShippingCrate50" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.3513, 15.1937, -50.5346)
+
+[node name="ShippingCrate51" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.3513, 28.4764, -50.5346)
+
+[node name="ShippingCrate21" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.7882, 1.80192, -50.5346)
+
+[node name="ShippingCrate52" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.7882, 15.1937, -50.5346)
+
+[node name="ShippingCrate53" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.7882, 28.4764, -50.5346)
+
+[node name="ShippingCrate22" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 1.80192, -95.3466)
+
+[node name="ShippingCrate23" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 1.80192, -95.3466)
+
+[node name="ShippingCrate24" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 1.80192, -95.3466)
+
+[node name="ShippingCrate54" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 15.1937, -95.3466)
+
+[node name="ShippingCrate55" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 15.1937, -95.3466)
+
+[node name="ShippingCrate56" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 15.1937, -95.3466)
+
+[node name="ShippingCrate57" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 28.4764, -95.3466)
+
+[node name="ShippingCrate58" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 28.4764, -95.3466)
+
+[node name="ShippingCrate59" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 28.4764, -95.3466)
+
+[node name="ShippingCrate25" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.3513, 1.80192, -95.3466)
+
+[node name="ShippingCrate60" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.3513, 15.1937, -95.3466)
+
+[node name="ShippingCrate61" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.3513, 28.4764, -95.3466)
+
+[node name="ShippingCrate26" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.7882, 1.80192, -95.3466)
+
+[node name="ShippingCrate62" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.7882, 15.1937, -95.3466)
+
+[node name="ShippingCrate63" parent="Shipping Crates9" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.7882, 28.4764, -95.3466)
+
+[node name="Shipping Crates10" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.9212, 0, -160.71)
+
+[node name="ShippingCrate261" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.136, 28.0107, 75.2296)
+
+[node name="ShippingCrate263" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.206, 15.1174, 63.4067)
+
+[node name="ShippingCrate264" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.183, 15.1174, 75.4597)
+
+[node name="ShippingCrate266" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.251, 15.1174, 39.9428)
+
+[node name="ShippingCrate267" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.229, 1.80192, 51.6027)
+
+[node name="ShippingCrate268" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.252, 1.80192, 39.8558)
+
+[node name="ShippingCrate269" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.227, 28.0107, 27.7987)
+
+[node name="ShippingCrate270" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.274, 15.1174, 28.0288)
+
+[node name="ShippingCrate271" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.274, 1.80192, 28.0288)
+
+[node name="ShippingCrate272" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.147, 1.80192, 63.4066)
+
+[node name="ShippingCrate273" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.124, 1.80192, 75.4596)
+
+[node name="ShippingCrate274" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.102, 1.80192, 87.2466)
+
+[node name="ShippingCrate275" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.229, 15.1174, 51.8098)
+
+[node name="ShippingCrate279" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.138, 15.1174, 98.9747)
+
+[node name="ShippingCrate280" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.079, 1.80192, 98.9746)
+
+[node name="ShippingCrate286" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.057, 1.80192, 110.501)
+
+[node name="ShippingCrate305" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.161, 15.1174, 87.2467)
+
+[node name="ShippingCrate310" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.068, 28.0107, 110.271)
+
+[node name="ShippingCrate311" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.116, 15.1174, 110.501)
+
+[node name="ShippingCrate277" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.181, 27.9593, 39.5308)
+
+[node name="ShippingCrate265" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.159, 28.0107, 157.093)
+
+[node name="ShippingCrate278" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.136, 28.0107, 169.145)
+
+[node name="ShippingCrate281" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.113, 28.0107, 180.932)
+
+[node name="ShippingCrate282" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.206, 15.1174, 157.323)
+
+[node name="ShippingCrate283" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.183, 15.1174, 169.376)
+
+[node name="ShippingCrate284" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.251, 15.1174, 133.859)
+
+[node name="ShippingCrate285" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.229, 1.80192, 145.519)
+
+[node name="ShippingCrate287" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.252, 1.80192, 133.772)
+
+[node name="ShippingCrate289" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.274, 15.1174, 121.945)
+
+[node name="ShippingCrate290" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.274, 1.80192, 121.945)
+
+[node name="ShippingCrate291" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.147, 1.80192, 157.322)
+
+[node name="ShippingCrate292" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.124, 1.80192, 169.375)
+
+[node name="ShippingCrate293" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.102, 1.80192, 181.162)
+
+[node name="ShippingCrate294" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.229, 15.1174, 145.726)
+
+[node name="ShippingCrate295" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.181, 27.9593, 145.289)
+
+[node name="ShippingCrate296" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.138, 15.1174, 192.891)
+
+[node name="ShippingCrate297" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.079, 1.80192, 192.89)
+
+[node name="ShippingCrate298" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.057, 1.80192, 204.417)
+
+[node name="ShippingCrate307" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.161, 15.1174, 181.163)
+
+[node name="ShippingCrate312" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.068, 28.0107, 204.187)
+
+[node name="ShippingCrate313" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.116, 15.1174, 204.417)
+
+[node name="ShippingCrate300" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.159, 28.0107, 251.122)
+
+[node name="ShippingCrate301" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.136, 28.0107, 263.175)
+
+[node name="ShippingCrate302" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.113, 28.0107, 274.962)
+
+[node name="ShippingCrate303" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.206, 15.1174, 251.352)
+
+[node name="ShippingCrate304" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.183, 15.1174, 263.405)
+
+[node name="ShippingCrate309" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.251, 15.1174, 227.888)
+
+[node name="ShippingCrate314" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.229, 1.80192, 239.548)
+
+[node name="ShippingCrate315" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.252, 1.80192, 227.801)
+
+[node name="ShippingCrate316" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.227, 28.0107, 215.744)
+
+[node name="ShippingCrate317" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.274, 15.1174, 215.974)
+
+[node name="ShippingCrate318" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.274, 1.80192, 215.974)
+
+[node name="ShippingCrate319" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.147, 1.80192, 251.352)
+
+[node name="ShippingCrate320" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.124, 1.80192, 263.405)
+
+[node name="ShippingCrate321" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.102, 1.80192, 275.192)
+
+[node name="ShippingCrate322" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.229, 15.1174, 239.755)
+
+[node name="ShippingCrate324" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.138, 15.1174, 286.92)
+
+[node name="ShippingCrate325" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.079, 1.80192, 286.92)
+
+[node name="ShippingCrate326" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.057, 1.80192, 298.447)
+
+[node name="ShippingCrate327" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.161, 15.1174, 275.192)
+
+[node name="ShippingCrate328" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.091, 28.0107, 286.69)
+
+[node name="ShippingCrate329" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.068, 28.0107, 298.217)
+
+[node name="ShippingCrate330" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.116, 15.1174, 298.447)
+
+[node name="ShippingCrate331" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.181, 27.9593, 227.476)
+
+[node name="ShippingCrate332" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.138, 15.1174, 310.154)
+
+[node name="ShippingCrate333" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.079, 1.80192, 310.154)
+
+[node name="ShippingCrate334" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.057, 1.80192, 321.68)
+
+[node name="ShippingCrate335" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.091, 28.0107, 309.924)
+
+[node name="ShippingCrate336" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.068, 28.0107, 321.451)
+
+[node name="ShippingCrate337" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -194.116, 15.1174, 321.68)
+
+[node name="ShippingCrate262" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.523, 28.0107, 75.2296)
+
+[node name="ShippingCrate276" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.593, 15.1174, 63.4067)
+
+[node name="ShippingCrate288" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.57, 15.1174, 75.4597)
+
+[node name="ShippingCrate299" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.534, 1.80192, 63.4066)
+
+[node name="ShippingCrate306" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.511, 1.80192, 75.4596)
+
+[node name="ShippingCrate308" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.489, 1.80192, 87.2466)
+
+[node name="ShippingCrate323" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.525, 15.1174, 98.9747)
+
+[node name="ShippingCrate338" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.466, 1.80192, 98.9746)
+
+[node name="ShippingCrate339" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.444, 1.80192, 110.501)
+
+[node name="ShippingCrate340" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.548, 15.1174, 87.2467)
+
+[node name="ShippingCrate341" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.455, 28.0107, 110.271)
+
+[node name="ShippingCrate342" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.503, 15.1174, 110.501)
+
+[node name="ShippingCrate343" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.489, 28.2005, 87.2466)
+
+[node name="ShippingCrate344" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.525, 41.516, 98.9747)
+
+[node name="ShippingCrate345" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.466, 28.2005, 98.9746)
+
+[node name="ShippingCrate346" parent="Shipping Crates10" instance=ExtResource("4_06ahb")]
+transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.999998, -149.548, 41.516, 87.2467)
 
 [editable path="CargoYardBase"]
 [editable path="Crane2"]

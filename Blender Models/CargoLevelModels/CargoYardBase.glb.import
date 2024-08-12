@@ -30,6 +30,16 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "res://Blender Models/CargoLevelModels/Material.tres"
+},
+"water": {
+"use_external/enabled": true,
+"use_external/path": "res://Blender Models/CargoLevelModels/water.tres"
+}
+},
 "nodes": {
 "PATH:Ground": {
 "generate/physics": true,

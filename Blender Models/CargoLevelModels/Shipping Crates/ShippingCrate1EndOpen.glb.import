@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cpq6bfk25paq6"
-path="res://.godot/imported/ShippingCrate.glb-318637ebe290f5e79b004ba94c32c694.scn"
+uid="uid://bl5lktk7u4gqi"
+path="res://.godot/imported/ShippingCrate1EndOpen.glb-6c7b7dc6617080b0c5bba8afa33aa3c3.scn"
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/ShippingCrate.glb"
-dest_files=["res://.godot/imported/ShippingCrate.glb-318637ebe290f5e79b004ba94c32c694.scn"]
+source_file="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate1EndOpen.glb"
+dest_files=["res://.godot/imported/ShippingCrate1EndOpen.glb-6c7b7dc6617080b0c5bba8afa33aa3c3.scn"]
 
 [params]
 
@@ -31,10 +31,17 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Cube": {
+"PATH:Crate": {
 "generate/physics": true,
-"physics/physics_material_override": null,
-"physics/shape_type": 1
+"physics/shape_type": 2
+},
+"PATH:Door1": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Door2": {
+"generate/physics": true,
+"physics/shape_type": 2
 }
 }
 }

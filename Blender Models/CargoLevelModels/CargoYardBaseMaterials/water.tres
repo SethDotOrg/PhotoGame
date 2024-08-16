@@ -3,4 +3,4 @@
 [resource]
 resource_name = "water"
 cull_mode = 2
-albedo_color = Color(0, 0.760784, 0.992157, 1)
+albedo_color = Color(0.737255, 0.623529, 0.501961, 1)

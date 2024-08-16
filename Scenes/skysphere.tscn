@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://eaaw1idc2mbi"]
+
+[ext_resource type="PackedScene" uid="uid://dlpw2fnlp3aqs" path="res://Blender Models/CargoLevelModels/Sky/sky.glb" id="1_c7vi2"]
+
+[node name="sky" instance=ExtResource("1_c7vi2")]
+transform = Transform3D(3000, 0, 0, 0, 3000, 0, 0, 0, 3000, 0, 0, 0)

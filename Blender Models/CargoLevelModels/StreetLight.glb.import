@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cbnnktnukodf5"
-path="res://.godot/imported/CementPole.glb-2413433fb8b73759263189fd66319796.scn"
+uid="uid://bspqg6r6qoeq3"
+path="res://.godot/imported/StreetLight.glb-417c2cde5517b971aa6cefd40c4b9ad4.scn"
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/CementPole.glb"
-dest_files=["res://.godot/imported/CementPole.glb-2413433fb8b73759263189fd66319796.scn"]
+source_file="res://Blender Models/CargoLevelModels/StreetLight.glb"
+dest_files=["res://.godot/imported/StreetLight.glb-417c2cde5517b971aa6cefd40c4b9ad4.scn"]
 
 [params]
 
@@ -32,7 +32,8 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:Cube": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 2
 }
 }
 }

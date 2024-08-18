@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cbitskcm2fvi0"]
+[gd_scene load_steps=31 format=3 uid="uid://cbitskcm2fvi0"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dlpw2fnlp3aqs" path="res://Blender Models/CargoLevelModels/Sky/sky.glb" id="14_7n8wa"]
 [ext_resource type="PackedScene" uid="uid://dt16cfkgwdysk" path="res://Blender Models/CargoLevelModels/CementBarrier.glb" id="15_6gn6w"]
 [ext_resource type="PackedScene" uid="uid://cbnnktnukodf5" path="res://Blender Models/CargoLevelModels/CementPole.glb" id="16_geitg"]
+[ext_resource type="PackedScene" uid="uid://bspqg6r6qoeq3" path="res://Blender Models/CargoLevelModels/StreetLight.glb" id="17_d3gy5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -2887,34 +2888,1124 @@ shape = SubResource("ConcavePolygonShape3D_flj4g")
 transform = Transform3D(3000, 0, 0, 0, 3000, 0, 0, 0, 3000, 0, 0, 0)
 
 [node name="CementBarriers" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -108.775)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 167.605, 1.58201, 0)
 
 [node name="CementBarriers1" type="Node3D" parent="CementBarriers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -205.841, 0, 110.717)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 111.339, 0, 0)
 
 [node name="CementBarrier" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 313.173, 1.64514, -20.6164)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 14.8046, 0, 0)
 
 [node name="CementBarrier2" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.274, 1.64514, -20.6164)
 
 [node name="CementBarrier3" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 287.445, 1.64514, -20.6164)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -16.2777, 0, 0)
 
 [node name="CementBarrier4" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 274.163, 1.64514, -20.6164)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -32.9954, 0, 0)
+
+[node name="CementBarrier5" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -50.013, 0, 0)
+
+[node name="CementBarrier6" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -64.8176, 0, 0)
+
+[node name="CementBarrier7" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -81.0953, 0, 0)
+
+[node name="CementBarrier8" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -97.813, 0, 0)
+
+[node name="CementBarrier9" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -116.025, 0, 0)
+
+[node name="CementBarrier10" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -130.829, 0, 0)
+
+[node name="CementBarrier11" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -147.107, 0, 0)
+
+[node name="CementBarrier12" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -163.825, 0, 0)
+
+[node name="CementBarrier13" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(0.999999, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 0.999999, -180.842, 0, -1.52588e-05)
+
+[node name="CementBarrier14" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -195.647, 0, -1.52588e-05)
+
+[node name="CementBarrier15" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(0.999999, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 0.999999, -211.925, 0, -1.52588e-05)
+
+[node name="CementBarrier16" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(0.999999, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 0.999999, -228.642, 0, -1.52588e-05)
+
+[node name="CementBarriers2" type="Node3D" parent="CementBarriers"]
+transform = Transform3D(0.999999, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 0.999999, 62.1458, 0, 77.063)
+
+[node name="CementBarrier" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 14.8046, 0, 0)
+
+[node name="CementBarrier2" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+
+[node name="CementBarrier3" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -16.2777, 0, 0)
+
+[node name="CementBarrier4" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -32.9954, 0, 0)
+
+[node name="CementBarrier5" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -50.013, 0, 0)
+
+[node name="CementBarrier6" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -64.8176, 0, 0)
+
+[node name="CementBarrier7" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -81.0953, 0, 0)
+
+[node name="CementBarrier8" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -97.813, 0, 0)
+
+[node name="CementBarrier9" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -116.025, 0, 0)
+
+[node name="CementBarrier10" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -130.829, 0, 0)
+
+[node name="CementBarrier11" parent="CementBarriers/CementBarriers2" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -147.107, 0, 0)
 
 [node name="CementPoles" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -110.244)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -48.6332)
 
 [node name="CementPoles1" type="Node3D" parent="CementPoles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -205.841, 0, 110.717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 308.36, 1.66921, -259.693)
 
 [node name="CementPole" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 306.487, 1.64514, -23.9404)
 
 [node name="CementPole2" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281.3, 1.64514, -23.9404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81414, 0, 0)
+
+[node name="CementPole3" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1052, 0, 0)
+
+[node name="CementPole4" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9193, 0, 0)
+
+[node name="CementPole5" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2232, 0, 0)
+
+[node name="CementPole6" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0373, 0, 0)
+
+[node name="CementPole7" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.3284, 0, 0)
+
+[node name="CementPole8" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1425, 0, 0)
+
+[node name="CementPole9" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1278, 0, 0)
+
+[node name="CementPole10" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.942, 0, 0)
+
+[node name="CementPole11" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.233, 0, 0)
+
+[node name="CementPole12" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.0472, 0, 0)
+
+[node name="CementPole13" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.351, 0, 0)
+
+[node name="CementPole14" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.165, 0, 0)
+
+[node name="CementPole15" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.456, 0, 0)
+
+[node name="CementPole16" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.27, 0, 0)
+
+[node name="CementPole17" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.402, 0, 0)
+
+[node name="CementPole18" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.216, 0, 0)
+
+[node name="CementPole19" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.507, 0, 0)
+
+[node name="CementPole20" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.321, 0, 0)
+
+[node name="CementPole21" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.625, 0, 0)
+
+[node name="CementPole22" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.439, 0, 0)
+
+[node name="CementPole23" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.73, 0, 0)
+
+[node name="CementPole24" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.544, 0, 0)
+
+[node name="CementPole25" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186.53, 0, 0)
+
+[node name="CementPole26" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -194.344, 0, 0)
+
+[node name="CementPole27" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -201.635, 0, 0)
+
+[node name="CementPole28" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.449, 0, 0)
+
+[node name="CementPole29" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.753, 0, 0)
+
+[node name="CementPole30" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225.567, 0, 0)
+
+[node name="CementPole31" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -232.858, 0, 0)
+
+[node name="CementPole32" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -240.672, 0, 0)
+
+[node name="CementPole33" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -249.395, 0, 0)
+
+[node name="CementPole34" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -257.209, 0, 0)
+
+[node name="CementPole35" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -264.5, 0, 0)
+
+[node name="CementPole36" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -272.314, 0, 0)
+
+[node name="CementPole37" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -280.618, 0, 0)
+
+[node name="CementPole38" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -288.432, 0, 0)
+
+[node name="CementPole39" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295.723, 0, 0)
+
+[node name="CementPole40" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -303.537, 0, 0)
+
+[node name="CementPole41" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -311.523, 0, 0)
+
+[node name="CementPole42" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -319.337, 0, 0)
+
+[node name="CementPole43" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -326.628, 0, 0)
+
+[node name="CementPole44" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -334.442, 0, 0)
+
+[node name="CementPole45" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -342.746, 0, 0)
+
+[node name="CementPole46" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350.56, 0, 0)
+
+[node name="CementPole47" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -357.851, 0, 0)
+
+[node name="CementPole48" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -365.665, 0, 0)
+
+[node name="CementPole49" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -373.797, 0, 0)
+
+[node name="CementPole50" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -381.611, 0, 0)
+
+[node name="CementPole51" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -388.902, 0, 0)
+
+[node name="CementPole52" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -396.716, 0, 0)
+
+[node name="CementPole53" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -405.02, 0, 0)
+
+[node name="CementPole54" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -412.834, 0, 0)
+
+[node name="CementPole55" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -420.125, 0, 0)
+
+[node name="CementPole56" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -427.939, 0, 0)
+
+[node name="CementPole57" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -435.924, 0, 0)
+
+[node name="CementPole58" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -443.739, 0, 0)
+
+[node name="CementPole59" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.03, 0, 0)
+
+[node name="CementPole60" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -458.844, 0, 0)
+
+[node name="CementPole61" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -467.148, 0, 0)
+
+[node name="CementPole62" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -474.962, 0, 0)
+
+[node name="CementPole63" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -482.253, 0, 0)
+
+[node name="CementPole64" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -490.067, 0, 0)
+
+[node name="CementPole65" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.557, 0, 0)
+
+[node name="CementPole66" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -506.861, 0, 0)
+
+[node name="CementPole67" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -514.675, 0, 0)
+
+[node name="CementPole68" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -521.966, 0, 0)
+
+[node name="CementPole69" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -529.78, 0, 0)
+
+[node name="CementPole70" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -537.765, 0, 0)
+
+[node name="CementPole71" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -545.58, 0, 0)
+
+[node name="CementPole72" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -552.871, 0, 0)
+
+[node name="CementPole73" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -560.685, 0, 0)
+
+[node name="CementPole74" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -568.989, 0, 0)
+
+[node name="CementPole75" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -576.803, 0, 0)
+
+[node name="CementPole76" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -584.094, 0, 0)
+
+[node name="CementPole77" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -591.908, 0, 0)
+
+[node name="CementPole78" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.516, 0, 0)
+
+[node name="CementPole79" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -608.33, 0, 0)
+
+[node name="CementPole80" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -615.621, 0, 0)
+
+[node name="CementPoles2" type="Node3D" parent="CementPoles"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -307.206, 1.66921, -259.693)
+
+[node name="CementPole2" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81414, 0, 0)
+
+[node name="CementPole3" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1052, 0, 0)
+
+[node name="CementPole4" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9193, 0, 0)
+
+[node name="CementPole5" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2232, 0, 0)
+
+[node name="CementPole6" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0373, 0, 0)
+
+[node name="CementPole7" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.3284, 0, 0)
+
+[node name="CementPole8" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1425, 0, 0)
+
+[node name="CementPole9" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1278, 0, 0)
+
+[node name="CementPole10" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.942, 0, 0)
+
+[node name="CementPole11" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.233, 0, 0)
+
+[node name="CementPole12" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.0472, 0, 0)
+
+[node name="CementPole13" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.351, 0, 0)
+
+[node name="CementPole14" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.165, 0, 0)
+
+[node name="CementPole15" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.456, 0, 0)
+
+[node name="CementPole16" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.27, 0, 0)
+
+[node name="CementPole17" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.402, 0, 0)
+
+[node name="CementPole18" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.216, 0, 0)
+
+[node name="CementPole19" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.507, 0, 0)
+
+[node name="CementPole20" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.321, 0, 0)
+
+[node name="CementPole21" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.625, 0, 0)
+
+[node name="CementPole22" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.439, 0, 0)
+
+[node name="CementPole23" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.73, 0, 0)
+
+[node name="CementPole24" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.544, 0, 0)
+
+[node name="CementPole25" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186.53, 0, 0)
+
+[node name="CementPole26" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -194.344, 0, 0)
+
+[node name="CementPole27" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -201.635, 0, 0)
+
+[node name="CementPole28" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.449, 0, 0)
+
+[node name="CementPole29" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.753, 0, 0)
+
+[node name="CementPole30" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225.567, 0, 0)
+
+[node name="CementPole31" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -232.858, 0, 0)
+
+[node name="CementPole32" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -240.672, 0, 0)
+
+[node name="CementPole33" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -249.395, 0, 0)
+
+[node name="CementPole34" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -257.209, 0, 0)
+
+[node name="CementPole35" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -264.5, 0, 0)
+
+[node name="CementPole36" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -272.314, 0, 0)
+
+[node name="CementPole37" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -280.618, 0, 0)
+
+[node name="CementPole38" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -288.432, 0, 0)
+
+[node name="CementPole39" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295.723, 0, 0)
+
+[node name="CementPole40" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -303.537, 0, 0)
+
+[node name="CementPole41" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -311.523, 0, 0)
+
+[node name="CementPole42" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -319.337, 0, 0)
+
+[node name="CementPole43" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -326.628, 0, 0)
+
+[node name="CementPole44" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -334.442, 0, 0)
+
+[node name="CementPole45" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -342.746, 0, 0)
+
+[node name="CementPole46" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350.56, 0, 0)
+
+[node name="CementPole47" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -357.851, 0, 0)
+
+[node name="CementPole48" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -365.665, 0, 0)
+
+[node name="CementPole49" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -373.797, 0, 0)
+
+[node name="CementPole50" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -381.611, 0, 0)
+
+[node name="CementPole51" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -388.902, 0, 0)
+
+[node name="CementPole52" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -396.716, 0, 0)
+
+[node name="CementPole53" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -405.02, 0, 0)
+
+[node name="CementPole54" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -412.834, 0, 0)
+
+[node name="CementPole55" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -420.125, 0, 0)
+
+[node name="CementPole56" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -427.939, 0, 0)
+
+[node name="CementPole57" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -435.924, 0, 0)
+
+[node name="CementPole58" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -443.739, 0, 0)
+
+[node name="CementPole59" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.03, 0, 0)
+
+[node name="CementPole60" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -458.844, 0, 0)
+
+[node name="CementPole61" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -467.148, 0, 0)
+
+[node name="CementPole62" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -474.962, 0, 0)
+
+[node name="CementPole63" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -482.253, 0, 0)
+
+[node name="CementPole64" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -490.067, 0, 0)
+
+[node name="CementPole65" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.557, 0, 0)
+
+[node name="CementPole66" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -506.861, 0, 0)
+
+[node name="CementPole67" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -514.675, 0, 0)
+
+[node name="CementPole68" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -521.966, 0, 0)
+
+[node name="CementPole69" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -529.78, 0, 0)
+
+[node name="CementPole70" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -537.765, 0, 0)
+
+[node name="CementPole71" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -545.58, 0, 0)
+
+[node name="CementPole72" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -552.871, 0, 0)
+
+[node name="CementPole73" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -560.685, 0, 0)
+
+[node name="CementPole74" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -568.989, 0, 0)
+
+[node name="CementPole75" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -576.803, 0, 0)
+
+[node name="CementPole76" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -584.094, 0, 0)
+
+[node name="CementPole77" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -591.908, 0, 0)
+
+[node name="CementPole78" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.516, 0, 0)
+
+[node name="CementPole79" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -608.33, 0, 0)
+
+[node name="CementPole80" parent="CementPoles/CementPoles2" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -615.621, 0, 0)
+
+[node name="CementPoles3" type="Node3D" parent="CementPoles"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -307.206, 1.66921, 355.949)
+
+[node name="CementPole2" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81414, 0, 0)
+
+[node name="CementPole3" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1052, 0, 0)
+
+[node name="CementPole4" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9193, 0, 0)
+
+[node name="CementPole5" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2232, 0, 0)
+
+[node name="CementPole6" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0373, 0, 0)
+
+[node name="CementPole7" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.3284, 0, 0)
+
+[node name="CementPole8" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1425, 0, 0)
+
+[node name="CementPole9" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1278, 0, 0)
+
+[node name="CementPole10" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.942, 0, 0)
+
+[node name="CementPole11" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.233, 0, 0)
+
+[node name="CementPole12" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.0472, 0, 0)
+
+[node name="CementPole13" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.351, 0, 0)
+
+[node name="CementPole14" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.165, 0, 0)
+
+[node name="CementPole15" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.456, 0, 0)
+
+[node name="CementPole16" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.27, 0, 0)
+
+[node name="CementPole17" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.402, 0, 0)
+
+[node name="CementPole18" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.216, 0, 0)
+
+[node name="CementPole19" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.507, 0, 0)
+
+[node name="CementPole20" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.321, 0, 0)
+
+[node name="CementPole21" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.625, 0, 0)
+
+[node name="CementPole22" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.439, 0, 0)
+
+[node name="CementPole23" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.73, 0, 0)
+
+[node name="CementPole24" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.544, 0, 0)
+
+[node name="CementPole25" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186.53, 0, 0)
+
+[node name="CementPole26" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -194.344, 0, 0)
+
+[node name="CementPole27" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -201.635, 0, 0)
+
+[node name="CementPole28" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.449, 0, 0)
+
+[node name="CementPole29" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.753, 0, 0)
+
+[node name="CementPole30" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225.567, 0, 0)
+
+[node name="CementPole31" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -232.858, 0, 0)
+
+[node name="CementPole32" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -240.672, 0, 0)
+
+[node name="CementPole33" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -249.395, 0, 0)
+
+[node name="CementPole34" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -257.209, 0, 0)
+
+[node name="CementPole35" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -264.5, 0, 0)
+
+[node name="CementPole36" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -272.314, 0, 0)
+
+[node name="CementPole37" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -280.618, 0, 0)
+
+[node name="CementPole38" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -288.432, 0, 0)
+
+[node name="CementPole39" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295.723, 0, 0)
+
+[node name="CementPole40" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -303.537, 0, 0)
+
+[node name="CementPole41" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -311.523, 0, 0)
+
+[node name="CementPole42" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -319.337, 0, 0)
+
+[node name="CementPole43" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -326.628, 0, 0)
+
+[node name="CementPole44" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -334.442, 0, 0)
+
+[node name="CementPole45" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -342.746, 0, 0)
+
+[node name="CementPole46" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350.56, 0, 0)
+
+[node name="CementPole47" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -357.851, 0, 0)
+
+[node name="CementPole48" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -365.665, 0, 0)
+
+[node name="CementPole49" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -373.797, 0, 0)
+
+[node name="CementPole50" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -381.611, 0, 0)
+
+[node name="CementPole51" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -388.902, 0, 0)
+
+[node name="CementPole52" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -396.716, 0, 0)
+
+[node name="CementPole53" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -405.02, 0, 0)
+
+[node name="CementPole54" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -412.834, 0, 0)
+
+[node name="CementPole55" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -420.125, 0, 0)
+
+[node name="CementPole56" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -427.939, 0, 0)
+
+[node name="CementPole57" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -435.924, 0, 0)
+
+[node name="CementPole58" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -443.739, 0, 0)
+
+[node name="CementPole59" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.03, 0, 0)
+
+[node name="CementPole60" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -458.844, 0, 0)
+
+[node name="CementPole61" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -467.148, 0, 0)
+
+[node name="CementPole62" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -474.962, 0, 0)
+
+[node name="CementPole63" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -482.253, 0, 0)
+
+[node name="CementPole64" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -490.067, 0, 0)
+
+[node name="CementPole65" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.557, 0, 0)
+
+[node name="CementPole66" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -506.861, 0, 0)
+
+[node name="CementPole67" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -514.675, 0, 0)
+
+[node name="CementPole68" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -521.966, 0, 0)
+
+[node name="CementPole69" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -529.78, 0, 0)
+
+[node name="CementPole70" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -537.765, 0, 0)
+
+[node name="CementPole71" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -545.58, 0, 0)
+
+[node name="CementPole72" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -552.871, 0, 0)
+
+[node name="CementPole73" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -560.685, 0, 0)
+
+[node name="CementPole74" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -568.989, 0, 0)
+
+[node name="CementPole75" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -576.803, 0, 0)
+
+[node name="CementPole76" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -584.094, 0, 0)
+
+[node name="CementPole77" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -591.908, 0, 0)
+
+[node name="CementPole78" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.516, 0, 0)
+
+[node name="CementPole79" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -608.33, 0, 0)
+
+[node name="CementPole80" parent="CementPoles/CementPoles3" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -615.621, 0, 0)
+
+[node name="CementPoles4" type="Node3D" parent="CementPoles"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 308.331, 1.66921, -259.693)
+
+[node name="CementPole2" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81414, 0, 0)
+
+[node name="CementPole3" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1052, 0, 0)
+
+[node name="CementPole4" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9193, 0, 0)
+
+[node name="CementPole5" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2232, 0, 0)
+
+[node name="CementPole6" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0373, 0, 0)
+
+[node name="CementPole7" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.3284, 0, 0)
+
+[node name="CementPole8" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1425, 0, 0)
+
+[node name="CementPole9" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1278, 0, 0)
+
+[node name="CementPole10" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.942, 0, 0)
+
+[node name="CementPole11" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.233, 0, 0)
+
+[node name="CementPole12" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.0472, 0, 0)
+
+[node name="CementPole13" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.351, 0, 0)
+
+[node name="CementPole14" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.165, 0, 0)
+
+[node name="CementPole15" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.456, 0, 0)
+
+[node name="CementPole16" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.27, 0, 0)
+
+[node name="CementPole17" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.402, 0, 0)
+
+[node name="CementPole18" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.216, 0, 0)
+
+[node name="CementPole19" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.507, 0, 0)
+
+[node name="CementPole20" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.321, 0, 0)
+
+[node name="CementPole21" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.625, 0, 0)
+
+[node name="CementPole22" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.439, 0, 0)
+
+[node name="CementPole23" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.73, 0, 0)
+
+[node name="CementPole24" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.544, 0, 0)
+
+[node name="CementPole25" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186.53, 0, 0)
+
+[node name="CementPole26" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -194.344, 0, 0)
+
+[node name="CementPole27" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -201.635, 0, 0)
+
+[node name="CementPole28" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.449, 0, 0)
+
+[node name="CementPole29" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.753, 0, 0)
+
+[node name="CementPole30" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225.567, 0, 0)
+
+[node name="CementPole31" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -232.858, 0, 0)
+
+[node name="CementPole32" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -240.672, 0, 0)
+
+[node name="CementPole33" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -249.395, 0, 0)
+
+[node name="CementPole34" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -257.209, 0, 0)
+
+[node name="CementPole35" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -264.5, 0, 0)
+
+[node name="CementPole36" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -272.314, 0, 0)
+
+[node name="CementPole37" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -280.618, 0, 0)
+
+[node name="CementPole38" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -288.432, 0, 0)
+
+[node name="CementPole39" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295.723, 0, 0)
+
+[node name="CementPole40" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -303.537, 0, 0)
+
+[node name="CementPole41" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -311.523, 0, 0)
+
+[node name="CementPole42" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -319.337, 0, 0)
+
+[node name="CementPole43" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -326.628, 0, 0)
+
+[node name="CementPole44" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -334.442, 0, 0)
+
+[node name="CementPole45" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -342.746, 0, 0)
+
+[node name="CementPole46" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350.56, 0, 0)
+
+[node name="CementPole47" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -357.851, 0, 0)
+
+[node name="CementPole48" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -365.665, 0, 0)
+
+[node name="CementPole49" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -373.797, 0, 0)
+
+[node name="CementPole50" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -381.611, 0, 0)
+
+[node name="CementPole51" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -388.902, 0, 0)
+
+[node name="CementPole52" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -396.716, 0, 0)
+
+[node name="CementPole53" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -405.02, 0, 0)
+
+[node name="CementPole54" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -412.834, 0, 0)
+
+[node name="CementPole55" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -420.125, 0, 0)
+
+[node name="CementPole56" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -427.939, 0, 0)
+
+[node name="CementPole57" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -435.924, 0, 0)
+
+[node name="CementPole58" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -443.739, 0, 0)
+
+[node name="CementPole59" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.03, 0, 0)
+
+[node name="CementPole60" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -458.844, 0, 0)
+
+[node name="CementPole61" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -467.148, 0, 0)
+
+[node name="CementPole62" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -474.962, 0, 0)
+
+[node name="CementPole63" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -482.253, 0, 0)
+
+[node name="CementPole64" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -490.067, 0, 0)
+
+[node name="CementPole65" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.557, 0, 0)
+
+[node name="CementPole66" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -506.861, 0, 0)
+
+[node name="CementPole67" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -514.675, 0, 0)
+
+[node name="CementPole68" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -521.966, 0, 0)
+
+[node name="CementPole69" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -529.78, 0, 0)
+
+[node name="CementPole70" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -537.765, 0, 0)
+
+[node name="CementPole71" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -545.58, 0, 0)
+
+[node name="CementPole72" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -552.871, 0, 0)
+
+[node name="CementPole73" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -560.685, 0, 0)
+
+[node name="CementPole74" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -568.989, 0, 0)
+
+[node name="CementPole75" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -576.803, 0, 0)
+
+[node name="CementPole76" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -584.094, 0, 0)
+
+[node name="CementPole77" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -591.908, 0, 0)
+
+[node name="CementPole78" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.516, 0, 0)
+
+[node name="CementPole79" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -608.33, 0, 0)
+
+[node name="StreetLights" type="Node3D" parent="."]
+
+[node name="StreetLights1" type="Node3D" parent="StreetLights"]
+
+[node name="StreetLight" parent="StreetLights/StreetLights1" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 203.903)
+
+[node name="StreetLight2" parent="StreetLights/StreetLights1" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 130.552)
+
+[node name="StreetLight3" parent="StreetLights/StreetLights1" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 51.3438)
+
+[node name="StreetLight4" parent="StreetLights/StreetLights1" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -26.9629)
+
+[node name="StreetLight5" parent="StreetLights/StreetLights1" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -91.2882)
+
+[node name="StreetLights2" type="Node3D" parent="StreetLights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.173, 0, 0)
+
+[node name="StreetLight" parent="StreetLights/StreetLights2" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 203.903)
+
+[node name="StreetLight2" parent="StreetLights/StreetLights2" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 130.552)
+
+[node name="StreetLight3" parent="StreetLights/StreetLights2" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 51.3438)
+
+[node name="StreetLight4" parent="StreetLights/StreetLights2" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -26.9629)
+
+[node name="StreetLight5" parent="StreetLights/StreetLights2" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -91.2882)
+
+[node name="StreetLights3" type="Node3D" parent="StreetLights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.7, 0, 0)
+
+[node name="StreetLight" parent="StreetLights/StreetLights3" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 203.903)
+
+[node name="StreetLight2" parent="StreetLights/StreetLights3" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 130.552)
+
+[node name="StreetLight3" parent="StreetLights/StreetLights3" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 51.3438)
+
+[node name="StreetLight4" parent="StreetLights/StreetLights3" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -26.9629)
+
+[node name="StreetLight5" parent="StreetLights/StreetLights3" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -91.2882)
+
+[node name="StreetLights4" type="Node3D" parent="StreetLights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.7, 0, 0)
+
+[node name="StreetLight" parent="StreetLights/StreetLights4" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 433.726, 0, 300.683)
+
+[node name="StreetLight2" parent="StreetLights/StreetLights4" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -166.185, 0, 297.76)
+
+[node name="StreetLight3" parent="StreetLights/StreetLights4" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(0.614496, 0.349849, -0.707107, -0.494761, 0.869029, 0, 0.614496, 0.349849, 0.707107, -167.503, 0, -298.27)
+
+[node name="StreetLight4" parent="StreetLights/StreetLights4" instance=ExtResource("17_d3gy5")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 431.901, 0, -300.907)
 
 [editable path="CargoYardBase"]
 [editable path="ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]

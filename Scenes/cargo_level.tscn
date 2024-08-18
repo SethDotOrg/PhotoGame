@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cbitskcm2fvi0"]
+[gd_scene load_steps=30 format=3 uid="uid://cbitskcm2fvi0"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://rlkknhsv050w" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate2EndsOpen.glb" id="11_bw4j5"]
 [ext_resource type="PackedScene" uid="uid://bl5lktk7u4gqi" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate1EndOpen.glb" id="11_ey8nn"]
 [ext_resource type="PackedScene" uid="uid://dlpw2fnlp3aqs" path="res://Blender Models/CargoLevelModels/Sky/sky.glb" id="14_7n8wa"]
+[ext_resource type="PackedScene" uid="uid://dt16cfkgwdysk" path="res://Blender Models/CargoLevelModels/CementBarrier.glb" id="15_6gn6w"]
+[ext_resource type="PackedScene" uid="uid://cbnnktnukodf5" path="res://Blender Models/CargoLevelModels/CementPole.glb" id="16_geitg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -2883,6 +2885,36 @@ shape = SubResource("ConcavePolygonShape3D_flj4g")
 
 [node name="sky" parent="." instance=ExtResource("14_7n8wa")]
 transform = Transform3D(3000, 0, 0, 0, 3000, 0, 0, 0, 3000, 0, 0, 0)
+
+[node name="CementBarriers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -108.775)
+
+[node name="CementBarriers1" type="Node3D" parent="CementBarriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -205.841, 0, 110.717)
+
+[node name="CementBarrier" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 313.173, 1.64514, -20.6164)
+
+[node name="CementBarrier2" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.274, 1.64514, -20.6164)
+
+[node name="CementBarrier3" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 287.445, 1.64514, -20.6164)
+
+[node name="CementBarrier4" parent="CementBarriers/CementBarriers1" instance=ExtResource("15_6gn6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 274.163, 1.64514, -20.6164)
+
+[node name="CementPoles" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -110.244)
+
+[node name="CementPoles1" type="Node3D" parent="CementPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -205.841, 0, 110.717)
+
+[node name="CementPole" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 306.487, 1.64514, -23.9404)
+
+[node name="CementPole2" parent="CementPoles/CementPoles1" instance=ExtResource("16_geitg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281.3, 1.64514, -23.9404)
 
 [editable path="CargoYardBase"]
 [editable path="ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]

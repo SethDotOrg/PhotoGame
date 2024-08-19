@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cjb01cpqwrv2x"
-path="res://.godot/imported/Crane2.glb-75b41ec894e9f01ad045edc5ca21daf3.scn"
+path="res://.godot/imported/Crane2.glb-47b9988918ee9319a9b7667fcfdd27b8.scn"
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/Crane2.glb"
-dest_files=["res://.godot/imported/Crane2.glb-75b41ec894e9f01ad045edc5ca21daf3.scn"]
+source_file="res://Blender Models/CargoLevelModels/CraneOnWheels/Crane2.glb"
+dest_files=["res://.godot/imported/Crane2.glb-47b9988918ee9319a9b7667fcfdd27b8.scn"]
 
 [params]
 
@@ -30,6 +30,16 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"Crane": {
+"use_external/enabled": true,
+"use_external/path": "res://Blender Models/CargoLevelModels/CraneOnWheels/CraneMaterials/Crane.tres"
+},
+"Wheels": {
+"use_external/enabled": true,
+"use_external/path": "res://Blender Models/CargoLevelModels/CraneOnWheels/CraneMaterials/Wheels.tres"
+}
+},
 "nodes": {
 "PATH:Cube": {
 "generate/physics": true,

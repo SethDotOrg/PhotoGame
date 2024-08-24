@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxj8ygdvmgvs4"
-path="res://.godot/imported/Crane2_CraneOnWheels.png-1c417a2f3e7ba138835d41d785d84f98.ctex"
+uid="uid://uvaturjww1qf"
+path="res://.godot/imported/CraneOnWheels.png-1e2fa93305c34420050c1226f82cbb77.ctex"
 metadata={
 "vram_texture": false
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/CraneOnWheels/Crane2_CraneOnWheels.png"
-dest_files=["res://.godot/imported/Crane2_CraneOnWheels.png-1c417a2f3e7ba138835d41d785d84f98.ctex"]
+source_file="res://Blender Models/CargoLevelModels/CraneOnWheels/CraneOnWheels.png"
+dest_files=["res://.godot/imported/CraneOnWheels.png-1e2fa93305c34420050c1226f82cbb77.ctex"]
 
 [params]
 

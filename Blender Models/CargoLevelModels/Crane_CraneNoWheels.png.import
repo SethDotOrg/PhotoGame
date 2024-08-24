@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxj8ygdvmgvs4"
-path="res://.godot/imported/Crane2_CraneOnWheels.png-1c417a2f3e7ba138835d41d785d84f98.ctex"
+uid="uid://c2b52j1ybk2ec"
+path.s3tc="res://.godot/imported/Crane_CraneNoWheels.png-aa0ab46ad4df2d0b88156b0e5b82e03b.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/CraneOnWheels/Crane2_CraneOnWheels.png"
-dest_files=["res://.godot/imported/Crane2_CraneOnWheels.png-1c417a2f3e7ba138835d41d785d84f98.ctex"]
+source_file="res://Blender Models/CargoLevelModels/Crane_CraneNoWheels.png"
+dest_files=["res://.godot/imported/Crane_CraneNoWheels.png-aa0ab46ad4df2d0b88156b0e5b82e03b.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -10,14 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://bjiw8xqnivef1" path="res://Blender Models/CargoLevelModels/WoodenCrate2.glb" id="6_hwvib"]
 [ext_resource type="PackedScene" uid="uid://cuep57yulaa18" path="res://Blender Models/CargoLevelModels/WoodenCrate3.glb" id="7_ng5qf"]
 [ext_resource type="PackedScene" uid="uid://drlijpqov3lo1" path="res://Blender Models/CargoLevelModels/WoodenCrate4.glb" id="8_ihvrx"]
-[ext_resource type="PackedScene" uid="uid://5hb27btt2hjw" path="res://Blender Models/CargoLevelModels/Crane.glb" id="9_ehyfr"]
+[ext_resource type="PackedScene" uid="uid://5hb27btt2hjw" path="res://Blender Models/CargoLevelModels/CraneNoWheels/Crane.glb" id="9_ehyfr"]
 [ext_resource type="PackedScene" uid="uid://rlkknhsv050w" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate2EndsOpen.glb" id="11_bw4j5"]
 [ext_resource type="PackedScene" uid="uid://bl5lktk7u4gqi" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate1EndOpen.glb" id="11_ey8nn"]
+[ext_resource type="PackedScene" uid="uid://bnlpfm2ecj7ut" path="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneLedge.glb" id="13_3urms"]
 [ext_resource type="PackedScene" uid="uid://dlpw2fnlp3aqs" path="res://Blender Models/CargoLevelModels/Sky/sky.glb" id="14_7n8wa"]
 [ext_resource type="PackedScene" uid="uid://dt16cfkgwdysk" path="res://Blender Models/CargoLevelModels/CementBarrier.glb" id="15_6gn6w"]
 [ext_resource type="PackedScene" uid="uid://cbnnktnukodf5" path="res://Blender Models/CargoLevelModels/CementPole.glb" id="16_geitg"]
 [ext_resource type="PackedScene" uid="uid://bspqg6r6qoeq3" path="res://Blender Models/CargoLevelModels/StreetLight.glb" id="17_d3gy5"]
-[ext_resource type="PackedScene" uid="uid://day1hhsybefpv" path="res://Blender Models/CargoLevelModels/crate.glb" id="18_248yu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -2714,11 +2714,22 @@ transform = Transform3D(0.999998, 0, 0.00191991, 0, 1, 0, -0.00191991, 0, 0.9999
 
 [node name="Small Cranes" type="Node3D" parent="Cranes"]
 
-[node name="Crane5" parent="Cranes/Small Cranes" instance=ExtResource("9_ehyfr")]
-transform = Transform3D(-1.50108, 0, 1.32166, 0, 2, 0, -1.32166, 0, -1.50108, 306.176, -18.3586, 13.1804)
-
 [node name="Crane" parent="Cranes/Small Cranes" instance=ExtResource("9_ehyfr")]
 transform = Transform3D(-0.559093, 0, -0.514797, 0, 0.76, 0, 0.514797, 0, -0.559093, -204.731, 1.64514, -236.732)
+
+[node name="BigSmallCrane" type="Node3D" parent="Cranes/Small Cranes"]
+
+[node name="Crane5" parent="Cranes/Small Cranes/BigSmallCrane" instance=ExtResource("9_ehyfr")]
+transform = Transform3D(-1.50108, 0, 1.32166, 0, 2, 0, -1.32166, 0, -1.50108, 306.176, -18.3586, 13.1804)
+
+[node name="CraneLedge" parent="Cranes/Small Cranes/BigSmallCrane" instance=ExtResource("13_3urms")]
+transform = Transform3D(0.743518, 0, -0.668715, 0, 1, 0, 0.668715, 0, 0.743518, 264.248, 44.3661, 6.39026)
+
+[node name="CraneLedge2" parent="Cranes/Small Cranes/BigSmallCrane" instance=ExtResource("13_3urms")]
+transform = Transform3D(-0.64635, 0, -0.763041, 0, 1, 0, 0.763041, 0, -0.64635, 279.799, 72.4743, 23.9956)
+
+[node name="CraneLedge3" parent="Cranes/Small Cranes/BigSmallCrane" instance=ExtResource("13_3urms")]
+transform = Transform3D(0.738973, 0, -0.673735, 0, 1, 0, 0.673735, 0, 0.738973, 302.595, 94.9558, 40.0243)
 
 [node name="Big Cranes" type="Node3D" parent="Cranes"]
 
@@ -3817,6 +3828,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -608.33, 0, 0)
 [node name="StreetLights" type="Node3D" parent="."]
 
 [node name="StreetLights1" type="Node3D" parent="StreetLights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55694, 0)
 
 [node name="StreetLight" parent="StreetLights/StreetLights1" instance=ExtResource("17_d3gy5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 203.903)
@@ -3834,7 +3846,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -26.9629)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -91.2882)
 
 [node name="StreetLights2" type="Node3D" parent="StreetLights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.173, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.173, 1.56301, 0)
 
 [node name="StreetLight" parent="StreetLights/StreetLights2" instance=ExtResource("17_d3gy5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 203.903)
@@ -3852,7 +3864,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -26.9629)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -91.2882)
 
 [node name="StreetLights3" type="Node3D" parent="StreetLights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.7, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.7, 1.64, 0)
 
 [node name="StreetLight" parent="StreetLights/StreetLights3" instance=ExtResource("17_d3gy5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, 203.903)
@@ -3873,23 +3885,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1803, 0, -91.2882)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.7, 0, 0)
 
 [node name="StreetLight" parent="StreetLights/StreetLights4" instance=ExtResource("17_d3gy5")]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 433.726, 0, 300.683)
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 433.726, 1.624, 300.683)
 
 [node name="StreetLight2" parent="StreetLights/StreetLights4" instance=ExtResource("17_d3gy5")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -166.185, 0, 297.76)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -166.185, 1.624, 297.76)
 
 [node name="StreetLight3" parent="StreetLights/StreetLights4" instance=ExtResource("17_d3gy5")]
-transform = Transform3D(0.614496, 0.349849, -0.707107, -0.494761, 0.869029, 0, 0.614496, 0.349849, 0.707107, -167.503, 0, -298.27)
+transform = Transform3D(0.614496, 0.349849, -0.707107, -0.494761, 0.869029, 0, 0.614496, 0.349849, 0.707107, -167.503, 0.177865, -298.27)
 
 [node name="StreetLight4" parent="StreetLights/StreetLights4" instance=ExtResource("17_d3gy5")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 431.901, 0, -300.907)
-
-[node name="crate" parent="." instance=ExtResource("18_248yu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 260.971, 4.89519, -161.545)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 431.901, 1.624, -300.907)
 
 [editable path="CargoYardBase"]
 [editable path="ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]
 [editable path="ShippingCrates/Shipping Crates4/ShippingCrate1EndOpen"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate92"]
 [editable path="Cranes/Big Cranes/Crane2"]
 [editable path="Cranes/Big Cranes/Crane3"]
 [editable path="Cranes/Big Cranes/Crane4"]

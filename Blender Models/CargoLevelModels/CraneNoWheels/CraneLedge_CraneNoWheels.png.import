@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2b52j1ybk2ec"
-path.s3tc="res://.godot/imported/Crane_CraneNoWheels.png-aa0ab46ad4df2d0b88156b0e5b82e03b.s3tc.ctex"
+uid="uid://l3gwrxki4lr4"
+path.s3tc="res://.godot/imported/CraneLedge_CraneNoWheels.png-bdabc1e817e2cfa997391dcdb56e2e54.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/Crane_CraneNoWheels.png"
-dest_files=["res://.godot/imported/Crane_CraneNoWheels.png-aa0ab46ad4df2d0b88156b0e5b82e03b.s3tc.ctex"]
+source_file="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneLedge_CraneNoWheels.png"
+dest_files=["res://.godot/imported/CraneLedge_CraneNoWheels.png-bdabc1e817e2cfa997391dcdb56e2e54.s3tc.ctex"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5hb27btt2hjw"
-path="res://.godot/imported/Crane.glb-40817cf54c704ca4f16c66e2a975d6cb.scn"
+uid="uid://bnlpfm2ecj7ut"
+path="res://.godot/imported/CraneLedge.glb-48ca041d655364bd41348144a156b1a7.scn"
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/Crane.glb"
-dest_files=["res://.godot/imported/Crane.glb-40817cf54c704ca4f16c66e2a975d6cb.scn"]
+source_file="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneLedge.glb"
+dest_files=["res://.godot/imported/CraneLedge.glb-48ca041d655364bd41348144a156b1a7.scn"]
 
 [params]
 
@@ -32,8 +32,7 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:Cube": {
-"generate/physics": true,
-"physics/shape_type": 2
+"generate/physics": true
 }
 }
 }

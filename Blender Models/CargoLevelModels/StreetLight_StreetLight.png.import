@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5f746yb2feg4"
-path="res://.godot/imported/crate_crate_wood.jpg-bda51a4eeb3006994de08f61f5e97694.ctex"
+uid="uid://b4j6i1hshc7mx"
+path="res://.godot/imported/StreetLight_StreetLight.png-e9f76f15dbdf948d1e8b40fb87c0d00b.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,8 +11,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/crate_crate_wood.jpg"
-dest_files=["res://.godot/imported/crate_crate_wood.jpg-bda51a4eeb3006994de08f61f5e97694.ctex"]
+source_file="res://Blender Models/CargoLevelModels/StreetLight_StreetLight.png"
+dest_files=["res://.godot/imported/StreetLight_StreetLight.png-e9f76f15dbdf948d1e8b40fb87c0d00b.ctex"]
 
 [params]
 

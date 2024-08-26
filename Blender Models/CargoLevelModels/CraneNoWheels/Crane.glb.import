@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://day1hhsybefpv"
-path="res://.godot/imported/crate.glb-954d3feccfd7958d9136ed37482d2295.scn"
+uid="uid://5hb27btt2hjw"
+path="res://.godot/imported/Crane.glb-f4172c91ee4346e5946ff392db44a5e1.scn"
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/crate.glb"
-dest_files=["res://.godot/imported/crate.glb-954d3feccfd7958d9136ed37482d2295.scn"]
+source_file="res://Blender Models/CargoLevelModels/CraneNoWheels/Crane.glb"
+dest_files=["res://.godot/imported/Crane.glb-f4172c91ee4346e5946ff392db44a5e1.scn"]
 
 [params]
 
@@ -30,10 +30,16 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"Crane": {
+"use_external/enabled": true,
+"use_external/path": "res://Blender Models/CargoLevelModels/CraneNoWheels/Materials/Crane.tres"
+}
+},
 "nodes": {
 "PATH:Cube": {
 "generate/physics": true,
-"physics/shape_type": 3
+"physics/shape_type": 2
 }
 }
 }

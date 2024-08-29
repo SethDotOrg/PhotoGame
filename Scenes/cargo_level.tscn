@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cbitskcm2fvi0"]
+[gd_scene load_steps=24 format=3 uid="uid://cbitskcm2fvi0"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -32,6 +32,13 @@ shader_parameter/tile = Vector2(10000, 10000)
 shader_parameter/height = 2.0
 shader_parameter/wave_size = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j2idh"]
+radius = 0.484006
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1o82"]
+transparency = 4
+albedo_color = Color(0, 0, 1, 0.466667)
 
 [node name="CargoLevel" type="Node3D"]
 
@@ -770,6 +777,9 @@ transform = Transform3D(0.990056, 0.140676, -6.14916e-09, 3.82137e-15, 4.37114e-
 
 [node name="ShippingCrate100" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("4_06ahb")]
 transform = Transform3D(0.998604, -0.052824, 2.30901e-09, 3.82137e-15, 4.37114e-08, 1, -0.052824, -0.998604, 4.36504e-08, -130.592, 7.25542, -61.4353)
+
+[node name="ShippingCrate98" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("4_06ahb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -216.343, 41.5965, 12.5693)
 
 [node name="Shipping Crates4" type="Node3D" parent="ShippingCrates"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 369.186, 0, -283.988)
@@ -3898,13 +3908,29 @@ transform = Transform3D(0.614496, 0.349849, -0.707107, -0.494761, 0.869029, 0, 0
 [node name="StreetLight4" parent="StreetLights/StreetLights4" instance=ExtResource("17_d3gy5")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 431.901, 1.624, -300.907)
 
+[node name="Objective Nodes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.583, 2.2471, -234.132)
+
+[node name="SecretCrane" type="Node3D" parent="Objective Nodes"]
+
+[node name="Area3D" type="Area3D" parent="Objective Nodes/SecretCrane"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objective Nodes/SecretCrane/Area3D"]
+transform = Transform3D(94.97, 0, 0, 0, 94.97, 0, 0, 0, 94.97, -5.20703, 5.98044, 4.3824)
+shape = SubResource("SphereShape3D_j2idh")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Objective Nodes/SecretCrane/Area3D/CollisionShape3D"]
+material = SubResource("StandardMaterial3D_o1o82")
+
 [node name="LevelObjectives" type="Node" parent="."]
 script = ExtResource("19_vkqqy")
 
-[node name="BaseObjective" type="Node" parent="LevelObjectives"]
-editor_description = "Get the thing or do something else"
+[node name="SecretCrane" type="Node" parent="LevelObjectives"]
+editor_description = "Find the hidden crane"
 script = ExtResource("19_1qh7e")
-_objective_description = "Get the thing or do something else"
+_objective_description = "Find the hidden crane"
+
+[connection signal="area_entered" from="Objective Nodes/SecretCrane/Area3D" to="LevelObjectives/SecretCrane" method="_on_area_3d_area_entered"]
 
 [editable path="CargoYardBase"]
 [editable path="ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]

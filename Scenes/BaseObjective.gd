@@ -14,4 +14,7 @@ func update_world(): #change things in the world. Mainly starting animations or 
 func get_objective_description():
 	return _objective_description
 
-#below might change from objective to objective
+#below might change from objective to objective and use signals or not
+
+func _on_area_3d_area_entered(area):
+	print("FOUND CRANE")

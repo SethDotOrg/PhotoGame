@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://cbitskcm2fvi0"]
+[gd_scene load_steps=25 format=3 uid="uid://cbitskcm2fvi0"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
+[ext_resource type="Script" path="res://Scenes/Levels/level_base.gd" id="1_pj73e"]
 [ext_resource type="Environment" uid="uid://c2p5dxa4byyt" path="res://Materials/Environments/daytime.tres" id="2_wkpj7"]
 [ext_resource type="PackedScene" uid="uid://cpq6bfk25paq6" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate.glb" id="4_06ahb"]
 [ext_resource type="Shader" path="res://Shaders/water2.gdshader" id="5_764sb"]
@@ -41,6 +42,7 @@ transparency = 4
 albedo_color = Color(0, 0, 1, 0.466667)
 
 [node name="CargoLevel" type="Node3D"]
+script = ExtResource("1_pj73e")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3

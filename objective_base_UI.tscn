@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://deaqt6xiw45hs"]
+
+[ext_resource type="Script" path="res://objective_base_UI.gd" id="1_1jkvg"]
+
+[node name="ObjectiveBase" type="RichTextLabel"]
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]100[/center]
+"
+fit_content = true
+script = ExtResource("1_1jkvg")

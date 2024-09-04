@@ -10,6 +10,8 @@ extends Control
 @onready var _state_background = $StateBackground
 @onready var _state_text = $StateBackground/StateText
 
+var objective_text_ui_scene = preload("res://objective_base_UI.tscn")
+
 var dir
 var user_photos_array: Array
 var array_pos = 0
@@ -19,6 +21,8 @@ func _ready():
 	display_picture(array_pos)
 	_picture_background.visible = false
 	_text_background.visible = false
+	set_objectives()
+	
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("photo_appear(p)"):
@@ -77,3 +81,11 @@ func display_text_message(text:String):
 func toggle_reticle(state:bool):
 	$Reticle.visible = state
 
+func set_objectives(): #go through all level objectives and loop to load them
+	#will need to be able to tell what level we are on later
+	var curr_level_objectives = GlobalVariables.get_curr_level_objectives_node().get_children()
+	for objective in curr_level_objectives:
+		objective_text_ui_scene.set_text_for_objective(objective.get_objective_description())
+	var instance = objective_text_ui_scene.instantiate()
+	add_child(instance)
+	#.set_text_for_objective()

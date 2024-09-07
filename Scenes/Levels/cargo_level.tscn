@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbitskcm2fvi0"]
+[gd_scene load_steps=26 format=3 uid="uid://cbitskcm2fvi0"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cuep57yulaa18" path="res://Blender Models/CargoLevelModels/WoodenCrate3.glb" id="7_ng5qf"]
 [ext_resource type="PackedScene" uid="uid://drlijpqov3lo1" path="res://Blender Models/CargoLevelModels/WoodenCrate4.glb" id="8_ihvrx"]
 [ext_resource type="PackedScene" uid="uid://5hb27btt2hjw" path="res://Blender Models/CargoLevelModels/CraneNoWheels/Crane.glb" id="9_ehyfr"]
+[ext_resource type="PackedScene" uid="uid://draf8htf42ct7" path="res://Blender Models/CargoLevelModels/WoodenCrate/crate.glb" id="10_l7eks"]
 [ext_resource type="PackedScene" uid="uid://rlkknhsv050w" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate2EndsOpen.glb" id="11_bw4j5"]
 [ext_resource type="PackedScene" uid="uid://bl5lktk7u4gqi" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate1EndOpen.glb" id="11_ey8nn"]
 [ext_resource type="PackedScene" uid="uid://bnlpfm2ecj7ut" path="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneLedge.glb" id="13_3urms"]
@@ -56,7 +57,7 @@ environment = ExtResource("2_wkpj7")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0396074, -0.569772, -0.820848, -0.359449, -0.758374, 0.543751, -0.932324, 0.31659, -0.174767, 0, 189.789, 0)
 light_color = Color(0.92549, 0.92549, 0.87451, 1)
-light_energy = 1.2
+light_energy = 1.7
 shadow_enabled = true
 shadow_bias = 0.01
 shadow_blur = 0.444
@@ -95,6 +96,12 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -77.5329, 13.6796, 3.18655)
 
 [node name="WoodenCrateVer4_4" parent="Wooden Crates" instance=ExtResource("8_ihvrx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -81.7449, 1.6192, 3.18655)
+
+[node name="crate" parent="Wooden Crates" instance=ExtResource("10_l7eks")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 147.546, 1.64071, -102.656)
+
+[node name="crate2" parent="Wooden Crates" instance=ExtResource("10_l7eks")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 147.546, 5.68987, -102.656)
 
 [node name="ShippingCrates" type="Node3D" parent="."]
 

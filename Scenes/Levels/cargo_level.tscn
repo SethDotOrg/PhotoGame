@@ -3939,6 +3939,10 @@ editor_description = "Find the hidden crane"
 script = ExtResource("19_1qh7e")
 _objective_description = "Find the hidden crane"
 
+[node name="BaseObjective" type="Node" parent="LevelObjectives"]
+script = ExtResource("19_1qh7e")
+_objective_description = "Test Test Test"
+
 [connection signal="area_entered" from="Objective Nodes/SecretCrane/Area3D" to="LevelObjectives/SecretCrane" method="_on_area_3d_area_entered"]
 
 [editable path="CargoYardBase"]

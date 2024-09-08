@@ -86,7 +86,8 @@ func set_objectives(): #go through all level objectives and loop to load them
 	#var curr_level_objectives = GlobalVariables.get_curr_level_objectives_node().get_children()
 	var curr_level_objectives = GlobalVariables.get_curr_level().get_objective_node().get_children()
 	for objective in curr_level_objectives:
-		objective_text_ui_scene.set_text_for_objective(objective.get_objective_description())
-	var instance = objective_text_ui_scene.instantiate()
-	add_child(instance)
+		var instance = objective_text_ui_scene.instantiate()
+		#objective_text_ui_scene.set_text_for_objective(objective.get_objective_description())
+		instance.set_text_for_objective(objective.get_objective_description())
+		get_node("ObjectiveBackground/VBoxContainer").add_child(instance)
 	#.set_text_for_objective()

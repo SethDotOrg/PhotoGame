@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc2afxeie17vs"]
+[gd_scene load_steps=6 format=3 uid="uid://bc2afxeie17vs"]
 
 [ext_resource type="Script" path="res://Scripts/UI Scripts/LiveUI.gd" id="1_butqn"]
 [ext_resource type="Texture2D" uid="uid://bhf2urhxgqbnw" path="res://TexturePNG's/picture3 monica.png" id="3_i5ru2"]
 [ext_resource type="Texture2D" uid="uid://bv5w5d45ewyuw" path="res://TexturePNG's/Buttons/ArrowLeft.png" id="3_qjde4"]
 [ext_resource type="Texture2D" uid="uid://btbtwljly3co1" path="res://TexturePNG's/Buttons/ArrowRight.png" id="4_87pjc"]
 [ext_resource type="Texture2D" uid="uid://dck448pwbn5bv" path="res://UI Images/CameraReticle.png" id="5_yccpg"]
-[ext_resource type="PackedScene" uid="uid://deaqt6xiw45hs" path="res://objective_base_UI.tscn" id="6_lue68"]
 
 [node name="LiveUI" type="Control"]
 layout_mode = 3
@@ -178,6 +177,3 @@ offset_bottom = 637.0
 mouse_filter = 2
 theme_override_constants/separation = 30
 alignment = 1
-
-[node name="ObjectiveBase" parent="ObjectiveBackground/VBoxContainer" instance=ExtResource("6_lue68")]
-layout_mode = 2

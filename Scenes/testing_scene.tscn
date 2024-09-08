@@ -95,9 +95,6 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 
 
 [node name="PrototypeLevel" parent="LevelHolder" instance=ExtResource("7_xwwu5")]
 
-[node name="AudioStreamPlayer" parent="LevelHolder/PrototypeLevel" index="0"]
-autoplay = false
-
 [node name="CargoLevel" parent="LevelHolder" instance=ExtResource("8_64tqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 225, 0)
 

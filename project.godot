@@ -18,8 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalVariables="*res://Scenes/global_variables.tscn"
-TestLevel="*res://Scenes/Levels/test_level.tscn"
-CargoLevel="*res://Scenes/Levels/cargo_level.tscn"
+CargoYardLevelObjectives="*res://Scenes/Objectives/cargo_yard_level_objectives.tscn"
 
 [display]
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4f4v75k56gl"]
+
+[ext_resource type="Script" path="res://Scripts/LevelObjectivesBase.gd" id="1_rhirt"]
+[ext_resource type="Script" path="res://Scripts/BaseObjective.gd" id="2_vxe5r"]
+
+[node name="CargoYardLevelObjectives" type="Node"]
+script = ExtResource("1_rhirt")
+
+[node name="SecretCrane" type="Node" parent="."]
+editor_description = "Find the hidden crane"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find the hidden crane"
+
+[node name="BaseObjective" type="Node" parent="."]
+script = ExtResource("2_vxe5r")
+_objective_description = "Test Test Test"

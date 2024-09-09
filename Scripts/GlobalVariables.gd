@@ -1,19 +1,20 @@
 extends Node
 
-var _current_level: Node3D
+#TODO switch the global variable to just the objectives for the level. Otherwise the scenes load
+
+enum {PROTOTYPE, CARGO}
+var _current_level: int
 #add more levels as they are made
 
-enum {TEST, CARGO}
 
 func _ready():
 	#for now we will just start at the cargo level
-	_current_level = CargoLevel
+	set_curr_level(CARGO)
 
-func get_curr_level():
-	return _current_level
+func get_curr_level_objectives():
+	if _current_level == CARGO:
+		return CargoYardLevelObjectives
+	
 
 func set_curr_level(level_selected):
-	if level_selected == TEST:
-		_current_level = TestLevel
-	elif level_selected == CARGO:
-		_current_level = CargoLevel
+	_current_level = level_selected 

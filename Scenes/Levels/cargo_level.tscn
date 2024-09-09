@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
-[ext_resource type="Script" path="res://Scenes/Levels/level_base.gd" id="1_pj73e"]
+[ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_tg01b"]
 [ext_resource type="Environment" uid="uid://c2p5dxa4byyt" path="res://Materials/Environments/daytime.tres" id="2_wkpj7"]
 [ext_resource type="PackedScene" uid="uid://cpq6bfk25paq6" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate.glb" id="4_06ahb"]
 [ext_resource type="Shader" path="res://Shaders/water2.gdshader" id="5_764sb"]
@@ -20,8 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://dt16cfkgwdysk" path="res://Blender Models/CargoLevelModels/CementBarrier.glb" id="15_6gn6w"]
 [ext_resource type="PackedScene" uid="uid://cbnnktnukodf5" path="res://Blender Models/CargoLevelModels/CementPole.glb" id="16_geitg"]
 [ext_resource type="PackedScene" uid="uid://bspqg6r6qoeq3" path="res://Blender Models/CargoLevelModels/StreetLight.glb" id="17_d3gy5"]
-[ext_resource type="Script" path="res://Scenes/BaseObjective.gd" id="19_1qh7e"]
-[ext_resource type="Script" path="res://Scenes/LevelObjectivesBase.gd" id="19_vkqqy"]
+[ext_resource type="PackedScene" uid="uid://dq4f4v75k56gl" path="res://Scenes/Objectives/cargo_yard_level_objectives.tscn" id="22_hip70"]
+[ext_resource type="PackedScene" uid="uid://tq7hgd44s0bh" path="res://Blender Models/CargoLevelModels/WoodenCrate2/crate.glb" id="23_o4k3r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -43,7 +43,7 @@ transparency = 4
 albedo_color = Color(0, 0, 1, 0.466667)
 
 [node name="CargoLevel" type="Node3D"]
-script = ExtResource("1_pj73e")
+script = ExtResource("1_tg01b")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -98,10 +98,13 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -77.5329, 13.6796, 3.18655)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -81.7449, 1.6192, 3.18655)
 
 [node name="crate" parent="Wooden Crates" instance=ExtResource("10_l7eks")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 147.546, 1.64071, -102.656)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 152.947, 1.64071, -102.656)
 
 [node name="crate2" parent="Wooden Crates" instance=ExtResource("10_l7eks")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 147.546, 5.68987, -102.656)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 152.947, 5.68987, -102.656)
+
+[node name="crate3" parent="Wooden Crates" instance=ExtResource("23_o4k3r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 160.296, 1.64514, -102.724)
 
 [node name="ShippingCrates" type="Node3D" parent="."]
 
@@ -3931,19 +3934,7 @@ shape = SubResource("SphereShape3D_j2idh")
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Objective Nodes/SecretCrane/Area3D/CollisionShape3D"]
 material = SubResource("StandardMaterial3D_o1o82")
 
-[node name="LevelObjectives" type="Node" parent="."]
-script = ExtResource("19_vkqqy")
-
-[node name="SecretCrane" type="Node" parent="LevelObjectives"]
-editor_description = "Find the hidden crane"
-script = ExtResource("19_1qh7e")
-_objective_description = "Find the hidden crane"
-
-[node name="BaseObjective" type="Node" parent="LevelObjectives"]
-script = ExtResource("19_1qh7e")
-_objective_description = "Test Test Test"
-
-[connection signal="area_entered" from="Objective Nodes/SecretCrane/Area3D" to="LevelObjectives/SecretCrane" method="_on_area_3d_area_entered"]
+[node name="CargoYardLevelObjectives" parent="." instance=ExtResource("22_hip70")]
 
 [editable path="CargoYardBase"]
 [editable path="ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]

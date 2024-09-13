@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4vdrytlis482"]
+[gd_scene load_steps=12 format=3 uid="uid://4vdrytlis482"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerManager.gd" id="1_cmp4m"]
 [ext_resource type="Script" path="res://Scripts/SpawnPointsManager.gd" id="1_pgtpa"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cu8gibcrmeaag" path="res://Scenes/world_ledge_anchor.tscn" id="6_nfmuw"]
 [ext_resource type="PackedScene" uid="uid://bw7w3jk5xydb8" path="res://Scenes/prototype_level.tscn" id="7_xwwu5"]
 [ext_resource type="PackedScene" uid="uid://cbitskcm2fvi0" path="res://Scenes/Levels/cargo_level.tscn" id="8_64tqm"]
+[ext_resource type="Script" path="res://Scripts/LevelHolder.gd" id="9_npedt"]
 [ext_resource type="PackedScene" uid="uid://dycukyywl7r0r" path="res://Scenes/global_variables.tscn" id="10_v4yvq"]
 [ext_resource type="PackedScene" uid="uid://6uyang4x8nsv" path="res://Scenes/spawn_point.tscn" id="27_dhoer"]
 
@@ -92,11 +93,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7604, 11.2967, -66.9952)
 
 [node name="LevelHolder" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+script = ExtResource("9_npedt")
 
 [node name="PrototypeLevel" parent="LevelHolder" instance=ExtResource("7_xwwu5")]
 
 [node name="CargoLevel" parent="LevelHolder" instance=ExtResource("8_64tqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 225, 0)
+
+[node name="CargoYardLevelObjectives" parent="LevelHolder/CargoLevel" index="12" node_paths=PackedStringArray("_live_UI")]
+_live_UI = NodePath("../../../PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/LiveUI")
 
 [editable path="PlayerHolder/PlayerKinematicBody"]
 [editable path="PlayerHolder/PlayerKinematicBody/GameModel"]
@@ -117,3 +122,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 225, 0)
 [editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane2"]
 [editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane3"]
 [editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane4"]
+[editable path="LevelHolder/CargoLevel/CargoYardLevelObjectives"]

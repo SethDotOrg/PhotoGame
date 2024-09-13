@@ -83,11 +83,16 @@ func toggle_reticle(state:bool):
 
 func set_objectives(): #go through all level objectives and loop to load them
 	#will need to be able to tell what level we are on later
-	#var curr_level_objectives = GlobalVariables.get_curr_level_objectives_node().get_children()
 	var curr_level_objectives = GlobalVariables.get_curr_level_objectives().get_children()
 	for objective in curr_level_objectives:
 		var instance = objective_text_ui_scene.instantiate()
-		#objective_text_ui_scene.set_text_for_objective(objective.get_objective_description())
 		instance.set_text_for_objective(objective.get_objective_description())
 		get_node("ObjectiveBackground/VBoxContainer").add_child(instance)
-	#.set_text_for_objective()
+
+func update_objectives():
+	var curr_level_objectives = GlobalVariables.get_curr_level_objectives().get_children()
+	var curr_level_objectives_UI = get_node("ObjectiveBackground/VBoxContainer").get_children()
+	var objectives_count = GlobalVariables.get_curr_level_objectives().get_child_count()
+	for objective_num in objectives_count:
+		if curr_level_objectives[objective_num]._objective_complete == true:
+			curr_level_objectives_UI[objective_num].update_text_for_objective_complete()

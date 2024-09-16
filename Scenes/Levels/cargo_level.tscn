@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cbitskcm2fvi0"]
+[gd_scene load_steps=28 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://Scenes/Levels/ObjectiveNodesCargoYard.gd" id="22_21vue"]
 [ext_resource type="PackedScene" uid="uid://dq4f4v75k56gl" path="res://Scenes/Objectives/cargo_yard_level_objectives.tscn" id="22_hip70"]
 [ext_resource type="PackedScene" uid="uid://tq7hgd44s0bh" path="res://Blender Models/CargoLevelModels/WoodenCrate2/crate.glb" id="23_o4k3r"]
+[ext_resource type="PackedScene" uid="uid://d6bbv5nlbiwt" path="res://Blender Models/Birds/Seagull/seagull.glb" id="24_fyakn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -3971,6 +3972,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125983, -0.0419545)
 material = SubResource("StandardMaterial3D_fhs62")
 
 [node name="CargoYardLevelObjectives" parent="." instance=ExtResource("22_hip70")]
+
+[node name="Seagulls" type="Node3D" parent="."]
+
+[node name="seagull" parent="Seagulls" instance=ExtResource("24_fyakn")]
+transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 2.68681, 139.86, -6.45117)
+
+[node name="seagull2" parent="Seagulls" instance=ExtResource("24_fyakn")]
+transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 2.86928, 139.86, 2.1709)
+
+[node name="seagull3" parent="Seagulls" instance=ExtResource("24_fyakn")]
+transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 11.8575, 139.86, -5.03202)
+
+[node name="seagull4" parent="Seagulls" instance=ExtResource("24_fyakn")]
+transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 3.17658, 139.86, 10.5205)
+
+[node name="seagull5" parent="Seagulls" instance=ExtResource("24_fyakn")]
+transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 20.1198, 139.86, -3.17867)
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
 

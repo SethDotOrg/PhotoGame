@@ -23,7 +23,7 @@
 [ext_resource type="Script" path="res://Scenes/Levels/ObjectiveNodesCargoYard.gd" id="22_21vue"]
 [ext_resource type="PackedScene" uid="uid://dq4f4v75k56gl" path="res://Scenes/Objectives/cargo_yard_level_objectives.tscn" id="22_hip70"]
 [ext_resource type="PackedScene" uid="uid://tq7hgd44s0bh" path="res://Blender Models/CargoLevelModels/WoodenCrate2/crate.glb" id="23_o4k3r"]
-[ext_resource type="PackedScene" uid="uid://d6bbv5nlbiwt" path="res://Blender Models/Birds/Seagull/seagull.glb" id="24_fyakn"]
+[ext_resource type="PackedScene" uid="uid://bfxogcxl3357d" path="res://Blender Models/Birds/Seagull/seagull.glb" id="24_u56av"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -3974,21 +3974,24 @@ material = SubResource("StandardMaterial3D_fhs62")
 [node name="CargoYardLevelObjectives" parent="." instance=ExtResource("22_hip70")]
 
 [node name="Seagulls" type="Node3D" parent="."]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 88.6711, 0)
 
-[node name="seagull" parent="Seagulls" instance=ExtResource("24_fyakn")]
-transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 2.68681, 139.86, -6.45117)
+[node name="Group1" type="Node3D" parent="Seagulls"]
 
-[node name="seagull2" parent="Seagulls" instance=ExtResource("24_fyakn")]
-transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 2.86928, 139.86, 2.1709)
+[node name="seagull" parent="Seagulls/Group1" instance=ExtResource("24_u56av")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 9.02932, 0)
 
-[node name="seagull3" parent="Seagulls" instance=ExtResource("24_fyakn")]
-transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 11.8575, 139.86, -5.03202)
+[node name="seagull2" parent="Seagulls/Group1" instance=ExtResource("24_u56av")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.07158, 9.02932, -4.63097)
 
-[node name="seagull4" parent="Seagulls" instance=ExtResource("24_fyakn")]
-transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 3.17658, 139.86, 10.5205)
+[node name="seagull3" parent="Seagulls/Group1" instance=ExtResource("24_u56av")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.07158, 9.02932, 5.48735)
 
-[node name="seagull5" parent="Seagulls" instance=ExtResource("24_fyakn")]
-transform = Transform3D(1.26503, 0, -1.54909, 0, 2, 0, 1.54909, 0, 1.26503, 20.1198, 139.86, -3.17867)
+[node name="seagull4" parent="Seagulls/Group1" instance=ExtResource("24_u56av")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.9052, 9.02932, -8.8907)
+
+[node name="seagull5" parent="Seagulls/Group1" instance=ExtResource("24_u56av")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.9052, 9.02932, 8.90729)
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
 

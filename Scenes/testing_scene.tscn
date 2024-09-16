@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dn4lebtea4isk" path="res://Scenes/3rdP_camera_system.tscn" id="4_mpeeg"]
 [ext_resource type="PackedScene" uid="uid://cu8gibcrmeaag" path="res://Scenes/world_ledge_anchor.tscn" id="6_nfmuw"]
 [ext_resource type="PackedScene" uid="uid://bw7w3jk5xydb8" path="res://Scenes/prototype_level.tscn" id="7_xwwu5"]
-[ext_resource type="PackedScene" uid="uid://cbitskcm2fvi0" path="res://Scenes/Levels/cargo_level.tscn" id="8_64tqm"]
+[ext_resource type="PackedScene" uid="uid://refhw4jglcjy" path="res://Scenes/Levels/cargo_level.tscn" id="8_64tqm"]
 [ext_resource type="Script" path="res://Scripts/LevelHolder.gd" id="9_npedt"]
 [ext_resource type="PackedScene" uid="uid://dycukyywl7r0r" path="res://Scenes/global_variables.tscn" id="10_v4yvq"]
 [ext_resource type="PackedScene" uid="uid://6uyang4x8nsv" path="res://Scenes/spawn_point.tscn" id="27_dhoer"]

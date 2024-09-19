@@ -11,6 +11,22 @@ editor_description = "Find the hidden crane"
 script = ExtResource("2_vxe5r")
 _objective_description = "Find the hidden crane"
 
-[node name="BaseObjective" type="Node" parent="."]
+[node name="CementPole" type="Node" parent="."]
+editor_description = "Find the odd cement pole"
 script = ExtResource("2_vxe5r")
-_objective_description = "Test Test Test"
+_objective_description = "Find the odd cement pole"
+
+[node name="SeagullPhoto" type="Node" parent="."]
+editor_description = "Take a picture of a standing seagull"
+script = ExtResource("2_vxe5r")
+_objective_description = "Take a picture of a standing seagull"
+
+[node name="CraneSit" type="Node" parent="."]
+editor_description = "Get to and sit on top of the big crane"
+script = ExtResource("2_vxe5r")
+_objective_description = "Get to and sit on top of the big crane"
+
+[node name="SugarPile" type="Node" parent="."]
+editor_description = "Find a pile of ...sugar"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find a pile of ...\"sugar\""

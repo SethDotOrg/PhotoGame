@@ -5,12 +5,14 @@
 [resource]
 background_mode = 1
 background_color = Color(0.270588, 0.678431, 0.94902, 1)
+background_energy_multiplier = 0.89
 sky = ExtResource("1_lmja5")
 ambient_light_source = 3
 ambient_light_color = Color(0.921569, 0.92549, 0.87451, 1)
 ambient_light_energy = 0.2
 reflected_light_source = 2
 tonemap_mode = 2
+tonemap_white = 4.4
 ssil_radius = 16.0
 ssil_intensity = 2.85
 sdfgi_min_cell_size = 0.878906

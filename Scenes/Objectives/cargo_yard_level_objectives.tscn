@@ -30,3 +30,23 @@ _objective_description = "Get to and sit on top of the big crane"
 editor_description = "Find a pile of ...sugar"
 script = ExtResource("2_vxe5r")
 _objective_description = "Find a pile of ...\"sugar\""
+
+[node name="HardHat" type="Node" parent="."]
+editor_description = "Take a picture of a hard hat"
+script = ExtResource("2_vxe5r")
+_objective_description = "Take a picture of a hard hat"
+
+[node name="HotDog" type="Node" parent="."]
+editor_description = "Find the indgredients for a hotdog"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find the indgredients for a hotdog"
+
+[node name="Boots" type="Node" parent="."]
+editor_description = "Find a lost pair of boots("
+script = ExtResource("2_vxe5r")
+_objective_description = "Find a lost pair of boots("
+
+[node name="SewerMonster" type="Node" parent="."]
+editor_description = "What is this ooze?"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find a lost pair of boots("

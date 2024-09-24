@@ -42,11 +42,16 @@ script = ExtResource("2_vxe5r")
 _objective_description = "Find the indgredients for a hotdog"
 
 [node name="Boots" type="Node" parent="."]
-editor_description = "Find a lost pair of boots("
+editor_description = "Find a lost pair of boots"
 script = ExtResource("2_vxe5r")
-_objective_description = "Find a lost pair of boots("
+_objective_description = "Find a lost pair of boots"
 
 [node name="SewerMonster" type="Node" parent="."]
 editor_description = "What is this ooze?"
 script = ExtResource("2_vxe5r")
-_objective_description = "Find a lost pair of boots("
+_objective_description = "What is this ooze?"
+
+[node name="ConeSiloam" type="Node" parent="."]
+editor_description = "Siloam the cones!"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find the odd cement pole"

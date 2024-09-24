@@ -3,6 +3,7 @@ extends Node3D
 @onready var _camera_camera = $RotateNodeHorizontal/RotateNodeVertical/CameraCamera
 @onready var _rotate_node_vertical = $RotateNodeHorizontal/RotateNodeVertical
 @onready var _rotate_node_horizontal = $RotateNodeHorizontal
+@onready var _subject_in_view_ray = $RotateNodeHorizontal/RotateNodeVertical/SubjectInViewRay
 
 @onready var _camera_sound_player = $CameraSound
 
@@ -26,6 +27,17 @@ func _ready():
 	else:
 		picture_count = 0
 	live_ui =_base_ui.get_player_ui().get_live_ui()
+
+func _physics_process(delta):
+	#check to see if a subject is in the line of sight for the camera TODO
+	if _subject_in_view_ray.is_colliding():
+		print("Colliding with:::::: ",_subject_in_view_ray.get_collider().get_groups())
+		if _subject_in_view_ray.get_collider().is_in_group("photographables"): #check the collision point to see if it collides
+			#with something in the group photographables
+			live_ui.toggle_reticle(false)
+			print("TAKE THE PICTURE")
+		else:
+			live_ui.toggle_reticle(true)
 
 func toggle_camera_active(camera_state:bool):
 	_camera_camera.current = camera_state

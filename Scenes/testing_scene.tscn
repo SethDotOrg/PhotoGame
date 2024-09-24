@@ -100,7 +100,7 @@ script = ExtResource("9_npedt")
 [node name="CargoLevel" parent="LevelHolder" instance=ExtResource("8_64tqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 225, 0)
 
-[node name="CargoYardLevelObjectives" parent="LevelHolder/CargoLevel" index="12" node_paths=PackedStringArray("_live_UI")]
+[node name="CargoYardLevelObjectives" parent="LevelHolder/CargoLevel" index="13" node_paths=PackedStringArray("_live_UI")]
 _live_UI = NodePath("../../../PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/LiveUI")
 
 [editable path="PlayerHolder/PlayerKinematicBody"]
@@ -122,4 +122,5 @@ _live_UI = NodePath("../../../PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/L
 [editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane2"]
 [editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane3"]
 [editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane4"]
+[editable path="LevelHolder/CargoLevel/CementPoles/THE ODD CEMENT POLE"]
 [editable path="LevelHolder/CargoLevel/CargoYardLevelObjectives"]

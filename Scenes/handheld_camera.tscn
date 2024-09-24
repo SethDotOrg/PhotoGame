@@ -13,5 +13,10 @@ _handheld_camera_sesitivity = 0.001
 
 [node name="CameraCamera" type="Camera3D" parent="RotateNodeHorizontal/RotateNodeVertical"]
 
+[node name="SubjectInViewRay" type="RayCast3D" parent="RotateNodeHorizontal/RotateNodeVertical"]
+target_position = Vector3(0, 0, -100)
+collide_with_areas = true
+debug_shape_custom_color = Color(0.917647, 0.709804, 0, 1)
+
 [node name="CameraSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_o73cf")

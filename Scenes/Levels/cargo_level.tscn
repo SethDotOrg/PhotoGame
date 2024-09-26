@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=32 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://tq7hgd44s0bh" path="res://Blender Models/CargoLevelModels/WoodenCrate2/crate.glb" id="23_o4k3r"]
 [ext_resource type="PackedScene" uid="uid://0xjrml2bkxuy" path="res://Scenes/Objectives/seagull_photographable.tscn" id="24_3x2fp"]
 [ext_resource type="PackedScene" uid="uid://bfxogcxl3357d" path="res://Blender Models/Birds/Seagull/seagull.glb" id="24_u56av"]
+[ext_resource type="Script" path="res://Scenes/Objectives/ODD_cement_pole.gd" id="25_shmfc"]
+[ext_resource type="Script" path="res://Scenes/Objectives/seagull_photographable.gd" id="26_dsi43"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -3883,9 +3885,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.516, 0, 0)
 [node name="CementPole79" parent="CementPoles/CementPoles4" instance=ExtResource("16_geitg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -608.33, 0, 0)
 
-[node name="ODDCementPolePhotographable" parent="CementPoles" instance=ExtResource("21_upuyw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 307.544, 0, -174.12)
-
 [node name="StreetLights" type="Node3D" parent="."]
 
 [node name="StreetLights1" type="Node3D" parent="StreetLights"]
@@ -3980,12 +3979,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.9052, 9.02932, 8.90729)
 [node name="seagull6" parent="Seagulls/Group1" instance=ExtResource("24_u56av")]
 transform = Transform3D(-0.00655228, 0.00487685, -1.99998, 1.19413, 1.60439, 0, 1.60437, -1.19412, -0.00816792, 11.9052, -42.3048, -8.8907)
 
-[node name="Group2" type="Node3D" parent="Seagulls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8586, -66.0419, 226.261)
-
-[node name="SeagullPhotographable" parent="Seagulls/Group2" instance=ExtResource("24_3x2fp")]
-transform = Transform3D(0.93257, 0.36099, 0, -0.36099, 0.93257, 0, 2.98023e-08, 0, 1, 0, 9.45231, 0)
-
 [node name="ObjectiveNodesCargoYard" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.583, 2.2471, -234.132)
 script = ExtResource("22_21vue")
@@ -4002,6 +3995,14 @@ shape = SubResource("SphereShape3D_jp7nr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125983, -0.0419545)
 material = SubResource("StandardMaterial3D_fhs62")
 
+[node name="ODDCementPolePhotographable" parent="ObjectiveNodesCargoYard" instance=ExtResource("21_upuyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 519.127, -2.2471, 11.3788)
+script = ExtResource("25_shmfc")
+
+[node name="SeagullPhotographable" parent="ObjectiveNodesCargoYard" instance=ExtResource("24_3x2fp")]
+transform = Transform3D(0.807629, 0.312626, -0.5, -0.36099, 0.93257, 0, 0.466285, 0.180495, 0.866025, 112.186, 29.8344, 438.009)
+script = ExtResource("26_dsi43")
+
 [node name="CargoYardLevelObjectives" parent="." instance=ExtResource("22_hip70")]
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
@@ -4013,6 +4014,6 @@ material = SubResource("StandardMaterial3D_fhs62")
 [editable path="Cranes/Big Cranes/Crane2"]
 [editable path="Cranes/Big Cranes/Crane3"]
 [editable path="Cranes/Big Cranes/Crane4"]
-[editable path="CementPoles/ODDCementPolePhotographable"]
-[editable path="Seagulls/Group2/SeagullPhotographable"]
+[editable path="ObjectiveNodesCargoYard/ODDCementPolePhotographable"]
+[editable path="ObjectiveNodesCargoYard/SeagullPhotographable"]
 [editable path="CargoYardLevelObjectives"]

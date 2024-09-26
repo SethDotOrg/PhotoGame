@@ -33,6 +33,8 @@ func _physics_process(delta):
 		if _subject_in_view_ray.get_collider().is_in_group("photographables"): #check the collision point to see if it collides
 			#with something in the group photographables
 			live_ui.set_reticle(1) #reticle set to photographable 
+			if Input.is_action_just_pressed("mouse_left"):
+				_subject_in_view_ray.get_collider().update_objective() #if it is a photographable this function is a requirement
 		else:
 			live_ui.set_reticle(0) #reticle set to normal
 	else:

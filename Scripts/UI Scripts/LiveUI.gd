@@ -10,7 +10,12 @@ extends Control
 @onready var _state_background = $StateBackground
 @onready var _state_text = $StateBackground/StateText
 
+@onready var _reticle = $Reticle
+
 var objective_text_ui_scene = preload("res://objective_base_UI.tscn")
+
+var reticle_normal = preload("res://UI Images/CameraReticle.png")
+var reticle_photographable = preload("res://UI Images/CameraReticlePhotographable.png")
 
 var dir
 var user_photos_array: Array
@@ -79,7 +84,13 @@ func display_text_message(text:String):
 	_text_background.visible = false
 
 func toggle_reticle(state:bool):
-	$Reticle.visible = state
+	_reticle.visible = state
+
+func set_reticle(choice: int):
+	if choice == 0:
+		_reticle.texture = reticle_normal
+	elif choice == 1:
+		_reticle.texture = reticle_photographable
 
 func set_objectives(): #go through all level objectives and loop to load them
 	#will need to be able to tell what level we are on later

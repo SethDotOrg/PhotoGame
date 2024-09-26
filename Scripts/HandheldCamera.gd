@@ -29,15 +29,14 @@ func _ready():
 	live_ui =_base_ui.get_player_ui().get_live_ui()
 
 func _physics_process(delta):
-	#check to see if a subject is in the line of sight for the camera TODO
 	if _subject_in_view_ray.is_colliding():
-		print("Colliding with:::::: ",_subject_in_view_ray.get_collider().get_groups())
 		if _subject_in_view_ray.get_collider().is_in_group("photographables"): #check the collision point to see if it collides
 			#with something in the group photographables
-			live_ui.toggle_reticle(false)
-			print("TAKE THE PICTURE")
+			live_ui.set_reticle(1) #reticle set to photographable 
 		else:
-			live_ui.toggle_reticle(true)
+			live_ui.set_reticle(0) #reticle set to normal
+	else:
+		live_ui.set_reticle(0) #reticle set to normal
 
 func toggle_camera_active(camera_state:bool):
 	_camera_camera.current = camera_state

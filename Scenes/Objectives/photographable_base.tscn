@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1y7vbc2mr7nt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bo8d2"]
+radius = 3.70255
+
+[node name="Photographable" type="Area3D" groups=["photographables"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17235, 0)
+shape = SubResource("SphereShape3D_bo8d2")
+
+[node name="REPLACE WITH OBJECT" type="Node3D" parent="."]

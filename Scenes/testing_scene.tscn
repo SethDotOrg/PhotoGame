@@ -122,5 +122,4 @@ _live_UI = NodePath("../../../PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/L
 [editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane2"]
 [editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane3"]
 [editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane4"]
-[editable path="LevelHolder/CargoLevel/CementPoles/THE ODD CEMENT POLE"]
 [editable path="LevelHolder/CargoLevel/CargoYardLevelObjectives"]

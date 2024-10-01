@@ -10,6 +10,8 @@ extends Control
 @onready var _state_background = $StateBackground
 @onready var _state_text = $StateBackground/StateText
 
+@onready var _objective_background = $ObjectiveBackground
+
 @onready var _reticle = $Reticle
 
 var objective_text_ui_scene = preload("res://objective_base_UI.tscn")
@@ -32,6 +34,9 @@ func _ready():
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("photo_appear(p)"):
 		_picture_background.visible = !_picture_background.visible
+	
+	if Input.is_action_just_pressed("objective_button"):
+		_objective_background.visible = !_objective_background.visible
 	
 	if Input.is_action_just_pressed("debug_toggle"):
 		_state_background.visible = !_state_background.visible

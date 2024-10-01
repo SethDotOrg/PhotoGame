@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqujyx4miuwe"
-path.s3tc="res://.godot/imported/seagull_Seagull.png-a201ab1cec0b6907fd4a5c64e33eb352.s3tc.ctex"
+uid="uid://cs05vpicelg0d"
+path.s3tc="res://.godot/imported/ManholeCoverOpen_ManholeCover.png-a29966ea8625526ce72f372610aee2ba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/Birds/Seagull/seagull_Seagull.png"
-dest_files=["res://.godot/imported/seagull_Seagull.png-a201ab1cec0b6907fd4a5c64e33eb352.s3tc.ctex"]
+source_file="res://Blender Models/CargoLevelModels/ManholeCovers/ManholeCoverOpen_ManholeCover.png"
+dest_files=["res://.godot/imported/ManholeCoverOpen_ManholeCover.png-a29966ea8625526ce72f372610aee2ba.s3tc.ctex"]
 
 [params]
 

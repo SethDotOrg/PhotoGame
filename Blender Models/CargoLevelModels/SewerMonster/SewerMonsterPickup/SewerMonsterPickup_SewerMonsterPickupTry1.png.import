@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3kwlhtwbp8ug"
-path.s3tc="res://.godot/imported/cone_Cone.png-f54e9b1a76c5bdc4d55ae386e6a6d4f9.s3tc.ctex"
+uid="uid://f6gvlm2cym3l"
+path="res://.godot/imported/SewerMonsterPickup_SewerMonsterPickupTry1.png-a72b88d373fe4ea35caddf023bb4aea9.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/Cone/cone_Cone.png"
-dest_files=["res://.godot/imported/cone_Cone.png-f54e9b1a76c5bdc4d55ae386e6a6d4f9.s3tc.ctex"]
+source_file="res://Blender Models/CargoLevelModels/SewerMonster/SewerMonsterPickup/SewerMonsterPickup_SewerMonsterPickupTry1.png"
+dest_files=["res://.godot/imported/SewerMonsterPickup_SewerMonsterPickupTry1.png-a72b88d373fe4ea35caddf023bb4aea9.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

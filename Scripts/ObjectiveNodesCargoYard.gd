@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var sewer_monster: Node3D
+
 #will need to access the right array pos(is it easier to do it manually. It shouldnt change right?)
 func secret_crane_update():
 	CargoYardLevelObjectives._objectives[0]._objective_complete = true
@@ -16,6 +18,10 @@ func seagull_update():
 	CargoYardLevelObjectives._objectives[2]._objective_complete = true
 	print("objective complete secret crane==== ",CargoYardLevelObjectives._objectives[2]._objective_complete)
 	CargoYardLevelObjectives.update_objectives(get_parent().get_player_node().get_live_ui())
-
+func sewer_monster_update():
+	CargoYardLevelObjectives._objectives[8]._objective_complete = true
+	print("objective complete secret crane==== ",CargoYardLevelObjectives._objectives[8]._objective_complete)
+	CargoYardLevelObjectives.update_objectives(get_parent().get_player_node().get_live_ui())
+	sewer_monster.visible = true
 
 

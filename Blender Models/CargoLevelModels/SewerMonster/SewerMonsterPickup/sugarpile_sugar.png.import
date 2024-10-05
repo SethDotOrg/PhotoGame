@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3kwlhtwbp8ug"
-path.s3tc="res://.godot/imported/cone_Cone.png-f54e9b1a76c5bdc4d55ae386e6a6d4f9.s3tc.ctex"
+uid="uid://cd4qspe2yvacs"
+path.s3tc="res://.godot/imported/sugarpile_sugar.png-23d3b841ab488e806ba4262b5e67148e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/Cone/cone_Cone.png"
-dest_files=["res://.godot/imported/cone_Cone.png-f54e9b1a76c5bdc4d55ae386e6a6d4f9.s3tc.ctex"]
+source_file="res://Blender Models/CargoLevelModels/SewerMonster/SewerMonsterPickup/sugarpile_sugar.png"
+dest_files=["res://.godot/imported/sugarpile_sugar.png-23d3b841ab488e806ba4262b5e67148e.s3tc.ctex"]
 
 [params]
 

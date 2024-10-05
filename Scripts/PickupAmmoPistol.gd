@@ -1,4 +1,5 @@
-extends PickupBase
+#extends PickupBase
+extends Node3D
 
 func _on_area_entered(area):
 	print("AMMO GIVEN TO ", area)

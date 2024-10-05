@@ -16,3 +16,6 @@ func update_objectives(live_ui: Live_UI):
 	#get the node that called parents place in the array of children. Then set the text to have a cross or something
 	#to show it is done
 	live_ui.update_objectives()
+
+func get_objective_node(place:int):
+	return get_child(place)

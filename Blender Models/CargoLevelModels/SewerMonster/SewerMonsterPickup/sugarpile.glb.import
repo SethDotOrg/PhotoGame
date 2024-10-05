@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cwb37a3b07ba3"
-path="res://.godot/imported/SewerMonsterV1.glb-957c9e09463feffe274e30168f42553a.scn"
+uid="uid://cjm7hb0crks7p"
+path="res://.godot/imported/sugarpile.glb-4e4a170a4efc941a004918dbfdab09c7.scn"
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/SewerMonster/SewerMonsterV1.glb"
-dest_files=["res://.godot/imported/SewerMonsterV1.glb-957c9e09463feffe274e30168f42553a.scn"]
+source_file="res://Blender Models/CargoLevelModels/SewerMonster/SewerMonsterPickup/sugarpile.glb"
+dest_files=["res://.godot/imported/sugarpile.glb-4e4a170a4efc941a004918dbfdab09c7.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Sphere": {
+"PATH:Cone": {
 "generate/physics": true,
 "physics/shape_type": 1
 }

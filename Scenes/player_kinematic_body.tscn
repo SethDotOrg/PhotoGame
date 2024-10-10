@@ -55,6 +55,9 @@ height = 10.939
 [sub_resource type="SphereMesh" id="SphereMesh_g1tvl"]
 
 [node name="PlayerKinematicBody" type="CharacterBody3D" groups=["Player"]]
+floor_block_on_wall = false
+floor_max_angle = 1.13446
+floor_snap_length = 2.0
 safe_margin = 0.1
 script = ExtResource("1_4wo7u")
 

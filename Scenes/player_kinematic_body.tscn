@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=45 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d2x18mvklkjgh" path="res://Blender Models/Revolver2.glb" id="5_pvvfr"]
 [ext_resource type="Script" path="res://Scripts/Crouch.gd" id="6_085c4"]
 [ext_resource type="Script" path="res://Scripts/Run.gd" id="6_i6177"]
+[ext_resource type="Script" path="res://Scripts/WalkNoAnim.gd" id="6_uvp66"]
 [ext_resource type="Script" path="res://Scripts/CrouchWalk.gd" id="7_cepot"]
 [ext_resource type="PackedScene" uid="uid://t7snq77r54hq" path="res://Scenes/UI/BaseUI.tscn" id="7_lkktq"]
 [ext_resource type="Script" path="res://Scripts/Fall.gd" id="8_2a85m"]
@@ -69,11 +70,13 @@ _starting_state = NodePath("Idle")
 script = ExtResource("2_uperh")
 _animation_name = "Stand"
 
-[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "walk_state", "climb_mantle_state", "camera_state", "stairs_state", "crouch_state")]
+[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "jump_state", "walk_state", "walk_state_no_anim", "climb_mantle_state", "camera_state", "stairs_state", "crouch_state")]
 script = ExtResource("4_muoqk")
+idle_state = NodePath(".")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 walk_state = NodePath("../Walk")
+walk_state_no_anim = NodePath("../WalkNoAnim")
 climb_mantle_state = NodePath("../ClimbMantle")
 camera_state = NodePath("../CameraIdle")
 stairs_state = NodePath("../Stairs")
@@ -91,6 +94,19 @@ climb_mantle_state = NodePath("../ClimbMantle")
 stairs_state = NodePath("../Stairs")
 _camera_walk_state = NodePath("../CameraWalk")
 _animation_name = "Walk"
+
+[node name="WalkNoAnim" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "walk_state", "run_state", "crouch_walk_state", "climb_mantle_state", "stairs_state", "_camera_walk_state")]
+script = ExtResource("6_uvp66")
+fall_state = NodePath("../Fall")
+jump_state = NodePath("../Jump")
+idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")
+run_state = NodePath("../Run")
+crouch_walk_state = NodePath("../CrouchWalk")
+climb_mantle_state = NodePath("../ClimbMantle")
+stairs_state = NodePath("../Stairs")
+_camera_walk_state = NodePath("../CameraWalk")
+_animation_name = "Idle"
 
 [node name="Run" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "walk_state", "crouch_walk_state", "climb_mantle_state", "stairs_state", "_camera_run_state")]
 script = ExtResource("6_i6177")

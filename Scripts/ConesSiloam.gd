@@ -14,7 +14,7 @@ func _on_area_3d_area_entered(area):
 	if area_1 == true && area_2 == true && area_3 == true && area_4 == true && area_5 == true && area_6 == true: #if all others are true then entering the last area means finishing the siloam
 		area_0 = true
 		print("completed siloam")
-		#TODO add code to update siloam task
+		self.get_parent().cone_siloam_update()
 	if area_1 == false && area_2 == false && area_3 == false && area_4 == false && area_5 == false && area_6 == false: #if all are false then we are just starting the siloam
 		area_0 = true
 	else: #otherwise some were skipped and so we should reset the siloam task
@@ -50,7 +50,7 @@ func _on_area_3d_6_area_entered(area):
 	if area_0 == true && area_1 == true && area_2 == true && area_3 == true && area_4 == true && area_5 == true: #if all others are true then entering the last area means finishing the siloam
 		area_6 = true
 		print("completed siloam")
-		#TODO add code to update siloam task
+		self.get_parent().cone_siloam_update()
 	if area_0 == false && area_1 == false && area_2 == false && area_3 == false && area_4 == false && area_5 == false: #if all are false then we are just starting the siloam
 		area_6 = true
 	else: #otherwise some were skipped and so we should reset the siloam task

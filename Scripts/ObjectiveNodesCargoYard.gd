@@ -12,16 +12,20 @@ func _on_secret_crane_area_3d_area_entered(area):
 
 func cement_pole_update():
 	CargoYardLevelObjectives._objectives[1]._objective_complete = true
-	print("objective complete secret crane==== ",CargoYardLevelObjectives._objectives[1]._objective_complete)
+	print("objective complete cement pole==== ",CargoYardLevelObjectives._objectives[1]._objective_complete)
 	CargoYardLevelObjectives.update_objectives(get_parent().get_player_node().get_live_ui())
 func seagull_update():
 	CargoYardLevelObjectives._objectives[2]._objective_complete = true
-	print("objective complete secret crane==== ",CargoYardLevelObjectives._objectives[2]._objective_complete)
+	print("objective complete seagull==== ",CargoYardLevelObjectives._objectives[2]._objective_complete)
 	CargoYardLevelObjectives.update_objectives(get_parent().get_player_node().get_live_ui())
 func sewer_monster_update():
 	CargoYardLevelObjectives._objectives[8]._objective_complete = true
-	print("objective complete secret crane==== ",CargoYardLevelObjectives._objectives[8]._objective_complete)
+	print("objective complete sewer monster==== ",CargoYardLevelObjectives._objectives[8]._objective_complete)
 	CargoYardLevelObjectives.update_objectives(get_parent().get_player_node().get_live_ui())
 	sewer_monster.visible = true
+func cone_siloam_update():
+	CargoYardLevelObjectives._objectives[9]._objective_complete = true
+	print("objective complete cone siloam==== ",CargoYardLevelObjectives._objectives[9]._objective_complete)
+	CargoYardLevelObjectives.update_objectives(get_parent().get_player_node().get_live_ui())
 
 

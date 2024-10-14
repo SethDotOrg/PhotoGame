@@ -54,4 +54,4 @@ _objective_description = "What is this ooze?"
 [node name="ConeSiloam" type="Node" parent="."]
 editor_description = "Siloam the cones!"
 script = ExtResource("2_vxe5r")
-_objective_description = "Find the odd cement pole"
+_objective_description = "Siloam the cones!"

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cwb37a3b07ba3"
-path="res://.godot/imported/SewerMonsterV1.glb-957c9e09463feffe274e30168f42553a.scn"
+uid="uid://bb6giqwmdy5or"
+path="res://.godot/imported/SewerMonsterV3.glb-0ee6b133f7fdda6e739a033fcda16198.scn"
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/SewerMonster/SewerMonsterV1.glb"
-dest_files=["res://.godot/imported/SewerMonsterV1.glb-957c9e09463feffe274e30168f42553a.scn"]
+source_file="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb"
+dest_files=["res://.godot/imported/SewerMonsterV3.glb-0ee6b133f7fdda6e739a033fcda16198.scn"]
 
 [params]
 
@@ -29,13 +29,6 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Sphere": {
-"generate/physics": true,
-"physics/shape_type": 1
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

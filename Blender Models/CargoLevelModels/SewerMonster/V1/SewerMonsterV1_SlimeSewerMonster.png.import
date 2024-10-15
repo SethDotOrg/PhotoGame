@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw6af5vqt5awj"
-path="res://.godot/imported/SewerMonsterV1_SlimeSewerMonster.png-9dd59c9b8856723db172cdbed7602ca1.ctex"
+path="res://.godot/imported/SewerMonsterV1_SlimeSewerMonster.png-6f71a924187f44524a69d4d490a7ca09.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,8 +11,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/SewerMonster/SewerMonsterV1_SlimeSewerMonster.png"
-dest_files=["res://.godot/imported/SewerMonsterV1_SlimeSewerMonster.png-9dd59c9b8856723db172cdbed7602ca1.ctex"]
+source_file="res://Blender Models/CargoLevelModels/SewerMonster/V1/SewerMonsterV1_SlimeSewerMonster.png"
+dest_files=["res://.godot/imported/SewerMonsterV1_SlimeSewerMonster.png-6f71a924187f44524a69d4d490a7ca09.ctex"]
 
 [params]
 

@@ -32,9 +32,9 @@
 [ext_resource type="PackedScene" uid="uid://bwheo7et62jow" path="res://Scenes/pickup_sewer_monster.tscn" id="29_6b3gw"]
 [ext_resource type="Script" path="res://Scripts/ConesSiloam.gd" id="29_le1um"]
 [ext_resource type="PackedScene" uid="uid://cq0ykhfdf3kgm" path="res://Blender Models/CargoLevelModels/Cone/cone.glb" id="30_tr2l3"]
-[ext_resource type="PackedScene" uid="uid://cwb37a3b07ba3" path="res://Blender Models/CargoLevelModels/SewerMonster/SewerMonsterV1.glb" id="31_5xqbn"]
 [ext_resource type="PackedScene" uid="uid://cbyjps4ggtwl7" path="res://Blender Models/CargoLevelModels/ManholeCovers/ManholeCoverOpen.glb" id="32_l7aci"]
 [ext_resource type="PackedScene" uid="uid://ceve7tbq13v88" path="res://Blender Models/CargoLevelModels/ManholeCovers/ManholeCoverClosed.glb" id="33_5nuyd"]
+[ext_resource type="PackedScene" uid="uid://bb6giqwmdy5or" path="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb" id="34_mq0dh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -4011,7 +4011,7 @@ transform = Transform3D(-0.00655228, 0.00487685, -1.99998, 1.19413, 1.60439, 0, 
 [node name="ObjectiveNodesCargoYard" type="Node3D" parent="." node_paths=PackedStringArray("sewer_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.583, 2.2471, -234.132)
 script = ExtResource("22_21vue")
-sewer_monster = NodePath("../SewerMonsterV1")
+sewer_monster = NodePath("../SewerMonsterV4")
 
 [node name="SecretCrane" type="Node3D" parent="ObjectiveNodesCargoYard"]
 
@@ -4131,15 +4131,15 @@ shape = SubResource("BoxShape3D_dhb1o")
 [node name="SewerMonster" parent="CargoYardLevelObjectives" index="8"]
 _objective_description = ""
 
-[node name="SewerMonsterV1" parent="." instance=ExtResource("31_5xqbn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5228, 1.09568, -24.5935)
-visible = false
-
 [node name="ManholeCoverOpen2" parent="." instance=ExtResource("32_l7aci")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 17.4528, 1.646, -24.5585)
 
 [node name="ManholeCoverClosed2" parent="." instance=ExtResource("33_5nuyd")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15.6978, 1.68369, -23.0515)
+
+[node name="SewerMonsterV4" parent="." instance=ExtResource("34_mq0dh")]
+transform = Transform3D(1, 0, 0, 0, 0.902059, 0.431613, 0, -0.431613, 0.902059, 17.3036, 1.55425, -24.0776)
+visible = false
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/ConesSiloam/Area3D" to="ObjectiveNodesCargoYard/ConesSiloam" method="_on_area_3d_area_entered"]

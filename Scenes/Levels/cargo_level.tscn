@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=47 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -34,8 +34,9 @@
 [ext_resource type="PackedScene" uid="uid://cq0ykhfdf3kgm" path="res://Blender Models/CargoLevelModels/Cone/cone.glb" id="30_tr2l3"]
 [ext_resource type="PackedScene" uid="uid://cbyjps4ggtwl7" path="res://Blender Models/CargoLevelModels/ManholeCovers/ManholeCoverOpen.glb" id="32_l7aci"]
 [ext_resource type="PackedScene" uid="uid://ceve7tbq13v88" path="res://Blender Models/CargoLevelModels/ManholeCovers/ManholeCoverClosed.glb" id="33_5nuyd"]
-[ext_resource type="PackedScene" uid="uid://bb6giqwmdy5or" path="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb" id="34_mq0dh"]
 [ext_resource type="PackedScene" uid="uid://gw8fdyxvhc82" path="res://Blender Models/CargoLevelModels/Sugar/sugarpile.glb" id="34_3ou3y"]
+[ext_resource type="PackedScene" uid="uid://bb6giqwmdy5or" path="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb" id="34_mq0dh"]
+[ext_resource type="PackedScene" uid="uid://b8hwshb5qtj5m" path="res://Blender Models/CargoLevelModels/Boots/boots.glb" id="37_fnqvw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -4144,6 +4145,9 @@ visible = false
 
 [node name="SugarPile" parent="." instance=ExtResource("34_3ou3y")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.4899, 1.64514, -10.7861)
+
+[node name="boots" parent="." instance=ExtResource("37_fnqvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9267, 1.64515, -37.28)
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/ConesSiloam/Area3D" to="ObjectiveNodesCargoYard/ConesSiloam" method="_on_area_3d_area_entered"]

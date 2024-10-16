@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=44 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://cbyjps4ggtwl7" path="res://Blender Models/CargoLevelModels/ManholeCovers/ManholeCoverOpen.glb" id="32_l7aci"]
 [ext_resource type="PackedScene" uid="uid://ceve7tbq13v88" path="res://Blender Models/CargoLevelModels/ManholeCovers/ManholeCoverClosed.glb" id="33_5nuyd"]
 [ext_resource type="PackedScene" uid="uid://bb6giqwmdy5or" path="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb" id="34_mq0dh"]
+[ext_resource type="PackedScene" uid="uid://gw8fdyxvhc82" path="res://Blender Models/CargoLevelModels/Sugar/sugarpile.glb" id="34_3ou3y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -4140,6 +4141,9 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15.6978, 1.68369, -23.0515)
 [node name="SewerMonsterV4" parent="." instance=ExtResource("34_mq0dh")]
 transform = Transform3D(1, 0, 0, 0, 0.902059, 0.431613, 0, -0.431613, 0.902059, 17.3036, 1.55425, -24.0776)
 visible = false
+
+[node name="SugarPile" parent="." instance=ExtResource("34_3ou3y")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.4899, 1.64514, -10.7861)
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/ConesSiloam/Area3D" to="ObjectiveNodesCargoYard/ConesSiloam" method="_on_area_3d_area_entered"]

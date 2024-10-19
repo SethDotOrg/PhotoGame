@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=48 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://gw8fdyxvhc82" path="res://Blender Models/CargoLevelModels/Sugar/sugarpile.glb" id="34_3ou3y"]
 [ext_resource type="PackedScene" uid="uid://bb6giqwmdy5or" path="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb" id="34_mq0dh"]
 [ext_resource type="PackedScene" uid="uid://b8hwshb5qtj5m" path="res://Blender Models/CargoLevelModels/Boots/boots.glb" id="37_fnqvw"]
+[ext_resource type="PackedScene" uid="uid://db5jwkjhxrucq" path="res://Blender Models/CargoLevelModels/HardHat/Hardhat.glb" id="38_ayrdc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -4148,6 +4149,9 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.4899, 1.64514, -10.7861)
 
 [node name="boots" parent="." instance=ExtResource("37_fnqvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9267, 1.64515, -37.28)
+
+[node name="Hardhat" parent="." instance=ExtResource("38_ayrdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63805, 1.80104, -32.3864)
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/ConesSiloam/Area3D" to="ObjectiveNodesCargoYard/ConesSiloam" method="_on_area_3d_area_entered"]

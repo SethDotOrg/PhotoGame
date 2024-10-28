@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b181td78ltlp4"]
+
+[ext_resource type="PackedScene" uid="uid://db5jwkjhxrucq" path="res://Blender Models/CargoLevelModels/HardHat/Hardhat.glb" id="1_66vfg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mvmi6"]
+radius = 4.0
+
+[node name="PhotographableHardHat" type="Area3D" groups=["photographables"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_mvmi6")
+
+[node name="Hardhat" parent="." instance=ExtResource("1_66vfg")]

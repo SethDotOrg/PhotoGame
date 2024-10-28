@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx2hcfhnganr3"]
+
+[ext_resource type="PackedScene" uid="uid://b8hwshb5qtj5m" path="res://Blender Models/CargoLevelModels/Boots/boots.glb" id="2_3dnlu"]
+[ext_resource type="Script" path="res://Scripts/PickupBoots.gd" id="2_600u5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_61sef"]
+radius = 2.39886
+height = 4.79772
+
+[node name="PickupBoots" type="Node3D"]
+
+[node name="Boots" parent="." instance=ExtResource("2_3dnlu")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Boots"]
+transform = Transform3D(2.85714, 0, 0, 0, 2.85714, 0, 0, 0, 2.85714, 0, 0, 0)
+collision_layer = 2
+monitorable = false
+script = ExtResource("2_600u5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boots/Area3D"]
+shape = SubResource("CapsuleShape3D_61sef")
+
+[connection signal="area_entered" from="Boots/Area3D" to="Boots/Area3D" method="_on_area_entered"]

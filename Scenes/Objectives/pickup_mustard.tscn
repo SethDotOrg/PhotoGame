@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://rbq5cwr8bydt"]
+
+[ext_resource type="Script" path="res://Scripts/PickupMustard.gd" id="1_ba3tb"]
+[ext_resource type="Texture2D" uid="uid://dmqqokswinl2c" path="res://Blender Models/CargoLevelModels/HotDog/Hotdog_Mustard.png" id="1_fw8yn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wajkq"]
+radius = 4.17371
+height = 8.34742
+
+[node name="PickupMustard" type="Node3D"]
+
+[node name="Mustard" type="Sprite3D" parent="."]
+transform = Transform3D(13, 0, 0, 0, -5.68248e-07, -13, 0, 13, -5.68248e-07, 0, 0, 0)
+texture = ExtResource("1_fw8yn")
+
+[node name="Area3D" type="Area3D" parent="Mustard"]
+transform = Transform3D(0.0769231, 0, 0, 0, -3.36241e-09, 0.0769231, 0, -0.0769231, -3.36241e-09, 0, 0, 0)
+collision_layer = 2
+monitorable = false
+script = ExtResource("1_ba3tb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mustard/Area3D"]
+shape = SubResource("CapsuleShape3D_wajkq")
+
+[connection signal="area_entered" from="Mustard/Area3D" to="Mustard/Area3D" method="_on_area_entered"]

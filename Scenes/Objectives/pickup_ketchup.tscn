@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://vbkdaavb2q83"]
+
+[ext_resource type="Texture2D" uid="uid://csw0w6mns8cjj" path="res://Blender Models/CargoLevelModels/HotDog/Hotdog_Ketchup.png" id="1_dtsca"]
+[ext_resource type="Script" path="res://Scripts/PickupKetchup.gd" id="2_l57x6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2wt48"]
+radius = 4.31862
+height = 8.63723
+
+[node name="PickupKetchup" type="Node3D"]
+
+[node name="Ketchup" type="Sprite3D" parent="."]
+transform = Transform3D(13, 0, 0, 0, -5.68248e-07, -13, 0, 13, -5.68248e-07, 0, 0, 0)
+texture = ExtResource("1_dtsca")
+
+[node name="Area3D" type="Area3D" parent="Ketchup"]
+transform = Transform3D(0.0769231, 0, 0, 0, -3.36241e-09, 0.0769231, 0, -0.0769231, -3.36241e-09, 0, 0, 0)
+collision_layer = 2
+monitorable = false
+script = ExtResource("2_l57x6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ketchup/Area3D"]
+shape = SubResource("CapsuleShape3D_2wt48")
+
+[connection signal="area_entered" from="Ketchup/Area3D" to="Ketchup/Area3D" method="_on_area_entered"]

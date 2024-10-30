@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://7i38d8cmbxap"]
+
+[ext_resource type="Script" path="res://Scripts/PickupBun.gd" id="1_2be8j"]
+[ext_resource type="PackedScene" uid="uid://cvhkhad4ltxg5" path="res://Blender Models/CargoLevelModels/HotDog/HotdogBun.glb" id="1_rgid4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_06ta4"]
+radius = 6.03127
+height = 12.0625
+
+[node name="PickupBun" type="Node3D"]
+
+[node name="HotdogBun" parent="." instance=ExtResource("1_rgid4")]
+
+[node name="Area3D" type="Area3D" parent="HotdogBun"]
+collision_layer = 2
+monitorable = false
+script = ExtResource("1_2be8j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HotdogBun/Area3D"]
+shape = SubResource("CapsuleShape3D_06ta4")
+
+[connection signal="area_entered" from="HotdogBun/Area3D" to="HotdogBun/Area3D" method="_on_area_entered"]

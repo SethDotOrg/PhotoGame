@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=53 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -38,7 +38,11 @@
 [ext_resource type="PackedScene" uid="uid://b181td78ltlp4" path="res://Scenes/Objectives/photographable_hard_hat.tscn" id="33_f8grl"]
 [ext_resource type="PackedScene" uid="uid://gw8fdyxvhc82" path="res://Blender Models/CargoLevelModels/Sugar/sugarpile.glb" id="34_3ou3y"]
 [ext_resource type="PackedScene" uid="uid://bb6giqwmdy5or" path="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb" id="34_mq0dh"]
-[ext_resource type="PackedScene" uid="uid://brn1b2lrs8xst" path="res://Blender Models/CargoLevelModels/HotDog/Hotdog.glb" id="39_70pf0"]
+[ext_resource type="PackedScene" uid="uid://d3d3lnj0tyclp" path="res://Scenes/Objectives/pickup_sugar_booger.tscn" id="40_8itma"]
+[ext_resource type="PackedScene" uid="uid://7i38d8cmbxap" path="res://Scenes/Objectives/pickup_bun.tscn" id="40_cchnj"]
+[ext_resource type="PackedScene" uid="uid://dajtnhrlxelon" path="res://Scenes/Objectives/pickup_hotdog_weiner.tscn" id="41_s2htb"]
+[ext_resource type="PackedScene" uid="uid://vbkdaavb2q83" path="res://Scenes/Objectives/pickup_ketchup.tscn" id="42_lfa5p"]
+[ext_resource type="PackedScene" uid="uid://rbq5cwr8bydt" path="res://Scenes/Objectives/pickup_mustard.tscn" id="43_sjxpd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
@@ -4015,7 +4019,7 @@ transform = Transform3D(-0.00655228, 0.00487685, -1.99998, 1.19413, 1.60439, 0, 
 [node name="ObjectiveNodesCargoYard" type="Node3D" parent="." node_paths=PackedStringArray("sewer_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.583, 2.2471, -234.132)
 script = ExtResource("22_21vue")
-sewer_monster = NodePath("../SewerMonsterV4")
+sewer_monster = NodePath("Manhole/ManholeOpenCollection/SewerMonsterV4")
 
 [node name="SecretCrane" type="Node3D" parent="ObjectiveNodesCargoYard"]
 
@@ -4046,18 +4050,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -0.596993, 234.132)
 script = ExtResource("28_8ecux")
 
 [node name="PickupSewerMonster1" parent="ObjectiveNodesCargoYard/SewerMonsterPickups" instance=ExtResource("29_6b3gw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.09573)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 308.238, 4.49922, -214.968)
 
 [node name="PickupSewerMonster2" parent="ObjectiveNodesCargoYard/SewerMonsterPickups" instance=ExtResource("29_6b3gw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.61796)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -243.122, 0, -280.863)
 
 [node name="PickupSewerMonster3" parent="ObjectiveNodesCargoYard/SewerMonsterPickups" instance=ExtResource("29_6b3gw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 362.149, 24.9956, 9.55846)
 
 [node name="PickupSewerMonster4" parent="ObjectiveNodesCargoYard/SewerMonsterPickups" instance=ExtResource("29_6b3gw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.18376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.647, 39.9098, 195.502)
 
 [node name="PickupSewerMonster5" parent="ObjectiveNodesCargoYard/SewerMonsterPickups" instance=ExtResource("29_6b3gw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.59703)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.496, 0, 61.7782)
 
 [node name="ConesSiloam" type="Node3D" parent="ObjectiveNodesCargoYard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 440.119, 0.98686, 520.067)
@@ -4136,26 +4141,111 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.023, 39.5828, 129.096)
 [node name="PhotographableHardHat" parent="ObjectiveNodesCargoYard" instance=ExtResource("33_f8grl")]
 transform = Transform3D(0.668248, -0.359532, 0.651292, 2.98023e-08, 0.875465, 0.483282, -0.743938, -0.322953, 0.585028, 211.729, 39.1601, -69.3286)
 
+[node name="AllTheCocaine" type="Node3D" parent="ObjectiveNodesCargoYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
+
+[node name="PickupSugarBooger" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("40_8itma")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 260.257, 2, -166.342)
+
+[node name="SugarPile" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(1, 0, 0, 0, 0.994073, 0.108711, 0, -0.108711, 0.994073, 260.057, 1.45591, -159.767)
+
+[node name="SugarPile2" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260.539, 1.64514, -157.893)
+
+[node name="SugarPile3" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(0.036103, 0, -0.999348, 0, 1, 0, 0.999348, 0, 0.036103, 258.332, 1.64514, -161.81)
+
+[node name="SugarPile4" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(0.072206, 0, -1.9987, 0, 2, 0, 1.9987, 0, 0.072206, 255.428, 1.64514, -165.103)
+
+[node name="SugarPile5" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(1.64336, 0, -0.29708, 0, 1.67, 0, 0.29708, 0, 1.64336, 256.094, 1.64514, -163.681)
+
+[node name="SugarPile6" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(0.108309, 0, -2.99804, 0, 3, 0, 2.99804, 0, 0.108309, 256.031, 1.64514, -160.318)
+
+[node name="SugarPile7" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(-0.999185, 0.00438929, -0.0401366, 0, 0.994073, 0.108711, 0.0403759, 0.108622, -0.993263, 257.031, 1.45591, -155.501)
+
+[node name="SugarPile8" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(-0.999185, 0, -0.0403759, 0, 1, 0, 0.0403759, 0, -0.999185, 256.473, 1.64514, -157.355)
+
+[node name="SugarPile9" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(-0.0764231, 0, 0.997075, 0, 1, 0, -0.997075, 0, -0.0764231, 258.837, 1.64514, -153.53)
+
+[node name="SugarPile10" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(-0.152846, 0, 1.99415, 0, 2, 0, -1.99415, 0, -0.152846, 261.871, 1.64514, -150.356)
+
+[node name="SugarPile11" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(-1.65402, 0, 0.230485, 0, 1.67, 0, -0.230485, 0, -1.65402, 261.102, 1.64514, -152.897)
+
+[node name="SugarPile12" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(-0.229269, 0, 2.99123, 0, 3, 0, -2.99123, 0, -0.229269, 261.029, 1.64514, -156.26)
+
+[node name="SugarPile13" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(0.072206, 0, -1.9987, 0, 2, 0, 1.9987, 0, 0.072206, 255.428, 1.64514, -153.133)
+
+[node name="SugarPile14" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(1.64336, 0, -0.29708, 0, 1.67, 0, 0.29708, 0, 1.64336, 256.094, 1.64514, -150.564)
+
+[node name="SugarPile15" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(0.108309, 0, -2.99804, 0, 3, 0, 2.99804, 0, 0.108309, 256.031, 1.64514, -147.201)
+
+[node name="SugarPile16" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(-0.999185, 0.00438929, -0.0401366, 0, 0.994073, 0.108711, 0.0403759, 0.108622, -0.993263, 258.195, 1.45591, -143.181)
+
+[node name="SugarPile17" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(-0.999185, 0, -0.0403759, 0, 1, 0, 0.0403759, 0, -0.999185, 256.473, 1.64514, -144.237)
+
+[node name="SugarPile18" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(4.14162, 0, -2.80124, 0, 5, 0, 2.80124, 0, 4.14162, 258.469, 1.64514, -136.694)
+
+[node name="SugarPile19" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
+transform = Transform3D(-2.09489, 0, 1.36434, 0, 2.5, 0, -1.36434, 0, -2.09489, 261.871, 1.64514, -145.332)
+
+[node name="Manhole" type="Node3D" parent="ObjectiveNodesCargoYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8845, 0, -48.5326)
+
+[node name="ManholeOpenCollection" type="Node3D" parent="ObjectiveNodesCargoYard/Manhole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
+visible = false
+
+[node name="ManholeCoverOpen" parent="ObjectiveNodesCargoYard/Manhole/ManholeOpenCollection" instance=ExtResource("32_l7aci")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 132.334, 1.646, 111.711)
+
+[node name="ManholeCoverClosed" parent="ObjectiveNodesCargoYard/Manhole/ManholeOpenCollection" instance=ExtResource("33_5nuyd")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 130.579, 1.68369, 113.218)
+
+[node name="SewerMonsterV4" parent="ObjectiveNodesCargoYard/Manhole/ManholeOpenCollection" instance=ExtResource("34_mq0dh")]
+transform = Transform3D(1, 0, 0, 0, 0.902059, 0.431613, 0, -0.431613, 0.902059, 132.185, 1.55425, 112.192)
+visible = false
+
+[node name="ManholeClosedCollection" type="Node3D" parent="ObjectiveNodesCargoYard/Manhole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
+
+[node name="ManholeCoverClosed" parent="ObjectiveNodesCargoYard/Manhole/ManholeClosedCollection" instance=ExtResource("33_5nuyd")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 132.334, 1.646, 111.711)
+
+[node name="HotDogStuff" type="Node3D" parent="ObjectiveNodesCargoYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
+
+[node name="PickupBun" parent="ObjectiveNodesCargoYard/HotDogStuff" instance=ExtResource("40_cchnj")]
+transform = Transform3D(-0.112145, 0, 0.1656, 0, 0.2, 0, -0.1656, 0, -0.112145, -208.475, 85.0976, 11.1736)
+
+[node name="PickupWeiner" parent="ObjectiveNodesCargoYard/HotDogStuff" instance=ExtResource("41_s2htb")]
+transform = Transform3D(0.041637, 0.169001, -0.0985148, 0, 0.100722, 0.172786, 0.195618, -0.0359715, 0.0209687, -305.985, 2.5375, 306.81)
+
+[node name="PickupKetchup" parent="ObjectiveNodesCargoYard/HotDogStuff" instance=ExtResource("42_lfa5p")]
+transform = Transform3D(0.38, 0, 0, 0, 0.38, 0, 0, 0, 0.38, -269.084, 28.3665, 77.4974)
+
+[node name="PickupMustard" parent="ObjectiveNodesCargoYard/HotDogStuff" instance=ExtResource("43_sjxpd")]
+transform = Transform3D(-1.61732e-08, 0.37, -1.61732e-08, 0, -1.61732e-08, -0.37, -0.37, -1.61732e-08, 7.06954e-16, 78.6085, 3.23997, 166.322)
+
 [node name="CargoYardLevelObjectives" parent="." instance=ExtResource("22_hip70")]
 
 [node name="SewerMonster" parent="CargoYardLevelObjectives" index="8"]
 _objective_description = ""
-
-[node name="ManholeCoverOpen2" parent="." instance=ExtResource("32_l7aci")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 17.4528, 1.646, -24.5585)
-
-[node name="ManholeCoverClosed2" parent="." instance=ExtResource("33_5nuyd")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15.6978, 1.68369, -23.0515)
-
-[node name="SewerMonsterV4" parent="." instance=ExtResource("34_mq0dh")]
-transform = Transform3D(1, 0, 0, 0, 0.902059, 0.431613, 0, -0.431613, 0.902059, 17.3036, 1.55425, -24.0776)
-visible = false
-
-[node name="SugarPile" parent="." instance=ExtResource("34_3ou3y")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.4899, 1.64514, -10.7861)
-
-[node name="Hotdog" parent="." instance=ExtResource("39_70pf0")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -1.71661, 1.64514, -34.4147)
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/ConesSiloam/Area3D" to="ObjectiveNodesCargoYard/ConesSiloam" method="_on_area_3d_area_entered"]

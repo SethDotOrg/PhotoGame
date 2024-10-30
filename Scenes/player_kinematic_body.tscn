@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=46 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -40,6 +40,7 @@
 [ext_resource type="Script" path="res://Scripts/LedgeHang.gd" id="18_td1sj"]
 [ext_resource type="Script" path="res://Scripts/LedgeJump.gd" id="19_qjxhd"]
 [ext_resource type="Shape3D" uid="uid://brst4aadrvjgk" path="res://CollisionShapes/HangCollision.tres" id="28_bcv1h"]
+[ext_resource type="PackedScene" uid="uid://1etcsseyybed" path="res://Blender Models/CargoLevelModels/HotDog/Hotdog.glb" id="35_go38e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwlmk"]
 radius = 1.0
@@ -319,47 +320,39 @@ _player = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31323e-10, -6.29874, -0.386412)
 
 [node name="Skeleton3D" parent="GameModel/Armature" index="1"]
-bones/0/position = Vector3(0.00170629, -2.59086, -0.546394)
-bones/0/rotation = Quaternion(-0.0879904, 0.0823772, 0.0232908, 0.992436)
-bones/1/rotation = Quaternion(0.691359, 0.0460756, 0.0760003, 0.717024)
+bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.567463, -0.0866447, 0.0231503, 0.8185)
+bones/2/rotation = Quaternion(-0.135812, 1.18105e-07, -1.61901e-08, 0.990735)
 bones/4/rotation = Quaternion(-0.10404, -0.0880152, -0.701608, 0.699411)
-bones/5/rotation = Quaternion(0.0178467, 0.000189574, -0.707683, 0.706305)
+bones/5/rotation = Quaternion(0.0121538, 0.00402048, -0.707095, 0.707002)
 bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(0.878214, 0.0530236, -0.0191164, 0.474936)
 bones/7/rotation = Quaternion(0.00132025, -1.32174e-14, 5.14124e-10, 0.999999)
 bones/8/rotation = Quaternion(0.00808693, -0.0080873, 0.707061, 0.707061)
 bones/9/rotation = Quaternion(-0.10404, 0.0880152, 0.701608, 0.699411)
 bones/10/rotation = Quaternion(0.0121538, -0.00402048, 0.707095, 0.707002)
 bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.855077, -0.117139, -0.195873, 0.46557)
 bones/12/rotation = Quaternion(0.00132025, 1.32174e-14, -5.14124e-10, 0.999999)
 bones/14/rotation = Quaternion(-0.135813, 9.40033e-10, 9.40032e-10, 0.990735)
 bones/15/rotation = Quaternion(-0.135813, 9.40033e-10, 9.40032e-10, 0.990735)
-bones/16/position = Vector3(0.00170629, -2.51223, -0.318871)
 bones/16/rotation = Quaternion(0.481384, 0.517947, 0.517947, -0.481384)
-bones/17/rotation = Quaternion(-0.725697, -0.0251473, -0.0838358, 0.682424)
+bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250573, 0.706663)
 bones/17/scale = Vector3(1, 1, 1)
-bones/18/rotation = Quaternion(-0.014583, -0.0330694, 0.596314, 0.801937)
-bones/19/position = Vector3(0.00170629, -2.51223, -0.318871)
-bones/19/rotation = Quaternion(-0.441182, 0.474691, 0.557859, 0.518479)
-bones/20/rotation = Quaternion(-0.451846, 0.530625, 0.515155, 0.498887)
+bones/19/rotation = Quaternion(-0.481384, 0.517947, 0.517947, 0.481384)
+bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250573, 0.706663)
 bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(1.55653e-07, 1.5374e-07, -0.769623, 0.638499)
 bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.965508, 0.0452404, 0.256413, 0.208031, 0.458186, -0.86417, -0.15658, 0.887705, 0.432971, 0.851584, -0.613291, 0.370756)
+transform = Transform3D(1, 1.66869e-07, 1.08033e-07, -1.13258e-07, 1, -7.0208e-08, -1.08033e-07, 1.03081e-07, 1, 0.90636, 1.62748, -0.625655)
 
 [node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.965509, 0.0452396, 0.256411, 0.20803, 0.458185, -0.86417, -0.156579, 0.887705, 0.432971, -0.898612, -0.990391, 0.654591)
+transform = Transform3D(1, 1.1706e-08, -5.7742e-08, -5.95086e-09, 1, -8.23152e-08, 5.96046e-08, 1.15551e-07, 1, -0.90636, 1.62748, -0.625656)
 
 [node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.965508, 0.0452397, 0.256412, 0.208031, 0.458186, -0.86417, -0.156579, 0.887704, 0.432971, 0.425935, -2.1834, -1.59344)
+transform = Transform3D(1, -2.11798e-09, 1.60731e-09, 2.11798e-09, 1, 8.64267e-07, -1.60731e-09, -8.64267e-07, 1, 0.476315, -0.8548, -0.228398)
 
 [node name="RightLegConnecter" parent="GameModel/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.965508, 0.0452397, 0.256412, 0.208031, 0.458186, -0.86417, -0.156579, 0.887704, 0.432971, -0.493837, -2.38157, -1.44428)
+transform = Transform3D(1, -2.11798e-09, 1.60731e-09, 2.11798e-09, 1, 8.64267e-07, -1.60731e-09, -8.64267e-07, 1, -0.476315, -0.8548, -0.228398)
 
 [node name="LeftArmIK" type="SkeletonIK3D" parent="GameModel/Armature/Skeleton3D" index="12"]
 process_priority = 1
@@ -369,15 +362,20 @@ override_tip_basis = false
 target_node = NodePath("../../../ArmEndRightHandle/ArmEndRightTarget")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="GameModel/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-0.906779, 0.257344, 0.333954, 0.186799, -0.464878, 0.865445, 0.377965, 0.84715, 0.37347, -0.876756, -2.77889, 1.07549)
+transform = Transform3D(-1, 1.1713e-07, 3.68408e-07, -1.17686e-07, -1, -6.58911e-08, 3.67088e-07, -9.84874e-08, 1, -1.36038, -2.02514, -0.628954)
 bone_name = "Hand.r"
 bone_idx = 12
 
 [node name="CutePistol" parent="GameModel/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_s4tnm")]
 transform = Transform3D(1, -1.13687e-13, -2.84217e-14, 0, -2.98023e-08, -1, 2.84217e-14, 1, -2.98023e-08, -2.38419e-07, 0.21, -0.0928659)
+visible = false
 
 [node name="Revolver2" parent="GameModel/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("5_pvvfr")]
 transform = Transform3D(0.22, 1.42109e-14, 0, 2.84217e-14, 7.45058e-09, -0.22, 7.10543e-15, 0.22, 0, 1.19209e-07, -0.0501733, 0.182128)
+visible = false
+
+[node name="Hotdog" parent="GameModel/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("35_go38e")]
+transform = Transform3D(-0.15, -1.75696e-08, 5.52613e-08, 1.76529e-08, -0.15, -9.88367e-09, 5.50632e-08, -1.47731e-08, 0.15, 0, 0.26385, 3.72529e-08)
 visible = false
 
 [node name="WeaponManager" parent="GameModel" node_paths=PackedStringArray("_base_ui") instance=ExtResource("5_e2upq")]

@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csw0w6mns8cjj"
-path="res://.godot/imported/Hotdog_Ketchup.png-bfc1b9ac42b6aa85a58365be6e44585e.ctex"
+uid="uid://d06j2iewlo01g"
+path.s3tc="res://.godot/imported/HotdogWeiner_Hotdog.png-f0826e7c9387d9418932bb6588f223f0.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/HotDog/Hotdog_Ketchup.png"
-dest_files=["res://.godot/imported/Hotdog_Ketchup.png-bfc1b9ac42b6aa85a58365be6e44585e.ctex"]
+source_file="res://Blender Models/CargoLevelModels/HotDog/HotdogWeiner_Hotdog.png"
+dest_files=["res://.godot/imported/HotdogWeiner_Hotdog.png-f0826e7c9387d9418932bb6588f223f0.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

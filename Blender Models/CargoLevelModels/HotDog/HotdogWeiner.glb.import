@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1etcsseyybed"
-path="res://.godot/imported/Hotdog.glb-99d91e1d6f3a6f0b43c401d355fbb1d5.scn"
+uid="uid://xet27183n0vg"
+path="res://.godot/imported/HotdogWeiner.glb-afe9f05b9c09a082ecfba0afc1aab54f.scn"
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/HotDog/Hotdog.glb"
-dest_files=["res://.godot/imported/Hotdog.glb-99d91e1d6f3a6f0b43c401d355fbb1d5.scn"]
+source_file="res://Blender Models/CargoLevelModels/HotDog/HotdogWeiner.glb"
+dest_files=["res://.godot/imported/HotdogWeiner.glb-afe9f05b9c09a082ecfba0afc1aab54f.scn"]
 
 [params]
 

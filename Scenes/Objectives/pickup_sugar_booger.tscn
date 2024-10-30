@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3d3lnj0tyclp"]
+
+[ext_resource type="PackedScene" uid="uid://gw8fdyxvhc82" path="res://Blender Models/CargoLevelModels/Sugar/sugarpile.glb" id="1_lxlf0"]
+[ext_resource type="Script" path="res://Scripts/PickupSugarBooger.gd" id="2_jw1f5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yhsxq"]
+radius = 3.87803
+height = 7.75605
+
+[node name="PickupSugarBooger" type="Node3D"]
+
+[node name="sugarpile" parent="." instance=ExtResource("1_lxlf0")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="sugarpile"]
+collision_layer = 2
+monitorable = false
+script = ExtResource("2_jw1f5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sugarpile/Area3D"]
+shape = SubResource("CapsuleShape3D_yhsxq")
+
+[connection signal="area_entered" from="sugarpile/Area3D" to="sugarpile/Area3D" method="_on_area_entered"]

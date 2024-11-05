@@ -22,6 +22,20 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("num_1"):
 		respawn_player()
 
+func set_position_at_point(point):
+	_player.global_position = point.global_position
+	
+	#set the model and camera horizontal rotation node to zero so that the rotations will work correctly
+	#remember that the players forward direction is always -z in our case but that it wont always match up with the global axis
+	#so setting these to 0 essentially matches these values to the world axis for a split second
+	_player._model.rotation.y = 0
+	_player._camera_controller.set_camera_horizontal_rotation(0)
+	
+	_player._camera_controller.get_rotate_node_horizontal().rotate_y(point.rotation.y)#rotate the camera horizontal node to match the rotation of the world anchor
+	direction = (_player.transform.basis * Vector3(0, 0, -1)).normalized() #set direction to be straight ahead of the player so that we have a value to work with (the below line requires this)
+	direction = _player._camera_controller.get_direction_from_mouse(direction) #then get the direction that the mouse is facing which we have facing the wall now
+	_player._model.rotate_y(atan2(direction.x, direction.z)) #then rotate the model based on the direction we just calculated
+
 func spawn_player_and_rotate():
 	_camera_controller.get_rotate_node_horizontal().rotate_y(_spawn_point.rotation.y)#match the cameras rotation and thus the players direction to the spawn points y rotation
 	direction = (_player.transform.basis * Vector3(0, 0, -1)).normalized()  #this is the forward direction input. we need to get this direction to use with getting direction from mouse rotation

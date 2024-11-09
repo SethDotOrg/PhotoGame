@@ -9,6 +9,7 @@ extends State
 @export var camera_state: State
 @export var stairs_state: State
 @export var crouch_state: State
+@export var sit_state: State
 
 func enter() -> void:
 	super()
@@ -35,6 +36,10 @@ func process_input(event: InputEvent) -> State:
 	
 	if Input.is_action_just_pressed("crouch"):
 		return crouch_state
+	
+	if Input.is_action_just_pressed("interact") and GlobalVariables._in_sit_area == true:
+		return sit_state
+	
 	return null
 
 func process_physics(delta: float) -> State:

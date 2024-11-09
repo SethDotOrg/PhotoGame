@@ -18,6 +18,14 @@ func seagull_update():
 	CargoYardLevelObjectives._objectives[2]._objective_complete = true
 	print("objective complete seagull==== ",CargoYardLevelObjectives._objectives[2]._objective_complete)
 	CargoYardLevelObjectives.update_objectives(get_parent().get_player_node().get_live_ui())
+func crane_sit_update():
+	CargoYardLevelObjectives._objectives[3]._objective_complete = true
+	print("objective complete crane sit==== ",CargoYardLevelObjectives._objectives[3]._objective_complete)
+	CargoYardLevelObjectives.update_objectives(get_parent().get_player_node().get_live_ui())
+func hard_hat_update():
+	CargoYardLevelObjectives._objectives[5]._objective_complete = true
+	print("objective complete seagull==== ",CargoYardLevelObjectives._objectives[5]._objective_complete)
+	CargoYardLevelObjectives.update_objectives(get_parent().get_player_node().get_live_ui())
 func sewer_monster_update():
 	CargoYardLevelObjectives._objectives[8]._objective_complete = true
 	print("objective complete sewer monster==== ",CargoYardLevelObjectives._objectives[8]._objective_complete)

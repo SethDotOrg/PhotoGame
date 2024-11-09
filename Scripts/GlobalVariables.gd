@@ -7,8 +7,12 @@ var _current_level: int
 #add more levels as they are made
 
 var _in_handheld_camera: bool
+var _in_sit_area: bool
 
 var _sewer_pickup_count: int
+
+var _sitting_point: Node3D
+var _return_point: Node3D
 
 func _ready():
 	#for now we will just start at the cargo level

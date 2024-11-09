@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=58 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -37,14 +37,15 @@
 [ext_resource type="PackedScene" uid="uid://ceve7tbq13v88" path="res://Blender Models/CargoLevelModels/ManholeCovers/ManholeCoverClosed.glb" id="33_5nuyd"]
 [ext_resource type="PackedScene" uid="uid://b181td78ltlp4" path="res://Scenes/Objectives/photographable_hard_hat.tscn" id="33_f8grl"]
 [ext_resource type="PackedScene" uid="uid://gw8fdyxvhc82" path="res://Blender Models/CargoLevelModels/Sugar/sugarpile.glb" id="34_3ou3y"]
+[ext_resource type="Script" path="res://Scripts/hard_hat_photographable.gd" id="34_jgj2c"]
 [ext_resource type="PackedScene" uid="uid://bb6giqwmdy5or" path="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb" id="34_mq0dh"]
 [ext_resource type="PackedScene" uid="uid://d3d3lnj0tyclp" path="res://Scenes/Objectives/pickup_sugar_booger.tscn" id="40_8itma"]
 [ext_resource type="PackedScene" uid="uid://7i38d8cmbxap" path="res://Scenes/Objectives/pickup_bun.tscn" id="40_cchnj"]
 [ext_resource type="PackedScene" uid="uid://dajtnhrlxelon" path="res://Scenes/Objectives/pickup_hotdog_weiner.tscn" id="41_s2htb"]
 [ext_resource type="PackedScene" uid="uid://vbkdaavb2q83" path="res://Scenes/Objectives/pickup_ketchup.tscn" id="42_lfa5p"]
 [ext_resource type="PackedScene" uid="uid://6uyang4x8nsv" path="res://Scenes/spawn_point.tscn" id="43_6ne42"]
-[ext_resource type="Script" path="res://Scenes/Levels/CraneSitArea.gd" id="43_ff8lg"]
 [ext_resource type="PackedScene" uid="uid://rbq5cwr8bydt" path="res://Scenes/Objectives/pickup_mustard.tscn" id="43_sjxpd"]
+[ext_resource type="Script" path="res://Scripts/CraneSitArea.gd" id="44_bl5c7"]
 [ext_resource type="Texture2D" uid="uid://bxqdjejb8e1u7" path="res://TexturePNG's/Buttons/E.png" id="45_4eili"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
@@ -4146,6 +4147,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.023, 39.5828, 129.096)
 
 [node name="PhotographableHardHat" parent="ObjectiveNodesCargoYard" instance=ExtResource("33_f8grl")]
 transform = Transform3D(0.668248, -0.359532, 0.651292, 2.98023e-08, 0.875465, 0.483282, -0.743938, -0.322953, 0.585028, 211.729, 39.1601, -69.3286)
+script = ExtResource("34_jgj2c")
 
 [node name="AllTheCocaine" type="Node3D" parent="ObjectiveNodesCargoYard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
@@ -4250,7 +4252,7 @@ transform = Transform3D(-1.61732e-08, 0.37, -1.61732e-08, 0, -1.61732e-08, -0.37
 
 [node name="CraneSitArea" type="Area3D" parent="ObjectiveNodesCargoYard" node_paths=PackedStringArray("_letter_e", "_sitting_point", "_return_point")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 591.123, 98.8425, 172.18)
-script = ExtResource("43_ff8lg")
+script = ExtResource("44_bl5c7")
 _letter_e = NodePath("E")
 _sitting_point = NodePath("SittingPoint")
 _return_point = NodePath("ReturnPoint")
@@ -4267,10 +4269,10 @@ texture_filter = 0
 texture = ExtResource("45_4eili")
 
 [node name="SittingPoint" parent="ObjectiveNodesCargoYard/CraneSitArea" instance=ExtResource("43_6ne42")]
-transform = Transform3D(0.745499, 0, -0.666506, 0, 1, 0, 0.666506, 0, 0.745499, -7.17566, 5.71959, 0)
+transform = Transform3D(-0.775396, 0, 0.631474, 0, 1, 0, -0.631474, 0, -0.775396, -7.17566, 5.71959, 0)
 
 [node name="ReturnPoint" parent="ObjectiveNodesCargoYard/CraneSitArea" instance=ExtResource("43_6ne42")]
-transform = Transform3D(-0.864213, 0, 0.503125, 0, 1, 0, -0.503125, 0, -0.864213, -4.99194, 5.71959, 4.56404)
+transform = Transform3D(0.903686, 0, -0.428193, 0, 1, 0, 0.428193, 0, 0.903686, -4.99194, 5.71959, 5.56404)
 
 [node name="CargoYardLevelObjectives" parent="." instance=ExtResource("22_hip70")]
 

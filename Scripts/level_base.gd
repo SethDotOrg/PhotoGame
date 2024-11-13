@@ -8,3 +8,4 @@ func get_player_node():
 
 func get_player_holder_node():
 	return get_parent().get_player_holder_node()
+ 

@@ -10,6 +10,7 @@ var _in_handheld_camera: bool
 var _in_sit_area: bool
 
 var _sewer_pickup_count: int
+var _hotdog_pickup_count: int
 
 var _sitting_point: Node3D
 var _return_point: Node3D
@@ -24,6 +25,9 @@ func get_curr_level_objectives():
 func set_curr_level(level_selected):
 	_current_level = level_selected 
 
+func check_hotdog_pickup_count():
+	if _hotdog_pickup_count >= 4:
+		CargoYardLevelObjectives.get_objective_node(6)._objective_complete = true#hotdog objective position is 6
 func check_sewer_pickup_count():
 	if _sewer_pickup_count >= 5:
 		CargoYardLevelObjectives.get_objective_node(8)._objective_complete = true#sewer monster objective position is 8

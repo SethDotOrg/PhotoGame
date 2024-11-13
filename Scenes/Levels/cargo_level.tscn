@@ -4023,10 +4023,9 @@ transform = Transform3D(-0.00655228, 0.00487685, -1.99998, 1.19413, 1.60439, 0, 
 
 [node name="Cones1" type="Node3D" parent="Cones"]
 
-[node name="ObjectiveNodesCargoYard" type="Node3D" parent="." node_paths=PackedStringArray("sewer_monster")]
+[node name="ObjectiveNodesCargoYard" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.583, 2.2471, -234.132)
 script = ExtResource("22_21vue")
-sewer_monster = NodePath("Manhole/ManholeOpenCollection/SewerMonsterV4")
 
 [node name="SecretCrane" type="Node3D" parent="ObjectiveNodesCargoYard"]
 
@@ -4153,7 +4152,7 @@ script = ExtResource("34_jgj2c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
 
 [node name="PickupSugarBooger" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("40_8itma")]
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 260.257, 2, -166.342)
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 260.257, 2, -169.342)
 
 [node name="SugarPile" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
 transform = Transform3D(1, 0, 0, 0, 0.994073, 0.108711, 0, -0.108711, 0.994073, 260.057, 1.45591, -159.767)
@@ -4212,29 +4211,6 @@ transform = Transform3D(4.14162, 0, -2.80124, 0, 5, 0, 2.80124, 0, 4.14162, 258.
 [node name="SugarPile19" parent="ObjectiveNodesCargoYard/AllTheCocaine" instance=ExtResource("34_3ou3y")]
 transform = Transform3D(-2.09489, 0, 1.36434, 0, 2.5, 0, -1.36434, 0, -2.09489, 261.871, 1.64514, -145.332)
 
-[node name="Manhole" type="Node3D" parent="ObjectiveNodesCargoYard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8845, 0, -48.5326)
-
-[node name="ManholeOpenCollection" type="Node3D" parent="ObjectiveNodesCargoYard/Manhole"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
-visible = false
-
-[node name="ManholeCoverOpen" parent="ObjectiveNodesCargoYard/Manhole/ManholeOpenCollection" instance=ExtResource("32_l7aci")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 132.334, 1.646, 111.711)
-
-[node name="ManholeCoverClosed" parent="ObjectiveNodesCargoYard/Manhole/ManholeOpenCollection" instance=ExtResource("33_5nuyd")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 130.579, 1.68369, 113.218)
-
-[node name="SewerMonsterV4" parent="ObjectiveNodesCargoYard/Manhole/ManholeOpenCollection" instance=ExtResource("34_mq0dh")]
-transform = Transform3D(1, 0, 0, 0, 0.902059, 0.431613, 0, -0.431613, 0.902059, 132.185, 1.55425, 112.192)
-visible = false
-
-[node name="ManholeClosedCollection" type="Node3D" parent="ObjectiveNodesCargoYard/Manhole"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
-
-[node name="ManholeCoverClosed" parent="ObjectiveNodesCargoYard/Manhole/ManholeClosedCollection" instance=ExtResource("33_5nuyd")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 132.334, 1.646, 111.711)
-
 [node name="HotDogStuff" type="Node3D" parent="ObjectiveNodesCargoYard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
 
@@ -4273,6 +4249,28 @@ transform = Transform3D(-0.775396, 0, 0.631474, 0, 1, 0, -0.631474, 0, -0.775396
 
 [node name="ReturnPoint" parent="ObjectiveNodesCargoYard/CraneSitArea" instance=ExtResource("43_6ne42")]
 transform = Transform3D(0.903686, 0, -0.428193, 0, 1, 0, 0.428193, 0, 0.903686, -4.99194, 5.71959, 5.56404)
+
+[node name="Manhole" type="Node3D" parent="ObjectiveNodesCargoYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8845, 0, -48.5326)
+
+[node name="ManholeOpenCollection" type="Node3D" parent="ObjectiveNodesCargoYard/Manhole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
+visible = false
+
+[node name="ManholeCoverOpen" parent="ObjectiveNodesCargoYard/Manhole/ManholeOpenCollection" instance=ExtResource("32_l7aci")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 132.334, 1.67066, 111.711)
+
+[node name="ManholeCoverClosed" parent="ObjectiveNodesCargoYard/Manhole/ManholeOpenCollection" instance=ExtResource("33_5nuyd")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 130.579, 1.69807, 113.218)
+
+[node name="SewerMonsterV4" parent="ObjectiveNodesCargoYard/Manhole/ManholeOpenCollection" instance=ExtResource("34_mq0dh")]
+transform = Transform3D(1, 0, 0, 0, 0.902059, 0.431613, 0, -0.431613, 0.902059, 132.185, 1.55425, 112.192)
+
+[node name="ManholeClosedCollection" type="Node3D" parent="ObjectiveNodesCargoYard/Manhole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.583, -2.2471, 234.132)
+
+[node name="ManholeCoverClosed" parent="ObjectiveNodesCargoYard/Manhole/ManholeClosedCollection" instance=ExtResource("33_5nuyd")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 132.334, 1.646, 111.711)
 
 [node name="CargoYardLevelObjectives" parent="." instance=ExtResource("22_hip70")]
 

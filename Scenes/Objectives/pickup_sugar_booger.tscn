@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Scripts/PickupSugarBooger.gd" id="2_jw1f5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yhsxq"]
-radius = 3.87803
-height = 7.75605
+radius = 5.69601
+height = 11.392
 
 [node name="PickupSugarBooger" type="Node3D"]
 

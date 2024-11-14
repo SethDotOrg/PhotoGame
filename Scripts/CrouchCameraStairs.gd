@@ -11,6 +11,7 @@ var in_handheld_camera
 func enter():
 	super()
 	in_handheld_camera = true
+	GlobalVariables._in_handheld_camera = true
 	number_of_wall_jumps = 0
 	tried_mantle = false
 	parent._stair_ray_position_check.global_position = parent._stair_ray_geo_check.get_collision_point() #check the lower raycast for a collision and get it
@@ -28,6 +29,7 @@ func exit() -> void:
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false
+		GlobalVariables._in_handheld_camera = false
 	if Input.is_action_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
 	if Input.is_action_just_pressed("crouch"):

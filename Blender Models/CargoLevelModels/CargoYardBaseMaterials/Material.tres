@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bd3uc1mb34akc"]
+
+[ext_resource type="Texture2D" uid="uid://cwyjo6jc5mfsq" path="res://Blender Models/CargoLevelModels/CargoYardBase_Cement1_2.png" id="1_t32kv"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_t32kv")
+texture_filter = 2

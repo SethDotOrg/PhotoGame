@@ -10,6 +10,15 @@ extends Control
 @onready var _state_background = $StateBackground
 @onready var _state_text = $StateBackground/StateText
 
+@onready var _objective_background = $ObjectiveBackground
+
+@onready var _reticle = $Reticle
+
+var objective_text_ui_scene = preload("res://objective_base_UI.tscn")
+
+var reticle_normal = preload("res://UI Images/CameraReticle.png")
+var reticle_photographable = preload("res://UI Images/CameraReticlePhotographable.png")
+
 var dir
 var user_photos_array: Array
 var array_pos = 0
@@ -19,10 +28,15 @@ func _ready():
 	display_picture(array_pos)
 	_picture_background.visible = false
 	_text_background.visible = false
+	set_objectives()
+	
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("photo_appear(p)"):
 		_picture_background.visible = !_picture_background.visible
+	
+	if Input.is_action_just_pressed("objective_button"):
+		_objective_background.visible = !_objective_background.visible
 	
 	if Input.is_action_just_pressed("debug_toggle"):
 		_state_background.visible = !_state_background.visible
@@ -75,5 +89,26 @@ func display_text_message(text:String):
 	_text_background.visible = false
 
 func toggle_reticle(state:bool):
-	$Reticle.visible = state
+	_reticle.visible = state
 
+func set_reticle(choice: int):
+	if choice == 0:
+		_reticle.texture = reticle_normal
+	elif choice == 1:
+		_reticle.texture = reticle_photographable
+
+func set_objectives(): #go through all level objectives and loop to load them
+	#will need to be able to tell what level we are on later
+	var curr_level_objectives = GlobalVariables.get_curr_level_objectives().get_children()
+	for objective in curr_level_objectives:
+		var instance = objective_text_ui_scene.instantiate()
+		instance.set_text_for_objective(objective.get_objective_description())
+		get_node("ObjectiveBackground/VBoxContainer").add_child(instance)
+
+func update_objectives():
+	var curr_level_objectives = GlobalVariables.get_curr_level_objectives().get_children()
+	var curr_level_objectives_UI = get_node("ObjectiveBackground/VBoxContainer").get_children()
+	var objectives_count = GlobalVariables.get_curr_level_objectives().get_child_count()
+	for objective_num in objectives_count:
+		if curr_level_objectives[objective_num]._objective_complete == true:
+			curr_level_objectives_UI[objective_num].update_text_for_objective_complete()

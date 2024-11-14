@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4f4v75k56gl"]
+
+[ext_resource type="Script" path="res://Scripts/LevelObjectivesBase.gd" id="1_rhirt"]
+[ext_resource type="Script" path="res://Scripts/BaseObjective.gd" id="2_vxe5r"]
+
+[node name="CargoYardLevelObjectives" type="Node"]
+script = ExtResource("1_rhirt")
+
+[node name="SecretCrane" type="Node" parent="."]
+editor_description = "Find the hidden crane"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find the hidden crane"
+
+[node name="CementPole" type="Node" parent="."]
+editor_description = "Find the odd cement pole"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find the odd cement pole"
+
+[node name="SeagullPhoto" type="Node" parent="."]
+editor_description = "Take a picture of a standing seagull"
+script = ExtResource("2_vxe5r")
+_objective_description = "Take a picture of a standing seagull"
+
+[node name="CraneSit" type="Node" parent="."]
+editor_description = "Get to and sit on top of the big crane"
+script = ExtResource("2_vxe5r")
+_objective_description = "Get to and sit on top of the big crane"
+
+[node name="SugarPile" type="Node" parent="."]
+editor_description = "Find a pile of ...sugar"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find a pile of ...\"sugar\""
+
+[node name="HardHat" type="Node" parent="."]
+editor_description = "Take a picture of a hard hat"
+script = ExtResource("2_vxe5r")
+_objective_description = "Take a picture of a hard hat"
+
+[node name="HotDog" type="Node" parent="."]
+editor_description = "Find the indgredients for a hotdog"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find the indgredients for a hotdog"
+
+[node name="Boots" type="Node" parent="."]
+editor_description = "Find a lost pair of boots"
+script = ExtResource("2_vxe5r")
+_objective_description = "Find a lost pair of boots"
+
+[node name="SewerMonster" type="Node" parent="."]
+editor_description = "What is this ooze?"
+script = ExtResource("2_vxe5r")
+_objective_description = "What is this ooze?"
+
+[node name="ConeSiloam" type="Node" parent="."]
+editor_description = "Siloam the cones!"
+script = ExtResource("2_vxe5r")
+_objective_description = "Siloam the cones!"

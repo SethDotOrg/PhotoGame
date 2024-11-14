@@ -1,0 +1,49 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bl5lktk7u4gqi"
+path="res://.godot/imported/ShippingCrate1EndOpen.glb-6c7b7dc6617080b0c5bba8afa33aa3c3.scn"
+
+[deps]
+
+source_file="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate1EndOpen.glb"
+dest_files=["res://.godot/imported/ShippingCrate1EndOpen.glb-6c7b7dc6617080b0c5bba8afa33aa3c3.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Crate": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Door1": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Door2": {
+"generate/physics": true,
+"physics/shape_type": 2
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

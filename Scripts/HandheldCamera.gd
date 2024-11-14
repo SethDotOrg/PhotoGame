@@ -3,6 +3,7 @@ extends Node3D
 @onready var _camera_camera = $RotateNodeHorizontal/RotateNodeVertical/CameraCamera
 @onready var _rotate_node_vertical = $RotateNodeHorizontal/RotateNodeVertical
 @onready var _rotate_node_horizontal = $RotateNodeHorizontal
+@onready var _subject_in_view_ray = $RotateNodeHorizontal/RotateNodeVertical/SubjectInViewRay
 
 @onready var _camera_sound_player = $CameraSound
 
@@ -26,6 +27,18 @@ func _ready():
 	else:
 		picture_count = 0
 	live_ui =_base_ui.get_player_ui().get_live_ui()
+
+func _physics_process(delta):
+	if _subject_in_view_ray.is_colliding():
+		if _subject_in_view_ray.get_collider().is_in_group("photographables"): #check the collision point to see if it collides
+			#with something in the group photographables
+			live_ui.set_reticle(1) #reticle set to photographable 
+			if Input.is_action_just_pressed("mouse_left"):
+				_subject_in_view_ray.get_collider().update_objective() #if it is a photographable this function is a requirement
+		else:
+			live_ui.set_reticle(0) #reticle set to normal
+	else:
+		live_ui.set_reticle(0) #reticle set to normal
 
 func toggle_camera_active(camera_state:bool):
 	_camera_camera.current = camera_state

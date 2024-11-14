@@ -13,6 +13,7 @@ var in_handheld_camera
 func enter():
 	super()
 	in_handheld_camera = true
+	GlobalVariables._in_handheld_camera = true
 	number_of_wall_jumps = 0
 	
 	if parent.is_on_floor():#if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
@@ -25,6 +26,7 @@ func enter():
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false
+		GlobalVariables._in_handheld_camera = false
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
 	if Input.is_action_just_pressed("crouch"):

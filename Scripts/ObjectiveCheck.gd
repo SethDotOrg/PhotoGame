@@ -1,6 +1,5 @@
 class_name Objective_Check_Marker
-extends PickupBase
-
+extends Area3D
 
 func _on_area_entered(area):
 	print("Objective entered ", area)

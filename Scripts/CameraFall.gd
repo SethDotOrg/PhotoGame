@@ -13,11 +13,13 @@ var in_handheld_camera
 func enter():
 	super()
 	in_handheld_camera = true
+	GlobalVariables._in_handheld_camera = true
 	number_of_wall_jumps = 0
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false
+		GlobalVariables._in_handheld_camera = false
 	if Input.is_action_just_pressed("mouse_left"):
 		parent._handheld_camera.take_photo()
 	if Input.is_action_just_pressed("crouch"):

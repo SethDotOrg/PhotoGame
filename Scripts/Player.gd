@@ -72,6 +72,7 @@ const LERP_VAL = 0.15
 @onready var package1 = $ClimbingRayPivot/PackageV1_1
 @onready var package2 = $ClimbingRayPivot/PackageV1_2
 @onready var package3 = $ClimbingRayPivot/PackageV1_3
+@onready var hotdog = $GameModel/Armature/Skeleton3D/BoneAttachment3D/Hotdog
 
 @export var _camera_controller: CameraController
 @export var _world_ledge_anchor: WorldLedgeAnchor
@@ -138,6 +139,8 @@ func unhide_current_packages():
 		package1.visible = true
 		package2.visible = true
 		package3.visible = true
+func unhide_hotdog():
+	hotdog.visible = true
 
 func add_package(package_num:int):
 	if package_num == 1:

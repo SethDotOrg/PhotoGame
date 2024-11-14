@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://0xjrml2bkxuy"]
+
+[ext_resource type="PackedScene" uid="uid://bfxogcxl3357d" path="res://Blender Models/CargoLevelModels/Birds/Seagull/seagull.glb" id="1_qc46p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bo8d2"]
+radius = 3.70255
+
+[node name="Photographable" type="Area3D" groups=["photographables"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bo8d2")
+
+[node name="seagull" parent="." instance=ExtResource("1_qc46p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

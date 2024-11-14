@@ -15,12 +15,14 @@ var in_handheld_camera
 func enter():
 	super()
 	in_handheld_camera = true
+	GlobalVariables._in_handheld_camera = true
 	number_of_wall_jumps = 0
 	tried_mantle = false
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false
+		GlobalVariables._in_handheld_camera = false
 		#print("set jump pressed false")
 		if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_just_released("run") and Input.is_action_pressed("ctrl"): #if moving and
 			return _camera_walk_state

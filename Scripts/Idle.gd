@@ -1,12 +1,15 @@
 extends State
 
+@export var idle_state: State
 @export var fall_state: State
 @export var jump_state: State
 @export var walk_state: State
+@export var walk_state_no_anim: State
 @export var climb_mantle_state: State
 @export var camera_state: State
 @export var stairs_state: State
 @export var crouch_state: State
+@export var sit_state: State
 
 func enter() -> void:
 	super()
@@ -18,8 +21,12 @@ func process_input(event: InputEvent) -> State:
 	if parent.is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			return jump_state
-		if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_back"): 
-			return walk_state
+		#if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_back"):
+		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"): 
+			if parent.is_on_wall() == false and parent.is_on_floor() == true:
+				return walk_state
+			elif parent.is_on_wall() == true and parent.is_on_floor() == true:
+				return idle_state
 			
 	if Input.is_action_pressed("mouse_right") and parent.mantle_checks():#should be on the ground so mantle 
 		return climb_mantle_state
@@ -29,6 +36,10 @@ func process_input(event: InputEvent) -> State:
 	
 	if Input.is_action_just_pressed("crouch"):
 		return crouch_state
+	
+	if Input.is_action_just_pressed("interact") and GlobalVariables._in_sit_area == true:
+		return sit_state
+	
 	return null
 
 func process_physics(delta: float) -> State:
@@ -45,7 +56,7 @@ func process_physics(delta: float) -> State:
 			return stairs_state
 		#else we want them to rotate so return the walk state. Basically the character will keep getting stuck and then 
 		#nudged until the player moves from the wall or rotates toward the stair enough to climb on top
-		return walk_state
+		return walk_state_no_anim
 		
 	if !parent.is_on_floor():
 		return fall_state

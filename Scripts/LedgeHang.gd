@@ -32,7 +32,7 @@ func enter() -> void:
 		parent._world_ledge_anchor.global_position = ledge_point #set the ledge anchor to the ledge the player is trying to climb
 		
 		var wall_normal = parent._climbing_ray_forward_center_lower.get_collision_normal() #get the walls normal to find out the direction the wall is
-		
+		parent._world_ledge_anchor.rotation.y = 0#reset the world ledge anchor so that we can rotate it to the right orientation
 		parent._world_ledge_anchor.rotate_y(atan2(wall_normal.x,wall_normal.z)) #rotate the wall anchor to rotate towards the wall
 		
 		#set the model and camera horizontal rotation node to zero so that the rotations will work correctly

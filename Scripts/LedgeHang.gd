@@ -71,7 +71,7 @@ func process_input(event: InputEvent) -> State:
 
 func process_physics(delta: float) -> State:
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and parent.is_on_wall():
 		return ledge_jump_state
 	if Input.is_action_just_pressed("mouse_right") and !parent._climbing_ray_forward_center_higher.is_colliding():
 		parent.global_position = parent._climbing_ray_position_check.global_position

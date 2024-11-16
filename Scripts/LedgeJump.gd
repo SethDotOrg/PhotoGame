@@ -44,7 +44,13 @@ func process_physics(delta: float) -> State:
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
 	
-	if parent._standing_collision_check.is_colliding() == false:
+	if parent._standing_collision_check.is_colliding() == false: #check for floor collision. If none then we can just enter the jump state
+		parent._standing_collision_check.enabled = false
+		parent._player_collision_shape.disabled=false
+		parent._player_collision_shape_wall.disabled=true
+		return _jump_state
+	elif parent._standing_collision_check.is_colliding() == true:#check for floor collision. If there is we can do basically the same as above but
+		parent.position.y = parent._standing_collision_check.get_collision_point().y #first set the player to start their jump at the floor
 		parent._standing_collision_check.enabled = false
 		parent._player_collision_shape.disabled=false
 		parent._player_collision_shape_wall.disabled=true

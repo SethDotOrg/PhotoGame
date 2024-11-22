@@ -21,7 +21,12 @@ func enter() -> void:
 	parent._player_collision_shape_wall.disabled=false
 	parent._climbing_ray_forward_center.add_exception(parent) #exclude the player from getting collided with
 	
-	parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
+	if parent._climbing_ray_position_check.is_colliding():
+		parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
+	elif parent._climbing_ray_position_check_left.is_colliding():
+		parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check_left.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
+	elif parent._climbing_ray_position_check_right.is_colliding():
+		parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check_right.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
 	parent._climbing_ray_forward_center_lower.force_raycast_update() #force the raycast to update in order to get more reliable collision checks
 	if parent._climbing_ray_forward_center_lower.is_colliding(): #if the ray to get wall normals is colliding
 		var fwd_collision = parent._climbing_ray_forward_center_lower.get_collision_point() #get the collision from the pink raycast that will help us get the direction the wall is facing

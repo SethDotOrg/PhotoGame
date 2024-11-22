@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4vdrytlis482"]
+[gd_scene load_steps=12 format=3 uid="uid://4vdrytlis482"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerManager.gd" id="1_cmp4m"]
 [ext_resource type="Script" path="res://Scripts/SpawnPointsManager.gd" id="1_pgtpa"]
@@ -10,15 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://refhw4jglcjy" path="res://Scenes/Levels/cargo_level.tscn" id="8_64tqm"]
 [ext_resource type="Script" path="res://Scripts/LevelHolder.gd" id="9_npedt"]
 [ext_resource type="PackedScene" uid="uid://dycukyywl7r0r" path="res://Scenes/global_variables.tscn" id="10_v4yvq"]
-[ext_resource type="Texture2D" uid="uid://b243ftnfykkc4" path="res://TexturePNG's/CargoContainer.png" id="12_lk1jh"]
-[ext_resource type="Material" uid="uid://dvclyashba3x" path="res://Materials/EnvironementsTextureMaterials/Wood.tres" id="13_1cf26"]
 [ext_resource type="PackedScene" uid="uid://6uyang4x8nsv" path="res://Scenes/spawn_point.tscn" id="27_dhoer"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at41s"]
-albedo_color = Color(0, 0.333333, 0.592157, 1)
-albedo_texture = ExtResource("12_lk1jh")
-uv1_scale = Vector3(4, 4, 4)
-texture_filter = 0
 
 [node name="Testing Scene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.073287, 0.206533, -0.056653)
@@ -101,18 +93,6 @@ _live_UI = NodePath("../../../PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/L
 
 [node name="SewerMonster" parent="LevelHolder/CargoLevel/CargoYardLevelObjectives" index="8"]
 _objective_description = "What is this ooze?"
-
-[node name="Box6" type="CSGBox3D" parent="LevelHolder/CargoLevel"]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 121.954, 12.2083, 2.81952)
-use_collision = true
-size = Vector3(42.895, 15.016, 11.8737)
-material = SubResource("StandardMaterial3D_at41s")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="LevelHolder/CargoLevel"]
-transform = Transform3D(0.868986, 0.000146794, 0.494837, 0, 1, -0.000296652, -0.494837, 0.000257786, 0.868986, 104.356, 2.31311, 15.9469)
-use_collision = true
-size = Vector3(22.0598, 17.6735, 21.2756)
-material = ExtResource("13_1cf26")
 
 [editable path="PlayerHolder/PlayerKinematicBody"]
 [editable path="PlayerHolder/PlayerKinematicBody/GameModel"]

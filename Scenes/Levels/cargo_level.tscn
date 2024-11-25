@@ -1,14 +1,15 @@
-[gd_scene load_steps=58 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=59 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
 [ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_tg01b"]
 [ext_resource type="Environment" uid="uid://c2p5dxa4byyt" path="res://Materials/Environments/daytime.tres" id="2_wkpj7"]
 [ext_resource type="PackedScene" uid="uid://cpq6bfk25paq6" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate.glb" id="4_06ahb"]
-[ext_resource type="Shader" path="res://Shaders/water2.gdshader" id="5_764sb"]
 [ext_resource type="PackedScene" uid="uid://drf1euhkjkhx7" path="res://Blender Models/CargoLevelModels/WoodenCrate.glb" id="5_bi1bm"]
 [ext_resource type="PackedScene" uid="uid://cjb01cpqwrv2x" path="res://Blender Models/CargoLevelModels/CraneOnWheels/Crane2.glb" id="5_q3ovb"]
+[ext_resource type="Shader" path="res://Shaders/water3.gdshader" id="5_t1b06"]
 [ext_resource type="PackedScene" uid="uid://bjiw8xqnivef1" path="res://Blender Models/CargoLevelModels/WoodenCrate2.glb" id="6_hwvib"]
+[ext_resource type="Texture2D" uid="uid://brch1m7mb2vyx" path="res://TexturePNG's/Seamless/imgonline-com-ua-TextureSeamless-plmhVuw3FKJLReF5.png" id="6_pxe37"]
 [ext_resource type="PackedScene" uid="uid://cuep57yulaa18" path="res://Blender Models/CargoLevelModels/WoodenCrate3.glb" id="7_ng5qf"]
 [ext_resource type="PackedScene" uid="uid://drlijpqov3lo1" path="res://Blender Models/CargoLevelModels/WoodenCrate4.glb" id="8_ihvrx"]
 [ext_resource type="PackedScene" uid="uid://5hb27btt2hjw" path="res://Blender Models/CargoLevelModels/CraneNoWheels/Crane.glb" id="9_ehyfr"]
@@ -50,15 +51,20 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
-shader = ExtResource("5_764sb")
-shader_parameter/WATER_COL = Color(0, 0.560784, 0.941176, 1)
-shader_parameter/WATER2_COL = Color(0, 0.592157, 0.992157, 1)
-shader_parameter/FOAM_COL = Color(1, 1, 1, 1)
-shader_parameter/distortion_speed = 1.0
-shader_parameter/tile = Vector2(10000, 10000)
-shader_parameter/height = 2.0
-shader_parameter/wave_size = Vector2(2, 2)
-shader_parameter/wave_speed = 1.5
+shader = ExtResource("5_t1b06")
+shader_parameter/albedo = Color(0, 0.164706, 0.258824, 1)
+shader_parameter/scroll_speed1 = Vector2(0.01, 0.01)
+shader_parameter/scroll_speed2 = Vector2(-0.01, -0.01)
+shader_parameter/blend_factor = 10.0
+shader_parameter/scale1 = Vector2(1028, 1028)
+shader_parameter/scale2 = Vector2(1028, 1028)
+shader_parameter/wave_strength = 0.25
+shader_parameter/wave_scale = 0.02
+shader_parameter/pixelation_level = 512
+shader_parameter/FoamSize = 0.5
+shader_parameter/WaterOpacity = 0.95
+shader_parameter/FoamGlowIntensity = 0.12
+shader_parameter/water_texture1 = ExtResource("6_pxe37")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jp7nr"]
 radius = 0.484006
@@ -2876,7 +2882,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.422, 0, 45.34)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.243, 0, 0)
 
 [node name="sky" parent="." instance=ExtResource("14_7n8wa")]
-transform = Transform3D(3000, 0, 0, 0, 3000, 0, 0, 0, 3000, 0, 0, 0)
+transform = Transform3D(3000, 0, 0, 0, 2836.56, 976.705, 0, -976.705, 2836.56, 0, 0, 0)
 
 [node name="CementBarriers" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 167.605, 1.58201, 0)

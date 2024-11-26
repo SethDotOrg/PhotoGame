@@ -400,6 +400,7 @@ shape = SubResource("CapsuleShape3D_dwlmk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.926, 0)
 enabled = false
 target_position = Vector3(0, -4.31, 0)
+debug_shape_custom_color = Color(1, 1, 0, 1)
 
 [node name="CollisionShapeWallHang" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, 7.122, 0)

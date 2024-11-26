@@ -21,7 +21,12 @@ func enter() -> void:
 	parent._player_collision_shape_wall.disabled=false
 	parent._climbing_ray_forward_center.add_exception(parent) #exclude the player from getting collided with
 	
-	parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
+	if parent._climbing_ray_position_check.is_colliding():
+		parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
+	elif parent._climbing_ray_position_check_left.is_colliding():
+		parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check_left.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
+	elif parent._climbing_ray_position_check_right.is_colliding():
+		parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check_right.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
 	parent._climbing_ray_forward_center_lower.force_raycast_update() #force the raycast to update in order to get more reliable collision checks
 	if parent._climbing_ray_forward_center_lower.is_colliding(): #if the ray to get wall normals is colliding
 		var fwd_collision = parent._climbing_ray_forward_center_lower.get_collision_point() #get the collision from the pink raycast that will help us get the direction the wall is facing
@@ -32,7 +37,7 @@ func enter() -> void:
 		parent._world_ledge_anchor.global_position = ledge_point #set the ledge anchor to the ledge the player is trying to climb
 		
 		var wall_normal = parent._climbing_ray_forward_center_lower.get_collision_normal() #get the walls normal to find out the direction the wall is
-		
+		parent._world_ledge_anchor.rotation.y = 0#reset the world ledge anchor so that we can rotate it to the right orientation
 		parent._world_ledge_anchor.rotate_y(atan2(wall_normal.x,wall_normal.z)) #rotate the wall anchor to rotate towards the wall
 		
 		#set the model and camera horizontal rotation node to zero so that the rotations will work correctly
@@ -51,8 +56,6 @@ func enter() -> void:
 
 
 func process_input(event: InputEvent) -> State:
-	if Input.is_action_just_pressed("jump"):
-		parent._world_ledge_anchor.rotation.y = 0
 	if Input.is_action_just_pressed("run"):
 		if parent._standing_collision_check.is_colliding() == false:
 			parent._standing_collision_check.enabled = false
@@ -71,7 +74,8 @@ func process_input(event: InputEvent) -> State:
 
 func process_physics(delta: float) -> State:
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_pressed("jump"):
+		parent._world_ledge_anchor.rotation.y = 0
 		return ledge_jump_state
 	if Input.is_action_just_pressed("mouse_right") and !parent._climbing_ray_forward_center_higher.is_colliding():
 		parent.global_position = parent._climbing_ray_position_check.global_position

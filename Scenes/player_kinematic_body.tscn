@@ -1,17 +1,13 @@
-[gd_scene load_steps=47 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=43 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
 [ext_resource type="Script" path="res://Scripts/PlayerStateMachine.gd" id="2_o5i76"]
-[ext_resource type="PackedScene" uid="uid://dsx4gk60y6xk1" path="res://Blender Models/RobotPrototype/Robot_Prototype.glb" id="2_oq0ov"]
 [ext_resource type="Script" path="res://Scripts/State.gd" id="2_uperh"]
-[ext_resource type="PackedScene" uid="uid://c12nhendl2t1r" path="res://Blender Models/Pistol.gltf" id="3_s4tnm"]
 [ext_resource type="PackedScene" uid="uid://bwixhuwksxmyc" path="res://Scenes/Particles/PlayerParticles.tscn" id="4_4khwj"]
 [ext_resource type="Script" path="res://Scripts/Idle.gd" id="4_muoqk"]
-[ext_resource type="PackedScene" uid="uid://bfrp41877e1tk" path="res://Scenes/GunWeapons/WeaponManager.tscn" id="5_e2upq"]
 [ext_resource type="Script" path="res://Scripts/Walk.gd" id="5_fxeox"]
 [ext_resource type="Script" path="res://Scripts/Jump.gd" id="5_hqxe7"]
-[ext_resource type="PackedScene" uid="uid://d2x18mvklkjgh" path="res://Blender Models/Revolver2.glb" id="5_pvvfr"]
 [ext_resource type="Script" path="res://Scripts/Crouch.gd" id="6_085c4"]
 [ext_resource type="Script" path="res://Scripts/Run.gd" id="6_i6177"]
 [ext_resource type="Script" path="res://Scripts/WalkNoAnim.gd" id="6_uvp66"]
@@ -41,7 +37,7 @@
 [ext_resource type="Script" path="res://Scripts/LedgeJump.gd" id="19_qjxhd"]
 [ext_resource type="Shape3D" uid="uid://brst4aadrvjgk" path="res://CollisionShapes/HangCollision.tres" id="28_bcv1h"]
 [ext_resource type="Script" path="res://Scripts/Sit.gd" id="30_1b04s"]
-[ext_resource type="PackedScene" uid="uid://1etcsseyybed" path="res://Blender Models/CargoLevelModels/HotDog/Hotdog.glb" id="35_go38e"]
+[ext_resource type="PackedScene" uid="uid://dsx4gk60y6xk1" path="res://Blender Models/RobotPrototype/Robot_Prototype.glb" id="32_vb3u3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwlmk"]
 radius = 1.0
@@ -176,7 +172,7 @@ climb_jump_state = NodePath("../ClimbJump")
 wall_jump_state = NodePath("../WallJump")
 _camera_jump_state = NodePath("../CameraJump")
 crouch_state = NodePath("../Crouch")
-_animation_name = "Climb"
+_animation_name = "Jump"
 
 [node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_fall_state", "wall_jump_state", "_camera_fall_state", "crouch_state")]
 script = ExtResource("8_2a85m")
@@ -206,6 +202,7 @@ script = ExtResource("10_yixqp")
 climb_state = NodePath("../Climb")
 climb_fall_state = NodePath("../ClimbFall")
 wall_jump_state = NodePath("../WallJump")
+_animation_name = "Climb"
 
 [node name="ClimbFall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_state", "wall_jump_state")]
 script = ExtResource("11_j3iar")
@@ -214,6 +211,7 @@ walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
 climb_state = NodePath("../Climb")
 wall_jump_state = NodePath("../WallJump")
+_animation_name = "Climb"
 
 [node name="ClimbMantle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("12_ghi6p")
@@ -283,7 +281,7 @@ _animation_name = "Stand"
 [node name="WallJump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("jump_state")]
 script = ExtResource("11_66qvv")
 jump_state = NodePath("../Jump")
-_animation_name = "Climb"
+_animation_name = "Jump"
 
 [node name="Stairs" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state")]
 script = ExtResource("10_wu825")
@@ -320,77 +318,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 _base_ui = NodePath("../BaseUI")
 _player = NodePath("..")
 
-[node name="GameModel" parent="." instance=ExtResource("2_oq0ov")]
-
-[node name="Waist" parent="GameModel/Armature" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31323e-10, -6.29874, -0.386412)
+[node name="GameModel" parent="." instance=ExtResource("32_vb3u3")]
 
 [node name="Skeleton3D" parent="GameModel/Armature" index="1"]
 bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.13693, 0, 0, 0.990581)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.135812, 1.18105e-07, -1.61901e-08, 0.990735)
 bones/4/rotation = Quaternion(-0.10404, -0.0880152, -0.701608, 0.699411)
-bones/5/rotation = Quaternion(0.0121538, 0.00402048, -0.707095, 0.707002)
+bones/5/rotation = Quaternion(0.0121538, 0.00402047, -0.707095, 0.707002)
 bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.00707147, 9.91939e-10, -2.73216e-09, 0.999975)
 bones/7/rotation = Quaternion(0.00132025, -1.32174e-14, 5.14124e-10, 0.999999)
-bones/8/rotation = Quaternion(0.00808693, -0.0080873, 0.707061, 0.707061)
+bones/8/rotation = Quaternion(-0.272829, -0.459267, 0.558295, 0.634779)
 bones/9/rotation = Quaternion(-0.10404, 0.0880152, 0.701608, 0.699411)
-bones/10/rotation = Quaternion(0.0121538, -0.00402048, 0.707095, 0.707002)
+bones/10/rotation = Quaternion(0.0121538, -0.00402047, 0.707095, 0.707002)
 bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(-0.00707147, -9.91939e-10, 2.73216e-09, 0.999975)
 bones/12/rotation = Quaternion(0.00132025, 1.32174e-14, -5.14124e-10, 0.999999)
-bones/14/rotation = Quaternion(-0.135813, 9.40033e-10, 9.40032e-10, 0.990735)
-bones/15/rotation = Quaternion(-0.135813, 9.40033e-10, 9.40032e-10, 0.990735)
+bones/14/rotation = Quaternion(-0.628226, -0.127583, -0.0311191, 0.766868)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(-0.628226, -0.127583, -0.0311191, 0.766868)
+bones/15/scale = Vector3(1, 1, 1)
 bones/16/rotation = Quaternion(0.481384, 0.517947, 0.517947, -0.481384)
-bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250573, 0.706663)
+bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250572, 0.706663)
 bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(4.07108e-10, -2.42565e-07, 0.00256307, 0.999997)
 bones/19/rotation = Quaternion(-0.481384, 0.517947, 0.517947, 0.481384)
-bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250573, 0.706663)
+bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250572, 0.706663)
 bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(4.07108e-10, 2.42565e-07, -0.00256307, 0.999997)
 bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, 5.24497e-07, 6.91041e-07, -4.4188e-07, 1, 2.65222e-07, -6.74278e-07, -2.84349e-07, 1, 0.90636, 1.62748, -0.625655)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452399, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, -3.45922e-07, -6.4075e-07, 3.22671e-07, 1, 2.53115e-07, 6.25849e-07, -2.71879e-07, 1, -0.90636, 1.62748, -0.625656)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -2.11798e-09, 1.60731e-09, 2.11798e-09, 1, 8.34465e-07, -1.60731e-09, -8.34465e-07, 1, 0.476315, -0.8548, -0.228398)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452399, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="RightLegConnecter" parent="GameModel/Armature/Skeleton3D" index="3"]
-transform = Transform3D(1, -2.11798e-09, 1.60731e-09, 2.11798e-09, 1, 8.34465e-07, -1.60731e-09, -8.34465e-07, 1, -0.476315, -0.8548, -0.228398)
-
-[node name="LeftArmIK" type="SkeletonIK3D" parent="GameModel/Armature/Skeleton3D" index="12"]
-process_priority = 1
-root_bone = &"Bicep.r"
-tip_bone = &"Hand.r"
-override_tip_basis = false
-target_node = NodePath("../../../ArmEndRightHandle/ArmEndRightTarget")
-
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="GameModel/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-1, 4.74761e-07, -2.1425e-07, -4.46307e-07, -1, 2.70316e-07, -1.99156e-07, 2.89874e-07, 1, -1.36038, -2.02514, -0.628952)
-bone_name = "Hand.r"
-bone_idx = 12
-
-[node name="CutePistol" parent="GameModel/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_s4tnm")]
-transform = Transform3D(1, -1.13687e-13, -2.84217e-14, 0, -2.98023e-08, -1, 2.84217e-14, 1, -2.98023e-08, -2.38419e-07, 0.21, -0.0928659)
-visible = false
-
-[node name="Revolver2" parent="GameModel/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("5_pvvfr")]
-transform = Transform3D(0.22, 1.42109e-14, 0, 2.84217e-14, 7.45058e-09, -0.22, 7.10543e-15, 0.22, 0, 1.19209e-07, -0.0501733, 0.182128)
-visible = false
-
-[node name="Hotdog" parent="GameModel/Armature/Skeleton3D/BoneAttachment3D" instance=ExtResource("35_go38e")]
-transform = Transform3D(-0.15, -1.75696e-08, 5.52613e-08, 1.76529e-08, -0.15, -9.88367e-09, 5.50632e-08, -1.47731e-08, 0.15, 0, 0.26385, 3.72529e-08)
-visible = false
-
-[node name="WeaponManager" parent="GameModel" node_paths=PackedStringArray("_base_ui") instance=ExtResource("5_e2upq")]
-_base_ui = NodePath("../../BaseUI")
-
-[node name="ArmEndRightHandle" type="Marker3D" parent="GameModel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33889, 7.5711, 4.248)
-
-[node name="ArmEndRightTarget" type="Marker3D" parent="GameModel/ArmEndRightHandle"]
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452399, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.278, 0)
@@ -634,6 +604,8 @@ debug_shape_thickness = 5
 
 [node name="FootstepAudioPlayer" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("11_ysiku")
+volume_db = 6.0
+bus = &"Sound Effects"
 
 [editable path="GameModel"]
 [editable path="Particles"]

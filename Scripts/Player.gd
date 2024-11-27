@@ -179,3 +179,6 @@ func mantle_checks():
 		return true
 	else:
 		return false
+
+func play_footstep():
+	_footsteps_sound.playing = true

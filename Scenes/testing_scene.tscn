@@ -40,47 +40,17 @@ _player_spawn = NodePath("../SpawnPoints/SpawnPointCargoYardLevel")
 _camera_controller = NodePath("../3PCameraSystem")
 _world_ledge_anchor = NodePath("../WorldLedgeAnchor")
 
-[node name="Skeleton3D" parent="PlayerHolder/PlayerKinematicBody/Robot_Prototype/Armature" index="1"]
-bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.13693, 0, 0, 0.990581)
-bones/1/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.10404, -0.0880152, -0.701608, 0.699411)
-bones/5/rotation = Quaternion(0.0121538, 0.00402047, -0.707095, 0.707002)
-bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(-0.00707147, 9.91939e-10, -2.73216e-09, 0.999975)
-bones/7/rotation = Quaternion(0.00132025, -1.32174e-14, 5.14124e-10, 0.999999)
-bones/8/rotation = Quaternion(-0.272829, -0.459267, 0.558295, 0.634779)
-bones/9/rotation = Quaternion(-0.10404, 0.0880152, 0.701608, 0.699411)
-bones/10/rotation = Quaternion(0.0121538, -0.00402047, 0.707095, 0.707002)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(-0.00707147, -9.91939e-10, 2.73216e-09, 0.999975)
-bones/12/rotation = Quaternion(0.00132025, 1.32174e-14, -5.14124e-10, 0.999999)
-bones/14/rotation = Quaternion(-0.628226, -0.127583, -0.0311191, 0.766868)
-bones/14/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(-0.628226, -0.127583, -0.0311191, 0.766868)
-bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(0.481384, 0.517947, 0.517947, -0.481384)
-bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250572, 0.706663)
-bones/17/scale = Vector3(1, 1, 1)
-bones/18/rotation = Quaternion(4.07108e-10, -2.42565e-07, 0.00256307, 0.999997)
-bones/19/rotation = Quaternion(-0.481384, 0.517947, 0.517947, 0.481384)
-bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250572, 0.706663)
-bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(4.07108e-10, 2.42565e-07, -0.00256307, 0.999997)
-bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+[node name="LeftShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.20039, -0.209737, 0.957003, 0.166245, -0.955371, -0.24419, -1.03148, 8.27616, 4.71739)
 
-[node name="LeftShoulder" parent="PlayerHolder/PlayerKinematicBody/Robot_Prototype/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452399, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
+[node name="RightShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.965508, 0.208031, -0.156579, -0.123763, 0.895762, 0.426958, 0.229078, -0.392853, 0.890612, -1.03148, 2.51137, 1.0616)
 
-[node name="RightShoulder" parent="PlayerHolder/PlayerKinematicBody/Robot_Prototype/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
+[node name="LeftLegConnector" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
 
-[node name="LeftLegConnector" parent="PlayerHolder/PlayerKinematicBody/Robot_Prototype/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452399, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
-
-[node name="RightLegConnecter" parent="PlayerHolder/PlayerKinematicBody/Robot_Prototype/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452399, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
+[node name="RightLegConnecter" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
 
 [node name="BaseUI" parent="PlayerHolder/PlayerKinematicBody" index="14" node_paths=PackedStringArray("_camera_controller")]
 _camera_controller = NodePath("../../3PCameraSystem")
@@ -88,11 +58,11 @@ _camera_controller = NodePath("../../3PCameraSystem")
 [node name="DOFCheckButton" parent="PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/PauseUI/Further_Options_UI/VBoxContainerGraphics" index="2" node_paths=PackedStringArray("_camera_controller")]
 _camera_controller = NodePath("../../../../../../../3PCameraSystem")
 
-[node name="3PCameraSystem" parent="PlayerHolder" instance=ExtResource("4_mpeeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.14722, 0)
-
 [node name="WorldLedgeAnchor" parent="PlayerHolder" instance=ExtResource("6_nfmuw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7604, 11.2967, -66.9952)
+
+[node name="3PCameraSystem" parent="PlayerHolder" instance=ExtResource("4_mpeeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.14722, 0)
 
 [node name="LevelHolder" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
@@ -110,15 +80,15 @@ _live_UI = NodePath("../../../PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/L
 _objective_description = "What is this ooze?"
 
 [editable path="PlayerHolder/PlayerKinematicBody"]
-[editable path="PlayerHolder/PlayerKinematicBody/Robot_Prototype"]
+[editable path="PlayerHolder/PlayerKinematicBody/GameModel"]
 [editable path="PlayerHolder/PlayerKinematicBody/BaseUI"]
 [editable path="PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI"]
 [editable path="PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/LiveUI"]
 [editable path="PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/PauseUI"]
 [editable path="PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/PauseUI/Further_Options_UI"]
 [editable path="PlayerHolder/PlayerKinematicBody/Particles"]
-[editable path="PlayerHolder/3PCameraSystem"]
 [editable path="PlayerHolder/WorldLedgeAnchor"]
+[editable path="PlayerHolder/3PCameraSystem"]
 [editable path="LevelHolder/PrototypeLevel"]
 [editable path="LevelHolder/CargoLevel"]
 [editable path="LevelHolder/CargoLevel/CargoYardBase"]

@@ -25,8 +25,10 @@ const LERP_VAL = 0.15
 @onready var _handheld_camera_location_stand = $HandheldCameraLocationStand
 @onready var _handheld_camera_location_crouch = $HandheldCameraLocationCrouch
 @onready var _arm_end_right_handle = $GameModel/ArmEndRightHandle
-@onready var _footsteps_sound = $Sounds/FootstepAudioPlayer
 @onready var _wall_jump_collision = $WallJumpArea3D
+
+@onready var _footsteps_sound = $Sounds/FootstepAudioPlayer
+@onready var _footsteps_smoke = $FootSmoke
 
 @onready var _climbing_ray_pivot = $ClimbingRayPivot
 @onready var _climbing_ray_position_check = $ClimbingRayPivot/ClimbingRayPositionCheck
@@ -182,3 +184,9 @@ func mantle_checks():
 
 func play_footstep():
 	_footsteps_sound.playing = true
+
+func emit_footstep_smoke():
+	_footsteps_smoke.emitting = true
+
+func stop_emit_footstep_smoke():
+	_footsteps_smoke.emitting = false

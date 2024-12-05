@@ -41,10 +41,10 @@ _camera_controller = NodePath("../3PCameraSystem")
 _world_ledge_anchor = NodePath("../WorldLedgeAnchor")
 
 [node name="LeftShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.20039, -0.209737, 0.957003, 0.166245, -0.955371, -0.24419, -1.03148, 8.27616, 4.71739)
+transform = Transform3D(0.965508, 0.208031, -0.156579, 0.102323, 0.249826, 0.962869, 0.239424, -0.94568, 0.219922, -1.03148, 5.76335, 4.42574)
 
 [node name="RightShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.965508, 0.208031, -0.156579, -0.123763, 0.895762, 0.426958, 0.229078, -0.392853, 0.890612, -1.03148, 2.51137, 1.0616)
+transform = Transform3D(0.965508, 0.208031, -0.156579, 0.0128203, 0.562652, 0.826595, 0.260056, -0.800091, 0.540578, -1.03148, 4.12501, 3.4657)
 
 [node name="LeftLegConnector" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="2"]
 transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)

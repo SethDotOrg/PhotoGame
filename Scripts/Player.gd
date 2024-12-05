@@ -28,7 +28,8 @@ const LERP_VAL = 0.15
 @onready var _wall_jump_collision = $WallJumpArea3D
 
 @onready var _footsteps_sound = $Sounds/FootstepAudioPlayer
-@onready var _footsteps_smoke = $FootSmoke
+@onready var _footsteps_smoke_left = $FootSmokeLeft
+@onready var _footsteps_smoke_right = $FootSmokeRight
 
 @onready var _climbing_ray_pivot = $ClimbingRayPivot
 @onready var _climbing_ray_position_check = $ClimbingRayPivot/ClimbingRayPositionCheck
@@ -185,8 +186,14 @@ func mantle_checks():
 func play_footstep():
 	_footsteps_sound.playing = true
 
-func emit_footstep_smoke():
-	_footsteps_smoke.emitting = true
+func emit_footstep_smoke_left():
+	_footsteps_smoke_left.emitting = true
 
-func stop_emit_footstep_smoke():
-	_footsteps_smoke.emitting = false
+func stop_emit_footstep_smoke_left():
+	_footsteps_smoke_left.emitting = false
+
+func emit_footstep_smoke_right():
+	_footsteps_smoke_right.emitting = true
+
+func stop_emit_footstep_smoke_right():
+	_footsteps_smoke_right.emitting = false

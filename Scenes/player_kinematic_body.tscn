@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=51 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -39,6 +39,10 @@
 [ext_resource type="Script" path="res://Scripts/Sit.gd" id="30_1b04s"]
 [ext_resource type="PackedScene" uid="uid://dsx4gk60y6xk1" path="res://Blender Models/RobotPrototype/Robot_Prototype.glb" id="32_vb3u3"]
 [ext_resource type="Texture2D" uid="uid://dd62pe1pdh5on" path="res://TexturePNG's/Particles/dust1.png" id="39_si58r"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0v6xc"]
+states/Start/position = Vector2(138, 59)
+graph_offset = Vector2(-22, -41)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwlmk"]
 radius = 1.0
@@ -114,8 +118,9 @@ crouch_state = NodePath("../Crouch")
 sit_state = NodePath("../Sit")
 _animation_name = "Stand"
 
-[node name="Walk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "run_state", "crouch_walk_state", "climb_mantle_state", "stairs_state", "_camera_walk_state")]
+[node name="Walk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("coyote_timer", "fall_state", "jump_state", "idle_state", "run_state", "crouch_walk_state", "climb_mantle_state", "stairs_state", "_camera_walk_state")]
 script = ExtResource("5_fxeox")
+coyote_timer = NodePath("../../CoyoteTimer")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 idle_state = NodePath("../Idle")
@@ -139,8 +144,9 @@ stairs_state = NodePath("../Stairs")
 _camera_walk_state = NodePath("../CameraWalk")
 _animation_name = "Idle"
 
-[node name="Run" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "idle_state", "walk_state", "crouch_walk_state", "climb_mantle_state", "stairs_state", "_camera_run_state")]
+[node name="Run" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("coyote_timer", "fall_state", "jump_state", "idle_state", "walk_state", "crouch_walk_state", "climb_mantle_state", "stairs_state", "_camera_run_state")]
 script = ExtResource("6_i6177")
+coyote_timer = NodePath("../../CoyoteTimer")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 idle_state = NodePath("../Idle")
@@ -197,8 +203,9 @@ _crouch_stairs_state = NodePath("../CrouchStairs")
 _crouch_camera_state = NodePath("../CrouchCamera")
 _crouch_camera_walk_state = NodePath("../CrouchCameraWalk")
 
-[node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("fall_state", "climb_jump_state", "wall_jump_state", "_camera_jump_state", "crouch_state")]
+[node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("coyote_timer", "fall_state", "climb_jump_state", "wall_jump_state", "_camera_jump_state", "crouch_state")]
 script = ExtResource("5_hqxe7")
+coyote_timer = NodePath("../../CoyoteTimer")
 fall_state = NodePath("../Fall")
 climb_jump_state = NodePath("../ClimbJump")
 wall_jump_state = NodePath("../WallJump")
@@ -206,12 +213,14 @@ _camera_jump_state = NodePath("../CameraJump")
 crouch_state = NodePath("../Crouch")
 _animation_name = "Jump"
 
-[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state", "climb_fall_state", "wall_jump_state", "_camera_fall_state", "crouch_state")]
+[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("coyote_timer", "idle_state", "walk_state", "run_state", "climb_fall_state", "jump_state", "wall_jump_state", "_camera_fall_state", "crouch_state")]
 script = ExtResource("8_2a85m")
+coyote_timer = NodePath("../../CoyoteTimer")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")
 climb_fall_state = NodePath("../ClimbFall")
+jump_state = NodePath("../Jump")
 wall_jump_state = NodePath("../WallJump")
 _camera_fall_state = NodePath("../CameraFall")
 crouch_state = NodePath("../Crouch")
@@ -353,48 +362,48 @@ _player = NodePath("..")
 [node name="GameModel" parent="." instance=ExtResource("32_vb3u3")]
 
 [node name="Skeleton3D" parent="GameModel/Armature" index="1"]
-bones/0/position = Vector3(0, 5.11641, -0.519276)
 bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
+bones/1/rotation = Quaternion(0.13693, 0, 0, 0.990581)
 bones/1/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.0847336, -2.43401e-09, 2.8583e-08, 0.996404)
-bones/4/rotation = Quaternion(-0.183349, -0.167681, -0.686938, 0.682923)
-bones/5/rotation = Quaternion(-0.0850693, 0.101103, -0.699841, 0.701971)
+bones/4/rotation = Quaternion(-0.10404, -0.0880152, -0.701608, 0.699411)
+bones/5/rotation = Quaternion(0.0121538, 0.00402047, -0.707095, 0.707002)
 bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(0.253713, 3.35039e-09, 8.52451e-08, 0.96728)
+bones/6/rotation = Quaternion(-0.00707147, 9.91939e-10, -2.73216e-09, 0.999975)
 bones/7/rotation = Quaternion(0.00132025, -1.32174e-14, 5.14124e-10, 0.999999)
 bones/8/rotation = Quaternion(-0.272829, -0.459267, 0.558295, 0.634779)
-bones/9/rotation = Quaternion(-0.0600193, 0.0438888, 0.705743, 0.704555)
-bones/10/rotation = Quaternion(0.00117966, -0.0149941, 0.706948, 0.707106)
+bones/9/rotation = Quaternion(-0.10404, 0.0880152, 0.701608, 0.699411)
+bones/10/rotation = Quaternion(0.0121538, -0.00402047, 0.707095, 0.707002)
 bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.290256, 5.46867e-09, -1.00569e-07, 0.956949)
+bones/11/rotation = Quaternion(-0.00707147, -9.91939e-10, 2.73216e-09, 0.999975)
 bones/12/rotation = Quaternion(0.00132025, 1.32174e-14, -5.14124e-10, 0.999999)
 bones/14/rotation = Quaternion(-0.628226, -0.127583, -0.0311191, 0.766868)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/rotation = Quaternion(-0.628226, -0.127583, -0.0311191, 0.766868)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/position = Vector3(0, 5.22806, -0.291752)
-bones/16/rotation = Quaternion(0.443332, 0.477004, 0.555883, -0.516642)
+bones/16/rotation = Quaternion(0.481384, 0.517947, 0.517947, -0.481384)
 bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250572, 0.706663)
 bones/17/scale = Vector3(1, 1, 1)
-bones/18/rotation = Quaternion(-0.00018524, 0.000140576, 0.0462802, 0.998928)
-bones/19/position = Vector3(0, 5.22806, -0.291752)
-bones/19/rotation = Quaternion(-0.484217, 0.520995, 0.514881, 0.478535)
+bones/18/rotation = Quaternion(4.07108e-10, -2.42565e-07, 0.00256307, 0.999997)
+bones/19/rotation = Quaternion(-0.481384, 0.517947, 0.517947, 0.481384)
 bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250572, 0.706663)
 bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(7.10465e-08, 2.25131e-07, -0.493194, 0.86992)
+bones/21/rotation = Quaternion(4.07108e-10, 2.42565e-07, -0.00256307, 0.999997)
 bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.965508, 0.208031, -0.156579, 0.102323, 0.249826, 0.962869, 0.239424, -0.94568, 0.219922, -1.03148, 5.76335, 4.42574)
+transform = Transform3D(0.965508, 0.208031, -0.156579, 0.0452392, 0.458186, 0.887704, 0.256412, -0.86417, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.965508, 0.208031, -0.156579, 0.0128203, 0.562652, 0.826595, 0.260056, -0.800091, 0.540578, -1.03148, 4.12501, 3.4657)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458186, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="RightLegConnecter" parent="GameModel/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.92997, 3.871)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_0v6xc")
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.278, 0)
@@ -668,6 +677,11 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_pngvu")
 draw_pass_1 = SubResource("QuadMesh_ywe6x")
 draw_skin = SubResource("Skin_rh57f")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.15
+one_shot = true
 
 [editable path="GameModel"]
 [editable path="Particles"]

@@ -1,9 +1,12 @@
 extends State
 
+@export var coyote_timer: Timer
+
 @export var idle_state: State
 @export var walk_state: State
 @export var run_state: State
 @export var climb_fall_state: State
+@export var jump_state: State
 @export var wall_jump_state: State
 @export var _camera_fall_state: State
 @export var crouch_state: State
@@ -37,6 +40,9 @@ func process_physics(delta: float) -> State:
 		parent.velocity.x = move_toward(-parent.velocity.x, 0, speed) #else we bring the player to a..
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
+	
+	if !coyote_timer.is_stopped() and Input.is_action_just_pressed("jump"):
+		return jump_state
 	
 	if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"):#if on the wall and not on the floor and the player presses jump
 		return wall_jump_state

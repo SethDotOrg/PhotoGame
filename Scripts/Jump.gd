@@ -1,5 +1,7 @@
 extends State
 
+@export var coyote_timer: Timer
+
 @export var fall_state: State
 @export var climb_jump_state: State
 @export var wall_jump_state: State
@@ -13,6 +15,8 @@ extends State
 func enter() -> void:
 	super()
 	if parent.is_on_floor():
+		parent.velocity.y = JUMP_VELOCITY #if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
+	if !parent.is_on_floor() and !coyote_timer.is_stopped():
 		parent.velocity.y = JUMP_VELOCITY #if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
 	
 	if Input.is_action_pressed("run"):

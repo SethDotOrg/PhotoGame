@@ -1,5 +1,7 @@
 extends State
 
+@export var coyote_timer: Timer
+
 @export var fall_state: State
 @export var jump_state: State
 @export var idle_state: State
@@ -48,6 +50,7 @@ func process_physics(delta: float) -> State:
 	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0:#if on the floor and not horizontally moving
 		return idle_state
 	if parent.velocity.y < 0: #if the players y axis velocity is less than 0 then the player is falling
+		coyote_timer.start()
 		return fall_state
 	if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor(): #if the stairs checks pass and the player is on the floor
 		return stairs_state

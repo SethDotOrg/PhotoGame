@@ -54,6 +54,9 @@ func process_physics(delta: float) -> State:
 			parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 		parent.move_and_slide()
 		
+		if parent.is_on_floor():
+			GlobalVariables._number_of_wall_jumps = 0
+		
 		if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0:#if on the floor and not horziontally moving
 			return _camera_idle_state
 		if parent.velocity.y < 0:#if the y velocity is negative the player is falling

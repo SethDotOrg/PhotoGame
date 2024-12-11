@@ -18,6 +18,7 @@ func enter():
 	GlobalVariables._in_handheld_camera = true
 	number_of_wall_jumps = 0
 	tried_mantle = false
+	GlobalVariables._number_of_wall_jumps = 0
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_released("ctrl"):

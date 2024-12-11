@@ -3,13 +3,13 @@ extends State
 @export var _jump_state: State
 @export var _camera_jump_state: State
 
-@export var JUMP_VELOCITY: float = 10.0
+@export var LEDGE_JUMP_VELOCITY: float = 20.0
 
 #var speed = parent.WALK_SPEED
 
 func enter() -> void:
 	super()
-	parent.velocity.y = JUMP_VELOCITY #if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
+	parent.velocity.y = LEDGE_JUMP_VELOCITY #if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
 	
 	if Input.is_action_pressed("run"):
 		speed = parent.RUN_SPEED

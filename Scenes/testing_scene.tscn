@@ -41,18 +41,18 @@ _camera_controller = NodePath("../3PCameraSystem")
 _world_ledge_anchor = NodePath("../WorldLedgeAnchor")
 
 [node name="LeftShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.965508, 0.208031, -0.156579, 0.102323, 0.249826, 0.962869, 0.239424, -0.94568, 0.219922, -1.03148, 5.76335, 4.42574)
+transform = Transform3D(0.965508, 0.20803, -0.156578, 0.0452388, 0.458186, 0.887704, 0.256411, -0.86417, 0.432972, -1.03148, 4.92997, 3.871)
 
 [node name="RightShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.965508, 0.208031, -0.156579, 0.0128203, 0.562652, 0.826595, 0.260056, -0.800091, 0.540578, -1.03148, 4.12501, 3.4657)
+transform = Transform3D(0.965508, 0.208031, -0.15658, 0.0452401, 0.458186, 0.887704, 0.256413, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="LeftLegConnector" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452396, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="RightLegConnecter" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452396, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
 
-[node name="BaseUI" parent="PlayerHolder/PlayerKinematicBody" index="14" node_paths=PackedStringArray("_camera_controller")]
+[node name="BaseUI" parent="PlayerHolder/PlayerKinematicBody" index="15" node_paths=PackedStringArray("_camera_controller")]
 _camera_controller = NodePath("../../3PCameraSystem")
 
 [node name="DOFCheckButton" parent="PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/PauseUI/Further_Options_UI/VBoxContainerGraphics" index="2" node_paths=PackedStringArray("_camera_controller")]

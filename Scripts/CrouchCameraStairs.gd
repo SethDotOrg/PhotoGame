@@ -73,4 +73,7 @@ func process_physics(delta: float) -> State:
 		parent._model.rotation.y = parent._camera_controller.get_node("RotateNodeHorizontal").rotation.y + PI #add PI to face the model in the right direction
 		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
 		return _crouch_stairs_state
+	
+	if parent.is_on_floor():
+		GlobalVariables._number_of_wall_jumps = 0
 	return null

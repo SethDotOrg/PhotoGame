@@ -47,6 +47,9 @@ func process_physics(delta: float) -> State:
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
 	
+	if parent.is_on_floor():
+		GlobalVariables._number_of_wall_jumps = 0
+	
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
 	if parent.is_on_wall() and parent.velocity.x == 0 and parent.velocity.z == 0 and check_movement():#if on the wall and not moving but trying to move(in other words the player is stuck on a wall
 		#nudge the players velocities so that the player rotates

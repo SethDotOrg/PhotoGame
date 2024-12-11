@@ -19,8 +19,11 @@ func process_physics(delta: float) -> State:
 		gravity = 0 #stop gravity from acting on the player
 	
 	if parent.is_on_wall_only() and jump_pressed == false:
-		#number_of_wall_jumps +=1   MAYBE AFTER 3 OR 4 they become less useful (set to 10) and only keep you around the same height
-		parent.velocity.y = 15 #set velocity to the player as a postive value. making them move up
+		GlobalVariables._number_of_wall_jumps +=1   #MAYBE AFTER 3 OR 4 they become less useful (set to 10) and only keep you around the same height
+		if GlobalVariables._number_of_wall_jumps <= 4:
+			parent.velocity.y = 15 #set velocity to the player as a postive value. making them move up
+		elif GlobalVariables._number_of_wall_jumps > 4:
+			parent.velocity.y = 10 #this value keeps the player around the same height when wall jumping back and forth
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 		return jump_state
 	else:

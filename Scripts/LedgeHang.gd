@@ -21,6 +21,8 @@ func enter() -> void:
 	parent._player_collision_shape_wall.disabled=false
 	parent._climbing_ray_forward_center.add_exception(parent) #exclude the player from getting collided with
 	
+	GlobalVariables._number_of_wall_jumps = 0
+	
 	if parent._climbing_ray_position_check.is_colliding():
 		parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
 	elif parent._climbing_ray_position_check_left.is_colliding():
@@ -56,7 +58,7 @@ func enter() -> void:
 
 
 func process_input(event: InputEvent) -> State:
-	if Input.is_action_just_pressed("run"):
+	if Input.is_action_just_pressed("crouch"):
 		if parent._standing_collision_check.is_colliding() == false:
 			parent._standing_collision_check.enabled = false
 			parent._world_ledge_anchor.rotation.y = 0

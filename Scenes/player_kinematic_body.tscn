@@ -319,9 +319,11 @@ _camera_fall_state = NodePath("../CameraFall")
 _crouch_camera_stairs_state = NodePath("../CrouchCameraStairs")
 _animation_name = "Stand"
 
-[node name="WallJump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("jump_state")]
+[node name="WallJump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_wall_jump_timer", "jump_state", "fall_state")]
 script = ExtResource("11_66qvv")
+_wall_jump_timer = NodePath("../../WalljumpTimer")
 jump_state = NodePath("../Jump")
+fall_state = NodePath("../Fall")
 _animation_name = "Jump"
 
 [node name="Stairs" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state")]
@@ -394,10 +396,10 @@ bones/21/rotation = Quaternion(6.91378e-08, 2.12789e-07, -0.480179, 0.87717)
 bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0231365, 0.530439, 0.847408, 0.259342, -0.821802, 0.50733, -1.03148, 4.29023, 3.60137)
+transform = Transform3D(0.965508, 0.208031, -0.156578, 0.0231359, 0.530439, 0.847408, 0.259342, -0.821802, 0.50733, -1.03148, 4.29023, 3.60137)
 
 [node name="RightShoulder" parent="GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.965508, 0.208031, -0.156579, 0.104787, 0.240061, 0.965086, 0.238356, -0.948206, 0.209982, -1.03148, 5.81554, 4.44464)
+transform = Transform3D(0.965508, 0.208032, -0.15658, 0.104787, 0.240061, 0.965086, 0.238357, -0.948206, 0.209981, -1.03149, 5.81553, 4.44464)
 
 [node name="LeftLegConnector" parent="GameModel/Armature/Skeleton3D" index="2"]
 transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
@@ -685,6 +687,9 @@ bus = &"Sound Effects"
 process_callback = 0
 wait_time = 0.15
 one_shot = true
+
+[node name="WalljumpTimer" type="Timer" parent="."]
+wait_time = 2.643
 
 [editable path="GameModel"]
 [editable path="Particles"]

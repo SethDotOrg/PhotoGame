@@ -1,7 +1,9 @@
 extends State
 
+
+#TODO NEED TO EDIT FOR WALLRUN INSTEAD OF WALLJUMP
+
 const MAX_WALLJUMPS = 3
-const SLIDE_SPEED = -2
 
 @export var _wall_jump_timer: Timer
  
@@ -23,12 +25,11 @@ func process_physics(delta: float) -> State:
 	if _wall_jump_timer.time_left <= 0:
 		if jump_pressed == true:
 			#parent.velocity=Vector3.ZERO #stop the player from moving in all directions
-			parent.velocity.y = SLIDE_SPEED
-			parent.velocity.x = 0
-			parent.velocity.z = 0
-			parent.move_and_slide()
-			#parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
-			parent._camera_controller.jump_camera_handler(parent._camera_point_jump, delta)
+			parent.velocity.y = -1
+			parent.move_and_slide()   #these two lines might be able to be used plus a bigger jump for wallrun
+			#need to freeze x and z movement for walljump
+			
+			#gravity = 0 #stop gravity from acting on the player 	#if _wall_jump_timer.is_stopped() and parent.is_on_wall_only() and jump_pressed == false:
 	if _wall_jump_timer.time_left <= 0 and parent.is_on_wall_only() and jump_pressed == false:
 		GlobalVariables._number_of_wall_jumps +=1   #MAYBE AFTER 3 OR 4 they become less useful (set to 10) and only keep you around the same height
 		if GlobalVariables._number_of_wall_jumps <= MAX_WALLJUMPS:

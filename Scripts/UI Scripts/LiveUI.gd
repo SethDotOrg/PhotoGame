@@ -9,6 +9,7 @@ extends Control
 
 @onready var _state_background = $StateBackground
 @onready var _state_text = $StateBackground/StateText
+@onready var _timer_text = $Debug/WalljumpTimer/TimerText
 
 @onready var _objective_background = $ObjectiveBackground
 
@@ -112,3 +113,6 @@ func update_objectives():
 	for objective_num in objectives_count:
 		if curr_level_objectives[objective_num]._objective_complete == true:
 			curr_level_objectives_UI[objective_num].update_text_for_objective_complete()
+
+func set_walljump_timer_text(time: String):
+	_timer_text.text = "[center]"+time+"[/center]"

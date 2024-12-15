@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=53 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -37,8 +37,10 @@
 [ext_resource type="Script" path="res://Scripts/LedgeJump.gd" id="19_qjxhd"]
 [ext_resource type="Shape3D" uid="uid://brst4aadrvjgk" path="res://CollisionShapes/HangCollision.tres" id="28_bcv1h"]
 [ext_resource type="Script" path="res://Scripts/Sit.gd" id="30_1b04s"]
+[ext_resource type="Script" path="res://Scripts/Wallrun.gd" id="31_a6uyn"]
 [ext_resource type="PackedScene" uid="uid://dsx4gk60y6xk1" path="res://Blender Models/RobotPrototype/Robot_Prototype.glb" id="32_vb3u3"]
 [ext_resource type="Texture2D" uid="uid://dd62pe1pdh5on" path="res://TexturePNG's/Particles/dust1.png" id="39_si58r"]
+[ext_resource type="Script" path="res://Scenes/WalljumpTimer.gd" id="40_3hvgl"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0v6xc"]
 states/Start/position = Vector2(138, 59)
@@ -325,6 +327,9 @@ _wall_jump_timer = NodePath("../../WalljumpTimer")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
 _animation_name = "Jump"
+
+[node name="WallRun" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("31_a6uyn")
 
 [node name="Stairs" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "run_state")]
 script = ExtResource("10_wu825")
@@ -688,8 +693,12 @@ process_callback = 0
 wait_time = 0.15
 one_shot = true
 
-[node name="WalljumpTimer" type="Timer" parent="."]
-wait_time = 2.643
+[node name="WalljumpTimer" type="Timer" parent="." node_paths=PackedStringArray("_base_ui")]
+process_callback = 0
+wait_time = 0.4
+one_shot = true
+script = ExtResource("40_3hvgl")
+_base_ui = NodePath("../BaseUI")
 
 [editable path="GameModel"]
 [editable path="Particles"]

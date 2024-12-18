@@ -22,6 +22,7 @@ func enter() -> void:
 	parent._climbing_ray_forward_center.add_exception(parent) #exclude the player from getting collided with
 	
 	GlobalVariables._number_of_wall_jumps = 0
+	_base_ui.get_player_ui().get_live_ui().set_walljump_count_text(str(GlobalVariables._number_of_wall_jumps))
 	
 	if parent._climbing_ray_position_check.is_colliding():
 		parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray

@@ -29,8 +29,9 @@ func process_physics(delta: float) -> State:
 			parent.move_and_slide()
 			#parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
 			parent._camera_controller.jump_camera_handler(parent._camera_point_jump, delta)
-	if _wall_jump_timer.time_left <= 0 and parent.is_on_wall_only() and jump_pressed == false:
+	if _wall_jump_timer.time_left <= 0 and parent.is_on_wall() and jump_pressed == false:
 		GlobalVariables._number_of_wall_jumps +=1   #MAYBE AFTER 3 OR 4 they become less useful (set to 10) and only keep you around the same height
+		_base_ui.get_player_ui().get_live_ui().set_walljump_count_text(str(GlobalVariables._number_of_wall_jumps))
 		if GlobalVariables._number_of_wall_jumps <= MAX_WALLJUMPS:
 			parent.velocity.y = 15 #set velocity to the player as a postive value. making them move up
 		elif GlobalVariables._number_of_wall_jumps > MAX_WALLJUMPS:

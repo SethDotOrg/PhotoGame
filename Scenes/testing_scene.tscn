@@ -52,7 +52,7 @@ transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887
 [node name="RightLegConnecter" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="3"]
 transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
 
-[node name="BaseUI" parent="PlayerHolder/PlayerKinematicBody" index="15" node_paths=PackedStringArray("_camera_controller")]
+[node name="BaseUI" parent="PlayerHolder/PlayerKinematicBody" index="16" node_paths=PackedStringArray("_camera_controller")]
 _camera_controller = NodePath("../../3PCameraSystem")
 
 [node name="DOFCheckButton" parent="PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/PauseUI/Further_Options_UI/VBoxContainerGraphics" index="2" node_paths=PackedStringArray("_camera_controller")]

@@ -12,10 +12,11 @@ func process_physics(delta: float) -> State:
 	direction = parent._camera_controller.get_direction_from_mouse(direction)
 	#Handle camera in air
 	parent._camera_controller.jump_camera_handler(parent._camera_point_jump, delta)
-	if !Input.is_action_pressed("run"):
-		speed = parent.WALK_SPEED
-	else:
-		speed = parent.RUN_SPEED
+	#if !Input.is_action_pressed("run"):
+		#speed = parent.WALK_SPEED
+	#else:
+		#speed = parent.RUN_SPEED
+	speed = parent.RUN_SPEED
 	
 	#move player toward the direction value and rotate the model
 	if direction:

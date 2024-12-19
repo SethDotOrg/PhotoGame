@@ -24,10 +24,11 @@ func enter() -> void:
 	if !parent.is_on_floor() and !coyote_timer.is_stopped():
 		parent.velocity.y = JUMP_VELOCITY #if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
 	
-	if Input.is_action_pressed("run"):
-		speed = parent.RUN_SPEED
-	else:
-		speed = parent.WALK_SPEED
+	speed = parent.RUN_SPEED
+	#if Input.is_action_pressed("run"):
+		#speed = parent.RUN_SPEED
+	#else:
+		#speed = parent.WALK_SPEED
 	
 
 func process_input(event: InputEvent) -> State:
@@ -49,8 +50,9 @@ func process_physics(delta: float) -> State:
 	#Handle camera in air
 	parent._camera_controller.jump_camera_handler(parent._camera_point_jump, delta)
 	
-	if !Input.is_action_pressed("run"):
-		speed = parent.WALK_SPEED
+	#if !Input.is_action_pressed("run"):
+		#speed = parent.WALK_SPEED
+	speed = parent.RUN_SPEED
 	
 	#move player toward the direction value and rotate the model
 	if direction:

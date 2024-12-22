@@ -46,6 +46,7 @@ func enter() -> void:
 		#set the model and camera horizontal rotation node to zero so that the rotations will work correctly
 		#remember that the players forward direction is always -z in our case but that it wont always match up with the global axis
 		#so setting these to 0 essentially matches these values to the world axis for a split second
+		var old_camera_rotation = parent._camera_controller._rotate_node_horizontal.rotation.y#save position of camera to reset to later
 		parent._model.rotation.y = 0
 		parent._camera_controller.set_camera_horizontal_rotation(0)
 		
@@ -54,7 +55,7 @@ func enter() -> void:
 		direction = parent._camera_controller.get_direction_from_mouse(direction) #then get the direction that the mouse is facing which we have facing the wall now
 		parent._model.rotate_y(atan2(direction.x, direction.z)) #then rotate the model based on the direction we just calculated
 		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y #match the climbing pivot to the walls direction so we can do horizontal wall movement
-	
+		parent._camera_controller.set_camera_horizontal_rotation(old_camera_rotation)#reset the camera back to where it was when climb was pressed
 
 
 

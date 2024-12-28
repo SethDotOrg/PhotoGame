@@ -8,6 +8,7 @@ var _current_level: int
 
 var _in_handheld_camera: bool
 var _in_sit_area: bool
+var _jogging: bool = false
 var _number_of_wall_jumps: int
 
 var _sewer_pickup_count: int

@@ -18,6 +18,7 @@ func exit() -> void:
 	parent._player_collision_shape.disabled = false
 
 func process_input(event: InputEvent) -> State:
+	super(event)
 	if Input.is_action_pressed("ctrl"):
 		return crouch_camera_state
 	if Input.is_action_just_pressed("crouch"):

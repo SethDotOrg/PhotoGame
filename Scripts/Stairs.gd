@@ -15,6 +15,7 @@ func enter():
 	GlobalVariables._number_of_wall_jumps = 0
 
 func process_input(event: InputEvent) -> State:
+	super(event)
 	if Input.is_action_pressed("mouse_right") and parent.mantle_checks():#should be on the ground so mantle 
 		return climb_mantle_state
 	return null

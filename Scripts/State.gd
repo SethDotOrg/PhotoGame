@@ -24,6 +24,12 @@ func exit() -> void:
 	pass
 
 func process_input(event: InputEvent) -> State:
+	if Input.is_action_just_pressed("toggle_jog"):
+		print("goin into toggle jog")
+		if GlobalVariables._jogging == true:
+			GlobalVariables._jogging = false
+		elif GlobalVariables._jogging == false:
+			GlobalVariables._jogging = true
 	return null
 
 func process_frame(delta: float) -> State:

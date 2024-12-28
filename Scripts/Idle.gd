@@ -18,6 +18,7 @@ func enter() -> void:
 	tried_mantle = false
 
 func process_input(event: InputEvent) -> State:
+	super(event)
 	if parent.is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			return jump_state

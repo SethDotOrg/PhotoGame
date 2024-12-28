@@ -19,6 +19,7 @@ func exit() -> void:
 	parent._player_collision_shape.disabled = false
 
 func process_input(event: InputEvent) -> State:
+	super(event)
 	#if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_back"): 
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"): 
 		return crouch_walk_state

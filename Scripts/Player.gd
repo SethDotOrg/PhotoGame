@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 const WALK_SPEED = 10.0
+const JOG_SPEED = 18.0
 const RUN_SPEED = 22.0
 const JUMP_VELOCITY = 8.0
 const LERP_VAL = 0.15
@@ -49,7 +50,7 @@ const LERP_VAL = 0.15
 
 @onready var _ledge_anchor = $ClimbingRayPivot/LedgeAnchor
 @onready var _ledge_anchor_left = $ClimbingRayPivot/LedgeAnchorLeft
-@onready var _ledge_anchor_right = $ClimbingRayPivot/LedgeAnchorRight
+@onready var _ledge_anchor_right = $ClimbingRayPivot/LedgeAnchorRight 
 
 @onready var _mantle_ray_check_center = $ClimbingRayPivot/MantleRayPositionCheck
 @onready var _mantle_ray_check_left = $ClimbingRayPivot/MantleRayPositionCheckLeft

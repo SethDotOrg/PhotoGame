@@ -5,6 +5,7 @@ extends State
 @export var jump_state: State
 @export var walk_state: State
 @export var walk_state_no_anim: State
+@export var jog_state: State
 @export var climb_mantle_state: State
 @export var camera_state: State
 @export var stairs_state: State
@@ -26,6 +27,8 @@ func process_input(event: InputEvent) -> State:
 		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"): 
 			if parent.is_on_wall() == false and parent.is_on_floor() == true:
 				return walk_state
+			elif parent.velocity.x != 0 and parent.velocity.z != 0 and GlobalVariables._jogging == true:#if the player is moving and jogging variable is true
+				return jog_state #TODO make idle possible to go to jog
 			elif parent.is_on_wall() == true and parent.is_on_floor() == true:
 				return idle_state
 			

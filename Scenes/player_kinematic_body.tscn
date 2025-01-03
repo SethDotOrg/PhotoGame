@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b7sk4ydilftwb"]
+[gd_scene load_steps=58 format=3 uid="uid://b7sk4ydilftwb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4wo7u"]
 [ext_resource type="PackedScene" uid="uid://dyxhupj0f2jhb" path="res://Scenes/handheld_camera.tscn" id="2_ifbpa"]
@@ -42,6 +42,7 @@
 [ext_resource type="Script" path="res://Scripts/Wallrun.gd" id="31_a6uyn"]
 [ext_resource type="PackedScene" uid="uid://dsx4gk60y6xk1" path="res://Blender Models/RobotPrototype/Robot_Prototype.glb" id="32_vb3u3"]
 [ext_resource type="Script" path="res://Scripts/WallrunUpTimer.gd" id="34_s8ys1"]
+[ext_resource type="Script" path="res://Scripts/WallrunToWalljumpUpTimer.gd" id="37_6tyt4"]
 [ext_resource type="Texture2D" uid="uid://dd62pe1pdh5on" path="res://TexturePNG's/Particles/dust1.png" id="39_si58r"]
 [ext_resource type="Script" path="res://Scenes/WalljumpTimer.gd" id="40_3hvgl"]
 [ext_resource type="Script" path="res://Scripts/WallrunTimer.gd" id="42_ddjyk"]
@@ -110,13 +111,14 @@ _starting_state = NodePath("Idle")
 script = ExtResource("2_uperh")
 _animation_name = "Stand"
 
-[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "jump_state", "walk_state", "walk_state_no_anim", "climb_mantle_state", "camera_state", "stairs_state", "crouch_state", "sit_state")]
+[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "jump_state", "walk_state", "walk_state_no_anim", "jog_state", "climb_mantle_state", "camera_state", "stairs_state", "crouch_state", "sit_state")]
 script = ExtResource("4_muoqk")
 idle_state = NodePath(".")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 walk_state = NodePath("../Walk")
 walk_state_no_anim = NodePath("../WalkNoAnim")
+jog_state = NodePath("../Jog")
 climb_mantle_state = NodePath("../ClimbMantle")
 camera_state = NodePath("../CameraIdle")
 stairs_state = NodePath("../Stairs")
@@ -292,10 +294,11 @@ _camera_stairs_state = NodePath("../CameraStairs")
 _crouch_camera_state = NodePath("../CrouchCamera")
 _animation_name = "Stand"
 
-[node name="CameraWalk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_walk_state", "_camera_idle_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state", "_crouch_camera_walk_state")]
+[node name="CameraWalk" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_walk_state", "_camera_idle_state", "_camera_jog_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state", "_crouch_camera_walk_state")]
 script = ExtResource("11_thocv")
 _walk_state = NodePath("../Walk")
 _camera_idle_state = NodePath("../CameraIdle")
+_camera_jog_state = NodePath("../CameraJog")
 _camera_run_state = NodePath("../CameraRun")
 _camera_jump_state = NodePath("../CameraJump")
 _camera_fall_state = NodePath("../CameraFall")
@@ -303,8 +306,17 @@ _camera_stairs_state = NodePath("../CameraStairs")
 _crouch_camera_walk_state = NodePath("../CrouchCameraWalk")
 _animation_name = "Stand"
 
-[node name="CameraJog" type="Node" parent="PlayerStateMachine"]
+[node name="CameraJog" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_walk_state", "_run_state", "_camera_idle_state", "_camera_walk_state", "_camera_run_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state", "_crouch_camera_walk_state")]
 script = ExtResource("23_hwjtj")
+_walk_state = NodePath("../Walk")
+_run_state = NodePath("../Run")
+_camera_idle_state = NodePath("../CameraIdle")
+_camera_walk_state = NodePath("../CameraWalk")
+_camera_run_state = NodePath("../CameraRun")
+_camera_jump_state = NodePath("../CameraJump")
+_camera_fall_state = NodePath("../CameraFall")
+_camera_stairs_state = NodePath("../CameraStairs")
+_crouch_camera_walk_state = NodePath("../CrouchCameraWalk")
 
 [node name="CameraRun" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_walk_state", "_run_state", "_camera_idle_state", "_camera_walk_state", "_camera_jump_state", "_camera_fall_state", "_camera_stairs_state", "_crouch_camera_walk_state")]
 script = ExtResource("12_p1j8a")
@@ -352,9 +364,10 @@ jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
 _animation_name = "Jump"
 
-[node name="WallRun" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_wall_run_up_timer", "idle_state", "jump_state", "fall_state", "wall_jump_state")]
+[node name="WallRun" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_wall_run_up_timer", "_wallrun_to_walljump_up_timer", "idle_state", "jump_state", "fall_state", "wall_jump_state")]
 script = ExtResource("31_a6uyn")
 _wall_run_up_timer = NodePath("../../Timers/WallrunUpTimer")
+_wallrun_to_walljump_up_timer = NodePath("../../Timers/WallrunToWalljumpUpTimer")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
@@ -411,6 +424,13 @@ process_callback = 0
 wait_time = 0.5
 one_shot = true
 script = ExtResource("34_s8ys1")
+_base_ui = NodePath("../../BaseUI")
+
+[node name="WallrunToWalljumpUpTimer" type="Timer" parent="Timers" node_paths=PackedStringArray("_base_ui")]
+process_callback = 0
+wait_time = 0.75
+one_shot = true
+script = ExtResource("37_6tyt4")
 _base_ui = NodePath("../../BaseUI")
 
 [node name="HandheldCameraLocationStand" type="Node3D" parent="."]

@@ -2,6 +2,7 @@ extends State
 
 @export var _walk_state: State
 @export var _camera_idle_state: State
+@export var _camera_jog_state: State
 @export var _camera_run_state: State
 @export var _camera_jump_state: State
 @export var _camera_fall_state: State
@@ -19,6 +20,7 @@ func enter():
 	tried_mantle = false
 
 func process_input(event: InputEvent) -> State:
+	super(event)
 	if Input.is_action_just_released("ctrl"):
 		in_handheld_camera = false
 		GlobalVariables._in_handheld_camera = false
@@ -57,6 +59,8 @@ func process_physics(delta: float) -> State:
 		if parent.is_on_floor():
 			GlobalVariables._number_of_wall_jumps = 0
 		
+		if parent.velocity.x != 0 and parent.velocity.z != 0 and GlobalVariables._jogging == true and Input.is_action_pressed("ctrl"):#if the player is moving and jogging variable is true
+			return _camera_jog_state
 		if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0:#if on the floor and not horziontally moving
 			return _camera_idle_state
 		if parent.velocity.y < 0:#if the y velocity is negative the player is falling

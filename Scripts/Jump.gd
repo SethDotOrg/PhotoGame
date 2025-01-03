@@ -70,7 +70,7 @@ func process_physics(delta: float) -> State:
 	if parent.is_on_wall_only() and Input.is_action_pressed("run") and wallrun_timer.time_left <= 0: #if the player is on the wall and not the floor and they pressed jump
 		return wall_run_state
 	#if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"): #if the player is on the wall and not the floor and they pressed jump
-	if parent.is_on_wall_only(): #if the player is on the wall and not the floor and they pressed jump
+	if parent.is_on_wall_only() and !Input.is_action_pressed("run"): #if the player is on the wall and not the floor and they pressed jump
 		return wall_jump_state
 	
 	

@@ -62,6 +62,8 @@ func process_physics(delta: float) -> State:
 			parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 		parent.move_and_slide()
 		
+		if parent.velocity.x != 0 and parent.velocity.z != 0 and GlobalVariables._jogging == false and Input.is_action_pressed("ctrl"):#if the player is moving and toggled to walk state
+			return _camera_walk_state
 		if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0: #if on the floor and not horizontally moving
 			return _camera_idle_state
 		if parent.velocity.y < 0:#if the velocity is negative then the player is falling

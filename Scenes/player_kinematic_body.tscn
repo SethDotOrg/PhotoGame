@@ -238,9 +238,10 @@ _camera_jump_state = NodePath("../CameraJump")
 crouch_state = NodePath("../Crouch")
 _animation_name = "Jump"
 
-[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("coyote_timer", "idle_state", "walk_state", "run_state", "climb_fall_state", "jump_state", "wall_jump_state", "_camera_fall_state", "crouch_state")]
+[node name="Fall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_coyote_timer", "_wall_jump_timer", "idle_state", "walk_state", "run_state", "climb_fall_state", "jump_state", "wall_jump_state", "_camera_fall_state", "crouch_state")]
 script = ExtResource("8_2a85m")
-coyote_timer = NodePath("../../Timers/CoyoteTimer")
+_coyote_timer = NodePath("../../Timers/CoyoteTimer")
+_wall_jump_timer = NodePath("../../Timers/WalljumpTimer")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 run_state = NodePath("../Run")

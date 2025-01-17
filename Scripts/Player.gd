@@ -4,6 +4,7 @@ extends CharacterBody3D
 const WALK_SPEED = 10.0
 const JOG_SPEED = 18.0
 const RUN_SPEED = 22.0
+const CHARGE_JUMP_SPEED = 28.0
 const JUMP_VELOCITY = 8.0
 const LERP_VAL = 0.15
 

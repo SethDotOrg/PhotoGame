@@ -14,6 +14,7 @@ extends Control
 @onready var _wallrun_timer_text = $Debug/WallrunTimer/TimerText
 @onready var _wallrun_up_timer_text = $Debug/WallrunUpTimer/TimerText
 @onready var _wallrun_to_walljump_up_timer_text = $Debug/WallrunToWalljumpUpTimer/TimerText
+@onready var _charge_jump_timer_text = $Debug/ChargeJumpTimer/TimerText
 
 @onready var _objective_background = $ObjectiveBackground
 
@@ -128,3 +129,5 @@ func set_wallrun_up_timer_text(time: String):
 	_wallrun_up_timer_text.text = "[center]"+time+"[/center]"
 func set_wallrun_to_walljump_up_timer_text(time: String):
 	_wallrun_to_walljump_up_timer_text.text = "[center]"+time+"[/center]"
+func set_charge_jump_timer_text(time: String):
+	_charge_jump_timer_text.text = "[center]"+time+"[/center]"

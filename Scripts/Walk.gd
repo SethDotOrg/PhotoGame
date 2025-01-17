@@ -1,9 +1,11 @@
 extends State
 
 @export var coyote_timer: Timer
+@export var _charge_jump_timer: Timer
 
 @export var fall_state: State
 @export var jump_state: State
+@export var charge_jump_state: State
 @export var idle_state: State
 @export var jog_state: State
 @export var run_state: State
@@ -21,7 +23,12 @@ func process_input(event: InputEvent) -> State:
 	super(event)
 	if parent.is_on_floor():
 		if Input.is_action_just_pressed("jump"):
+			_charge_jump_timer.start()
+		#if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_released("jump") and _charge_jump_timer.time_left > 0:
 			return jump_state
+		elif Input.is_action_just_released("jump") and _charge_jump_timer.time_left <= 0:
+			return charge_jump_state
 		if parent.velocity.x != 0 and parent.velocity.z != 0 and GlobalVariables._jogging == true:#if the player is moving and jogging variable is true
 			return jog_state
 		if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_pressed("run"):#if the player is moving and pressing the run button

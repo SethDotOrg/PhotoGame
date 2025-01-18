@@ -3,7 +3,7 @@ extends State
 @export var coyote_timer: Timer
 @export var wallrun_timer: Timer
 
-@export var fall_state: State
+@export var charge_fall_state: State
 @export var climb_jump_state: State
 @export var wall_jump_state: State
 @export var wall_run_state: State
@@ -65,7 +65,7 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	
 	if parent.velocity.y < 0:#if the players velocity is negative then the play is falling
-		return fall_state
+		return charge_fall_state
 	
 	if parent.is_on_wall_only() and Input.is_action_pressed("run") and wallrun_timer.time_left <= 0: #if the player is on the wall and not the floor and they pressed jump
 		return wall_run_state

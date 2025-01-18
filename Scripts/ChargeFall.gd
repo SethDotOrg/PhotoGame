@@ -16,7 +16,7 @@ extends State
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed("run"):
-		speed = parent.RUN_SPEED
+		speed = parent.CHARGE_JUMP_SPEED
 	if Input.is_action_pressed("ctrl"):
 		return _camera_fall_state
 	if Input.is_action_pressed("mouse_right") and !parent.is_on_floor():
@@ -33,7 +33,7 @@ func process_physics(delta: float) -> State:
 	parent._camera_controller.jump_camera_handler(parent._camera_point_jump, delta)
 	#if !Input.is_action_pressed("run"):
 		#speed = parent.WALK_SPEED
-	speed = parent.RUN_SPEED
+	speed = parent.CHARGE_JUMP_SPEED
 	
 	#move player toward the direction value and rotate the model
 	if direction:
@@ -45,11 +45,12 @@ func process_physics(delta: float) -> State:
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
 	
+	#if !_coyote_timer.is_stopped() and Input.is_action_just_pressed("jump"):
+		#return jump_state
 	if !_coyote_timer.is_stopped() and Input.is_action_just_released("jump") and _charge_jump_timer.time_left > 0:
 		return jump_state
 	elif !_coyote_timer.is_stopped() and Input.is_action_just_released("jump") and _charge_jump_timer.time_left <= 0:
 		return charge_jump_state
-	
 	
 	#if parent.is_on_wall_only() and !Input.is_action_pressed("run"):
 	if parent.is_on_wall_only() and !Input.is_action_pressed("run") and _wall_jump_timer.time_left <= 0: #if the player is on the wall and not the floor and they pressed jump

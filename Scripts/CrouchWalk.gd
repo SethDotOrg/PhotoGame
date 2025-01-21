@@ -18,6 +18,7 @@ func exit() -> void:
 	parent._player_collision_shape.disabled = false
 
 func process_input(event: InputEvent) -> State:
+	super(event)
 	if Input.is_action_pressed("ctrl"):
 		return crouch_camera_state
 	if Input.is_action_just_pressed("crouch"):
@@ -49,6 +50,9 @@ func process_physics(delta: float) -> State:
 		parent.velocity.x = move_toward(-parent.velocity.x, 0, speed) #else we bring the player to a
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
+	
+	if parent.is_on_floor():
+		GlobalVariables._number_of_wall_jumps = 0
 	
 	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0:#if on the floor and not horizontally moving
 		return crouch_state

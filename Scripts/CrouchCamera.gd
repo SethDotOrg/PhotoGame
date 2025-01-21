@@ -41,6 +41,10 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	parent.velocity.y -= (gravity * 2) * delta #while walking apply some gravity to the player
 	parent.move_and_slide()
+	
+	if parent.is_on_floor():
+		GlobalVariables._number_of_wall_jumps = 0
+	
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"): 
 		return _crouch_camera_walk_state
 	if in_handheld_camera == true:

@@ -1,9 +1,13 @@
 extends State
+@export var coyote_timer: Timer
+@export var _charge_jump_timer: Timer
 
 @export var fall_state: State
 @export var jump_state: State
+@export var charge_jump_state: State
 @export var idle_state: State
 @export var walk_state: State
+@export var jog_state: State
 @export var crouch_walk_state: State
 @export var climb_mantle_state: State
 @export var stairs_state: State
@@ -20,10 +24,18 @@ func exit() -> void:
 	parent._camera_controller.reset_fov()
 
 func process_input(event: InputEvent) -> State:
+	super(event)
 	if parent.is_on_floor():
 		if Input.is_action_just_pressed("jump"):
+			_charge_jump_timer.start()
+		#if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_released("jump") and _charge_jump_timer.time_left > 0:
 			return jump_state
-		if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_just_released("run"):#if the player is moving and just released the walk button
+		elif Input.is_action_just_released("jump") and _charge_jump_timer.time_left <= 0:
+			return charge_jump_state
+		if parent.velocity.x != 0 and parent.velocity.z != 0 and GlobalVariables._jogging == true and Input.is_action_just_released("run"):#if the player is moving and just released the run button and jogging variable = true
+			return jog_state
+		if parent.velocity.x != 0 and parent.velocity.z != 0 and Input.is_action_just_released("run"):#if the player is moving and just released the run button
 			return walk_state
 	if Input.is_action_pressed("ctrl"):
 		return _camera_run_state
@@ -49,9 +61,13 @@ func process_physics(delta: float) -> State:
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
 	
+	if parent.is_on_floor():
+		GlobalVariables._number_of_wall_jumps = 0
+	
 	if parent.is_on_floor() and parent.velocity.x == 0 and parent.velocity.z == 0: #if on the floor and not moving
 		return idle_state
 	if parent.velocity.y < 0:#if the players y velocity is negative they are falling
+		coyote_timer.start()
 		return fall_state
 	
 	if parent._stair_ray_geo_check.is_colliding() and !parent._stair_ray_air_check.is_colliding() and parent.is_on_floor(): #if the stair checks are good and the player is on the floor

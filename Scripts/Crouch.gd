@@ -19,6 +19,7 @@ func exit() -> void:
 	parent._player_collision_shape.disabled = false
 
 func process_input(event: InputEvent) -> State:
+	super(event)
 	#if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_back"): 
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"): 
 		return crouch_walk_state
@@ -46,6 +47,9 @@ func process_physics(delta: float) -> State:
 		parent.velocity.x = move_toward(-parent.velocity.x, 0, speed) #else we bring the player to a..
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
+	
+	if parent.is_on_floor():
+		GlobalVariables._number_of_wall_jumps = 0
 	
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)
 	if parent.is_on_wall() and parent.velocity.x == 0 and parent.velocity.z == 0 and check_movement():#if on the wall and not moving but trying to move(in other words the player is stuck on a wall

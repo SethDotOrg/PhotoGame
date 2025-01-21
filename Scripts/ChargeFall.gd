@@ -1,10 +1,29 @@
 extends State
 
+@export var _coyote_timer: Timer
+@export var _wall_jump_timer: Timer
+@export var _charge_jump_timer: Timer
+
 @export var idle_state: State
 @export var walk_state: State
 @export var run_state: State
-@export var climb_state: State
+@export var climb_fall_state: State
+@export var jump_state: State
+@export var charge_jump_state: State
 @export var wall_jump_state: State
+@export var _camera_fall_state: State
+@export var crouch_state: State
+
+func process_input(event: InputEvent) -> State:
+	if Input.is_action_pressed("run"):
+		speed = parent.CHARGE_JUMP_SPEED
+	if Input.is_action_pressed("ctrl"):
+		return _camera_fall_state
+	if Input.is_action_pressed("mouse_right") and !parent.is_on_floor():
+		return climb_fall_state
+	if Input.is_action_just_pressed("crouch"):
+		return crouch_state
+	return null
 
 func process_physics(delta: float) -> State:
 	super(delta)
@@ -14,9 +33,7 @@ func process_physics(delta: float) -> State:
 	parent._camera_controller.jump_camera_handler(parent._camera_point_jump, delta)
 	#if !Input.is_action_pressed("run"):
 		#speed = parent.WALK_SPEED
-	#else:
-		#speed = parent.RUN_SPEED
-	speed = parent.RUN_SPEED
+	speed = parent.CHARGE_JUMP_SPEED
 	
 	#move player toward the direction value and rotate the model
 	if direction:
@@ -28,11 +45,16 @@ func process_physics(delta: float) -> State:
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
 	
-	if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"):#if on the wall and not on the floor and the player presses jump
-		return wall_jump_state
+	#if !_coyote_timer.is_stopped() and Input.is_action_just_pressed("jump"):
+		#return jump_state
+	if !_coyote_timer.is_stopped() and Input.is_action_just_released("jump") and _charge_jump_timer.time_left > 0:
+		return jump_state
+	elif !_coyote_timer.is_stopped() and Input.is_action_just_released("jump") and _charge_jump_timer.time_left <= 0:
+		return charge_jump_state
 	
-	if parent.climb_checks() == true:
-		return climb_state
+	#if parent.is_on_wall_only() and !Input.is_action_pressed("run"):
+	if parent.is_on_wall_only() and !Input.is_action_pressed("run") and _wall_jump_timer.time_left <= 0: #if the player is on the wall and not the floor and they pressed jump
+		return wall_jump_state
 	
 	if parent.is_on_floor():
 		if parent.velocity.x != 0 and parent.velocity.z != 0 and parent.is_on_floor() and Input.is_action_pressed("run"): #if moving on the floor and pressing the run button

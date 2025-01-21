@@ -2,6 +2,7 @@
 class_name State
 extends Node
 
+@onready var _base_ui = $"../../BaseUI"
 @export var _animation_name: String
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -23,6 +24,12 @@ func exit() -> void:
 	pass
 
 func process_input(event: InputEvent) -> State:
+	if Input.is_action_just_pressed("toggle_jog"):
+		print("goin into toggle jog")
+		if GlobalVariables._jogging == true:
+			GlobalVariables._jogging = false
+		elif GlobalVariables._jogging == false:
+			GlobalVariables._jogging = true
 	return null
 
 func process_frame(delta: float) -> State:
@@ -37,6 +44,9 @@ func process_physics(delta: float) -> State:
 	#parent._model.rotation.y = parent.rotation.y
 	
 	parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y
+	
+	if parent.is_on_floor():
+		_base_ui.get_player_ui().get_live_ui().set_walljump_count_text(str(GlobalVariables._number_of_wall_jumps))
 	
 	#handle camera
 	parent._camera_controller.follow_target(parent._camera_point_shoulder, delta)

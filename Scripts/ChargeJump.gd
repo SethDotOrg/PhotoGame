@@ -1,27 +1,45 @@
 extends State
 
-@export var climb_state: State
-@export var climb_fall_state: State
-@export var wall_jump_state: State
+@export var coyote_timer: Timer
+@export var wallrun_timer: Timer
 
-@export var JUMP_VELOCITY: float = 10.0
+@export var charge_fall_state: State
+@export var climb_jump_state: State
+@export var wall_jump_state: State
+@export var wall_run_state: State
+@export var _camera_jump_state: State
+@export var crouch_state: State
+
+@export var JUMP_VELOCITY: float = 20.0
 
 #var speed = parent.WALK_SPEED
 
 func enter() -> void:
 	super()
+	
+	wallrun_timer.start()
+	
 	if parent.is_on_floor():
 		parent.velocity.y = JUMP_VELOCITY #if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
+	if !parent.is_on_floor() and !coyote_timer.is_stopped():
+		parent.velocity.y = JUMP_VELOCITY #if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
 	
+	speed = parent.CHARGE_JUMP_SPEED
 	#if Input.is_action_pressed("run"):
 		#speed = parent.RUN_SPEED
 	#else:
 		#speed = parent.WALK_SPEED
-	speed = parent.RUN_SPEED
+	
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed("run"):
-		speed = parent.RUN_SPEED
+		speed = parent.CHARGE_JUMP_SPEED
+	if Input.is_action_pressed("ctrl"):
+		return _camera_jump_state
+	if Input.is_action_just_pressed("crouch"):
+		return crouch_state
+	if Input.is_action_pressed("mouse_right") and !parent.is_on_floor():
+		return climb_jump_state
 	return null
 
 func process_physics(delta: float) -> State:
@@ -34,7 +52,7 @@ func process_physics(delta: float) -> State:
 	
 	#if !Input.is_action_pressed("run"):
 		#speed = parent.WALK_SPEED
-	speed = parent.RUN_SPEED
+	speed = parent.CHARGE_JUMP_SPEED
 	
 	#move player toward the direction value and rotate the model
 	if direction:
@@ -46,13 +64,14 @@ func process_physics(delta: float) -> State:
 		parent.velocity.z = move_toward(-parent.velocity.z, 0, speed) #gradual stop horizontally
 	parent.move_and_slide()
 	
-	if parent.climb_checks() == true:
-		return climb_state
-	
 	if parent.velocity.y < 0:#if the players velocity is negative then the play is falling
-		return climb_fall_state
+		return charge_fall_state
 	
-	if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"): #if the player is on the wall and not the floor and they pressed jump
+	if parent.is_on_wall_only() and Input.is_action_pressed("run") and wallrun_timer.time_left <= 0: #if the player is on the wall and not the floor and they pressed jump
+		return wall_run_state
+	#if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"): #if the player is on the wall and not the floor and they pressed jump
+	if parent.is_on_wall_only() and !Input.is_action_pressed("run"): #if the player is on the wall and not the floor and they pressed jump
 		return wall_jump_state
+	
 	
 	return null

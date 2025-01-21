@@ -1,8 +1,12 @@
 extends State
 
+@export var coyote_timer: Timer
+@export var wallrun_timer: Timer
+
 @export var fall_state: State
 @export var climb_jump_state: State
 @export var wall_jump_state: State
+@export var wall_run_state: State
 @export var _camera_jump_state: State
 @export var crouch_state: State
 
@@ -12,13 +16,20 @@ extends State
 
 func enter() -> void:
 	super()
+	
+	wallrun_timer.start()
+	
 	if parent.is_on_floor():
 		parent.velocity.y = JUMP_VELOCITY #if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
+	if !parent.is_on_floor() and !coyote_timer.is_stopped():
+		parent.velocity.y = JUMP_VELOCITY #if the player presses jump as long as the right conditions are met then we want to apply a jump velocity once. It is easy to do this one time when we enter the state
 	
-	if Input.is_action_pressed("run"):
-		speed = parent.RUN_SPEED
-	else:
-		speed = parent.WALK_SPEED
+	speed = parent.RUN_SPEED
+	#if Input.is_action_pressed("run"):
+		#speed = parent.RUN_SPEED
+	#else:
+		#speed = parent.WALK_SPEED
+	
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_pressed("run"):
@@ -39,8 +50,9 @@ func process_physics(delta: float) -> State:
 	#Handle camera in air
 	parent._camera_controller.jump_camera_handler(parent._camera_point_jump, delta)
 	
-	if !Input.is_action_pressed("run"):
-		speed = parent.WALK_SPEED
+	#if !Input.is_action_pressed("run"):
+		#speed = parent.WALK_SPEED
+	speed = parent.RUN_SPEED
 	
 	#move player toward the direction value and rotate the model
 	if direction:
@@ -55,7 +67,11 @@ func process_physics(delta: float) -> State:
 	if parent.velocity.y < 0:#if the players velocity is negative then the play is falling
 		return fall_state
 	
-	if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"): #if the player is on the wall and not the floor and they pressed jump
+	if parent.is_on_wall_only() and Input.is_action_pressed("run") and wallrun_timer.time_left <= 0: #if the player is on the wall and not the floor and they pressed jump
+		return wall_run_state
+	#if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"): #if the player is on the wall and not the floor and they pressed jump
+	if parent.is_on_wall_only() and !Input.is_action_pressed("run"): #if the player is on the wall and not the floor and they pressed jump
 		return wall_jump_state
+	
 	
 	return null

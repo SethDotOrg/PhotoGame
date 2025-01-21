@@ -9,6 +9,12 @@ extends Control
 
 @onready var _state_background = $StateBackground
 @onready var _state_text = $StateBackground/StateText
+@onready var _walljump_count_text = $Debug/WalljumpCount/CountText
+@onready var _walljump_timer_text = $Debug/WalljumpTimer/TimerText
+@onready var _wallrun_timer_text = $Debug/WallrunTimer/TimerText
+@onready var _wallrun_up_timer_text = $Debug/WallrunUpTimer/TimerText
+@onready var _wallrun_to_walljump_up_timer_text = $Debug/WallrunToWalljumpUpTimer/TimerText
+@onready var _charge_jump_timer_text = $Debug/ChargeJumpTimer/TimerText
 
 @onready var _objective_background = $ObjectiveBackground
 
@@ -112,3 +118,16 @@ func update_objectives():
 	for objective_num in objectives_count:
 		if curr_level_objectives[objective_num]._objective_complete == true:
 			curr_level_objectives_UI[objective_num].update_text_for_objective_complete()
+
+func set_walljump_count_text(count: String):
+	_walljump_count_text.text = "[center]"+count+"[/center]"
+func set_walljump_timer_text(time: String):
+	_walljump_timer_text.text = "[center]"+time+"[/center]"
+func set_wallrun_timer_text(time: String):
+	_wallrun_timer_text.text = "[center]"+time+"[/center]"
+func set_wallrun_up_timer_text(time: String):
+	_wallrun_up_timer_text.text = "[center]"+time+"[/center]"
+func set_wallrun_to_walljump_up_timer_text(time: String):
+	_wallrun_to_walljump_up_timer_text.text = "[center]"+time+"[/center]"
+func set_charge_jump_timer_text(time: String):
+	_charge_jump_timer_text.text = "[center]"+time+"[/center]"

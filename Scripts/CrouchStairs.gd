@@ -19,6 +19,7 @@ func exit() -> void:
 	parent._player_collision_shape.disabled = false
 
 func process_input(event: InputEvent) -> State:
+	super(event)
 	if Input.is_action_just_pressed("crouch"):
 		return idle_state
 	return null

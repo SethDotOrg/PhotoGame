@@ -1,8 +1,10 @@
 class_name Player
 extends CharacterBody3D
 
-const WALK_SPEED = 14.0
-const RUN_SPEED = 26.0
+const WALK_SPEED = 10.0
+const JOG_SPEED = 18.0
+const RUN_SPEED = 22.0
+const CHARGE_JUMP_SPEED = 30.0
 const JUMP_VELOCITY = 8.0
 const LERP_VAL = 0.15
 
@@ -25,8 +27,11 @@ const LERP_VAL = 0.15
 @onready var _handheld_camera_location_stand = $HandheldCameraLocationStand
 @onready var _handheld_camera_location_crouch = $HandheldCameraLocationCrouch
 @onready var _arm_end_right_handle = $GameModel/ArmEndRightHandle
-@onready var _footsteps_sound = $Sounds/FootstepAudioPlayer
 @onready var _wall_jump_collision = $WallJumpArea3D
+
+@onready var _footsteps_sound = $Sounds/FootstepAudioPlayer
+@onready var _footsteps_smoke_left = $FootSmokeLeft
+@onready var _footsteps_smoke_right = $FootSmokeRight
 
 @onready var _climbing_ray_pivot = $ClimbingRayPivot
 @onready var _climbing_ray_position_check = $ClimbingRayPivot/ClimbingRayPositionCheck
@@ -46,7 +51,7 @@ const LERP_VAL = 0.15
 
 @onready var _ledge_anchor = $ClimbingRayPivot/LedgeAnchor
 @onready var _ledge_anchor_left = $ClimbingRayPivot/LedgeAnchorLeft
-@onready var _ledge_anchor_right = $ClimbingRayPivot/LedgeAnchorRight
+@onready var _ledge_anchor_right = $ClimbingRayPivot/LedgeAnchorRight 
 
 @onready var _mantle_ray_check_center = $ClimbingRayPivot/MantleRayPositionCheck
 @onready var _mantle_ray_check_left = $ClimbingRayPivot/MantleRayPositionCheckLeft
@@ -179,3 +184,18 @@ func mantle_checks():
 		return true
 	else:
 		return false
+
+func play_footstep():
+	_footsteps_sound.playing = true
+
+func emit_footstep_smoke_left():
+	_footsteps_smoke_left.emitting = true
+
+func stop_emit_footstep_smoke_left():
+	_footsteps_smoke_left.emitting = false
+
+func emit_footstep_smoke_right():
+	_footsteps_smoke_right.emitting = true
+
+func stop_emit_footstep_smoke_right():
+	_footsteps_smoke_right.emitting = false

@@ -21,6 +21,9 @@ func enter() -> void:
 	parent._player_collision_shape_wall.disabled=false
 	parent._climbing_ray_forward_center.add_exception(parent) #exclude the player from getting collided with
 	
+	GlobalVariables._number_of_wall_jumps = 0
+	_base_ui.get_player_ui().get_live_ui().set_walljump_count_text(str(GlobalVariables._number_of_wall_jumps))
+	
 	if parent._climbing_ray_position_check.is_colliding():
 		parent._climbing_ray_forward_center.global_position.y = parent._climbing_ray_position_check.get_collision_point().y #set the forward climb raycast to be the same y value as the collision from the climbing ray
 	elif parent._climbing_ray_position_check_left.is_colliding():
@@ -43,6 +46,7 @@ func enter() -> void:
 		#set the model and camera horizontal rotation node to zero so that the rotations will work correctly
 		#remember that the players forward direction is always -z in our case but that it wont always match up with the global axis
 		#so setting these to 0 essentially matches these values to the world axis for a split second
+		var old_camera_rotation = parent._camera_controller._rotate_node_horizontal.rotation.y#save position of camera to reset to later
 		parent._model.rotation.y = 0
 		parent._camera_controller.set_camera_horizontal_rotation(0)
 		
@@ -51,12 +55,12 @@ func enter() -> void:
 		direction = parent._camera_controller.get_direction_from_mouse(direction) #then get the direction that the mouse is facing which we have facing the wall now
 		parent._model.rotate_y(atan2(direction.x, direction.z)) #then rotate the model based on the direction we just calculated
 		parent._climbing_ray_pivot.rotation.y = parent._model.rotation.y #match the climbing pivot to the walls direction so we can do horizontal wall movement
-	
+		parent._camera_controller.set_camera_horizontal_rotation(old_camera_rotation)#reset the camera back to where it was when climb was pressed
 
 
 
 func process_input(event: InputEvent) -> State:
-	if Input.is_action_just_pressed("run"):
+	if Input.is_action_just_pressed("crouch"):
 		if parent._standing_collision_check.is_colliding() == false:
 			parent._standing_collision_check.enabled = false
 			parent._world_ledge_anchor.rotation.y = 0

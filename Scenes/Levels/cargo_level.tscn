@@ -108,7 +108,7 @@ bus = &"Music"
 environment = ExtResource("2_wkpj7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.0396074, -0.569772, -0.820848, -0.359449, -0.758374, 0.543751, -0.932324, 0.31659, -0.174767, 0, 189.789, 0)
+transform = Transform3D(-0.901091, 0.433434, -0.0130261, 0.400176, 0.84277, 0.359997, 0.167013, 0.319177, -0.932863, 0, 189.789, 0)
 light_color = Color(0.92549, 0.92549, 0.87451, 1)
 light_energy = 1.7
 shadow_enabled = true

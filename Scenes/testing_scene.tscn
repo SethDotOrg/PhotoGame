@@ -64,11 +64,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7604, 11.2967, -66.9952)
 [node name="3PCameraSystem" parent="PlayerHolder" instance=ExtResource("4_mpeeg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.14722, 0)
 
-[node name="LevelHolder" type="Node3D" parent="."]
+[node name="LevelHolder" type="Node3D" parent="." node_paths=PackedStringArray("_prototype_level", "_cargo_level")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 script = ExtResource("9_npedt")
+_prototype_level = NodePath("PrototypeLevel")
+_cargo_level = NodePath("CargoLevel")
 
 [node name="PrototypeLevel" parent="LevelHolder" instance=ExtResource("7_xwwu5")]
+visible = false
 
 [node name="CargoLevel" parent="LevelHolder" instance=ExtResource("8_64tqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 225, 0)

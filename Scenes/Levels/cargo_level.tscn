@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=61 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://cuep57yulaa18" path="res://Blender Models/CargoLevelModels/WoodenCrate3.glb" id="7_ng5qf"]
 [ext_resource type="PackedScene" uid="uid://drlijpqov3lo1" path="res://Blender Models/CargoLevelModels/WoodenCrate4.glb" id="8_ihvrx"]
 [ext_resource type="PackedScene" uid="uid://5hb27btt2hjw" path="res://Blender Models/CargoLevelModels/CraneNoWheels/Crane.glb" id="9_ehyfr"]
-[ext_resource type="PackedScene" uid="uid://draf8htf42ct7" path="res://Blender Models/CargoLevelModels/WoodenCrate/crate.glb" id="10_l7eks"]
 [ext_resource type="PackedScene" uid="uid://rlkknhsv050w" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate2EndsOpen.glb" id="11_bw4j5"]
 [ext_resource type="PackedScene" uid="uid://bl5lktk7u4gqi" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate1EndOpen.glb" id="11_ey8nn"]
 [ext_resource type="PackedScene" uid="uid://bnlpfm2ecj7ut" path="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneLedge.glb" id="13_3urms"]
@@ -25,11 +24,13 @@
 [ext_resource type="PackedScene" uid="uid://baue5jxdrg716" path="res://Scenes/Objectives/ODD_cement_pole.tscn" id="21_upuyw"]
 [ext_resource type="Script" path="res://Scripts/ObjectiveNodesCargoYard.gd" id="22_21vue"]
 [ext_resource type="PackedScene" uid="uid://dq4f4v75k56gl" path="res://Scenes/Objectives/cargo_yard_level_objectives.tscn" id="22_hip70"]
-[ext_resource type="PackedScene" uid="uid://tq7hgd44s0bh" path="res://Blender Models/CargoLevelModels/WoodenCrate2/crate.glb" id="23_o4k3r"]
 [ext_resource type="PackedScene" uid="uid://0xjrml2bkxuy" path="res://Scenes/Objectives/seagull_photographable.tscn" id="24_3x2fp"]
 [ext_resource type="PackedScene" uid="uid://bfxogcxl3357d" path="res://Blender Models/CargoLevelModels/Birds/Seagull/seagull.glb" id="24_u56av"]
 [ext_resource type="Script" path="res://Scripts/ODD_cement_pole.gd" id="25_shmfc"]
+[ext_resource type="Texture2D" uid="uid://0nyc4yqpdi30" path="res://TexturePNG's/CargoYard/CementCrackCircle.png" id="25_tfaus"]
 [ext_resource type="Script" path="res://Scripts/seagull_photographable.gd" id="26_dsi43"]
+[ext_resource type="Texture2D" uid="uid://bl8kkdbjxb4ru" path="res://TexturePNG's/CargoYard/CementCrack.png" id="26_g068p"]
+[ext_resource type="Texture2D" uid="uid://b1talvp0265mb" path="res://TexturePNG's/CargoYard/GroundCrackGrass1.png" id="27_x85hy"]
 [ext_resource type="Script" path="res://Scripts/SewerMonsterPickups.gd" id="28_8ecux"]
 [ext_resource type="PackedScene" uid="uid://bwheo7et62jow" path="res://Scenes/Objectives/pickup_sewer_monster.tscn" id="29_6b3gw"]
 [ext_resource type="Script" path="res://Scripts/ConesSiloam.gd" id="29_le1um"]
@@ -127,7 +128,16 @@ surface_material_override/0 = SubResource("ShaderMaterial_0y50y")
 [node name="Wooden Crates" type="Node3D" parent="."]
 
 [node name="WoodenCrateVer1_1" parent="Wooden Crates" instance=ExtResource("5_bi1bm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.359, 1.62758, -218.977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.359, 1.62758, -216.84)
+
+[node name="WoodenCrateVer1_2" parent="Wooden Crates" instance=ExtResource("5_bi1bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.359, 1.62758, -220.219)
+
+[node name="WoodenCrateVer1_3" parent="Wooden Crates" instance=ExtResource("5_bi1bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260.236, 1.62758, -218.255)
+
+[node name="WoodenCrateVer1_4" parent="Wooden Crates" instance=ExtResource("5_bi1bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.359, 3.6637, -218.653)
 
 [node name="WoodenCrateVer2_1" parent="Wooden Crates" instance=ExtResource("6_hwvib")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8982, 5.84492, 0.138136)
@@ -149,15 +159,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -77.5329, 13.6796, 3.18655)
 
 [node name="WoodenCrateVer4_4" parent="Wooden Crates" instance=ExtResource("8_ihvrx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -81.7449, 1.6192, 3.18655)
-
-[node name="crate" parent="Wooden Crates" instance=ExtResource("10_l7eks")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 152.947, 1.64071, -102.656)
-
-[node name="crate2" parent="Wooden Crates" instance=ExtResource("10_l7eks")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 152.947, 5.68987, -102.656)
-
-[node name="crate3" parent="Wooden Crates" instance=ExtResource("23_o4k3r")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 160.296, 1.64514, -102.724)
 
 [node name="ShippingCrates" type="Node3D" parent="."]
 
@@ -4028,6 +4029,219 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.9052, 9.02932, 8.90729)
 [node name="seagull6" parent="Seagulls/Group1" instance=ExtResource("24_u56av")]
 transform = Transform3D(-0.00655228, 0.00487685, -1.99998, 1.19413, 1.60439, 0, 1.60437, -1.19412, -0.00816792, 11.9052, -42.3048, -8.8907)
 
+[node name="Cracks" type="Node3D" parent="."]
+
+[node name="CementCircle" type="Node3D" parent="Cracks"]
+
+[node name="CementCircle1" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(23.695, 0, 0, 0, -1.03574e-06, 23.695, 0, -23.695, -1.03574e-06, 0, 1.66513, -6.1963)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementCircle2" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(17.6088, 15.8551, -6.93046e-07, 0, -1.03574e-06, -23.695, -15.8551, 17.6088, -7.69706e-07, -168.058, 1.81929, -161.095)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementCircle3" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(17.4698, 16.0081, -6.99737e-07, 0, -1.03574e-06, -23.695, -16.0081, 17.4698, -7.63629e-07, -21.2536, 1.81929, 190.227)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementCircle4" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(21.5615, 9.82616, -4.29515e-07, 0, -1.03574e-06, -23.695, -9.82616, 21.5615, -9.42485e-07, -211.483, 1.81929, 161.073)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementCircle5" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(12.2038, -20.3106, 8.87804e-07, 0, -1.03574e-06, -23.695, 20.3106, 12.2038, -5.33446e-07, 130.114, 1.81929, -247.507)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementCircle6" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(-3.9108, 23.37, 1.02154e-06, 0, -1.03574e-06, 23.695, 23.37, 3.9108, 1.70947e-07, -206.951, 1.66512, -255.264)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementCircle7" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(18.36, 14.9788, -6.54745e-07, 4.88845e-14, -1.03574e-06, -23.695, -14.9788, 18.36, -8.02539e-07, 265.398, 1.81929, -200.282)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementCircle8" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(21.8114, 9.25837, -4.04696e-07, 0, -1.03574e-06, -23.695, -9.25837, 21.8114, -9.53405e-07, 253.386, 1.81931, -217.347)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementCircle9" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(23.5859, -2.27106, 9.92714e-08, 0, -1.03574e-06, -23.695, 2.27106, 23.5859, -1.03097e-06, 271.687, 1.81929, 68.7497)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementCircle10" type="Sprite3D" parent="Cracks/CementCircle"]
+transform = Transform3D(-22.5983, -7.12523, 3.11454e-07, 0, -1.03574e-06, -23.695, 7.12523, -22.5983, 9.87804e-07, 211.991, 1.81929, 286.519)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_tfaus")
+
+[node name="CementLine" type="Node3D" parent="Cracks"]
+
+[node name="CementLine1" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(28.0298, -15.989, -6.98901e-07, 0, -1.05913e-06, 24.23, -24.617, -18.2056, -7.95794e-07, -4.72056, 1.67583, -6.77648)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine2" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(-2.68614, -15.5091, -6.77924e-07, 0, -6.88017e-07, 15.74, -15.5091, 2.68614, 1.17415e-07, -175.146, 1.66501, -30.1821)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine3" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(0.83843, 24.2155, 1.05849e-06, -3.36846e-14, -1.05913e-06, 24.23, 24.2155, -0.83843, -3.66489e-08, 301.517, 1.665, -44.1161)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine4" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(-24.1553, -1.90149, -8.31166e-08, -5.28753e-14, -1.05913e-06, 24.23, -1.90149, 24.1553, 1.05586e-06, -71.2019, 1.665, 249.695)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine5" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(-11.7613, 57.9485, 2.53301e-06, 0, -2.58465e-06, 59.13, 57.9485, 11.7613, 5.14104e-07, -63.3778, 1.665, -303.141)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine6" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(21.0068, 12.0751, 5.27818e-07, -3.18113e-14, -1.05913e-06, 24.23, 12.0751, -21.0068, -9.18237e-07, -229.199, 1.66503, 207.501)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine7" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(13.2476, 20.2878, 8.86806e-07, -1.1241e-14, -1.05913e-06, 24.23, 20.2878, -13.2476, -5.79072e-07, 70.6716, 1.665, 233.815)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine8" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(28.3979, -24.9403, -1.09018e-06, 0, -1.65207e-06, 37.795, -24.9403, -28.3979, -1.24131e-06, -180.427, 1.665, -123.96)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine9" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(14.9348, 19.08, 8.34011e-07, 0, -1.05913e-06, 24.23, 19.08, -14.9348, -6.52821e-07, 170.089, 1.67583, 217.903)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine10" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(24.0698, -2.78157, -1.21586e-07, 0, -1.05913e-06, 24.23, -2.78157, -24.0698, -1.05212e-06, 137.934, 1.67583, 194.616)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine11" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(2.4204, -24.1088, -1.05383e-06, 1.06891e-14, -1.05913e-06, 24.23, -24.1088, -2.4204, -1.05799e-07, 139.084, 1.67583, 170.718)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine12" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(-19.7412, 14.0491, 6.14105e-07, 1.06891e-14, -1.05913e-06, 24.23, 14.0491, 19.7412, 8.62917e-07, 139.785, 1.67583, 270.862)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CementLine13" type="Sprite3D" parent="Cracks/CementLine"]
+transform = Transform3D(11.3514, -21.4065, -9.35708e-07, 1.06891e-14, -1.05913e-06, 24.23, -21.4065, -11.3514, -4.96185e-07, 170.37, 1.67583, 274.271)
+shaded = true
+texture_filter = 0
+texture = ExtResource("26_g068p")
+
+[node name="CrackGrass" type="Node3D" parent="Cracks"]
+
+[node name="CrackGrass1" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(9.74241, -10.3308, -4.51574e-07, 0, -6.20702e-07, 14.2, -10.3308, -9.74241, -4.25854e-07, 305.589, 1.665, -68.7405)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass2" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(9.8048, 20.0344, 8.75733e-07, 9.44654e-21, -9.74982e-07, 22.305, 20.0344, -9.8048, -4.28581e-07, 193.459, 1.665, 307.226)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass3" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(26.725, 0, 0, 0, -6.20702e-07, 14.2, 0, -14.2, -6.20702e-07, 195.11, 1.665, 273.943)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass4" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(14.0312, -17.2101, -7.52277e-07, 0, -9.70611e-07, 22.205, -17.2101, -14.0312, -6.13324e-07, -279.357, 1.665, -298.429)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass5" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(18.5165, 33.1777, 1.45024e-06, 0, -1.66081e-06, 37.995, 33.1777, -18.5165, -8.09384e-07, -303.785, 1.665, 298.302)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass6" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(-0.526909, 29.7403, 1.29999e-06, 0, -1.3002e-06, 29.745, 29.7403, 0.526909, 2.30319e-08, -296.075, 1.66502, -137.949)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass7" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(9.91702, -16.1831, -7.07386e-07, 0, -8.29642e-07, 18.98, -16.1831, -9.91702, -4.33487e-07, 307.151, 1.665, -224.917)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass8" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(7.20705, 12.2351, 5.34815e-07, 0, -6.20702e-07, 14.2, 12.2351, -7.20705, -3.1503e-07, 47.011, 1.66499, -302.194)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass9" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(9.94843, 21.3345, 9.3256e-07, 0, -1.02897e-06, 23.54, 21.3345, -9.94843, -4.3486e-07, -221.79, 1.665, 302.23)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass10" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(32.13, 0, 0, 0, -1.40445e-06, 32.13, 0, -32.13, -1.40445e-06, 68.6405, 1.75503, -264.654)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="CrackGrass11" type="Sprite3D" parent="Cracks/CrackGrass"]
+transform = Transform3D(8.9217, 11.0473, 4.82894e-07, 0, -6.20702e-07, 14.2, 11.0473, -8.9217, -3.8998e-07, -1.571, 1.755, -8.143)
+shaded = true
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("27_x85hy")
+
 [node name="Cones" type="Node3D" parent="."]
 
 [node name="Cones1" type="Node3D" parent="Cones"]
@@ -4304,6 +4518,7 @@ _objective_description = ""
 [editable path="Cranes/Big Cranes/Crane2"]
 [editable path="Cranes/Big Cranes/Crane3"]
 [editable path="Cranes/Big Cranes/Crane4"]
+[editable path="StreetLights/StreetLights1/StreetLight"]
 [editable path="ObjectiveNodesCargoYard/ODDCementPolePhotographable"]
 [editable path="ObjectiveNodesCargoYard/SeagullPhotographable"]
 [editable path="CargoYardLevelObjectives"]

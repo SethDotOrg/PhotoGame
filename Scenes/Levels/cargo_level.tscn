@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=67 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://Scripts/seagull_photographable.gd" id="26_dsi43"]
 [ext_resource type="Texture2D" uid="uid://bl8kkdbjxb4ru" path="res://TexturePNG's/CargoYard/CementCrack.png" id="26_g068p"]
 [ext_resource type="PackedScene" uid="uid://cwvrkhs6urkfo" path="res://Blender Models/CargoLevelModels/Moss/Moss.glb" id="27_bgpuu"]
+[ext_resource type="PackedScene" uid="uid://bakp2mhve4fg8" path="res://Blender Models/CargoLevelModels/Grass/GrassYesBottom.glb" id="27_gfw00"]
 [ext_resource type="Texture2D" uid="uid://b1talvp0265mb" path="res://TexturePNG's/CargoYard/GroundCrackGrass1.png" id="27_x85hy"]
 [ext_resource type="Script" path="res://Scripts/SewerMonsterPickups.gd" id="28_8ecux"]
 [ext_resource type="PackedScene" uid="uid://bwheo7et62jow" path="res://Scenes/Objectives/pickup_sewer_monster.tscn" id="29_6b3gw"]
@@ -4193,7 +4194,7 @@ texture_filter = 0
 texture = ExtResource("27_x85hy")
 
 [node name="GrassNoBottom" parent="Cracks/CrackGrass/CrackGrass1" instance=ExtResource("26_7levn")]
-transform = Transform3D(0.443254, 8.50393e-15, -0.00704049, -0.00704049, -1.93777e-08, -0.443254, -3.07748e-10, 0.44331, -1.93752e-08, 0.109989, 0.103724, 7.45058e-09)
+transform = Transform3D(0.443254, 8.2966e-15, -0.0070405, -0.0070405, -1.93777e-08, -0.443254, -3.07748e-10, 0.44331, -1.93752e-08, 0.109989, 0.103724, 7.45058e-09)
 
 [node name="GrassNoBottom2" parent="Cracks/CrackGrass/CrackGrass1" instance=ExtResource("26_7levn")]
 transform = Transform3D(0.432872, 1.06882e-14, -0.0956324, -0.0956324, -1.93777e-08, -0.432872, -4.18023e-09, 0.44331, -1.89214e-08, -0.0758038, 0.0350037, 0)
@@ -4258,6 +4259,110 @@ shaded = true
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("27_x85hy")
+
+[node name="GrassWithCrack" type="Node3D" parent="Cracks"]
+
+[node name="GrassYesBottom1" parent="Cracks/GrassWithCrack" instance=ExtResource("27_gfw00")]
+transform = Transform3D(7.96907, 0, -3.50299, 0, 8.705, 0, 3.50299, 0, 7.96907, 0, 1.73807, 296.079)
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom1" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-3.88442, 0, -7.79027, 0, 8.705, 0, 7.79027, 0, -3.88442, -53.4127, 1.73807, 295.659)
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom2" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
+
+[node name="GrassYesBottom3" parent="Cracks/GrassWithCrack" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-3.88442, 0, -7.79027, 0, 8.705, 0, 7.79027, 0, -3.88442, -295.202, 1.73807, 298.806)
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom3" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
+
+[node name="GrassYesBottom4" parent="Cracks/GrassWithCrack" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-6.36208, 0, 5.94146, 0, 8.705, 0, -5.94146, 0, -6.36208, -104.163, 1.73807, -24.4126)
+
+[node name="CrackGrass5" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom4"]
+transform = Transform3D(2.46166, -3.60432, -1.5755e-07, 0, -1.90788e-07, 4.36473, -3.60432, -2.46166, -1.07602e-07, 0.388195, -0.00487082, 0.908165)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom4" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
+
+[node name="GrassYesBottom5" parent="Cracks/GrassWithCrack" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-8.21458, 0, -2.88057, 0, 8.705, 0, 2.88057, 0, -8.21458, 188.315, 1.73807, -268.733)
+
+[node name="CrackGrass5" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom5"]
+transform = Transform3D(2.46166, -3.60432, -1.5755e-07, 0, -1.90788e-07, 4.36473, -3.60432, -2.46166, -1.07602e-07, 0.388195, -0.00487082, 0.908165)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom5" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
+
+[node name="GrassYesBottom6" parent="Cracks/GrassWithCrack" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-2.90679, 0, -8.20534, 0, 8.705, 0, 8.20534, 0, -2.90679, -213.677, 1.73807, -225.798)
+
+[node name="CrackGrass5" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom6"]
+transform = Transform3D(2.46166, -3.60432, -1.5755e-07, 0, -1.90788e-07, 4.36473, -3.60432, -2.46166, -1.07602e-07, 0.388195, -0.00487082, 0.908165)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom6" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
+
+[node name="CrackGrass6" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom6"]
+transform = Transform3D(1.61448, 4.05516, -1.5755e-07, 1.58246e-07, 1.06575e-07, 4.36473, 4.05516, -1.61448, -1.07602e-07, -1.2992, -0.00487094, -0.876345)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="GrassYesBottom3" parent="Cracks/GrassWithCrack/GrassYesBottom6" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-0.194406, 0, -0.980921, 0, 1, 0, 0.980921, 0, -0.194406, -1.23504, -0.0441375, -0.94194)
+
+[node name="GrassYesBottom4" parent="Cracks/GrassWithCrack/GrassYesBottom6" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-0.561347, 0, 0.827581, 0, 1, 0, -0.827581, 0, -0.561347, -0.0230331, 0, -0.774761)
+
+[node name="GrassYesBottom7" parent="Cracks/GrassWithCrack" instance=ExtResource("27_gfw00")]
+transform = Transform3D(8.62875, 0, -1.14963, 0, 8.705, 0, 1.14963, 0, 8.62875, -190.37, 1.73807, -246.531)
+
+[node name="CrackGrass5" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom7"]
+transform = Transform3D(2.46166, -3.60432, -1.5755e-07, 0, -1.90788e-07, 4.36473, -3.60432, -2.46166, -1.07602e-07, 0.388195, -0.00487082, 0.908165)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom7" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
+
+[node name="CrackGrass6" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom7"]
+transform = Transform3D(1.61448, 4.05516, -1.5755e-07, 1.58246e-07, 1.06575e-07, 4.36473, 4.05516, -1.61448, -1.07602e-07, -1.2992, -0.00487094, -0.876345)
+shaded = true
+texture_filter = 0
+texture = ExtResource("27_x85hy")
+
+[node name="GrassYesBottom3" parent="Cracks/GrassWithCrack/GrassYesBottom7" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-0.194406, 0, -0.980921, 0, 1, 0, 0.980921, 0, -0.194406, -1.23504, -0.0441375, -0.94194)
+
+[node name="GrassYesBottom4" parent="Cracks/GrassWithCrack/GrassYesBottom7" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-0.561347, 0, 0.827581, 0, 1, 0, -0.827581, 0, -0.561347, -0.0230331, 0, -0.774761)
+
+[node name="GrassYesBottom8" parent="Cracks/GrassWithCrack" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.478342, 0, -8.69185, 0, 8.705, 0, 8.69185, 0, 0.478342, 284.62, 1.73809, 282.746)
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom8" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
+
+[node name="GrassYesBottom9" parent="Cracks/GrassWithCrack" instance=ExtResource("27_gfw00")]
+transform = Transform3D(-8.63989, 0, 1.06268, 0, 8.705, 0, -1.06268, 0, -8.63989, 259.53, 1.73809, -194.997)
+
+[node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom9" instance=ExtResource("27_gfw00")]
+transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
 
 [node name="Mosses" type="Node3D" parent="."]
 

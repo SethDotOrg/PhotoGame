@@ -76,7 +76,7 @@ visible = false
 [node name="CargoLevel" parent="LevelHolder" instance=ExtResource("8_64tqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 225, 0)
 
-[node name="CargoYardLevelObjectives" parent="LevelHolder/CargoLevel" index="15" node_paths=PackedStringArray("_live_UI")]
+[node name="CargoYardLevelObjectives" parent="LevelHolder/CargoLevel" index="17" node_paths=PackedStringArray("_live_UI")]
 _live_UI = NodePath("../../../PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/LiveUI")
 
 [node name="SewerMonster" parent="LevelHolder/CargoLevel/CargoYardLevelObjectives" index="8"]

@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8lsu0mrinyk8"
-path="res://.godot/imported/SewerMonsterV3_SlimeSewerMonsterVer5png.png-e54b3035b7ba7cd8750409d71241b731.ctex"
+uid="uid://c4snq5wan417f"
+path="res://.godot/imported/Puddle.png-c8d10325b5713f888f31d85bdc9947ad.ctex"
 metadata={
 "vram_texture": false
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3_SlimeSewerMonsterVer5png.png"
-dest_files=["res://.godot/imported/SewerMonsterV3_SlimeSewerMonsterVer5png.png-e54b3035b7ba7cd8750409d71241b731.ctex"]
+source_file="res://TexturePNG's/CargoYard/Puddle.png"
+dest_files=["res://.godot/imported/Puddle.png-c8d10325b5713f888f31d85bdc9947ad.ctex"]
 
 [params]
 

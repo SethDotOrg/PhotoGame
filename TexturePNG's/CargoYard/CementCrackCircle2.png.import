@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8lsu0mrinyk8"
-path="res://.godot/imported/SewerMonsterV3_SlimeSewerMonsterVer5png.png-e54b3035b7ba7cd8750409d71241b731.ctex"
+uid="uid://qhvodc3on4qq"
+path.s3tc="res://.godot/imported/CementCrackCircle2.png-6eb24f23c9574e24e97b0f43c7fa38b4.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3_SlimeSewerMonsterVer5png.png"
-dest_files=["res://.godot/imported/SewerMonsterV3_SlimeSewerMonsterVer5png.png-e54b3035b7ba7cd8750409d71241b731.ctex"]
+source_file="res://TexturePNG's/CargoYard/CementCrackCircle2.png"
+dest_files=["res://.godot/imported/CementCrackCircle2.png-6eb24f23c9574e24e97b0f43c7fa38b4.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

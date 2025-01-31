@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://refhw4jglcjy"]
+[gd_scene load_steps=66 format=3 uid="uid://refhw4jglcjy"]
 
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="1_7h8b0"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="1_lu7jt"]
@@ -24,15 +24,18 @@
 [ext_resource type="PackedScene" uid="uid://baue5jxdrg716" path="res://Scenes/Objectives/ODD_cement_pole.tscn" id="21_upuyw"]
 [ext_resource type="Script" path="res://Scripts/ObjectiveNodesCargoYard.gd" id="22_21vue"]
 [ext_resource type="PackedScene" uid="uid://dq4f4v75k56gl" path="res://Scenes/Objectives/cargo_yard_level_objectives.tscn" id="22_hip70"]
+[ext_resource type="Texture2D" uid="uid://qhvodc3on4qq" path="res://TexturePNG's/CargoYard/CementCrackCircle2.png" id="23_m0mj0"]
 [ext_resource type="PackedScene" uid="uid://0xjrml2bkxuy" path="res://Scenes/Objectives/seagull_photographable.tscn" id="24_3x2fp"]
 [ext_resource type="PackedScene" uid="uid://bfxogcxl3357d" path="res://Blender Models/CargoLevelModels/Birds/Seagull/seagull.glb" id="24_u56av"]
 [ext_resource type="Script" path="res://Scripts/ODD_cement_pole.gd" id="25_shmfc"]
-[ext_resource type="Texture2D" uid="uid://0nyc4yqpdi30" path="res://TexturePNG's/CargoYard/CementCrackCircle.png" id="25_tfaus"]
+[ext_resource type="PackedScene" uid="uid://jwye5m7b0t0h" path="res://Blender Models/CargoLevelModels/Grass/GrassNoBottom.glb" id="26_7levn"]
 [ext_resource type="Script" path="res://Scripts/seagull_photographable.gd" id="26_dsi43"]
 [ext_resource type="Texture2D" uid="uid://bl8kkdbjxb4ru" path="res://TexturePNG's/CargoYard/CementCrack.png" id="26_g068p"]
+[ext_resource type="PackedScene" uid="uid://cwvrkhs6urkfo" path="res://Blender Models/CargoLevelModels/Moss/Moss.glb" id="27_bgpuu"]
 [ext_resource type="Texture2D" uid="uid://b1talvp0265mb" path="res://TexturePNG's/CargoYard/GroundCrackGrass1.png" id="27_x85hy"]
 [ext_resource type="Script" path="res://Scripts/SewerMonsterPickups.gd" id="28_8ecux"]
 [ext_resource type="PackedScene" uid="uid://bwheo7et62jow" path="res://Scenes/Objectives/pickup_sewer_monster.tscn" id="29_6b3gw"]
+[ext_resource type="Texture2D" uid="uid://ciud5nnwmcpim" path="res://TexturePNG's/CargoYard/Puddle2.png" id="29_gjcbx"]
 [ext_resource type="Script" path="res://Scripts/ConesSiloam.gd" id="29_le1um"]
 [ext_resource type="PackedScene" uid="uid://cq0ykhfdf3kgm" path="res://Blender Models/CargoLevelModels/Cone/cone.glb" id="30_tr2l3"]
 [ext_resource type="PackedScene" uid="uid://dx2hcfhnganr3" path="res://Scenes/Objectives/pickup_boots.tscn" id="32_byrj3"]
@@ -67,6 +70,14 @@ shader_parameter/FoamSize = 0.5
 shader_parameter/WaterOpacity = 0.95
 shader_parameter/FoamGlowIntensity = 0.12
 shader_parameter/water_texture1 = ExtResource("6_pxe37")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lhkj"]
+transparency = 1
+albedo_texture = ExtResource("29_gjcbx")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8jppw"]
+material = SubResource("StandardMaterial3D_8lhkj")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jp7nr"]
 radius = 0.484006
@@ -4037,61 +4048,61 @@ transform = Transform3D(-0.00655228, 0.00487685, -1.99998, 1.19413, 1.60439, 0, 
 transform = Transform3D(23.695, 0, 0, 0, -1.03574e-06, 23.695, 0, -23.695, -1.03574e-06, 0, 1.66513, -6.1963)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementCircle2" type="Sprite3D" parent="Cracks/CementCircle"]
 transform = Transform3D(17.6088, 15.8551, -6.93046e-07, 0, -1.03574e-06, -23.695, -15.8551, 17.6088, -7.69706e-07, -168.058, 1.81929, -161.095)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementCircle3" type="Sprite3D" parent="Cracks/CementCircle"]
 transform = Transform3D(17.4698, 16.0081, -6.99737e-07, 0, -1.03574e-06, -23.695, -16.0081, 17.4698, -7.63629e-07, -21.2536, 1.81929, 190.227)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementCircle4" type="Sprite3D" parent="Cracks/CementCircle"]
 transform = Transform3D(21.5615, 9.82616, -4.29515e-07, 0, -1.03574e-06, -23.695, -9.82616, 21.5615, -9.42485e-07, -211.483, 1.81929, 161.073)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementCircle5" type="Sprite3D" parent="Cracks/CementCircle"]
 transform = Transform3D(12.2038, -20.3106, 8.87804e-07, 0, -1.03574e-06, -23.695, 20.3106, 12.2038, -5.33446e-07, 130.114, 1.81929, -247.507)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementCircle6" type="Sprite3D" parent="Cracks/CementCircle"]
 transform = Transform3D(-3.9108, 23.37, 1.02154e-06, 0, -1.03574e-06, 23.695, 23.37, 3.9108, 1.70947e-07, -206.951, 1.66512, -255.264)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementCircle7" type="Sprite3D" parent="Cracks/CementCircle"]
 transform = Transform3D(18.36, 14.9788, -6.54745e-07, 4.88845e-14, -1.03574e-06, -23.695, -14.9788, 18.36, -8.02539e-07, 265.398, 1.81929, -200.282)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementCircle8" type="Sprite3D" parent="Cracks/CementCircle"]
 transform = Transform3D(21.8114, 9.25837, -4.04696e-07, 0, -1.03574e-06, -23.695, -9.25837, 21.8114, -9.53405e-07, 253.386, 1.81931, -217.347)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementCircle9" type="Sprite3D" parent="Cracks/CementCircle"]
 transform = Transform3D(23.5859, -2.27106, 9.92714e-08, 0, -1.03574e-06, -23.695, 2.27106, 23.5859, -1.03097e-06, 271.687, 1.81929, 68.7497)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementCircle10" type="Sprite3D" parent="Cracks/CementCircle"]
 transform = Transform3D(-22.5983, -7.12523, 3.11454e-07, 0, -1.03574e-06, -23.695, 7.12523, -22.5983, 9.87804e-07, 211.991, 1.81929, 286.519)
 shaded = true
 texture_filter = 0
-texture = ExtResource("25_tfaus")
+texture = ExtResource("23_m0mj0")
 
 [node name="CementLine" type="Node3D" parent="Cracks"]
 
@@ -4181,6 +4192,12 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("27_x85hy")
 
+[node name="GrassNoBottom" parent="Cracks/CrackGrass/CrackGrass1" instance=ExtResource("26_7levn")]
+transform = Transform3D(0.443254, 8.50393e-15, -0.00704049, -0.00704049, -1.93777e-08, -0.443254, -3.07748e-10, 0.44331, -1.93752e-08, 0.109989, 0.103724, 7.45058e-09)
+
+[node name="GrassNoBottom2" parent="Cracks/CrackGrass/CrackGrass1" instance=ExtResource("26_7levn")]
+transform = Transform3D(0.432872, 1.06882e-14, -0.0956324, -0.0956324, -1.93777e-08, -0.432872, -4.18023e-09, 0.44331, -1.89214e-08, -0.0758038, 0.0350037, 0)
+
 [node name="CrackGrass2" type="Sprite3D" parent="Cracks/CrackGrass"]
 transform = Transform3D(9.8048, 20.0344, 8.75733e-07, 9.44654e-21, -9.74982e-07, 22.305, 20.0344, -9.8048, -4.28581e-07, 193.459, 1.665, 307.226)
 shaded = true
@@ -4200,7 +4217,7 @@ texture_filter = 0
 texture = ExtResource("27_x85hy")
 
 [node name="CrackGrass5" type="Sprite3D" parent="Cracks/CrackGrass"]
-transform = Transform3D(18.5165, 33.1777, 1.45024e-06, 0, -1.66081e-06, 37.995, 33.1777, -18.5165, -8.09384e-07, -303.785, 1.665, 298.302)
+transform = Transform3D(18.5165, 33.1777, 1.45024e-06, 0, -1.66081e-06, 37.995, 33.1777, -18.5165, -8.09384e-07, -303.785, 1.69567, 298.302)
 shaded = true
 texture_filter = 0
 texture = ExtResource("27_x85hy")
@@ -4241,6 +4258,48 @@ shaded = true
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("27_x85hy")
+
+[node name="Mosses" type="Node3D" parent="."]
+
+[node name="Moss1" parent="Mosses" instance=ExtResource("27_bgpuu")]
+transform = Transform3D(-4.99311, 0, -5.58292, 0, 16.615, 0, 5.58292, 0, -4.99311, 299.876, 26.5963, -40.3176)
+
+[node name="Moss2" parent="Mosses" instance=ExtResource("27_bgpuu")]
+transform = Transform3D(-5.60795, 0, 4.96498, 0, 16.615, 0, -4.96498, 0, -5.60795, 305.475, 26.5963, -40.845)
+
+[node name="Puddles" type="Node3D" parent="."]
+
+[node name="Puddle1" type="MeshInstance3D" parent="Puddles"]
+transform = Transform3D(-4.94961, 0, -3.3021, 0, 5.95, 0, 3.3021, 0, -4.94961, -82.6353, 1.70456, 4.87473)
+mesh = SubResource("PlaneMesh_8jppw")
+
+[node name="Puddle2" type="MeshInstance3D" parent="Puddles"]
+transform = Transform3D(7.745, 0, 0, 0, 7.745, 0, 0, 0, 6.493, 48.8198, 1.70456, 12.786)
+mesh = SubResource("PlaneMesh_8jppw")
+
+[node name="Puddle3" type="MeshInstance3D" parent="Puddles"]
+transform = Transform3D(0.219913, 0, 6.67138, 0, 6.675, 0, -6.67138, 0, 0.219913, 175.092, 1.70456, -267.731)
+mesh = SubResource("PlaneMesh_8jppw")
+
+[node name="Puddle4" type="MeshInstance3D" parent="Puddles"]
+transform = Transform3D(1.03071, 0, -4.38037, 0, 4.5, 0, 4.38037, 0, 1.03071, 249.061, 1.70456, 283.59)
+mesh = SubResource("PlaneMesh_8jppw")
+
+[node name="Puddle5" type="MeshInstance3D" parent="Puddles"]
+transform = Transform3D(-1.54362, 0, 2.31807, 0, 2.785, 0, -2.31807, 0, -1.54362, -297.931, 1.70456, 296.424)
+mesh = SubResource("PlaneMesh_8jppw")
+
+[node name="Puddle6" type="MeshInstance3D" parent="Puddles"]
+transform = Transform3D(3.56188, 0, 5.64523, 0, 6.675, 0, -5.64523, 0, 3.56188, 40.7595, 1.70456, -297.915)
+mesh = SubResource("PlaneMesh_8jppw")
+
+[node name="Puddle7" type="MeshInstance3D" parent="Puddles"]
+transform = Transform3D(-14.479, 0, -7.02906, 0, 16.095, 0, 7.02906, 0, -14.479, 285.149, 1.70456, 1.68709)
+mesh = SubResource("PlaneMesh_8jppw")
+
+[node name="Puddle8" type="MeshInstance3D" parent="Puddles"]
+transform = Transform3D(2.01753, 0, 8.85302, 0, 9.08, 0, -8.85302, 0, 2.01753, 74.6662, 1.70456, 258.167)
+mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Cones" type="Node3D" parent="."]
 

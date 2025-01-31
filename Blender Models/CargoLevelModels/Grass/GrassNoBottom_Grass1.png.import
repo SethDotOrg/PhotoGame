@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8lsu0mrinyk8"
-path="res://.godot/imported/SewerMonsterV3_SlimeSewerMonsterVer5png.png-e54b3035b7ba7cd8750409d71241b731.ctex"
+uid="uid://cksr3flp2jpu4"
+path="res://.godot/imported/GrassNoBottom_Grass1.png-f28b650678f47db7ee9998bb448d76ce.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,8 +11,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3_SlimeSewerMonsterVer5png.png"
-dest_files=["res://.godot/imported/SewerMonsterV3_SlimeSewerMonsterVer5png.png-e54b3035b7ba7cd8750409d71241b731.ctex"]
+source_file="res://Blender Models/CargoLevelModels/Grass/GrassNoBottom_Grass1.png"
+dest_files=["res://.godot/imported/GrassNoBottom_Grass1.png-f28b650678f47db7ee9998bb448d76ce.ctex"]
 
 [params]
 

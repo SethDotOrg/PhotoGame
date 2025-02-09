@@ -1,0 +1,20 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://p8q12f1chlum"]
+
+[ext_resource type="Sky" uid="uid://dxwscu2k2wrl3" path="res://Materials/Skies/daytime_sky_no_lights.tres" id="1_kgmlr"]
+
+[resource]
+background_mode = 2
+background_color = Color(0.270588, 0.678431, 0.94902, 1)
+sky = ExtResource("1_kgmlr")
+ambient_light_source = 2
+ambient_light_color = Color(0.6, 0.705882, 0.85098, 1)
+tonemap_mode = 3
+tonemap_white = 0.69
+glow_enabled = true
+glow_levels/7 = 1.0
+glow_normalized = true
+glow_bloom = 1.0
+glow_blend_mode = 4
+fog_light_energy = 0.36
+fog_density = 0.0001
+adjustment_enabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4vdrytlis482"]
+[gd_scene load_steps=13 format=3 uid="uid://4vdrytlis482"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerManager.gd" id="1_cmp4m"]
 [ext_resource type="Script" path="res://Scripts/SpawnPointsManager.gd" id="1_pgtpa"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dn4lebtea4isk" path="res://Scenes/3rdP_camera_system.tscn" id="4_mpeeg"]
 [ext_resource type="PackedScene" uid="uid://cu8gibcrmeaag" path="res://Scenes/world_ledge_anchor.tscn" id="6_nfmuw"]
 [ext_resource type="PackedScene" uid="uid://bw7w3jk5xydb8" path="res://Scenes/prototype_level.tscn" id="7_xwwu5"]
-[ext_resource type="PackedScene" uid="uid://refhw4jglcjy" path="res://Scenes/Levels/cargo_level.tscn" id="8_64tqm"]
 [ext_resource type="Script" path="res://Scripts/LevelHolder.gd" id="9_npedt"]
+[ext_resource type="Environment" uid="uid://p8q12f1chlum" path="res://Materials/Environments/daytime_no_lights.tres" id="9_yo6uw"]
 [ext_resource type="PackedScene" uid="uid://dycukyywl7r0r" path="res://Scenes/global_variables.tscn" id="10_v4yvq"]
+[ext_resource type="PackedScene" uid="uid://dypfe3w45cfns" path="res://Scenes/Levels/cargo_level_no_light.tscn" id="11_tb8l8"]
 [ext_resource type="PackedScene" uid="uid://6uyang4x8nsv" path="res://Scenes/spawn_point.tscn" id="27_dhoer"]
 
 [node name="Testing Scene" type="Node3D"]
@@ -40,17 +41,34 @@ _player_spawn = NodePath("../SpawnPoints/SpawnPointCargoYardLevel")
 _camera_controller = NodePath("../3PCameraSystem")
 _world_ledge_anchor = NodePath("../WorldLedgeAnchor")
 
+[node name="Skeleton3D" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature" index="1"]
+bones/0/position = Vector3(0, 5.38228, -0.519276)
+bones/1/rotation = Quaternion(0.13693, 0, 0, 0.990581)
+bones/3/rotation = Quaternion(0, 1.42109e-14, -4.23517e-22, 1)
+bones/4/rotation = Quaternion(-0.10404, -0.0880152, -0.701608, 0.699411)
+bones/5/rotation = Quaternion(0.0121538, 0.00402047, -0.707095, 0.707002)
+bones/6/rotation = Quaternion(-0.00707147, 9.91939e-10, -2.73216e-09, 0.999975)
+bones/9/rotation = Quaternion(-0.10404, 0.0880152, 0.701608, 0.699411)
+bones/10/rotation = Quaternion(0.0121538, -0.00402047, 0.707095, 0.707002)
+bones/11/rotation = Quaternion(-0.00707147, -9.91939e-10, 2.73216e-09, 0.999975)
+bones/16/position = Vector3(0, 5.38228, -0.291752)
+bones/16/rotation = Quaternion(0.481384, 0.517947, 0.517947, -0.481384)
+bones/18/rotation = Quaternion(4.07108e-10, -2.42565e-07, 0.00256307, 0.999997)
+bones/19/position = Vector3(0, 5.38228, -0.291752)
+bones/19/rotation = Quaternion(-0.481384, 0.517947, 0.517947, 0.481384)
+bones/21/rotation = Quaternion(4.07108e-10, 2.42565e-07, -0.00256307, 0.999997)
+
 [node name="LeftShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.965508, 0.208031, -0.156578, 0.0231359, 0.530439, 0.847408, 0.259342, -0.821802, 0.50733, -1.03148, 4.29023, 3.60137)
+transform = Transform3D(0.965508, 0.20803, -0.156578, 0.0452388, 0.458186, 0.887704, 0.256411, -0.86417, 0.432972, -1.03148, 4.92997, 3.871)
 
 [node name="RightShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.965508, 0.208032, -0.15658, 0.104787, 0.240061, 0.965086, 0.238357, -0.948206, 0.209981, -1.03149, 5.81553, 4.44464)
+transform = Transform3D(0.965508, 0.208031, -0.15658, 0.0452401, 0.458186, 0.887704, 0.256413, -0.864169, 0.432971, -1.03148, 4.92997, 3.871)
 
 [node name="LeftLegConnector" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452396, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92996, 3.871)
 
 [node name="RightLegConnecter" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452398, 0.458185, 0.887705, 0.256412, -0.86417, 0.432971, -1.03148, 4.6641, 3.871)
+transform = Transform3D(0.965508, 0.20803, -0.156579, 0.0452396, 0.458186, 0.887704, 0.256412, -0.864169, 0.432971, -1.03148, 4.92996, 3.871)
 
 [node name="BaseUI" parent="PlayerHolder/PlayerKinematicBody" index="16" node_paths=PackedStringArray("_camera_controller")]
 _camera_controller = NodePath("../../3PCameraSystem")
@@ -64,23 +82,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7604, 11.2967, -66.9952)
 [node name="3PCameraSystem" parent="PlayerHolder" instance=ExtResource("4_mpeeg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.14722, 0)
 
+[node name="Camera3D" parent="PlayerHolder/3PCameraSystem/RotateNodeHorizontal/RotateNodeVertical/SpringArm3D" index="0"]
+environment = ExtResource("9_yo6uw")
+
 [node name="LevelHolder" type="Node3D" parent="." node_paths=PackedStringArray("_prototype_level", "_cargo_level")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 script = ExtResource("9_npedt")
 _prototype_level = NodePath("PrototypeLevel")
-_cargo_level = NodePath("CargoLevel")
+_cargo_level = NodePath("CargoLevel2")
 
 [node name="PrototypeLevel" parent="LevelHolder" instance=ExtResource("7_xwwu5")]
 visible = false
 
-[node name="CargoLevel" parent="LevelHolder" instance=ExtResource("8_64tqm")]
+[node name="CargoLevel2" parent="LevelHolder" instance=ExtResource("11_tb8l8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 225, 0)
-
-[node name="CargoYardLevelObjectives" parent="LevelHolder/CargoLevel" index="17" node_paths=PackedStringArray("_live_UI")]
-_live_UI = NodePath("../../../PlayerHolder/PlayerKinematicBody/BaseUI/PlayerUI/LiveUI")
-
-[node name="SewerMonster" parent="LevelHolder/CargoLevel/CargoYardLevelObjectives" index="8"]
-_objective_description = "What is this ooze?"
 
 [editable path="PlayerHolder/PlayerKinematicBody"]
 [editable path="PlayerHolder/PlayerKinematicBody/GameModel"]
@@ -93,15 +108,15 @@ _objective_description = "What is this ooze?"
 [editable path="PlayerHolder/WorldLedgeAnchor"]
 [editable path="PlayerHolder/3PCameraSystem"]
 [editable path="LevelHolder/PrototypeLevel"]
-[editable path="LevelHolder/CargoLevel"]
-[editable path="LevelHolder/CargoLevel/CargoYardBase"]
-[editable path="LevelHolder/CargoLevel/ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]
-[editable path="LevelHolder/CargoLevel/ShippingCrates/Shipping Crates4/ShippingCrate1EndOpen"]
-[editable path="LevelHolder/CargoLevel/ShippingCrates/Shipping Crates6/ShippingCrate92"]
-[editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane2"]
-[editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane3"]
-[editable path="LevelHolder/CargoLevel/Cranes/Big Cranes/Crane4"]
-[editable path="LevelHolder/CargoLevel/StreetLights/StreetLights1/StreetLight"]
-[editable path="LevelHolder/CargoLevel/ObjectiveNodesCargoYard/ODDCementPolePhotographable"]
-[editable path="LevelHolder/CargoLevel/ObjectiveNodesCargoYard/SeagullPhotographable"]
-[editable path="LevelHolder/CargoLevel/CargoYardLevelObjectives"]
+[editable path="LevelHolder/CargoLevel2"]
+[editable path="LevelHolder/CargoLevel2/CargoYardBase"]
+[editable path="LevelHolder/CargoLevel2/ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]
+[editable path="LevelHolder/CargoLevel2/ShippingCrates/Shipping Crates4/ShippingCrate1EndOpen"]
+[editable path="LevelHolder/CargoLevel2/ShippingCrates/Shipping Crates6/ShippingCrate92"]
+[editable path="LevelHolder/CargoLevel2/Cranes/Big Cranes/Crane2"]
+[editable path="LevelHolder/CargoLevel2/Cranes/Big Cranes/Crane3"]
+[editable path="LevelHolder/CargoLevel2/Cranes/Big Cranes/Crane4"]
+[editable path="LevelHolder/CargoLevel2/StreetLights/StreetLights1/StreetLight"]
+[editable path="LevelHolder/CargoLevel2/ObjectiveNodesCargoYard/ODDCementPolePhotographable"]
+[editable path="LevelHolder/CargoLevel2/ObjectiveNodesCargoYard/SeagullPhotographable"]
+[editable path="LevelHolder/CargoLevel2/CargoYardLevelObjectives"]

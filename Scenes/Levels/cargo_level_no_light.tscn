@@ -1,11 +1,11 @@
-[gd_scene load_steps=70 format=3 uid="uid://dypfe3w45cfns"]
+[gd_scene load_steps=79 format=3 uid="uid://dypfe3w45cfns"]
 
 [ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_yns1f"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="2_akalh"]
 [ext_resource type="Environment" uid="uid://p8q12f1chlum" path="res://Materials/Environments/daytime_no_lights.tres" id="3_dyf8h"]
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="4_jxnhw"]
+[ext_resource type="Texture2D" uid="uid://cv0vkxhft3ba0" path="res://TexturePNG's/CargoYard/CementBase.png" id="5_256xt"]
 [ext_resource type="Shader" path="res://Shaders/water3.gdshader" id="5_a8l3s"]
-[ext_resource type="Texture2D" uid="uid://omu00p2whm80" path="res://TexturePNG's/Seamless/cementbaseTextureSeamless.jpg" id="5_q1ygs"]
 [ext_resource type="Texture2D" uid="uid://brch1m7mb2vyx" path="res://TexturePNG's/Seamless/imgonline-com-ua-TextureSeamless-plmhVuw3FKJLReF5.png" id="6_ag68m"]
 [ext_resource type="PackedScene" uid="uid://drf1euhkjkhx7" path="res://Blender Models/CargoLevelModels/WoodenCrate.glb" id="7_tr4d7"]
 [ext_resource type="PackedScene" uid="uid://bjiw8xqnivef1" path="res://Blender Models/CargoLevelModels/WoodenCrate2.glb" id="8_5fkik"]
@@ -19,13 +19,18 @@
 [ext_resource type="PackedScene" uid="uid://cjb01cpqwrv2x" path="res://Blender Models/CargoLevelModels/CraneOnWheels/Crane2.glb" id="16_jpjl3"]
 [ext_resource type="PackedScene" uid="uid://dlpw2fnlp3aqs" path="res://Blender Models/CargoLevelModels/Sky/sky.glb" id="17_iayx8"]
 [ext_resource type="Script" path="res://Blender Models/CargoLevelModels/Sky/sky.gd" id="18_83fs5"]
+[ext_resource type="Material" uid="uid://122f42jiv13a" path="res://Blender Models/CargoLevelModels/CraneOnWheels/CraneMaterials/Wheels.tres" id="18_rfvnh"]
 [ext_resource type="PackedScene" uid="uid://dt16cfkgwdysk" path="res://Blender Models/CargoLevelModels/CementBarrier.glb" id="19_2canu"]
+[ext_resource type="Texture2D" uid="uid://cw1vsxe8k25ql" path="res://Blender Models/CargoLevelModels/CraneOnWheels/CraneOnWheels2.png" id="19_sk052"]
 [ext_resource type="PackedScene" uid="uid://cbnnktnukodf5" path="res://Blender Models/CargoLevelModels/CementPole.glb" id="20_yjj4n"]
 [ext_resource type="PackedScene" uid="uid://bspqg6r6qoeq3" path="res://Blender Models/CargoLevelModels/StreetLight.glb" id="21_spw7w"]
 [ext_resource type="PackedScene" uid="uid://bfxogcxl3357d" path="res://Blender Models/CargoLevelModels/Birds/Seagull/seagull.glb" id="22_e048c"]
+[ext_resource type="Texture2D" uid="uid://dd60iqtf43rs3" path="res://TexturePNG's/CargoYard/BoatSilhouette.png" id="23_g8j8e"]
 [ext_resource type="Texture2D" uid="uid://qhvodc3on4qq" path="res://TexturePNG's/CargoYard/CementCrackCircle2.png" id="23_n1b6j"]
 [ext_resource type="Texture2D" uid="uid://bl8kkdbjxb4ru" path="res://TexturePNG's/CargoYard/CementCrack.png" id="24_4wgdy"]
+[ext_resource type="PackedScene" uid="uid://cvs48h7i0peqc" path="res://Blender Models/CargoLevelModels/Barrels/barrel.glb" id="24_dg6fr"]
 [ext_resource type="Texture2D" uid="uid://b1talvp0265mb" path="res://TexturePNG's/CargoYard/GroundCrackGrass1.png" id="25_dkf0g"]
+[ext_resource type="Material" uid="uid://dprjxodrrkjj5" path="res://Blender Models/CargoLevelModels/Barrels/Barrel02.tres" id="25_rwsu2"]
 [ext_resource type="PackedScene" uid="uid://jwye5m7b0t0h" path="res://Blender Models/CargoLevelModels/Grass/GrassNoBottom.glb" id="26_jpyqe"]
 [ext_resource type="PackedScene" uid="uid://bakp2mhve4fg8" path="res://Blender Models/CargoLevelModels/Grass/GrassYesBottom.glb" id="27_phlq0"]
 [ext_resource type="PackedScene" uid="uid://cwvrkhs6urkfo" path="res://Blender Models/CargoLevelModels/Moss/Moss.glb" id="28_qvtvb"]
@@ -57,15 +62,14 @@
 [ext_resource type="PackedScene" uid="uid://bb6giqwmdy5or" path="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb" id="54_ryarn"]
 [ext_resource type="PackedScene" uid="uid://dq4f4v75k56gl" path="res://Scenes/Objectives/cargo_yard_level_objectives.tscn" id="55_6c7j4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6ept"]
-albedo_texture = ExtResource("5_q1ygs")
-uv1_scale = Vector3(2.515, 2.515, 2.515)
-uv1_triplanar_sharpness = 1.03526
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yowu"]
+albedo_texture = ExtResource("5_256xt")
+texture_filter = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
 shader = ExtResource("5_a8l3s")
-shader_parameter/albedo = Color(0, 0.164706, 0.258824, 1)
+shader_parameter/albedo = Color(0, 0.321569, 0.482353, 1)
 shader_parameter/scroll_speed1 = Vector2(0.04, 0.04)
 shader_parameter/scroll_speed2 = Vector2(-0.04, -0.04)
 shader_parameter/blend_factor = 10.0
@@ -78,6 +82,21 @@ shader_parameter/FoamSize = 0.5
 shader_parameter/WaterOpacity = 0.95
 shader_parameter/FoamGlowIntensity = 0.12
 shader_parameter/water_texture1 = ExtResource("6_ag68m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbsyc"]
+albedo_texture = ExtResource("19_sk052")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lf74o"]
+albedo_texture = ExtResource("19_sk052")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kktbd"]
+albedo_texture = ExtResource("19_sk052")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_775w1"]
+albedo_texture = ExtResource("19_sk052")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lhkj"]
 transparency = 1
@@ -144,7 +163,7 @@ omni_range = 34.9274
 [node name="CargoYardBase" parent="." instance=ExtResource("4_jxnhw")]
 
 [node name="Ground" parent="CargoYardBase" index="0"]
-material_override = SubResource("StandardMaterial3D_a6ept")
+material_override = SubResource("StandardMaterial3D_0yowu")
 
 [node name="Water" parent="CargoYardBase" index="1"]
 transform = Transform3D(4000, 0, 0, 0, 1, 0, 0, 0, 4000, 0, -0.280367, 0)
@@ -2883,6 +2902,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4984, -1.09219, 0.362022)
 
 [node name="Wheels" parent="Cranes/Big Cranes/Crane2" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.263, -2.104, 0)
+material_override = ExtResource("18_rfvnh")
 
 [node name="Crane3" parent="Cranes/Big Cranes" instance=ExtResource("16_jpjl3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.724, -0.517311, 85.287)
@@ -2898,15 +2918,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.084, -0.507597, 85.287)
 
 [node name="Cube" parent="Cranes/Big Cranes/Crane4" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.243, 0, 0)
+material_override = SubResource("StandardMaterial3D_mbsyc")
 
 [node name="Cube_001" parent="Cranes/Big Cranes/Crane4" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.365, 0, 0)
+material_override = SubResource("StandardMaterial3D_lf74o")
 
 [node name="Cube_002" parent="Cranes/Big Cranes/Crane4" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.422, 0, 45.34)
+material_override = SubResource("StandardMaterial3D_kktbd")
 
 [node name="Wheels" parent="Cranes/Big Cranes/Crane4" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.243, 0, 0)
+material_override = SubResource("StandardMaterial3D_775w1")
 
 [node name="sky" parent="." instance=ExtResource("17_iayx8")]
 transform = Transform3D(3000, 0, 0, 0, 3000, 0, 0, 0, 3000, 0, 0, 0)
@@ -3960,6 +3984,122 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.516, 0, 0)
 [node name="CementPole79" parent="CementPoles/CementPoles4" instance=ExtResource("20_yjj4n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -608.33, 0, 0)
 
+[node name="Barrels" type="Node3D" parent="."]
+transform = Transform3D(12.405, 0, 0, 0, 12.405, 0, 0, 0, 12.405, 262.545, 1.64514, 13.0947)
+
+[node name="BarrelGroup1" type="Node3D" parent="Barrels"]
+transform = Transform3D(-0.787097, 0, 0.61683, 0, 1, 0, -0.61683, 0, -0.787097, -0.813307, -1.49012e-07, 1.13309)
+
+[node name="barrel" parent="Barrels/BarrelGroup1" instance=ExtResource("24_dg6fr")]
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup1/barrel" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel2" parent="Barrels/BarrelGroup1" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.667755, 0, 0.744381, 0, 1, 0, -0.744381, 0, -0.667755, 0.469309, 0, 0.171291)
+
+[node name="barrel3" parent="Barrels/BarrelGroup1" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.45775, 0, -0.889081, 0, 1, 0, 0.889081, 0, -0.45775, 0.203822, 0.520612, 0.166935)
+
+[node name="barrel4" parent="Barrels/BarrelGroup1" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.0929266, 0, -0.995673, 0, 1, 0, 0.995673, 0, -0.0929266, -0.454305, 7.45058e-08, 0.184252)
+
+[node name="barrel5" parent="Barrels/BarrelGroup1" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.634986, 0, -0.772523, 0, 1, 0, 0.772523, 0, -0.634986, -0.454305, 0.493487, 0.184252)
+
+[node name="BarrelGroup2" type="Node3D" parent="Barrels"]
+transform = Transform3D(-0.787097, 0, 0.61683, 0, 1, 0, -0.61683, 0, -0.787097, -13.8628, -1.49012e-07, -7.52926)
+
+[node name="barrel" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.494443, 0, -0.86921, 0, 1, 0, 0.86921, 0, 0.494443, 0.0836635, -2.98023e-08, 0.418887)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup2/barrel" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel2" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.316858, 0, 0.948473, 0, 1, 0, -0.948473, 0, 0.316858, 0.157593, -2.98023e-08, 0.907727)
+
+[node name="barrel3" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.99913, 0, -0.0417187, 0, 1, 0, 0.0417187, 0, -0.99913, 0.03934, 0.494859, 0.678593)
+
+[node name="barrel4" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.0929266, 0, -0.995673, 0, 1, 0, 0.995673, 0, -0.0929266, -0.454305, 7.45058e-08, 0.184252)
+
+[node name="barrel5" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.634986, 0, -0.772523, 0, 1, 0, 0.772523, 0, -0.634986, -0.454305, 0.493488, 0.184251)
+
+[node name="barrel6" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.0571631, 0, 0.998365, 0, 1, 0, -0.998365, 0, -0.0571631, -0.999876, 0, 0.222852)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup2/barrel6" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel7" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.704993, 0, -0.709214, 0, 1, 0, 0.709214, 0, -0.704993, -0.855693, 0, -0.255485)
+
+[node name="barrel8" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.999357, 0, -0.0358588, 0, 1, 0, 0.0358588, 0, 0.999357, -0.789957, 7.45058e-08, 0.665878)
+
+[node name="barrel9" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.436221, 0, 0.89984, 0, 1, 0, -0.89984, 0, 0.436221, -0.690733, -2.98023e-08, 1.11862)
+
+[node name="barrel10" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.961112, 0, -0.276157, 0, 1, 0, 0.276157, 0, -0.961112, -0.331878, -2.98023e-08, 0.771031)
+
+[node name="barrel11" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.600351, 0, -0.799737, 0, 1, 0, 0.799737, 0, 0.600351, -0.451608, 0.492348, 1.00803)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup2/barrel11" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel12" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.600351, 0, -0.799737, 0, 1, 0, 0.799737, 0, 0.600351, -0.740409, 0.493486, 0.613812)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup2/barrel12" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="BarrelGroup3" type="Node3D" parent="Barrels"]
+transform = Transform3D(0.392096, 0, 0.919924, 0, 1, 0, -0.919924, 0, 0.392096, -35.2685, -1.49012e-07, -6.98593)
+
+[node name="barrel" parent="Barrels/BarrelGroup3" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.494443, 0, -0.86921, 0, 1, 0, 0.86921, 0, 0.494443, 0.0836635, -2.98023e-08, 0.418887)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup3/barrel" index="1"]
+material_override = SubResource("StandardMaterial3D_0yowu")
+
+[node name="barrel2" parent="Barrels/BarrelGroup3" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.316858, 0, 0.948473, 0, 1, 0, -0.948473, 0, 0.316858, 0.157593, -2.98023e-08, 0.907727)
+
+[node name="barrel3" parent="Barrels/BarrelGroup3" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.99913, 0, -0.0417187, 0, 1, 0, 0.0417187, 0, -0.99913, 0.03934, 0.494859, 0.678593)
+
+[node name="barrel6" parent="Barrels/BarrelGroup3" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.0571631, 0, 0.998365, 0, 1, 0, -0.998365, 0, -0.0571631, -0.999876, 0, 0.222852)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup3/barrel6" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel7" parent="Barrels/BarrelGroup3" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.704993, 0, -0.709214, 0, 1, 0, 0.709214, 0, -0.704993, -0.855693, 0, -0.255485)
+
+[node name="barrel8" parent="Barrels/BarrelGroup3" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.999357, 0, -0.0358588, 0, 1, 0, 0.0358588, 0, 0.999357, -0.789957, 7.45058e-08, 0.665878)
+
+[node name="barrel9" parent="Barrels/BarrelGroup3" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.436221, 0, 0.89984, 0, 1, 0, -0.89984, 0, 0.436221, -0.690733, -2.98023e-08, 1.11862)
+
+[node name="barrel10" parent="Barrels/BarrelGroup3" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.961112, 0, -0.276157, 0, 1, 0, 0.276157, 0, -0.961112, -0.331878, -2.98023e-08, 0.771031)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup3/barrel10" index="1"]
+surface_material_override/0 = ExtResource("25_rwsu2")
+
+[node name="barrel11" parent="Barrels/BarrelGroup3" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.600351, 0, -0.799737, 0, 1, 0, 0.799737, 0, 0.600351, -0.451608, 0.492348, 1.00803)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup3/barrel11" index="1"]
+material_override = ExtResource("25_rwsu2")
+
 [node name="StreetLights" type="Node3D" parent="."]
 
 [node name="StreetLights1" type="Node3D" parent="StreetLights"]
@@ -4030,6 +4170,57 @@ transform = Transform3D(0.614496, 0.349849, -0.707107, -0.494761, 0.869029, 0, 0
 
 [node name="StreetLight4" parent="StreetLights/StreetLights4" instance=ExtResource("21_spw7w")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 431.901, 1.624, -300.907)
+
+[node name="Boats" type="Node3D" parent="."]
+
+[node name="BoatGroup1" type="Node3D" parent="Boats"]
+
+[node name="Boat1" type="Sprite3D" parent="Boats/BoatGroup1"]
+transform = Transform3D(7.15649, 0, 119.786, 0, 120, 0, -119.786, 0, 7.15649, -1557.23, 43.8163, 0)
+texture_filter = 0
+texture = ExtResource("23_g8j8e")
+
+[node name="Boat2" type="Sprite3D" parent="Boats/BoatGroup1"]
+transform = Transform3D(7.15649, 0, 119.786, 0, 120, 0, -119.786, 0, 7.15649, -1577.53, 43.8163, 446.416)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("23_g8j8e")
+
+[node name="Boat3" type="Sprite3D" parent="Boats/BoatGroup1"]
+transform = Transform3D(7.15649, 0, 119.786, 0, 120, 0, -119.786, 0, 7.15649, -1557.23, 43.8163, -2010.36)
+texture_filter = 0
+texture = ExtResource("23_g8j8e")
+
+[node name="Boat4" type="Sprite3D" parent="Boats/BoatGroup1"]
+transform = Transform3D(7.15649, 0, 119.786, 0, 120, 0, -119.786, 0, 7.15649, -1577.53, 43.8163, -1563.95)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("23_g8j8e")
+
+[node name="BoatGroup2" type="Node3D" parent="Boats"]
+transform = Transform3D(-0.0206457, 0, -0.999787, 0, 1, 0, 0.999787, 0, -0.0206457, 0, 0, 0)
+
+[node name="Boat1" type="Sprite3D" parent="Boats/BoatGroup2"]
+transform = Transform3D(7.15649, 0, 119.786, 0, 120, 0, -119.786, 0, 7.15649, -1557.23, 43.8163, 0)
+texture_filter = 0
+texture = ExtResource("23_g8j8e")
+
+[node name="Boat2" type="Sprite3D" parent="Boats/BoatGroup2"]
+transform = Transform3D(7.15649, 0, 119.786, 0, 120, 0, -119.786, 0, 7.15649, -1577.53, 43.8163, 446.416)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("23_g8j8e")
+
+[node name="Boat3" type="Sprite3D" parent="Boats/BoatGroup2"]
+transform = Transform3D(7.15649, 0, 119.786, 0, 120, 0, -119.786, 0, 7.15649, -1557.23, 43.8163, -2010.36)
+texture_filter = 0
+texture = ExtResource("23_g8j8e")
+
+[node name="Boat4" type="Sprite3D" parent="Boats/BoatGroup2"]
+transform = Transform3D(7.15649, 0, 119.786, 0, 120, 0, -119.786, 0, 7.15649, -1577.53, 43.8163, -1563.95)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("23_g8j8e")
 
 [node name="Seagulls" type="Node3D" parent="."]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 88.6711, 0)
@@ -4414,13 +4605,13 @@ texture = ExtResource("25_dkf0g")
 transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
 
 [node name="CrackGrass6" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom11"]
-transform = Transform3D(1.61448, 4.05516, -1.5755e-07, 1.58246e-07, 1.06575e-07, 4.36473, 4.05516, -1.61448, -1.07602e-07, -1.2992, -0.00487094, -0.876345)
+transform = Transform3D(1.61448, 4.05516, -1.5755e-07, 1.58246e-07, 1.06575e-07, 4.36473, 4.05516, -1.61448, -1.07602e-07, -1.68192, -0.00487094, -0.326611)
 shaded = true
 texture_filter = 0
 texture = ExtResource("25_dkf0g")
 
 [node name="GrassYesBottom3" parent="Cracks/GrassWithCrack/GrassYesBottom11" instance=ExtResource("27_phlq0")]
-transform = Transform3D(-0.194406, 0, -0.980921, 0, 1, 0, 0.980921, 0, -0.194406, -1.23504, -0.0441375, -0.94194)
+transform = Transform3D(-0.194406, 0, -0.980921, 0, 1, 0, 0.980921, 0, -0.194406, -1.57069, -0.0441375, -0.287416)
 
 [node name="GrassYesBottom4" parent="Cracks/GrassWithCrack/GrassYesBottom11" instance=ExtResource("27_phlq0")]
 transform = Transform3D(-0.561347, 0, 0.827581, 0, 1, 0, -0.827581, 0, -0.561347, -0.0230331, 0, -0.774761)
@@ -4484,6 +4675,30 @@ texture = ExtResource("25_dkf0g")
 
 [node name="GrassYesBottom2" parent="Cracks/GrassWithCrack/GrassYesBottom14" instance=ExtResource("27_phlq0")]
 transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, 1.17994, 0, 1.59083)
+
+[node name="CrackGrass6" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom14"]
+transform = Transform3D(-3.64351, -2.40328, -1.0505e-07, 5.88403e-15, -1.90788e-07, 4.36473, -2.40328, 3.64351, 1.59263e-07, -0.820245, 0.0315693, 2.54101)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_dkf0g")
+
+[node name="GrassYesBottom3" parent="Cracks/GrassWithCrack/GrassYesBottom14" instance=ExtResource("27_phlq0")]
+transform = Transform3D(0.656704, 0, 0.754149, 0, 1, 0, -0.754149, 0, 0.656704, -0.150419, 0, 1.73837)
+
+[node name="GrassYesBottom4" parent="Cracks/GrassWithCrack/GrassYesBottom14" instance=ExtResource("27_phlq0")]
+transform = Transform3D(0.656704, 0, 0.754149, 0, 1, 0, -0.754149, 0, 0.656704, 0.620111, 0, 2.40874)
+
+[node name="CrackGrass7" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom14"]
+transform = Transform3D(-4.34195, 0.445396, 1.94694e-08, 1.1832e-14, -1.90788e-07, 4.36473, 0.445396, 4.34195, 1.89792e-07, 1.43198, 0.0315693, 3.37624)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_dkf0g")
+
+[node name="GrassYesBottom5" parent="Cracks/GrassWithCrack/GrassYesBottom14" instance=ExtResource("27_phlq0")]
+transform = Transform3D(0.0311138, 0, 0.999516, 0, 1, 0, -0.999516, 0, 0.0311138, 1.44257, 0, 2.33087)
+
+[node name="GrassYesBottom6" parent="Cracks/GrassWithCrack/GrassYesBottom14" instance=ExtResource("27_phlq0")]
+transform = Transform3D(0.0311138, 0, 0.999516, 0, 1, 0, -0.999516, 0, 0.0311138, 2.46341, 0, 2.3622)
 
 [node name="GrassYesBottom15" parent="Cracks/GrassWithCrack" instance=ExtResource("27_phlq0")]
 transform = Transform3D(-6.36208, 0, 5.94146, 0, 8.705, 0, -5.94146, 0, -6.36208, -201.825, 1.73808, 9.69147)
@@ -4830,7 +5045,7 @@ transform = Transform3D(1.26404e-08, 0, 1.06, 0, 1.06, 0, -1.06, 0, 1.26404e-08,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0594163, 0)
 
 [node name="Puddle1" type="MeshInstance3D" parent="Puddles"]
-transform = Transform3D(-4.94961, 0, -3.3021, 0, 5.95, 0, 3.3021, 0, -4.94961, -82.6353, 1.70456, 4.87473)
+transform = Transform3D(-4.94961, 0, -3.3021, 0, 5.95, 0, 3.3021, 0, -4.94961, -82.6353, 1.97889, 4.87473)
 mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Puddle2" type="MeshInstance3D" parent="Puddles"]
@@ -4842,7 +5057,7 @@ transform = Transform3D(0.219913, 0, 6.67138, 0, 6.675, 0, -6.67138, 0, 0.219913
 mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Puddle4" type="MeshInstance3D" parent="Puddles"]
-transform = Transform3D(1.03071, 0, -4.38037, 0, 4.5, 0, 4.38037, 0, 1.03071, 249.061, 1.70456, 283.59)
+transform = Transform3D(1.03071, 0, -4.38037, 0, 4.5, 0, 4.38037, 0, 1.03071, 249.061, 1.81131, 283.59)
 mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Puddle5" type="MeshInstance3D" parent="Puddles"]
@@ -4854,11 +5069,11 @@ transform = Transform3D(3.56188, 0, 5.64523, 0, 6.675, 0, -5.64523, 0, 3.56188, 
 mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Puddle7" type="MeshInstance3D" parent="Puddles"]
-transform = Transform3D(-14.479, 0, -7.02906, 0, 16.095, 0, 7.02906, 0, -14.479, 285.149, 1.70456, 1.68709)
+transform = Transform3D(-14.479, 0, -7.02906, 0, 16.095, 0, 7.02906, 0, -14.479, 285.149, 1.95767, 1.68709)
 mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Puddle8" type="MeshInstance3D" parent="Puddles"]
-transform = Transform3D(2.01753, 0, 8.85302, 0, 9.08, 0, -8.85302, 0, 2.01753, 74.6662, 1.70456, 258.167)
+transform = Transform3D(2.01753, 0, 8.85302, 0, 9.08, 0, -8.85302, 0, 2.01753, 74.6662, 1.89287, 258.167)
 mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Cones" type="Node3D" parent="."]
@@ -5137,6 +5352,20 @@ _objective_description = ""
 [editable path="Cranes/Big Cranes/Crane2"]
 [editable path="Cranes/Big Cranes/Crane3"]
 [editable path="Cranes/Big Cranes/Crane4"]
+[editable path="Barrels/BarrelGroup1/barrel"]
+[editable path="Barrels/BarrelGroup2/barrel"]
+[editable path="Barrels/BarrelGroup2/barrel6"]
+[editable path="Barrels/BarrelGroup2/barrel11"]
+[editable path="Barrels/BarrelGroup2/barrel12"]
+[editable path="Barrels/BarrelGroup3/barrel"]
+[editable path="Barrels/BarrelGroup3/barrel2"]
+[editable path="Barrels/BarrelGroup3/barrel3"]
+[editable path="Barrels/BarrelGroup3/barrel6"]
+[editable path="Barrels/BarrelGroup3/barrel7"]
+[editable path="Barrels/BarrelGroup3/barrel8"]
+[editable path="Barrels/BarrelGroup3/barrel9"]
+[editable path="Barrels/BarrelGroup3/barrel10"]
+[editable path="Barrels/BarrelGroup3/barrel11"]
 [editable path="StreetLights/StreetLights1/StreetLight"]
 [editable path="ObjectiveNodesCargoYard/ODDCementPolePhotographable"]
 [editable path="ObjectiveNodesCargoYard/SeagullPhotographable"]

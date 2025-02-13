@@ -7,4 +7,4 @@ resource_name = "Crane"
 cull_mode = 2
 albedo_texture = ExtResource("1_l0705")
 roughness = 0.5
-texture_filter = 2
+texture_filter = 0

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b243ftnfykkc4"
-path="res://.godot/imported/CargoContainer.png-5d06632109fceb0b0ea10ac36992d231.ctex"
+uid="uid://cv0vkxhft3ba0"
+path="res://.godot/imported/CementBase.png-3181905502029a310a4b0e25e2d887f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TexturePNG's/CargoContainer.png"
-dest_files=["res://.godot/imported/CargoContainer.png-5d06632109fceb0b0ea10ac36992d231.ctex"]
+source_file="res://TexturePNG's/CargoYard/CementBase.png"
+dest_files=["res://.godot/imported/CementBase.png-3181905502029a310a4b0e25e2d887f1.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://cdayevpl4o6oy" path="res://Materials/EnvironementsTextureMaterials/WallStoneish.tres" id="5_8hpav"]
 [ext_resource type="Texture2D" uid="uid://e7kbugdfc7sh" path="res://TexturePNG's/photo_2024-04-21_23-57-10.jpg" id="6_6yves"]
 [ext_resource type="Material" uid="uid://dvclyashba3x" path="res://Materials/EnvironementsTextureMaterials/Wood.tres" id="7_yvior"]
-[ext_resource type="Texture2D" uid="uid://b243ftnfykkc4" path="res://TexturePNG's/CargoContainer.png" id="8_q2fwe"]
+[ext_resource type="Texture2D" uid="uid://b243ftnfykkc4" path="res://TexturePNG's/CargoYard/CargoContainer.png" id="8_q2fwe"]
 [ext_resource type="Texture2D" uid="uid://b2gs45iua5nb4" path="res://TexturePNG's/Buttons/Space.png" id="9_ndhc6"]
 [ext_resource type="Texture2D" uid="uid://cvxjna1vihfwp" path="res://TexturePNG's/Buttons/Shift.png" id="10_1u1xj"]
 [ext_resource type="Texture2D" uid="uid://703rknw1t0tv" path="res://TexturePNG's/Buttons/plus.png" id="11_2xgmu"]

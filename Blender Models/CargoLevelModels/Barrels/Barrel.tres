@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c2novcm826ygf"]
+
+[ext_resource type="Texture2D" uid="uid://hllue1y3lsdf" path="res://Blender Models/CargoLevelModels/Barrels/barrel_Barrel.png" id="1_wt62m"]
+
+[resource]
+resource_name = "Barrel"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.219608, 0.396078, 0.541176, 1)
+albedo_texture = ExtResource("1_wt62m")
+roughness = 0.5
+texture_filter = 2
+texture_repeat = false

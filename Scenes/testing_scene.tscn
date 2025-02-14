@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://4vdrytlis482"]
+[gd_scene load_steps=16 format=3 uid="uid://4vdrytlis482"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerManager.gd" id="1_cmp4m"]
 [ext_resource type="Script" path="res://Scripts/SpawnPointsManager.gd" id="1_pgtpa"]
@@ -13,70 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://dypfe3w45cfns" path="res://Scenes/Levels/cargo_level_no_light.tscn" id="11_tb8l8"]
 [ext_resource type="Material" uid="uid://c2novcm826ygf" path="res://Blender Models/CargoLevelModels/Barrels/Barrel.tres" id="13_2jiyi"]
 [ext_resource type="PackedScene" uid="uid://6uyang4x8nsv" path="res://Scenes/spawn_point.tscn" id="27_dhoer"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_3qfrj"]
-_surfaces = [{
-"aabb": AABB(-0.25, 0, -0.25, 0.5, 1e-05, 0.50001),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 2, 0, 0, 0, 1, 0, 3, 0),
-"name": "Barrel",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 253, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_tei86"]
-resource_name = "barrel_Barrel_001"
-_surfaces = [{
-"aabb": AABB(-0.25, 0, -0.25, 0.5, 1e-05, 0.50001),
-"attribute_data": PackedByteArray(0, 0, 255, 255, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 127),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 2, 0, 0, 0, 1, 0, 3, 0),
-"material": ExtResource("13_2jiyi"),
-"name": "Barrel",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 253, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_3qfrj")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_xwto1"]
-_surfaces = [{
-"aabb": AABB(-0.25, 0, -0.25, 0.5, 1e-05, 0.5),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
-"name": "Barrel",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_pbls3"]
-resource_name = "barrel_Barrel_002"
-_surfaces = [{
-"aabb": AABB(-0.25, 0, -0.25, 0.5, 1e-05, 0.5),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 255, 127, 255, 127),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
-"material": ExtResource("13_2jiyi"),
-"name": "Barrel",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_xwto1")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_60awq"]
 _surfaces = [{
@@ -143,37 +79,20 @@ environment = ExtResource("9_yo6uw")
 
 [node name="Skeleton3D" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature" index="1"]
 bones/0/position = Vector3(0, 5.38228, -0.519276)
-bones/0/rotation = Quaternion(-0.00112771, 0, 0, 0.999999)
-bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.13693, 0, 0, 0.990581)
-bones/1/scale = Vector3(1, 1, 1)
 bones/3/rotation = Quaternion(0, 1.42109e-14, -4.23517e-22, 1)
 bones/4/rotation = Quaternion(-0.10404, -0.0880152, -0.701608, 0.699411)
 bones/5/rotation = Quaternion(0.0121538, 0.00402047, -0.707095, 0.707002)
-bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.00707147, 9.91939e-10, -2.73216e-09, 0.999975)
-bones/7/rotation = Quaternion(0.00132025, -1.32174e-14, 5.14124e-10, 0.999999)
-bones/8/rotation = Quaternion(-0.272829, -0.459267, 0.558295, 0.634779)
 bones/9/rotation = Quaternion(-0.10404, 0.0880152, 0.701608, 0.699411)
 bones/10/rotation = Quaternion(0.0121538, -0.00402047, 0.707095, 0.707002)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(-0.00707147, -9.91939e-10, 2.73216e-09, 0.999975)
-bones/12/rotation = Quaternion(0.00132025, 1.32174e-14, -5.14124e-10, 0.999999)
-bones/14/rotation = Quaternion(-0.628226, -0.127583, -0.0311191, 0.766868)
-bones/14/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(-0.628226, -0.127583, -0.0311191, 0.766868)
-bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0, 5.38228, -0.291752)
 bones/16/rotation = Quaternion(0.481384, 0.517947, 0.517947, -0.481384)
-bones/17/rotation = Quaternion(-0.706604, -0.0266505, 0.0250572, 0.706663)
-bones/17/scale = Vector3(1, 1, 1)
 bones/18/rotation = Quaternion(4.07108e-10, -2.42565e-07, 0.00256307, 0.999997)
 bones/19/position = Vector3(0, 5.38228, -0.291752)
 bones/19/rotation = Quaternion(-0.481384, 0.517947, 0.517947, 0.481384)
-bones/20/rotation = Quaternion(-0.706604, 0.0266505, -0.0250572, 0.706663)
-bones/20/scale = Vector3(1, 1, 1)
 bones/21/rotation = Quaternion(4.07108e-10, 2.42565e-07, -0.00256307, 0.999997)
-bones/22/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="LeftShoulder" parent="PlayerHolder/PlayerKinematicBody/GameModel/Armature/Skeleton3D" index="0"]
 transform = Transform3D(0.965508, 0.20803, -0.156578, 0.0452388, 0.458186, 0.887704, 0.256411, -0.86417, 0.432972, -1.03148, 4.92997, 3.871)
@@ -214,34 +133,17 @@ visible = false
 [node name="CargoLevel2" parent="LevelHolder" instance=ExtResource("11_tb8l8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 225, 0)
 
-[node name="Barrel_003" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel1" index="3"]
-surface_material_override/0 = null
-
 [node name="barrel2" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Barrel_001" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel2" index="1"]
-mesh = SubResource("ArrayMesh_tei86")
-
-[node name="Barrel_002" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel2" index="2"]
-mesh = SubResource("ArrayMesh_pbls3")
-
-[node name="Barrel_003" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel2" index="3"]
+[node name="Barrel_003" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel2" index="1"]
 mesh = SubResource("ArrayMesh_r61hj")
-surface_material_override/0 = null
 
 [node name="barrel3" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Barrel_001" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel3" index="1"]
-mesh = SubResource("ArrayMesh_tei86")
-
-[node name="Barrel_002" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel3" index="2"]
-mesh = SubResource("ArrayMesh_pbls3")
-
-[node name="Barrel_003" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel3" index="3"]
+[node name="Barrel_003" parent="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel3" index="1"]
 mesh = SubResource("ArrayMesh_r61hj")
-surface_material_override/0 = null
 
 [editable path="PlayerHolder/PlayerKinematicBody"]
 [editable path="PlayerHolder/PlayerKinematicBody/HandheldCamera"]
@@ -263,9 +165,22 @@ surface_material_override/0 = null
 [editable path="LevelHolder/CargoLevel2/Cranes/Big Cranes/Crane2"]
 [editable path="LevelHolder/CargoLevel2/Cranes/Big Cranes/Crane3"]
 [editable path="LevelHolder/CargoLevel2/Cranes/Big Cranes/Crane4"]
-[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel1"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel"]
 [editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel2"]
 [editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup1/barrel3"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup2/barrel"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup2/barrel6"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup2/barrel11"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup2/barrel12"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup3/barrel"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup3/barrel2"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup3/barrel3"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup3/barrel6"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup3/barrel7"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup3/barrel8"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup3/barrel9"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup3/barrel10"]
+[editable path="LevelHolder/CargoLevel2/Barrels/BarrelGroup3/barrel11"]
 [editable path="LevelHolder/CargoLevel2/StreetLights/StreetLights1/StreetLight"]
 [editable path="LevelHolder/CargoLevel2/ObjectiveNodesCargoYard/ODDCementPolePhotographable"]
 [editable path="LevelHolder/CargoLevel2/ObjectiveNodesCargoYard/SeagullPhotographable"]

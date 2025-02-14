@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dypfe3w45cfns"]
+[gd_scene load_steps=82 format=3 uid="uid://dypfe3w45cfns"]
 
 [ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_yns1f"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="2_akalh"]
@@ -43,7 +43,9 @@
 [ext_resource type="Script" path="res://Scripts/seagull_photographable.gd" id="35_j46ad"]
 [ext_resource type="Script" path="res://Scripts/SewerMonsterPickups.gd" id="36_rb8fm"]
 [ext_resource type="PackedScene" uid="uid://bwheo7et62jow" path="res://Scenes/Objectives/pickup_sewer_monster.tscn" id="37_fhsiv"]
+[ext_resource type="PackedScene" uid="uid://dduq6m546k7og" path="res://Blender Models/CargoLevelModels/Signs/ExclamationMarkSign.glb" id="38_evmq4"]
 [ext_resource type="Script" path="res://Scripts/ConesSiloam.gd" id="38_nqrhe"]
+[ext_resource type="PackedScene" uid="uid://s3giqnqmushm" path="res://Blender Models/CargoLevelModels/Fences/ChainlinkFence.glb" id="39_6g8bb"]
 [ext_resource type="PackedScene" uid="uid://cq0ykhfdf3kgm" path="res://Blender Models/CargoLevelModels/Cone/cone.glb" id="39_jrv2j"]
 [ext_resource type="PackedScene" uid="uid://dx2hcfhnganr3" path="res://Scenes/Objectives/pickup_boots.tscn" id="40_5ywvc"]
 [ext_resource type="PackedScene" uid="uid://b181td78ltlp4" path="res://Scenes/Objectives/photographable_hard_hat.tscn" id="41_31c3m"]
@@ -61,6 +63,7 @@
 [ext_resource type="PackedScene" uid="uid://ceve7tbq13v88" path="res://Blender Models/CargoLevelModels/ManholeCovers/ManholeCoverClosed.glb" id="53_e6nvo"]
 [ext_resource type="PackedScene" uid="uid://bb6giqwmdy5or" path="res://Blender Models/CargoLevelModels/SewerMonster/V3/SewerMonsterV3.glb" id="54_ryarn"]
 [ext_resource type="PackedScene" uid="uid://dq4f4v75k56gl" path="res://Scenes/Objectives/cargo_yard_level_objectives.tscn" id="55_6c7j4"]
+[ext_resource type="PackedScene" uid="uid://bwutwst3nkwdt" path="res://Blender Models/CargoLevelModels/Geo/Island1.glb" id="62_owrtl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yowu"]
 albedo_texture = ExtResource("5_256xt")
@@ -5065,7 +5068,7 @@ transform = Transform3D(-1.54362, 0, 2.31807, 0, 2.785, 0, -2.31807, 0, -1.54362
 mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Puddle6" type="MeshInstance3D" parent="Puddles"]
-transform = Transform3D(3.56188, 0, 5.64523, 0, 6.675, 0, -5.64523, 0, 3.56188, 40.7595, 1.70456, -297.915)
+transform = Transform3D(3.56188, 0, 5.64523, 0, 6.675, 0, -5.64523, 0, 3.56188, 40.7595, 1.76451, -297.915)
 mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Puddle7" type="MeshInstance3D" parent="Puddles"]
@@ -5079,6 +5082,29 @@ mesh = SubResource("PlaneMesh_8jppw")
 [node name="Cones" type="Node3D" parent="."]
 
 [node name="Cones1" type="Node3D" parent="Cones"]
+
+[node name="Geo" type="Node3D" parent="."]
+
+[node name="Island1" parent="Geo" instance=ExtResource("62_owrtl")]
+transform = Transform3D(34.44, 0, 0, 0, 34.44, 0, 0, 0, 34.44, 92.6224, -6.42415, 1079.43)
+
+[node name="Island2" parent="Geo" instance=ExtResource("62_owrtl")]
+transform = Transform3D(-24.9508, 0, -23.7396, 0, 34.44, 0, 23.7396, 0, -24.9508, 348.866, -8.42418, 969.534)
+
+[node name="Signs" type="Node3D" parent="."]
+
+[node name="ExclamationMarkSign" parent="Signs" instance=ExtResource("38_evmq4")]
+transform = Transform3D(9.06, 0, 0, 0, 9.06, 0, 0, 0, 9.06, -37.1726, 1.64515, -283.264)
+
+[node name="Fences" type="Node3D" parent="."]
+
+[node name="ChainlinkGroup1" type="Node3D" parent="Fences"]
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1" instance=ExtResource("39_6g8bb")]
+transform = Transform3D(20.04, 0, 0, 0, 20.04, 0, 0, 0, 20.04, -57.2993, 1.64514, -277.998)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1" instance=ExtResource("39_6g8bb")]
+transform = Transform3D(20.04, 0, 0, 0, 20.04, 0, 0, 0, 20.04, -74.3687, 1.64514, -277.998)
 
 [node name="ObjectiveNodesCargoYard" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.583, 2.2471, -234.132)

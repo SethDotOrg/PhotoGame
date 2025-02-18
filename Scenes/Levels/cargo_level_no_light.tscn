@@ -983,17 +983,35 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.7
 [node name="ShippingCrate111" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 68.3931, 39.8989)
 
+[node name="ShippingCrate112" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("11_dt74d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.592, 49.1565, -4.45657)
+
+[node name="ShippingCrate113" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("11_dt74d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.322, 49.1565, -4.45657)
+
+[node name="ShippingCrate114" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("11_dt74d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -191.818, 49.1565, -4.45657)
+
+[node name="ShippingCrate115" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("11_dt74d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.697, 29.1438, -4.45657)
+
+[node name="ShippingCrate116" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("11_dt74d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.697, 42.2748, -4.45657)
+
+[node name="ShippingCrate117" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("11_dt74d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.697, 55.4058, -4.45657)
+
 [node name="Shipping Crates4" type="Node3D" parent="ShippingCrates"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 369.186, 0, -283.988)
 
 [node name="ShippingCrate6" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 15.1174, 39.8989)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 14.7762, 39.8989)
 
 [node name="ShippingCrate7" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 15.1174, 40.6711)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 14.7762, 40.6711)
 
 [node name="ShippingCrate8" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1174, 40.6711)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 14.7762, 40.6711)
 
 [node name="ShippingCrate12" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.625, 15.1174, 39.8989)
@@ -1011,13 +1029,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.5
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 39.8989)
 
 [node name="ShippingCrate19" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 1.80192, 39.8405)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 1.64514, 39.8405)
 
 [node name="ShippingCrate20" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.80192, 39.8405)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.64514, 39.8405)
 
 [node name="ShippingCrate21" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 40.6127)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.64514, 40.6127)
 
 [node name="ShippingCrate53" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.758, 15.1174, 39.8989)
@@ -1383,16 +1401,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.37
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 1.80192, 534.464)
 
 [node name="ShippingCrate255" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.566, 16.137, 40.9178)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.566, 14.7762, 40.9178)
 
 [node name="ShippingCrate256" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.566, 2.82149, 40.8594)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.566, 1.64514, 40.8594)
 
 [node name="ShippingCrate262" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.6432, 16.137, 39.8106)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.6432, 14.7762, 39.8106)
 
 [node name="ShippingCrate263" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.6432, 2.82149, 39.7522)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.6432, 1.64514, 39.7522)
 
 [node name="ShippingCrate265" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.3617, 16.137, 84.8933)
@@ -1401,16 +1419,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.36
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.3617, 2.82149, 84.8349)
 
 [node name="ShippingCrate275" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.84, 16.137, 40.0329)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.84, 14.7762, 40.0329)
 
 [node name="ShippingCrate276" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.84, 2.82149, 39.9745)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.84, 1.64514, 39.9745)
 
 [node name="ShippingCrate283" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.1459, 16.137, 40.1456)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.1459, 14.7762, 40.1456)
 
 [node name="ShippingCrate284" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.1459, 2.82149, 40.0872)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.1459, 1.64514, 40.0872)
 
 [node name="ShippingCrate95" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 28.0107, 219.986)
@@ -1470,7 +1488,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 28.0107, 40.7352)
 
 [node name="ShippingCrate150" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 28.0107, 40.7352)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 27.9072, 40.7352)
 
 [node name="ShippingCrate152" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 39.963)
@@ -1503,7 +1521,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9593, 84.9402)
 
 [node name="ShippingCrate185" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.3003, 40.7352)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.9072, 40.7352)
 
 [node name="ShippingCrate187" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 39.963)
@@ -1512,7 +1530,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9593, 39.963)
 
 [node name="ShippingCrate257" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.025, 28.3236, 41.0403)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.025, 27.9072, 41.0403)
 
 [node name="ShippingCrate264" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.1679, 28.0107, 85.0936)
@@ -1521,13 +1539,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.16
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.3809, 28.4346, 85.0936)
 
 [node name="ShippingCrate273" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.465, 28.1958, 40.8189)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.465, 27.9072, 40.8189)
 
 [node name="ShippingCrate274" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.7412, 28.1942, 41.0403)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.7412, 27.9072, 41.0403)
 
 [node name="ShippingCrate277" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9542, 28.2162, 40.5556)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9542, 27.9072, 40.5556)
 
 [node name="ShippingCrate9" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.741, 14.9447, 85.3703)
@@ -5183,6 +5201,181 @@ texture_albedo = ExtResource("69_hvcqi")
 [node name="Shadow3" type="Decal" parent="Decals/ShippingCrateShadows"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.051, 0.0205793, 229.173)
 size = Vector3(58.8432, 7.52437, 134.073)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow4" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48132, 0.0205793, 273.078)
+size = Vector3(117.393, 7.52437, 44.8293)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow5" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.211, 0.0205793, 273.078)
+size = Vector3(117.393, 7.52437, 44.8293)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow6" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.02, 0.0205793, 106.846)
+size = Vector3(71.13, 7.52437, 178.521)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow7" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.966, 0.0205793, 218.374)
+size = Vector3(59.022, 7.52437, 44.5802)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow8" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252.239, 0.0205793, 234.537)
+size = Vector3(45.0766, 7.52437, 117.747)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow9" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -273.027, 0.0205793, 14.1627)
+size = Vector3(45.3098, 7.52437, 305.361)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow10" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.118, 0.0205793, -73.6422)
+size = Vector3(44.6202, 7.52437, 58.9917)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow11" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.1, -3.20497, -236.696)
+size = Vector3(114.751, 12.8957, 71.8645)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow12" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -196.68, 0.0205793, -160.325)
+size = Vector3(35.6738, 7.52437, 71.3914)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow13" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244.258, 0.0205793, -187.501)
+size = Vector3(35.9543, 7.52437, 70.8048)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow14" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -267.995, 0.0205793, -218.817)
+size = Vector3(11.3836, 7.52437, 45.8413)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow15" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -279.393, 0.0205793, -212.656)
+size = Vector3(12.6435, 7.52437, 45.8413)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow16" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(0.603264, 0, 0.797542, 0, 1, 0, -0.797542, 0, 0.603264, -273.208, 0.0205793, -269.949)
+size = Vector3(35.6985, 7.52437, 45.8413)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow17" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(0.952699, 0, 0.303917, 0, 1, 0, -0.303917, 0, 0.952699, -241.536, 0.0205793, -277.225)
+size = Vector3(11.9302, 7.52437, 47.6551)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow18" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(0.177634, 0, 0.984097, 0, 1, 0, -0.984097, 0, 0.177634, -207.775, 0.0205793, -279.494)
+size = Vector3(41.3627, 7.52437, 44.8863)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow19" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(0.151382, 0, 0.988475, 0, 1, 0, -0.988475, 0, 0.151382, -159.419, 0.0205793, -280.782)
+size = Vector3(14.1644, 7.52437, 44.6909)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow20" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(-0.0608918, 0, 0.998144, 0, 1, 0, -0.998144, 0, -0.0608918, -158.824, 0.0205793, -299.831)
+size = Vector3(13.5531, 7.52437, 44.72)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow21" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.904, 0.0205793, -221.336)
+size = Vector3(37.821, 7.52437, 100.708)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow22" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.9575, 0.0205793, -236.857)
+size = Vector3(165.714, 7.52437, 45.0487)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow23" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.252, 0.0205793, -191.874)
+size = Vector3(82.713, 7.52437, 45.0487)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow24" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.577, 0.0205793, -147.117)
+size = Vector3(23.8118, 7.52437, 44.0551)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow25" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.162, 0.0205793, -146.904)
+size = Vector3(35.4313, 7.52437, 44.4817)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow26" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4267, 0.0205793, -236.587)
+size = Vector3(47.5683, 7.52437, 134.043)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow27" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.8419, 0.0205793, -192.141)
+size = Vector3(83.0451, 7.52437, 133.867)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow28" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.533, 0.0205793, -281.264)
+size = Vector3(35.6629, 7.52437, 44.5692)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow29" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 276.522, 0.0205793, -176.658)
+size = Vector3(23.6142, 7.52437, 179.78)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow30" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.088, 0.0205793, -176.184)
+size = Vector3(23.5326, 7.52437, 178.832)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow31" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.889, 0.0205793, -243.915)
+size = Vector3(23.5326, 7.52437, 44.9482)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow32" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.889, 0.0205793, -132.591)
+size = Vector3(23.5326, 7.52437, 91.3718)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow33" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264.726, 0.0205793, 183.025)
+size = Vector3(47.044, 7.52437, 179.835)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow34" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.039, 24.3298, -176.428)
+size = Vector3(25.4127, 40.3058, 89.0611)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow35" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.635, -36.5144, -164.443)
+size = Vector3(43.9004, 133.729, 125.099)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow36" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 274.684, -40.8806, -199.597)
+size = Vector3(20.8598, 161.794, 69.8852)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow37" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.302, -45.5719, -236.556)
+size = Vector3(75.6237, 152.412, 32)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow38" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.497, -45.5719, -147.482)
+size = Vector3(71.2336, 152.412, 60.3226)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="ObjectiveNodesCargoYard" type="Node3D" parent="."]

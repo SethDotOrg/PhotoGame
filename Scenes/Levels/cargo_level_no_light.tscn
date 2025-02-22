@@ -1,10 +1,10 @@
-[gd_scene load_steps=91 format=3 uid="uid://dypfe3w45cfns"]
+[gd_scene load_steps=89 format=3 uid="uid://dypfe3w45cfns"]
 
 [ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_yns1f"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="2_akalh"]
 [ext_resource type="Environment" uid="uid://p8q12f1chlum" path="res://Materials/Environments/daytime_no_lights.tres" id="3_dyf8h"]
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="4_jxnhw"]
-[ext_resource type="Texture2D" uid="uid://cv0vkxhft3ba0" path="res://TexturePNG's/CargoYard/CementBase.png" id="5_256xt"]
+[ext_resource type="Texture2D" uid="uid://omu00p2whm80" path="res://TexturePNG's/Seamless/cementbaseTextureSeamless.jpg" id="5_0h8qr"]
 [ext_resource type="Shader" path="res://Shaders/water3.gdshader" id="5_a8l3s"]
 [ext_resource type="Texture2D" uid="uid://brch1m7mb2vyx" path="res://TexturePNG's/Seamless/imgonline-com-ua-TextureSeamless-plmhVuw3FKJLReF5.png" id="6_ag68m"]
 [ext_resource type="Texture2D" uid="uid://cwyjo6jc5mfsq" path="res://Blender Models/CargoLevelModels/CargoYardBase_Cement1_2.png" id="6_bsywo"]
@@ -36,8 +36,6 @@
 [ext_resource type="Material" uid="uid://dprjxodrrkjj5" path="res://Blender Models/CargoLevelModels/Barrels/Barrel02.tres" id="25_rwsu2"]
 [ext_resource type="PackedScene" uid="uid://jwye5m7b0t0h" path="res://Blender Models/CargoLevelModels/Grass/GrassNoBottom.glb" id="26_jpyqe"]
 [ext_resource type="PackedScene" uid="uid://bakp2mhve4fg8" path="res://Blender Models/CargoLevelModels/Grass/GrassYesBottom.glb" id="27_phlq0"]
-[ext_resource type="PackedScene" uid="uid://cwvrkhs6urkfo" path="res://Blender Models/CargoLevelModels/Moss/Moss.glb" id="28_qvtvb"]
-[ext_resource type="PackedScene" uid="uid://d3wk4ycocgytu" path="res://Blender Models/CargoLevelModels/Moss/MossWithBend.glb" id="29_coxmd"]
 [ext_resource type="Material" uid="uid://c2novcm826ygf" path="res://Blender Models/CargoLevelModels/Barrels/Barrel.tres" id="29_v8o8g"]
 [ext_resource type="Texture2D" uid="uid://ciud5nnwmcpim" path="res://TexturePNG's/CargoYard/Puddle2.png" id="30_cu3ey"]
 [ext_resource type="Script" path="res://Scripts/ObjectiveNodesCargoYard.gd" id="31_0j20k"]
@@ -70,8 +68,8 @@
 [ext_resource type="PackedScene" uid="uid://bwutwst3nkwdt" path="res://Blender Models/CargoLevelModels/Geo/Island1.glb" id="62_owrtl"]
 [ext_resource type="Texture2D" uid="uid://cm74jq42nmbqr" path="res://textures/black.png" id="69_hvcqi"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yowu"]
-albedo_texture = ExtResource("5_256xt")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hp7li"]
+albedo_texture = ExtResource("5_0h8qr")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nk215"]
@@ -97,12 +95,12 @@ _surfaces = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y50y"]
 render_priority = 0
 shader = ExtResource("5_a8l3s")
-shader_parameter/albedo = Color(0, 0.321569, 0.482353, 1)
+shader_parameter/albedo = Color(0, 0.270588, 0.407843, 1)
 shader_parameter/scroll_speed1 = Vector2(0.04, 0.04)
 shader_parameter/scroll_speed2 = Vector2(-0.04, -0.04)
 shader_parameter/blend_factor = 10.0
-shader_parameter/scale1 = Vector2(1028, 1028)
-shader_parameter/scale2 = Vector2(1028, 1028)
+shader_parameter/scale1 = Vector2(256, 256)
+shader_parameter/scale2 = Vector2(256, 256)
 shader_parameter/wave_strength = 0.25
 shader_parameter/wave_scale = 0.02
 shader_parameter/pixelation_level = 512
@@ -219,7 +217,7 @@ omni_range = 34.9274
 [node name="CargoYardBase" parent="." instance=ExtResource("4_jxnhw")]
 
 [node name="Ground" parent="CargoYardBase" index="0"]
-material_override = SubResource("StandardMaterial3D_0yowu")
+material_override = SubResource("StandardMaterial3D_hp7li")
 mesh = SubResource("ArrayMesh_kkekw")
 surface_material_override/0 = ExtResource("7_hwclr")
 metadata/_edit_lock_ = false
@@ -1883,6 +1881,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.93
 [node name="ShippingCrate41" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 41.9151, -5.80865)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate41" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.117996, 1.70897, 0.990723)
+
 [node name="ShippingCrate4" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 15.1632, -5.80865)
 
@@ -3016,7 +3017,6 @@ material_override = SubResource("StandardMaterial3D_775w1")
 [node name="sky" parent="." instance=ExtResource("17_iayx8")]
 transform = Transform3D(3000, 0, 0, 0, 3000, 0, 0, 0, 3000, 0, 0, 0)
 script = ExtResource("18_83fs5")
-rotation_speed = Vector3(0, 0.7, 0)
 
 [node name="CementBarriers" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 167.605, 1.58201, 0)
@@ -4113,6 +4113,7 @@ transform = Transform3D(-0.634986, 0, -0.772523, 0, 1, 0, 0.772523, 0, -0.634986
 transform = Transform3D(-0.0571631, 0, 0.998365, 0, 1, 0, -0.998365, 0, -0.0571631, -0.999876, 0, 0.222852)
 
 [node name="Barrel_003" parent="Barrels/BarrelGroup2/barrel6" index="1"]
+transform = Transform3D(1, -2.98023e-08, 0, 0, 0, -1, 2.98023e-08, 1, 0, 0, 0, 0)
 material_override = ExtResource("25_rwsu2")
 
 [node name="barrel7" parent="Barrels/BarrelGroup2" instance=ExtResource("24_dg6fr")]
@@ -5023,105 +5024,6 @@ transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, 
 
 [node name="Mosses" type="Node3D" parent="."]
 
-[node name="Moss" parent="Mosses" instance=ExtResource("28_qvtvb")]
-transform = Transform3D(11.23, 0, 0, 0, 11.23, 0, 0, 0, 11.23, -52.1145, 36.3668, -116.657)
-
-[node name="Moss2" parent="Mosses/Moss" instance=ExtResource("28_qvtvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0024, 0.208887, 0)
-
-[node name="Moss2" parent="Mosses/Moss/Moss2" instance=ExtResource("28_qvtvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0024, 0.208887, 0)
-
-[node name="Moss3" parent="Mosses/Moss/Moss2" instance=ExtResource("28_qvtvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0024, -0.77699, 0)
-
-[node name="MossWithBend" parent="Mosses/Moss/Moss2" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1.085, 0, -1.6383e-07, 0, 1.085, 0, 1.6383e-07, 0, -1.085, 0, 0.316881, -0.0348167)
-
-[node name="MossWithBend2" parent="Mosses/Moss/Moss2" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.01517, 0.328111, -0.0348167)
-
-[node name="MossWithBend3" parent="Mosses/Moss/Moss2" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1.075, 0, -1.6232e-07, 0, 1.075, 0, 1.6232e-07, 0, -1.075, 0, -0.87937, -0.0348167)
-
-[node name="MossWithBend4" parent="Mosses/Moss/Moss2" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.01517, -0.551259, -0.0348167)
-
-[node name="MossWithBend5" parent="Mosses/Moss/Moss2" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.01517, -1.37707, -0.0348167)
-
-[node name="MossWithBend6" parent="Mosses/Moss/Moss2" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.01517, -1.37707, -0.0348167)
-
-[node name="MossWithBend7" parent="Mosses/Moss/Moss2" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.01517, -2.25715, -0.0348167)
-
-[node name="MossWithBend8" parent="Mosses/Moss/Moss2" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1.105, 0, -1.6685e-07, 0, 1.105, 0, 1.6685e-07, 0, -1.105, 0.0187166, -1.75641, -0.0348167)
-
-[node name="MossWithBend9" parent="Mosses/Moss/Moss2" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.996361, -2.0171, -0.0348167)
-
-[node name="Moss3" parent="Mosses/Moss" instance=ExtResource("28_qvtvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0024, -0.787184, 0)
-
-[node name="Moss4" parent="Mosses/Moss" instance=ExtResource("28_qvtvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0075717, -0.99231, 0)
-
-[node name="Moss4" parent="Mosses/Moss/Moss4" instance=ExtResource("28_qvtvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0075717, -0.99231, 0)
-
-[node name="Moss5" parent="Mosses/Moss/Moss4" instance=ExtResource("28_qvtvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00239, -0.99231, 0)
-
-[node name="MossWithBend" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1.045, 0, -1.57791e-07, 0, 1.045, 0, 1.57791e-07, 0, -1.045, 0, 0.534439, -0.0348167)
-
-[node name="MossWithBend2" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.906207, -0.0348167)
-
-[node name="MossWithBend4" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1.06, 0, -1.60056e-07, 0, 1.06, 0, 1.60056e-07, 0, -1.06, 0, -0.0942309, -0.0348167)
-
-[node name="MossWithBend6" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.02042, -0.108959, -0.0348167)
-
-[node name="MossWithBend9" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.531055, -2.0171, 1.52283)
-
-[node name="MossWithBend3" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-4.56784e-08, 0, -1.045, 0, 1.045, 0, 1.045, 0, -4.56784e-08, -0.579067, 0.534439, 0.527629)
-
-[node name="MossWithBend5" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.579067, -0.906207, 0.527629)
-
-[node name="MossWithBend7" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-4.63341e-08, 0, -1.06, 0, 1.06, 0, 1.06, 0, -4.63341e-08, -0.579067, -0.0942309, 0.527629)
-
-[node name="MossWithBend8" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-4.56784e-08, 0, -1.045, 0, 1.045, 0, 1.045, 0, -4.56784e-08, -0.579067, -1.10607, 0.61944)
-
-[node name="MossWithBend10" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.579067, -2.54672, 0.61944)
-
-[node name="MossWithBend11" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(-4.63341e-08, 0, -1.06, 0, 1.06, 0, 1.06, 0, -4.63341e-08, -0.579067, -1.73474, 0.61944)
-
-[node name="MossWithBend12" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(1.24615e-08, 0, 1.045, 0, 1.045, 0, -1.045, 0, 1.24615e-08, 2.58462, 0.534439, 0.527629)
-
-[node name="MossWithBend13" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 2.58462, -0.906207, 0.527629)
-
-[node name="MossWithBend14" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(1.26404e-08, 0, 1.06, 0, 1.06, 0, -1.06, 0, 1.26404e-08, 2.58462, -0.0942309, 0.527629)
-
-[node name="MossWithBend16" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 2.58462, -2.54672, 0.476198)
-
-[node name="MossWithBend17" parent="Mosses/Moss" instance=ExtResource("29_coxmd")]
-transform = Transform3D(1.26404e-08, 0, 1.06, 0, 1.06, 0, -1.06, 0, 1.26404e-08, 2.58462, -1.73474, 0.476198)
-
 [node name="Puddles" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0594163, 0)
 
@@ -5163,11 +5065,17 @@ mesh = SubResource("PlaneMesh_8jppw")
 
 [node name="Geo" type="Node3D" parent="."]
 
-[node name="Island1" parent="Geo" instance=ExtResource("62_owrtl")]
-transform = Transform3D(34.44, 0, 0, 0, 34.44, 0, 0, 0, 34.44, 92.6224, -6.42415, 1079.43)
+[node name="IslandGroup1" type="Node3D" parent="Geo"]
+transform = Transform3D(0.732293, 0, 0.680989, 0, 1, 0, -0.680989, 0, 0.732293, 328.345, 0, 1192.62)
 
-[node name="Island2" parent="Geo" instance=ExtResource("62_owrtl")]
-transform = Transform3D(-21.9982, 0, -26.4989, 0, 34.44, 0, 26.4989, 0, -21.9982, 436.318, -6.42415, 993.185)
+[node name="Island1" parent="Geo/IslandGroup1" instance=ExtResource("62_owrtl")]
+transform = Transform3D(34.44, 0, 0, 0, 34.44, 0, 0, 0, 34.44, -79.8087, -6.42415, -113.194)
+
+[node name="Island2" parent="Geo/IslandGroup1" instance=ExtResource("62_owrtl")]
+transform = Transform3D(-21.9982, 0, -26.4989, 0, 23.505, 0, 26.4989, 0, -21.9982, 107.973, -6.42415, -199.439)
+
+[node name="Island3" parent="Geo/IslandGroup1" instance=ExtResource("62_owrtl")]
+transform = Transform3D(3.43786, 0, -51.0845, 0, 82.135, 0, 51.0845, 0, 3.43786, -33.0034, -6.42415, 240.899)
 
 [node name="Signs" type="Node3D" parent="."]
 
@@ -5646,6 +5554,7 @@ _objective_description = ""
 [editable path="CargoYardBase"]
 [editable path="ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]
 [editable path="ShippingCrates/Shipping Crates4/ShippingCrate1EndOpen"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate41"]
 [editable path="ShippingCrates/Shipping Crates6/ShippingCrate92"]
 [editable path="Cranes/Big Cranes/Crane2"]
 [editable path="Cranes/Big Cranes/Crane3"]

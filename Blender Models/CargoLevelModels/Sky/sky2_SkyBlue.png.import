@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8iyvkh3co2ta"
-path.s3tc="res://.godot/imported/5e5cef34728d48e6d62e2c51e9a94853.jpg-bbf99f743d2bf80e337c0f8bd8b1ba01.s3tc.ctex"
+uid="uid://bvvqj3imvfls5"
+path.s3tc="res://.godot/imported/sky2_SkyBlue.png-d1d5531651afba6c5b8d190dad1b2090.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://TexturePNG's/5e5cef34728d48e6d62e2c51e9a94853.jpg"
-dest_files=["res://.godot/imported/5e5cef34728d48e6d62e2c51e9a94853.jpg-bbf99f743d2bf80e337c0f8bd8b1ba01.s3tc.ctex"]
+source_file="res://Blender Models/CargoLevelModels/Sky/sky2_SkyBlue.png"
+dest_files=["res://.godot/imported/sky2_SkyBlue.png-d1d5531651afba6c5b8d190dad1b2090.s3tc.ctex"]
 
 [params]
 

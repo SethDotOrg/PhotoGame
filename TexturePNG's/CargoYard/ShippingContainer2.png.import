@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8iyvkh3co2ta"
-path.s3tc="res://.godot/imported/5e5cef34728d48e6d62e2c51e9a94853.jpg-bbf99f743d2bf80e337c0f8bd8b1ba01.s3tc.ctex"
+uid="uid://4rwy0y4cl0tp"
+path.s3tc="res://.godot/imported/ShippingContainer2.png-acaa4b123f5e30e710673d7b1a5fdcc8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://TexturePNG's/5e5cef34728d48e6d62e2c51e9a94853.jpg"
-dest_files=["res://.godot/imported/5e5cef34728d48e6d62e2c51e9a94853.jpg-bbf99f743d2bf80e337c0f8bd8b1ba01.s3tc.ctex"]
+source_file="res://TexturePNG's/CargoYard/ShippingContainer2.png"
+dest_files=["res://.godot/imported/ShippingContainer2.png-acaa4b123f5e30e710673d7b1a5fdcc8.s3tc.ctex"]
 
 [params]
 

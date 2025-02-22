@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cpq6bfk25paq6"
-path="res://.godot/imported/ShippingCrate.glb-2a9575ae0dc012973bfe2c88dee1fb27.scn"
+uid="uid://drqh3kmc4j6wu"
+path="res://.godot/imported/sky2.glb-07122cd0f702047e17494234b5ae5ae2.scn"
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate.glb"
-dest_files=["res://.godot/imported/ShippingCrate.glb-2a9575ae0dc012973bfe2c88dee1fb27.scn"]
+source_file="res://Blender Models/CargoLevelModels/Sky/sky2.glb"
+dest_files=["res://.godot/imported/sky2.glb-07122cd0f702047e17494234b5ae5ae2.scn"]
 
 [params]
 
@@ -31,16 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"Material": {
+"Sky1": {
 "use_external/enabled": true,
-"use_external/path": "res://Blender Models/CargoLevelModels/Shipping Crates/Material.tres"
-}
-},
-"nodes": {
-"PATH:Cube": {
-"generate/physics": true,
-"physics/physics_material_override": null,
-"physics/shape_type": 1
+"use_external/path": ""
 }
 }
 }

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dfeygaj1as0u7"]
+
+[ext_resource type="Texture2D" uid="uid://c6bcsh1exo6ie" path="res://TexturePNG's/CargoYard/ShippingContainerWhiteShaded2.png" id="1_lkf5t"]
+
+[resource]
+resource_name = "Material"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.741176, 0.741176, 0.741176, 1)
+albedo_texture = ExtResource("1_lkf5t")
+texture_filter = 2

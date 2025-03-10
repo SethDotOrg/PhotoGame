@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1vqrrkijcjgv"
-path="res://.godot/imported/CraneNoWheelsShaded.png-6a1d8e58f304a984236d6ed933ee62bd.ctex"
+uid="uid://b7e2rhp2mxwkj"
+path="res://.godot/imported/CementBase3.png-3b710c11d73be8f2503a4b2e4f24c88e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneNoWheelsShaded.png"
-dest_files=["res://.godot/imported/CraneNoWheelsShaded.png-6a1d8e58f304a984236d6ed933ee62bd.ctex"]
+source_file="res://TexturePNG's/CargoYard/CementBase3.png"
+dest_files=["res://.godot/imported/CementBase3.png-3b710c11d73be8f2503a4b2e4f24c88e.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

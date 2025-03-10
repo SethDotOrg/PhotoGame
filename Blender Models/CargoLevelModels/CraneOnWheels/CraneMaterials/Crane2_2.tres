@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3b0nxfop846n"]
+
+[ext_resource type="Texture2D" uid="uid://bjb0adjbax7yy" path="res://Blender Models/CargoLevelModels/CraneOnWheels/Crane2_2_CraneOnWheelsShaded2.png" id="1_t7lyd"]
+
+[resource]
+resource_name = "Crane"
+cull_mode = 2
+albedo_texture = ExtResource("1_t7lyd")
+roughness = 0.5
+texture_filter = 2

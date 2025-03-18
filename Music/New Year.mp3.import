@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/New Year.mp3-b0c94b842fee84aec00447536ff5132e
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

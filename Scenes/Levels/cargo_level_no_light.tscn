@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://dypfe3w45cfns"]
+[gd_scene load_steps=107 format=3 uid="uid://dypfe3w45cfns"]
 
 [ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_yns1f"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="2_akalh"]
@@ -18,11 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://bl5lktk7u4gqi" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate1EndOpen.glb" id="13_3vk75"]
 [ext_resource type="PackedScene" uid="uid://5hb27btt2hjw" path="res://Blender Models/CargoLevelModels/CraneNoWheels/Crane.glb" id="14_l4psf"]
 [ext_resource type="PackedScene" uid="uid://bnlpfm2ecj7ut" path="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneLedge.glb" id="15_tbkmi"]
+[ext_resource type="Material" uid="uid://dfeygaj1as0u7" path="res://Blender Models/CargoLevelModels/Shipping Crates/Material.tres" id="17_58ul0"]
 [ext_resource type="PackedScene" uid="uid://dlpw2fnlp3aqs" path="res://Blender Models/CargoLevelModels/Sky/sky.glb" id="17_iayx8"]
 [ext_resource type="Script" path="res://Blender Models/CargoLevelModels/Sky/sky.gd" id="18_83fs5"]
 [ext_resource type="PackedScene" uid="uid://byshitbsiuqk5" path="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneNoWheelsShaded.glb" id="18_cnadx"]
 [ext_resource type="Material" uid="uid://122f42jiv13a" path="res://Blender Models/CargoLevelModels/CraneOnWheels/CraneMaterials/Wheels.tres" id="18_rfvnh"]
+[ext_resource type="Texture2D" uid="uid://bxrjeuhc8oufc" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerWhiteShaded6.png" id="18_tfd2d"]
 [ext_resource type="PackedScene" uid="uid://dt16cfkgwdysk" path="res://Blender Models/CargoLevelModels/CementBarrier.glb" id="19_2canu"]
+[ext_resource type="PackedScene" uid="uid://1etcsseyybed" path="res://Blender Models/CargoLevelModels/HotDog/Hotdog.glb" id="19_a4kns"]
 [ext_resource type="PackedScene" uid="uid://cbnnktnukodf5" path="res://Blender Models/CargoLevelModels/CementPole.glb" id="20_yjj4n"]
 [ext_resource type="PackedScene" uid="uid://bspqg6r6qoeq3" path="res://Blender Models/CargoLevelModels/StreetLight.glb" id="21_spw7w"]
 [ext_resource type="PackedScene" uid="uid://bfxogcxl3357d" path="res://Blender Models/CargoLevelModels/Birds/Seagull/seagull.glb" id="22_e048c"]
@@ -46,12 +49,14 @@
 [ext_resource type="PackedScene" uid="uid://bwheo7et62jow" path="res://Scenes/Objectives/pickup_sewer_monster.tscn" id="37_fhsiv"]
 [ext_resource type="PackedScene" uid="uid://dduq6m546k7og" path="res://Blender Models/CargoLevelModels/Signs/ExclamationMarkSign.glb" id="38_evmq4"]
 [ext_resource type="Script" path="res://Scripts/ConesSiloam.gd" id="38_nqrhe"]
-[ext_resource type="PackedScene" uid="uid://s3giqnqmushm" path="res://Blender Models/CargoLevelModels/Fences/ChainlinkFence.glb" id="39_6g8bb"]
 [ext_resource type="PackedScene" uid="uid://cq0ykhfdf3kgm" path="res://Blender Models/CargoLevelModels/Cone/cone.glb" id="39_jrv2j"]
 [ext_resource type="PackedScene" uid="uid://dx2hcfhnganr3" path="res://Scenes/Objectives/pickup_boots.tscn" id="40_5ywvc"]
 [ext_resource type="PackedScene" uid="uid://b181td78ltlp4" path="res://Scenes/Objectives/photographable_hard_hat.tscn" id="41_31c3m"]
+[ext_resource type="PackedScene" uid="uid://dpb36yson81a4" path="res://Blender Models/CargoLevelModels/Signs/YieldSign.glb" id="41_souom"]
 [ext_resource type="Script" path="res://Scripts/hard_hat_photographable.gd" id="42_7b7ye"]
+[ext_resource type="PackedScene" uid="uid://sticoyd1tvrp" path="res://Blender Models/CargoLevelModels/Fences/ChainlinkFencePost2.glb" id="42_li6jv"]
 [ext_resource type="PackedScene" uid="uid://d3d3lnj0tyclp" path="res://Scenes/Objectives/pickup_sugar_booger.tscn" id="43_ifg4x"]
+[ext_resource type="PackedScene" uid="uid://ufgdos30eu4q" path="res://Blender Models/CargoLevelModels/Fences/ChainlinkFence2.glb" id="43_nrtvx"]
 [ext_resource type="PackedScene" uid="uid://gw8fdyxvhc82" path="res://Blender Models/CargoLevelModels/Sugar/sugarpile.glb" id="44_6w62r"]
 [ext_resource type="PackedScene" uid="uid://7i38d8cmbxap" path="res://Scenes/Objectives/pickup_bun.tscn" id="45_btlis"]
 [ext_resource type="PackedScene" uid="uid://dajtnhrlxelon" path="res://Scenes/Objectives/pickup_hotdog_weiner.tscn" id="46_g45lq"]
@@ -66,12 +71,14 @@
 [ext_resource type="PackedScene" uid="uid://dq4f4v75k56gl" path="res://Scenes/Objectives/cargo_yard_level_objectives.tscn" id="55_6c7j4"]
 [ext_resource type="PackedScene" uid="uid://bwutwst3nkwdt" path="res://Blender Models/CargoLevelModels/Geo/Island1.glb" id="62_owrtl"]
 [ext_resource type="PackedScene" uid="uid://dx2dhlbc4v1fc" path="res://Blender Models/CargoLevelModels/Forklift/forklift.glb" id="68_jjvye"]
-[ext_resource type="PackedScene" uid="uid://d1rxwhjgodyv8" path="res://Blender Models/CargoLevelModels/GroundMarkings/WhiteLine.glb" id="69_0iedm"]
 [ext_resource type="PackedScene" uid="uid://dfig7vapcltct" path="res://Blender Models/CargoLevelModels/CraneOnWheels/Crane2_2.glb" id="69_flrwc"]
 [ext_resource type="Texture2D" uid="uid://cm74jq42nmbqr" path="res://textures/black.png" id="69_hvcqi"]
 [ext_resource type="PackedScene" uid="uid://bwfy8wpwkhc8o" path="res://Blender Models/CargoLevelModels/GroundMarkings/RightArrow.glb" id="70_sdmty"]
+[ext_resource type="PackedScene" uid="uid://u3o43nftopd6" path="res://Blender Models/CargoLevelModels/GroundMarkings/LeftArrow.glb" id="71_m1yqu"]
 [ext_resource type="PackedScene" uid="uid://ce0e52siomnt7" path="res://Blender Models/CargoLevelModels/TelephonePoleStuff/TelephoneWire.glb" id="72_cu7ju"]
 [ext_resource type="PackedScene" uid="uid://gupa2tafq7nf" path="res://Blender Models/CargoLevelModels/TelephonePoleStuff/TelephonePole.glb" id="72_l1j6o"]
+[ext_resource type="PackedScene" uid="uid://drk5ncft2w2wy" path="res://Blender Models/CargoLevelModels/GroundMarkings/ForwardArrow.glb" id="72_sbqwc"]
+[ext_resource type="PackedScene" uid="uid://d1rxwhjgodyv8" path="res://Blender Models/CargoLevelModels/GroundMarkings/WhiteLine.glb" id="77_8e3rw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3aqie"]
 albedo_texture = ExtResource("5_74kqm")
@@ -114,6 +121,13 @@ shader_parameter/FoamSize = 0.5
 shader_parameter/WaterOpacity = 0.95
 shader_parameter/FoamGlowIntensity = 0.12
 shader_parameter/water_texture1 = ExtResource("6_ag68m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0t1yd"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("18_tfd2d")
+texture_filter = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rvtww"]
 _surfaces = [{
@@ -243,6 +257,41 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7mxyg")
 
+[sub_resource type="Animation" id="Animation_fsv8u"]
+resource_name = "RESET"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Group1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_r871t"]
+resource_name = "Seagulls Flying"
+length = 11.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Group1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0001, 1, 0, 69, 0, 1, 1, -34.935, 69, -2.538, 2, 1, -96.787, 69, -9.482, 3, 1, -140.443, 69, 30.239, 4, 1, -144.254, 69, 79.436, 5, 1, -108.848, 69, 135.942, 6, 1, -69.228, 69, 201.15, 7, 1, 22.408, 69, 197.327, 8, 1, 41.35, 69, 146.22, 9, 1, 59.661, 69, 72.559, 10, 1, 59.505, 69, 39.552)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Group1")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.0199256, 1, 0, 0, 0, 1, 2.01993, 1, 0, 0, 0, 1, 2.21993, 1, 0, 0.311647, 0, 0.950198, 3.01993, 1, 0, 0.309183, 0, 0.951003, 3.21993, 1, 0, 0.730144, 0, 0.683295, 4.01993, 1, 0, 0.725505, 0, 0.688218, 4.1, 1, 0, 0.874569, 0, 0.484903, 5, 1, 0, 0.869681, 0, 0.493616, 6, 1, 0, 0.86415, 0, 0.503239, 6.2, 1, 0, 0.997541, 0, -0.0700936, 7, 1, 0, 0.996562, 0, -0.0828549, 7.2, 1, 0, -0.833912, 0, 0.5519, 8, 1, 0, -0.829192, 0, 0.558968, 9, 1, 0, -0.797073, 0, 0.603886, 10, 1, 0, -0.72477, 0, 0.688993, 10.2, 1, 0, -0.266957, 0, 0.963709, 11.1, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfumc"]
+_data = {
+"RESET": SubResource("Animation_fsv8u"),
+"Seagulls Flying": SubResource("Animation_r871t")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lhkj"]
 transparency = 1
 albedo_texture = ExtResource("30_cu3ey")
@@ -279,8 +328,9 @@ size = Vector3(15.4207, 4.50809, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ehmni"]
 size = Vector3(1.42786, 1, 1.6888)
 
-[node name="CargoLevel" type="Node3D"]
+[node name="CargoLevel" type="Node3D" node_paths=PackedStringArray("_seagulls_animation_player")]
 script = ExtResource("1_yns1f")
+_seagulls_animation_player = NodePath("Seagulls/SeagullsAnimationPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -1087,83 +1137,241 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.6
 [node name="ShippingCrate116" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.697, 42.2748, -4.45657)
 
-[node name="ShippingCrate117" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.697, 55.4058, -4.45657)
+[node name="ShippingCrate1EndOpen" parent="ShippingCrates/Shipping Crates3" instance=ExtResource("13_3vk75")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.697, 55.406, -4.457)
+
+[node name="Crate" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = ExtResource("17_58ul0")
+surface_material_override/0 = SubResource("StandardMaterial3D_0t1yd")
+
+[node name="Door1" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen" index="1"]
+transform = Transform3D(0.933855, 0, -0.357651, 0, 1, 0, 0.357651, 0, 0.933855, 22.2141, 0, 5.70288)
+material_override = ExtResource("17_58ul0")
+
+[node name="Door2" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen" index="2"]
+material_override = ExtResource("17_58ul0")
+
+[node name="Hotdogs" type="Node3D" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen"]
+
+[node name="Hotdog" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.291093, 0, 0.106606, 0, 0.31, 0, -0.106606, 0, -0.291093, 6.81178, -0.405998, 1.5798)
+
+[node name="Hotdog2" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.165649, 0, -0.262031, 0, 0.31, 0, 0.262031, 0, -0.165649, 4.48138, -0.405998, 3.19315)
+
+[node name="Hotdog3" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.200274, 0, -0.236623, 0, 0.31, 0, 0.236623, 0, 0.200274, 2.84732, -0.405998, 1.95285)
+
+[node name="Hotdog4" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.172856, 0, -0.257334, 0, 0.31, 0, 0.257334, 0, -0.172856, 4.52817, -0.405998, -0.309006)
+
+[node name="Hotdog5" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.28247, 0, -0.127712, 0, 0.31, 0, 0.127712, 0, -0.28247, 11.0957, -0.405998, 1.5798)
+
+[node name="Hotdog6" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.217744, 0, -0.220652, 0, 0.31, 0, 0.220652, 0, 0.217744, 8.12155, -0.405998, 3.44049)
+
+[node name="Hotdog7" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.248317, 0, 0.185576, 0, 0.31, 0, -0.185576, 0, 0.248317, 15.011, -0.405998, 0.531738)
+
+[node name="Hotdog8" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.128978, 0, 0.281895, 0, 0.31, 0, -0.281895, 0, -0.128978, 14.9328, -0.405998, -2.30154)
+
+[node name="Hotdog9" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.307603, 0, -0.0384775, 0, 0.31, 0, 0.0384775, 0, -0.307603, 16.8643, -0.405998, -2.99263)
+
+[node name="Hotdog10" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.121107, 0, 0.285365, 0, 0.31, 0, -0.285365, 0, -0.121107, 17.8406, -0.405998, -0.349106)
+
+[node name="Hotdog11" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.0473454, 0, 0.306363, 0, 0.31, 0, -0.306363, 0, 0.0473454, 12.6706, -0.405998, 4.11989)
+
+[node name="Hotdog12" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.30377, 0, -0.0618358, 0, 0.31, 0, 0.0618358, 0, -0.30377, 12.737, -0.405998, 0.612274)
+
+[node name="Hotdog13" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.309837, 0, -0.0100401, 0, 0.31, 0, 0.0100401, 0, -0.309837, -8.76346, -0.405998, 2.66898)
+
+[node name="Hotdog14" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.0555884, 0, -0.304975, 0, 0.31, 0, 0.304975, 0, -0.0555884, -10.321, -0.405998, 5.03702)
+
+[node name="Hotdog15" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.274255, 0, -0.144513, 0, 0.31, 0, 0.144513, 0, 0.274255, -12.3005, -0.405998, 4.49812)
+
+[node name="Hotdog16" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.0640292, 0, -0.303315, 0, 0.31, 0, 0.303315, 0, -0.0640292, -11.5879, -0.405998, 1.77168)
+
+[node name="Hotdog17" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.214177, 0, -0.224116, 0, 0.31, 0, 0.224116, 0, -0.214177, -4.79062, -0.405998, 1.06627)
+
+[node name="Hotdog18" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.284482, 0, -0.123165, 0, 0.31, 0, 0.123165, 0, 0.284482, -6.85268, -0.405998, 3.90454)
+
+[node name="Hotdog19" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.160857, 0, 0.265, 0, 0.31, 0, -0.265, 0, 0.160857, -1.5518, -0.405998, -1.37047)
+
+[node name="Hotdog20" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.225075, 0, 0.21317, 0, 0.31, 0, -0.21317, 0, -0.225075, -0.00804138, -0.405998, 3.25204)
+
+[node name="Hotdog21" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.270869, 0, -0.150764, 0, 0.31, 0, 0.150764, 0, -0.270869, -7.20755, -0.405998, -2.26022)
+
+[node name="Hotdog22" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.219073, 0, 0.219333, 0, 0.31, 0, -0.219333, 0, -0.219073, 0.742783, -0.405998, -3.24596)
+
+[node name="Hotdog23" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.0707097, 0, 0.301828, 0, 0.31, 0, -0.301828, 0, -0.0707097, -2.37979, -0.405998, 2.83269)
+
+[node name="Hotdog24" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.258576, 0, -0.170992, 0, 0.31, 0, 0.170992, 0, -0.258576, -3.63054, -0.405998, -0.445023)
+
+[node name="Hotdog25" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.291093, 0, 0.106606, 0, 0.31, 0, -0.106606, 0, -0.291093, 6.4581, -0.000183105, 0.642746)
+
+[node name="Hotdog26" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.165649, 0, -0.262031, 0, 0.31, 0, 0.262031, 0, -0.165649, 4.1277, -0.000183105, 2.25609)
+
+[node name="Hotdog27" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.200274, 0, -0.236623, 0, 0.31, 0, 0.236623, 0, 0.200274, 2.49364, -0.000183105, 1.01579)
+
+[node name="Hotdog28" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.172856, 0, -0.257334, 0, 0.31, 0, 0.257334, 0, -0.172856, 4.17448, -0.000183105, -1.24606)
+
+[node name="Hotdog29" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.28247, 0, -0.127712, 0, 0.31, 0, 0.127712, 0, -0.28247, 10.742, -0.000183105, 0.642746)
+
+[node name="Hotdog30" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.217744, 0, -0.220652, 0, 0.31, 0, 0.220652, 0, 0.217744, 7.76787, -0.000183105, 2.50343)
+
+[node name="Hotdog31" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.248317, 0, 0.185576, 0, 0.31, 0, -0.185576, 0, 0.248317, 14.6573, -0.000183105, -0.405319)
+
+[node name="Hotdog32" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.128978, 0, 0.281895, 0, 0.31, 0, -0.281895, 0, -0.128978, 14.5791, -0.000183105, -3.2386)
+
+[node name="Hotdog33" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.307603, 0, -0.0384775, 0, 0.31, 0, 0.0384775, 0, -0.307603, 16.5106, -0.000183105, -3.92969)
+
+[node name="Hotdog34" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.121107, 0, 0.285365, 0, 0.31, 0, -0.285365, 0, -0.121107, 17.4869, -0.000183105, -1.28616)
+
+[node name="Hotdog35" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.0473454, 0, 0.306363, 0, 0.31, 0, -0.306363, 0, 0.0473454, 12.3169, -0.000183105, 3.18283)
+
+[node name="Hotdog36" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.30377, 0, -0.0618358, 0, 0.31, 0, 0.0618358, 0, -0.30377, 12.3833, -0.000183105, -0.324783)
+
+[node name="Hotdog37" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.309837, 0, -0.0100401, 0, 0.31, 0, 0.0100401, 0, -0.309837, -9.11714, -0.000183105, 1.73192)
+
+[node name="Hotdog38" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.0555884, 0, -0.304975, 0, 0.31, 0, 0.304975, 0, -0.0555884, -10.6747, -0.000183105, 4.09996)
+
+[node name="Hotdog39" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.274255, 0, -0.144513, 0, 0.31, 0, 0.144513, 0, 0.274255, -12.6541, -0.000183105, 3.56107)
+
+[node name="Hotdog40" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.0640292, 0, -0.303315, 0, 0.31, 0, 0.303315, 0, -0.0640292, -11.9416, -0.000183105, 0.834625)
+
+[node name="Hotdog41" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.214177, 0, -0.224116, 0, 0.31, 0, 0.224116, 0, -0.214177, -5.1443, -0.000183105, 0.129211)
+
+[node name="Hotdog42" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.284482, 0, -0.123165, 0, 0.31, 0, 0.123165, 0, 0.284482, -7.20636, -0.000183105, 2.96748)
+
+[node name="Hotdog43" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(0.160857, 0, 0.265, 0, 0.31, 0, -0.265, 0, 0.160857, -1.90549, -0.000183105, -2.30753)
+
+[node name="Hotdog44" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.225075, 0, 0.21317, 0, 0.31, 0, -0.21317, 0, -0.225075, -0.361725, -0.000183105, 2.31499)
+
+[node name="Hotdog45" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.270869, 0, -0.150764, 0, 0.31, 0, 0.150764, 0, -0.270869, -7.56123, -0.000183105, -3.19728)
+
+[node name="Hotdog46" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.219073, 0, 0.219333, 0, 0.31, 0, -0.219333, 0, -0.219073, 0.389099, -0.000183105, -4.18301)
+
+[node name="Hotdog47" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.0707097, 0, 0.301828, 0, 0.31, 0, -0.301828, 0, -0.0707097, -2.73347, -0.000183105, 1.89563)
+
+[node name="Hotdog48" parent="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen/Hotdogs" instance=ExtResource("19_a4kns")]
+transform = Transform3D(-0.258576, 0, -0.170992, 0, 0.31, 0, 0.170992, 0, -0.258576, -3.98422, -0.000183105, -1.38208)
 
 [node name="Shipping Crates4" type="Node3D" parent="ShippingCrates"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 369.186, 0, -283.988)
 
 [node name="ShippingCrate6" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 14.7762, 39.8989)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 14.7762, 39.752)
 
 [node name="ShippingCrate7" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 14.7762, 40.6711)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 14.7762, 39.752)
 
 [node name="ShippingCrate8" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 14.7762, 40.6711)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 14.7762, 39.752)
 
 [node name="ShippingCrate12" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.625, 15.1174, 39.8989)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.625, 14.7762, 39.752)
 
 [node name="ShippingCrate13" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.965, 1.80192, 39.8989)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.965, 1.64514, 39.752)
 
 [node name="ShippingCrate14" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.712, 1.80192, 39.8989)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.712, 1.64514, 39.752)
 
 [node name="ShippingCrate16" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 39.8989)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 39.752)
 
 [node name="ShippingCrate17" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 39.8989)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 39.752)
 
 [node name="ShippingCrate19" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 1.64514, 39.8405)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 1.64514, 39.752)
 
 [node name="ShippingCrate20" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.64514, 39.8405)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.64514, 39.752)
 
 [node name="ShippingCrate21" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.64514, 40.6127)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.64514, 39.752)
 
 [node name="ShippingCrate53" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.758, 15.1174, 39.8989)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.758, 14.7762, 39.752)
 
 [node name="ShippingCrate27" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 84.9091)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 84.9091)
 
 [node name="ShippingCrate28" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 84.9091)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 84.9091)
 
 [node name="ShippingCrate42" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 129.839)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 129.839)
 
 [node name="ShippingCrate43" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 129.839)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 129.839)
 
 [node name="ShippingCrate52" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1174, 174.886)
 
 [node name="ShippingCrate66" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 174.886)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 174.886)
 
 [node name="ShippingCrate67" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 174.886)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 174.886)
 
 [node name="ShippingCrate70" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 174.828)
 
 [node name="ShippingCrate79" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.3969, 219.896)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 14.7762, 219.896)
 
 [node name="ShippingCrate84" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 219.896)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 219.896)
 
 [node name="ShippingCrate85" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 219.896)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 219.896)
 
 [node name="ShippingCrate88" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 219.838)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.64514, 219.838)
 
 [node name="ShippingCrate92" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 28.0107, 264.778)
@@ -1172,22 +1380,22 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.3
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 28.0107, 264.778)
 
 [node name="ShippingCrate94" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.0367, 264.778)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.9072, 264.778)
 
 [node name="ShippingCrate97" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1174, 264.826)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 14.7762, 264.826)
 
 [node name="ShippingCrate101" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 264.778)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 264.778)
 
 [node name="ShippingCrate102" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 264.826)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 264.826)
 
 [node name="ShippingCrate103" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 264.826)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 264.826)
 
 [node name="ShippingCrate106" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 264.767)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.64514, 264.767)
 
 [node name="ShippingCrate108" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 264.778)
@@ -1202,22 +1410,22 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.3
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 28.0107, 309.696)
 
 [node name="ShippingCrate112" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.0107, 309.696)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.9072, 309.696)
 
 [node name="ShippingCrate115" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1174, 309.744)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 14.7762, 309.744)
 
 [node name="ShippingCrate119" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 309.696)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 309.696)
 
 [node name="ShippingCrate120" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 309.744)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 309.744)
 
 [node name="ShippingCrate121" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 309.744)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 309.744)
 
 [node name="ShippingCrate124" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 309.685)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.64514, 309.685)
 
 [node name="ShippingCrate126" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 309.696)
@@ -1232,22 +1440,22 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.3
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 28.0107, 354.706)
 
 [node name="ShippingCrate130" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.0107, 354.706)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.9072, 354.706)
 
 [node name="ShippingCrate133" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1174, 354.754)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 14.7762, 354.754)
 
 [node name="ShippingCrate137" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 354.706)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 354.706)
 
 [node name="ShippingCrate138" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 354.754)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 354.754)
 
 [node name="ShippingCrate139" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 354.754)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 354.754)
 
 [node name="ShippingCrate142" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 354.695)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.64514, 354.695)
 
 [node name="ShippingCrate144" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 354.706)
@@ -1265,13 +1473,13 @@ transform = Transform3D(-4.37105e-08, 0.0063006, 0.99998, 2.75408e-10, 0.99998, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.0107, 399.636)
 
 [node name="ShippingCrate155" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 399.636)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 399.636)
 
 [node name="ShippingCrate156" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 399.684)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 399.684)
 
 [node name="ShippingCrate157" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 399.684)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 399.684)
 
 [node name="ShippingCrate162" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 399.636)
@@ -1289,13 +1497,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.3
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.0107, 444.535)
 
 [node name="ShippingCrate173" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 444.535)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 444.535)
 
 [node name="ShippingCrate174" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 444.583)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 444.583)
 
 [node name="ShippingCrate175" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 444.583)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 444.583)
 
 [node name="ShippingCrate180" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 444.535)
@@ -1313,13 +1521,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.3
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.0107, 489.546)
 
 [node name="ShippingCrate191" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 489.546)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 489.546)
 
 [node name="ShippingCrate192" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 489.593)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 489.593)
 
 [node name="ShippingCrate193" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 489.593)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 489.593)
 
 [node name="ShippingCrate198" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 489.546)
@@ -1328,67 +1536,67 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9593, 489.546)
 
 [node name="ShippingCrate200" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 28.0107, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 27.9072, 534.475)
 
 [node name="ShippingCrate201" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 28.0107, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 27.9072, 534.475)
 
 [node name="ShippingCrate202" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.0107, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.9072, 534.475)
 
 [node name="ShippingCrate203" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 14.7762, 534.523)
 
 [node name="ShippingCrate204" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 14.7762, 534.523)
 
 [node name="ShippingCrate205" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 14.7762, 534.523)
 
 [node name="ShippingCrate206" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.625, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.625, 14.7762, 534.523)
 
 [node name="ShippingCrate207" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.965, 1.80192, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.965, 1.64514, 534.523)
 
 [node name="ShippingCrate208" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.712, 1.80192, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.712, 1.64514, 534.523)
 
 [node name="ShippingCrate209" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 534.475)
 
 [node name="ShippingCrate210" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 14.7762, 534.523)
 
 [node name="ShippingCrate211" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.80192, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.539, 1.64514, 534.523)
 
 [node name="ShippingCrate212" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 1.80192, 534.464)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.161, 1.64514, 534.464)
 
 [node name="ShippingCrate213" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.80192, 534.464)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.64514, 534.464)
 
 [node name="ShippingCrate214" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 534.464)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.64514, 534.464)
 
 [node name="ShippingCrate215" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.758, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -168.758, 14.7762, 534.523)
 
 [node name="ShippingCrate216" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9072, 534.475)
 
 [node name="ShippingCrate217" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9593, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9072, 534.475)
 
 [node name="ShippingCrate218" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 28.0107, 399.636)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 27.9072, 399.636)
 
 [node name="ShippingCrate219" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 15.1174, 399.684)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 14.7762, 399.684)
 
 [node name="ShippingCrate220" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 1.80192, 399.625)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 1.64514, 399.625)
 
 [node name="ShippingCrate221" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 28.0107, 444.535)
@@ -1397,58 +1605,58 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.8
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 28.0107, 489.546)
 
 [node name="ShippingCrate227" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 28.0107, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 27.9072, 534.475)
 
 [node name="ShippingCrate228" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 14.7762, 534.523)
 
 [node name="ShippingCrate229" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 1.80192, 534.464)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 1.64514, 534.464)
 
 [node name="ShippingCrate231" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 15.1174, 399.684)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 14.7762, 399.684)
 
 [node name="ShippingCrate232" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.80192, 399.625)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.64514, 399.625)
 
 [node name="ShippingCrate233" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 28.0107, 444.535)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 27.9072, 444.535)
 
 [node name="ShippingCrate234" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 15.1174, 444.583)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 14.7762, 444.583)
 
 [node name="ShippingCrate235" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.80192, 444.525)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.64514, 444.525)
 
 [node name="ShippingCrate236" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 28.0107, 489.546)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 27.9072, 489.546)
 
 [node name="ShippingCrate237" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 15.1174, 489.593)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 14.7762, 489.593)
 
 [node name="ShippingCrate238" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.80192, 489.535)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.64514, 489.535)
 
 [node name="ShippingCrate239" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 28.0107, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 27.9072, 534.475)
 
 [node name="ShippingCrate240" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 14.7762, 534.523)
 
 [node name="ShippingCrate241" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.80192, 534.464)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.64514, 534.464)
 
 [node name="ShippingCrate222" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.018, 28.0107, 399.636)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.018, 27.9072, 399.636)
 
 [node name="ShippingCrate223" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 28.0107, 399.636)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 27.9072, 399.636)
 
 [node name="ShippingCrate225" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 15.1174, 399.684)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 14.7762, 399.684)
 
 [node name="ShippingCrate226" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 1.80192, 399.625)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 1.64514, 399.625)
 
 [node name="ShippingCrate230" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 28.0107, 444.535)
@@ -1457,22 +1665,22 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.2
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 28.0107, 489.546)
 
 [node name="ShippingCrate243" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 28.0107, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 27.9072, 534.475)
 
 [node name="ShippingCrate244" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 14.7762, 534.523)
 
 [node name="ShippingCrate245" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 1.80192, 534.464)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 1.64514, 534.464)
 
 [node name="ShippingCrate246" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 28.0107, 399.636)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 27.9072, 399.636)
 
 [node name="ShippingCrate247" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 15.1174, 399.684)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 14.7762, 399.684)
 
 [node name="ShippingCrate248" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 1.80192, 399.625)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 1.64514, 399.625)
 
 [node name="ShippingCrate249" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 28.0107, 444.535)
@@ -1481,43 +1689,43 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.60
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 28.0107, 489.546)
 
 [node name="ShippingCrate251" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 28.0107, 534.475)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 27.9072, 534.475)
 
 [node name="ShippingCrate252" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 15.1174, 534.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 14.7762, 534.523)
 
 [node name="ShippingCrate253" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 1.80192, 534.464)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 1.64514, 534.464)
 
 [node name="ShippingCrate255" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.566, 14.7762, 40.9178)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.566, 14.7762, 39.752)
 
 [node name="ShippingCrate256" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.566, 1.64514, 40.8594)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.566, 1.64514, 39.752)
 
 [node name="ShippingCrate262" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.6432, 14.7762, 39.8106)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.643, 14.7762, 39.752)
 
 [node name="ShippingCrate263" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.6432, 1.64514, 39.7522)
 
 [node name="ShippingCrate265" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.3617, 16.137, 84.8933)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.643, 14.776, 84.893)
 
 [node name="ShippingCrate266" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.3617, 2.82149, 84.8349)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.643, 1.645, 84.835)
 
 [node name="ShippingCrate275" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.84, 14.7762, 40.0329)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.84, 14.7762, 39.752)
 
 [node name="ShippingCrate276" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.84, 1.64514, 39.9745)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.84, 1.64514, 39.752)
 
 [node name="ShippingCrate283" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.1459, 14.7762, 40.1456)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.146, 14.7762, 39.752)
 
 [node name="ShippingCrate284" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.1459, 1.64514, 40.0872)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.146, 1.64514, 39.752)
 
 [node name="ShippingCrate95" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 28.0107, 219.986)
@@ -1526,10 +1734,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.3
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 28.0107, 219.986)
 
 [node name="ShippingCrate98" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.1005, 219.986)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.9072, 219.986)
 
 [node name="ShippingCrate104" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 219.986)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 219.986)
 
 [node name="ShippingCrate113" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 219.986)
@@ -1538,22 +1746,22 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9593, 219.986)
 
 [node name="ShippingCrate99" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 28.0107, 175.009)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 27.907, 175.009)
 
 [node name="ShippingCrate100" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 27.8232, 175.009)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 27.907, 175.009)
 
 [node name="ShippingCrate105" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.0468, 175.009)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.907, 175.009)
 
 [node name="ShippingCrate107" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 175.009)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 175.009)
 
 [node name="ShippingCrate116" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 175.009)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.907, 175.009)
 
 [node name="ShippingCrate117" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9593, 175.009)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.907, 175.009)
 
 [node name="ShippingCrate122" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 28.0107, 129.732)
@@ -1574,13 +1782,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.7
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 84.9402)
 
 [node name="ShippingCrate149" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 28.0107, 40.7352)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 27.9072, 39.752)
 
 [node name="ShippingCrate150" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 27.9072, 40.7352)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 27.9072, 39.752)
 
 [node name="ShippingCrate152" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 39.963)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 39.752)
 
 [node name="ShippingCrate158" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 28.0107, 129.732)
@@ -1589,19 +1797,19 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.3
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 28.0107, 129.732)
 
 [node name="ShippingCrate160" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.8984, 129.732)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.011, 129.732)
 
 [node name="ShippingCrate161" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 129.732)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 129.732)
 
 [node name="ShippingCrate168" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9593, 129.732)
 
 [node name="ShippingCrate170" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 28.0107, 85.335)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 27.907, 85.335)
 
 [node name="ShippingCrate172" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 28.0107, 84.9402)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.769, 27.9072, 84.9402)
 
 [node name="ShippingCrate176" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 84.9402)
@@ -1610,55 +1818,55 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9593, 84.9402)
 
 [node name="ShippingCrate185" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.9072, 40.7352)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 27.9072, 39.752)
 
 [node name="ShippingCrate187" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9593, 39.963)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.195, 27.9072, 39.752)
 
 [node name="ShippingCrate188" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9593, 39.963)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180.942, 27.9072, 39.752)
 
 [node name="ShippingCrate257" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.025, 27.9072, 41.0403)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.025, 27.9072, 39.752)
 
 [node name="ShippingCrate264" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.1679, 28.0107, 85.0936)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.1679, 27.9072, 85.0936)
 
 [node name="ShippingCrate267" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.3809, 28.4346, 85.0936)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.643, 27.907, 85.094)
 
 [node name="ShippingCrate273" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.465, 27.9072, 40.8189)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.465, 27.9072, 39.752)
 
 [node name="ShippingCrate274" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.7412, 27.9072, 41.0403)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.741, 27.9072, 39.752)
 
 [node name="ShippingCrate277" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9542, 27.9072, 40.5556)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.643, 27.9072, 39.752)
 
 [node name="ShippingCrate9" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.741, 14.9447, 85.3703)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.741, 14.836, 85.37)
 
 [node name="ShippingCrate22" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.62918, 85.1555)
 
 [node name="ShippingCrate270" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.4099, 14.9233, 85.2831)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.4099, 14.7762, 85.2831)
 
 [node name="ShippingCrate278" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.4099, 1.60781, 85.2247)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.4099, 1.64514, 85.2247)
 
 [node name="ShippingCrate259" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.036, 14.7943, 129.199)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.036, 14.8363, 129.199)
 
 [node name="ShippingCrate279" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.025, 14.7429, 129.676)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.025, 14.7762, 129.676)
 
 [node name="ShippingCrate285" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.025, 1.39188, 130.607)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.025, 1.64514, 130.607)
 
 [node name="ShippingCrate286" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.444, 1.39188, 85.0153)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -122.444, 1.64514, 85.0153)
 
 [node name="ShippingCrate254" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.551, 28.0107, 174.452)
@@ -1670,70 +1878,70 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.3
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 174.442)
 
 [node name="ShippingCrate261" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 28.0107, 129.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 27.9072, 129.523)
 
 [node name="ShippingCrate268" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 28.0107, 174.452)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.823, 27.9072, 174.452)
 
 [node name="ShippingCrate269" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 15.1174, 174.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 14.7762, 174.5)
 
 [node name="ShippingCrate271" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 1.80192, 174.442)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.593, 1.64514, 174.442)
 
 [node name="ShippingCrate272" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 28.0107, 129.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 27.9072, 129.523)
 
 [node name="ShippingCrate280" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 15.1174, 129.57)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 14.7762, 129.57)
 
 [node name="ShippingCrate281" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.80192, 129.512)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.64514, 129.512)
 
 [node name="ShippingCrate287" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 28.0107, 174.452)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.178, 27.9072, 174.452)
 
 [node name="ShippingCrate288" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 15.1174, 174.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 14.7762, 174.5)
 
 [node name="ShippingCrate289" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.80192, 174.442)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.9482, 1.64514, 174.442)
 
 [node name="ShippingCrate290" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 28.0107, 129.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 27.9673, 129.523)
 
 [node name="ShippingCrate291" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 28.0107, 174.452)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.297, 27.9072, 174.452)
 
 [node name="ShippingCrate292" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 15.1174, 174.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 14.7762, 174.5)
 
 [node name="ShippingCrate293" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 1.80192, 174.442)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.067, 1.64514, 174.442)
 
 [node name="ShippingCrate294" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 28.0107, 129.523)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 27.907, 129.523)
 
 [node name="ShippingCrate295" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 28.0107, 174.452)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 27.9072, 174.452)
 
 [node name="ShippingCrate296" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 1.80192, 174.442)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.3732, 1.64514, 174.442)
 
 [node name="ShippingCrate297" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 15.0806, 174.452)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.603, 14.7762, 174.452)
 
 [node name="ShippingCrate123" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 41.2894, 129.732)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 41.038, 129.732)
 
 [node name="ShippingCrate135" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 41.2894, 85.335)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 41.038, 85.335)
 
 [node name="ShippingCrate167" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 41.2894, 129.732)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.391, 41.038, 129.732)
 
 [node name="ShippingCrate171" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 41.2894, 85.335)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.338, 41.038, 85.335)
 
 [node name="ShippingCrate1EndOpen" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("13_3vk75")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.098, 1.70529, 127.939)
@@ -1743,6 +1951,12 @@ transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 22.2141, 0
 
 [node name="Door2" parent="ShippingCrates/Shipping Crates4/ShippingCrate1EndOpen" index="2"]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 22.2141, 0, -5.70285)
+
+[node name="ShippingCrate282" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.58, 15.1174, 399.684)
+
+[node name="ShippingCrate298" parent="ShippingCrates/Shipping Crates4" instance=ExtResource("11_dt74d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.58, 1.80192, 399.625)
 
 [node name="Shipping Crates5" type="Node3D" parent="ShippingCrates"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4798, 0, -230.905)
@@ -4155,7 +4369,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -608.33, 0, 0)
 transform = Transform3D(12.405, 0, 0, 0, 12.405, 0, 0, 0, 12.405, 262.545, 1.64514, 13.0947)
 
 [node name="BarrelGroup1" type="Node3D" parent="Barrels"]
-transform = Transform3D(-0.787097, 0, 0.61683, 0, 1, 0, -0.61683, 0, -0.787097, -0.813307, -1.49012e-07, 1.13309)
+transform = Transform3D(-0.787097, 0, 0.61683, 0, 1, 0, -0.61683, 0, -0.787097, -0.466789, -1.49012e-07, 1.4074)
 
 [node name="barrel" parent="Barrels/BarrelGroup1" instance=ExtResource("24_dg6fr")]
 
@@ -4266,6 +4480,107 @@ surface_material_override/0 = ExtResource("25_rwsu2")
 transform = Transform3D(0.600351, 0, -0.799737, 0, 1, 0, 0.799737, 0, 0.600351, -0.451608, 0.492348, 1.00803)
 
 [node name="Barrel_003" parent="Barrels/BarrelGroup3/barrel11" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="BarrelGroup4" type="Node3D" parent="Barrels"]
+transform = Transform3D(0.647761, 0, 0.761844, 0, 1, 0, -0.761844, 0, 0.647761, -15.1836, -1.49012e-07, -4.57949)
+
+[node name="barrel" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.494443, 0, -0.86921, 0, 1, 0, 0.86921, 0, 0.494443, 0.0836635, -2.98023e-08, 0.418887)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup4/barrel" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel2" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.316858, 0, 0.948473, 0, 1, 0, -0.948473, 0, 0.316858, 0.157593, -2.98023e-08, 0.907727)
+
+[node name="barrel3" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.99913, 0, -0.0417187, 0, 1, 0, 0.0417187, 0, -0.99913, 0.03934, 0.494859, 0.678593)
+
+[node name="barrel4" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.0929266, 0, -0.995673, 0, 1, 0, 0.995673, 0, -0.0929266, -0.454305, 7.45058e-08, 0.184252)
+
+[node name="barrel5" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.634986, 0, -0.772523, 0, 1, 0, 0.772523, 0, -0.634986, -0.454305, 0.493488, 0.184251)
+
+[node name="barrel6" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.0571631, 0, 0.998365, 0, 1, 0, -0.998365, 0, -0.0571631, -0.999876, 0, 0.222852)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup4/barrel6" index="1"]
+transform = Transform3D(1, -2.98023e-08, 0, 0, 0, -1, 2.98023e-08, 1, 0, 0, 0, 0)
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel7" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.704993, 0, -0.709214, 0, 1, 0, 0.709214, 0, -0.704993, -0.855693, 0, -0.255485)
+
+[node name="barrel8" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.999357, 0, -0.0358588, 0, 1, 0, 0.0358588, 0, 0.999357, -0.789957, 7.45058e-08, 0.665878)
+
+[node name="barrel9" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.436221, 0, 0.89984, 0, 1, 0, -0.89984, 0, 0.436221, -0.690733, -2.98023e-08, 1.11862)
+
+[node name="barrel10" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.961112, 0, -0.276157, 0, 1, 0, 0.276157, 0, -0.961112, -0.331878, -2.98023e-08, 0.771031)
+
+[node name="barrel11" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.600351, 0, -0.799737, 0, 1, 0, 0.799737, 0, 0.600351, -0.451608, 0.492348, 1.00803)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup4/barrel11" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel12" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.600351, 0, -0.799737, 0, 1, 0, 0.799737, 0, 0.600351, -0.740409, 0.493486, 0.613812)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup4/barrel12" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel13" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.544214, 0, -0.838947, 0, 1, 0, 0.838947, 0, -0.544214, 0.493066, -3.42727e-07, -0.350987)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup4/barrel13" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel14" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.987898, 0, 0.155107, 0, 1, 0, -0.155107, 0, 0.987898, 0.0930676, -3.42727e-07, -0.0604165)
+
+[node name="barrel15" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.496778, 0, 0.867879, 0, 1, 0, -0.867879, 0, -0.496778, 0.242092, 0.494859, -0.270839)
+
+[node name="barrel16" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.926765, 0, -0.375642, 0, 1, 0, 0.375642, 0, -0.926765, 0.453846, -2.5332e-07, -0.936586)
+
+[node name="barrel17" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.978064, 0, 0.208304, 0, 1, 0, -0.208304, 0, -0.978064, 0.453847, 0.493488, -0.936587)
+
+[node name="barrel18" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.860093, 0, 0.510138, 0, 1, 0, -0.510138, 0, 0.860093, 0.168537, -3.27826e-07, -1.40321)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup4/barrel18" index="1"]
+transform = Transform3D(1, -2.98023e-08, 0, 0, 0, -1, 2.98023e-08, 1, 0, 0, 0, 0)
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel19" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.954068, 0, 0.29959, 0, 1, 0, -0.29959, 0, -0.954068, 0.659571, -3.27826e-07, -1.4953)
+
+[node name="barrel20" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.428005, 0, -0.903777, 0, 1, 0, 0.903777, 0, 0.428005, -0.128209, -2.5332e-07, -1.01298)
+
+[node name="barrel21" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(0.999643, 0, 0.0267527, 0, 1, 0, -0.0267527, 0, 0.999643, -0.48452, -3.42727e-07, -0.71656)
+
+[node name="barrel22" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.687429, 0, 0.726251, 0, 1, 0, -0.726251, 0, -0.687429, -0.0107908, -3.42727e-07, -0.55789)
+
+[node name="barrel23" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.4338, 0, -0.901009, 0, 1, 0, 0.901009, 0, -0.4338, -0.276303, 0.492348, -0.555138)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup4/barrel23" index="1"]
+material_override = ExtResource("25_rwsu2")
+
+[node name="barrel24" parent="Barrels/BarrelGroup4" instance=ExtResource("24_dg6fr")]
+transform = Transform3D(-0.4338, 0, -0.901009, 0, 1, 0, 0.901009, 0, -0.4338, -0.059185, 0.493486, -0.992945)
+
+[node name="Barrel_003" parent="Barrels/BarrelGroup4/barrel24" index="1"]
 material_override = ExtResource("25_rwsu2")
 
 [node name="StreetLights" type="Node3D" parent="."]
@@ -4393,10 +4708,14 @@ texture = ExtResource("23_g8j8e")
 [node name="Seagulls" type="Node3D" parent="."]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 88.6711, 0)
 
+[node name="seagull6" parent="Seagulls" instance=ExtResource("22_e048c")]
+transform = Transform3D(-0.00655222, 0.00487685, -1.99998, 1.19413, 1.60439, 0, 1.60437, -1.19412, -0.00816792, -14.92, -42.3048, -18.5228)
+
 [node name="Group1" type="Node3D" parent="Seagulls"]
+transform = Transform3D(0.999917, 0, -0.0131339, 0, 1, 0, 0.0131339, 0, 0.999917, 0, 0, 0)
 
 [node name="seagull" parent="Seagulls/Group1" instance=ExtResource("22_e048c")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 9.02932, 0)
+transform = Transform3D(2, 0, 5.96046e-08, 0, 2, 0, -5.96046e-08, 0, 2, 0, 9.02932, 0)
 
 [node name="seagull2" parent="Seagulls/Group1" instance=ExtResource("22_e048c")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.07158, 9.02932, -4.63097)
@@ -4410,8 +4729,11 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.9052, 9.02932, -8.8907)
 [node name="seagull5" parent="Seagulls/Group1" instance=ExtResource("22_e048c")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.9052, 9.02932, 8.90729)
 
-[node name="seagull6" parent="Seagulls/Group1" instance=ExtResource("22_e048c")]
-transform = Transform3D(-0.00655228, 0.00487685, -1.99998, 1.19413, 1.60439, 0, 1.60437, -1.19412, -0.00816792, 11.9052, -42.3048, -8.8907)
+[node name="SeagullsAnimationPlayer" type="AnimationPlayer" parent="Seagulls"]
+libraries = {
+"": SubResource("AnimationLibrary_xfumc")
+}
+speed_scale = 0.337
 
 [node name="Cracks" type="Node3D" parent="."]
 
@@ -4773,13 +5095,13 @@ texture = ExtResource("25_dkf0g")
 transform = Transform3D(0.743472, 0, -0.668767, 0, 1, 0, 0.668767, 0, 0.743472, -0.641916, 0, 0.442545)
 
 [node name="CrackGrass6" type="Sprite3D" parent="Cracks/GrassWithCrack/GrassYesBottom11"]
-transform = Transform3D(1.61448, 4.05516, -1.5755e-07, 1.58246e-07, 1.06575e-07, 4.36473, 4.05516, -1.61448, -1.07602e-07, -1.68192, -0.00487094, -0.326611)
+transform = Transform3D(1.61448, 4.05516, -1.5755e-07, 1.58246e-07, 1.06575e-07, 4.36473, 4.05516, -1.61448, -1.07602e-07, 1.0538, -0.00487116, -0.629957)
 shaded = true
 texture_filter = 0
 texture = ExtResource("25_dkf0g")
 
 [node name="GrassYesBottom3" parent="Cracks/GrassWithCrack/GrassYesBottom11" instance=ExtResource("27_phlq0")]
-transform = Transform3D(-0.194406, 0, -0.980921, 0, 1, 0, 0.980921, 0, -0.194406, -1.57069, -0.0441375, -0.287416)
+transform = Transform3D(-0.194406, 0, -0.980921, 0, 1, 0, 0.980921, 0, -0.194406, 1.16503, -0.0441377, -0.590763)
 
 [node name="GrassYesBottom4" parent="Cracks/GrassWithCrack/GrassYesBottom11" instance=ExtResource("27_phlq0")]
 transform = Transform3D(-0.561347, 0, 0.827581, 0, 1, 0, -0.827581, 0, -0.561347, -0.0230331, 0, -0.774761)
@@ -5161,22 +5483,855 @@ transform = Transform3D(34.44, 0, 0, 0, 34.44, 0, 0, 0, 34.44, -79.8087, -6.4241
 transform = Transform3D(-21.9982, 0, -26.4989, 0, 23.505, 0, 26.4989, 0, -21.9982, 107.973, -6.42415, -199.439)
 
 [node name="Island3" parent="Geo/IslandGroup1" instance=ExtResource("62_owrtl")]
-transform = Transform3D(3.43786, 0, -51.0845, 0, 82.135, 0, 51.0845, 0, 3.43786, -33.0034, -6.42415, 240.899)
+transform = Transform3D(3.43786, 0, -51.0845, 0, 82.135, 0, 51.0845, 0, 3.43786, -33.0034, -23.4242, 240.899)
 
 [node name="Signs" type="Node3D" parent="."]
 
-[node name="ExclamationMarkSign" parent="Signs" instance=ExtResource("38_evmq4")]
-transform = Transform3D(9.06, 0, 0, 0, 9.06, 0, 0, 0, 9.06, -37.1726, 1.64515, -283.264)
+[node name="ExclamationMarkSign2" parent="Signs" instance=ExtResource("38_evmq4")]
+transform = Transform3D(-3.66809, 0, -8.21858, 0, 9, 0, 8.21858, 0, -3.66809, -218.289, 1.64521, -252.088)
+
+[node name="YieldSign" parent="Signs" instance=ExtResource("41_souom")]
+transform = Transform3D(7.51674, 0, 4.9496, 0, 9, 0, -4.9496, 0, 7.51674, 102.521, 1.64521, -70.0145)
+
+[node name="YieldSign2" parent="Signs" instance=ExtResource("41_souom")]
+transform = Transform3D(6.39543, 0, 6.33234, 0, 9, 0, -6.33234, 0, 6.39543, 289.747, 1.64521, 93.6178)
 
 [node name="Fences" type="Node3D" parent="."]
+visible = false
 
 [node name="ChainlinkGroup1" type="Node3D" parent="Fences"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.5, 0, -1, 0, -4.37114e-08, 242.395, 0, -86.1113)
 
-[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1" instance=ExtResource("39_6g8bb")]
-transform = Transform3D(20.04, 0, 0, 0, 20.04, 0, 0, 0, 20.04, -57.2993, 1.64514, -277.998)
+[node name="ChainlinkFencePost" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 
-[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1" instance=ExtResource("39_6g8bb")]
-transform = Transform3D(20.04, 0, 0, 0, 20.04, 0, 0, 0, 20.04, -74.3687, 1.64514, -277.998)
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost2" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -17.0772, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost3" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -33.6732, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost4" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -50.7504, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost5" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost6" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost7" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost8" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost9" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost9" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost9" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost10" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost10" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost10" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost11" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost11" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost11" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost12" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost12" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost12" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost13" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost13" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost13" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost14" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost14" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost14" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost15" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost15" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost15" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost16" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost16" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost16" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost17" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -100.938, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost17" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost17" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost18" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -118.015, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost18" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost18" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost19" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -134.611, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost19" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost19" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost20" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -151.688, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost20" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost20" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost21" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -168.238, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost21" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost21" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost22" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -168.238, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost22" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost22" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost23" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -168.238, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost23" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost23" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost24" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -168.238, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup1/ChainlinkFencePost24" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup1/ChainlinkFencePost24" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost25" parent="Fences/ChainlinkGroup1" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -179.046, 0, 4.57764e-05)
+
+[node name="ChainlinkGroup2" type="Node3D" parent="Fences"]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, -13.8492, 0, -260.115)
+
+[node name="ChainlinkFencePost" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost2" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -17.0772, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost3" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -33.6732, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost4" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -50.7504, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost5" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost6" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost7" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost8" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost9" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost9" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost9" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost10" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost10" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost10" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost11" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost11" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost11" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost12" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost12" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost12" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost13" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost13" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost13" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost14" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost14" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost14" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost15" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost15" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost15" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost16" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost16" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost16" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost17" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -100.938, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost17" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost17" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost18" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -118.015, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup2/ChainlinkFencePost18" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup2/ChainlinkFencePost18" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost25" parent="Fences/ChainlinkGroup2" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -128.109, 0, -0.156006)
+
+[node name="ChainlinkGroup3" type="Node3D" parent="Fences"]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 288.529, 0, 273.815)
+
+[node name="ChainlinkFencePost" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost2" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -17.0772, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost3" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -33.6732, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost4" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -50.7504, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost5" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost6" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost7" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost8" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost9" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost9" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost9" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost10" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost10" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost10" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost11" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost11" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost11" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost12" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost12" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost12" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost13" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost13" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost13" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost14" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost14" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost14" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost15" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost15" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost15" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost16" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost16" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost16" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost17" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -100.938, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup3/ChainlinkFencePost17" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup3/ChainlinkFencePost17" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost18" parent="Fences/ChainlinkGroup3" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -118.015, 0, 0)
+
+[node name="ChainlinkGroup4" type="Node3D" parent="Fences"]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 288.529, 0, -267.039)
+
+[node name="ChainlinkFencePost" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost2" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -17.0772, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost3" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -33.6732, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost4" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -50.7504, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost5" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost6" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost7" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost8" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost9" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost9" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost9" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost10" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost10" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost10" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost11" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost11" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost11" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost12" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost12" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost12" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost13" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost13" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost13" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost14" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost14" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost14" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost15" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost15" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost15" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost16" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.408, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost16" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost16" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost17" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -100.938, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup4/ChainlinkFencePost17" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup4/ChainlinkFencePost17" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost18" parent="Fences/ChainlinkGroup4" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -118.015, 0, 0)
+
+[node name="ChainlinkGroup5" type="Node3D" parent="Fences"]
+transform = Transform3D(-0.66262, 0, -0.748956, 0, 1.5, 0, 0.748956, 0, -0.66262, 248.792, 0, 17.2876)
+
+[node name="ChainlinkFencePost" parent="Fences/ChainlinkGroup5" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup5/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup5/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost2" parent="Fences/ChainlinkGroup5" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -17.0772, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup5/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup5/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost3" parent="Fences/ChainlinkGroup5" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -33.6732, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup5/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup5/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost4" parent="Fences/ChainlinkGroup5" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -50.7504, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup5/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup5/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost5" parent="Fences/ChainlinkGroup5" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup5/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup5/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost6" parent="Fences/ChainlinkGroup5" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup5/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup5/ChainlinkFencePost6" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost7" parent="Fences/ChainlinkGroup5" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup5/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup5/ChainlinkFencePost7" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost8" parent="Fences/ChainlinkGroup5" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup5/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup5/ChainlinkFencePost8" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost18" parent="Fences/ChainlinkGroup5" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -84.3611, 0, 0.0136566)
+
+[node name="ChainlinkGroup6" type="Node3D" parent="Fences"]
+transform = Transform3D(-0.754709, 0, 0.656059, 0, 1.5, 0, -0.656059, 0, -0.754709, 248.792, 0, 17.2876)
+
+[node name="ChainlinkFencePost" parent="Fences/ChainlinkGroup6" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup6/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup6/ChainlinkFencePost" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost2" parent="Fences/ChainlinkGroup6" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -17.0772, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup6/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup6/ChainlinkFencePost2" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost3" parent="Fences/ChainlinkGroup6" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -33.6732, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup6/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup6/ChainlinkFencePost3" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost4" parent="Fences/ChainlinkGroup6" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -50.7504, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup6/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFence2" parent="Fences/ChainlinkGroup6/ChainlinkFencePost4" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -1.05633, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost5" parent="Fences/ChainlinkGroup6" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -67.3, 0, 0)
+
+[node name="ChainlinkFence" parent="Fences/ChainlinkGroup6/ChainlinkFencePost5" instance=ExtResource("43_nrtvx")]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -0.384881, -6.19888e-06, -0.0117022)
+
+[node name="ChainlinkFencePost18" parent="Fences/ChainlinkGroup6" instance=ExtResource("42_li6jv")]
+transform = Transform3D(12, 0, -3.33786e-06, 0, 12, 0, 3.33786e-06, 0, 12, -76.3494, 0, -0.168976)
 
 [node name="Decals" type="Node3D" parent="."]
 
@@ -5198,7 +6353,7 @@ size = Vector3(58.8432, 7.52437, 134.073)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="Shadow4" type="Decal" parent="Decals/ShippingCrateShadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48132, 0.0205793, 273.078)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.79236, 2.49183, 272.77)
 size = Vector3(117.393, 7.52437, 44.8293)
 texture_albedo = ExtResource("69_hvcqi")
 
@@ -5233,18 +6388,18 @@ size = Vector3(44.6202, 7.52437, 58.9917)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="Shadow11" type="Decal" parent="Decals/ShippingCrateShadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.1, -3.20497, -236.696)
-size = Vector3(114.751, 12.8957, 71.8645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.1, -3.20497, -238.741)
+size = Vector3(114.751, 12.8957, 67.7736)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="Shadow12" type="Decal" parent="Decals/ShippingCrateShadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -196.68, 0.0205793, -160.325)
-size = Vector3(35.6738, 7.52437, 71.3914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -196.904, 0.0205793, -169.654)
+size = Vector3(36.1221, 7.52437, 90.0495)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="Shadow13" type="Decal" parent="Decals/ShippingCrateShadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244.258, 0.0205793, -187.501)
-size = Vector3(35.9543, 7.52437, 70.8048)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244.258, 0.0205793, -196.994)
+size = Vector3(35.9543, 7.52437, 89.7911)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="Shadow14" type="Decal" parent="Decals/ShippingCrateShadows"]
@@ -5268,8 +6423,8 @@ size = Vector3(11.9302, 7.52437, 47.6551)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="Shadow18" type="Decal" parent="Decals/ShippingCrateShadows"]
-transform = Transform3D(0.177634, 0, 0.984097, 0, 1, 0, -0.984097, 0, 0.177634, -207.775, 0.0205793, -279.494)
-size = Vector3(41.3627, 7.52437, 44.8863)
+transform = Transform3D(0.177634, 0, 0.984097, 0, 1, 0, -0.984097, 0, 0.177634, -207.117, 0.0205793, -282.083)
+size = Vector3(36.0324, 7.52437, 45.2619)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="Shadow19" type="Decal" parent="Decals/ShippingCrateShadows"]
@@ -5333,8 +6488,8 @@ size = Vector3(23.5326, 7.52437, 178.832)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="Shadow31" type="Decal" parent="Decals/ShippingCrateShadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.889, 0.0205793, -243.915)
-size = Vector3(23.5326, 7.52437, 44.9482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.715, -0.269537, -244.033)
+size = Vector3(23.6383, 7.82578, 44.9482)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="Shadow32" type="Decal" parent="Decals/ShippingCrateShadows"]
@@ -5370,6 +6525,16 @@ texture_albedo = ExtResource("69_hvcqi")
 [node name="Shadow38" type="Decal" parent="Decals/ShippingCrateShadows"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.497, -45.5719, -147.482)
 size = Vector3(71.2336, 152.412, 60.3226)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow39" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(0.125281, 0, 0.992122, 0, 1, 0, -0.992122, 0, 0.125281, -190.503, 0.0205793, -266.579)
+size = Vector3(13.1995, 7.52437, 82.3575)
+texture_albedo = ExtResource("69_hvcqi")
+
+[node name="Shadow40" type="Decal" parent="Decals/ShippingCrateShadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220.306, 0.0205793, -191.719)
+size = Vector3(11.3201, 7.52437, 45.9204)
 texture_albedo = ExtResource("69_hvcqi")
 
 [node name="ObjectiveNodesCargoYard" type="Node3D" parent="."]
@@ -5626,55 +6791,306 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 132.334, 1.86816, 111.711)
 [node name="SewerMonster" parent="CargoYardLevelObjectives" index="8"]
 _objective_description = ""
 
-[node name="forklift" parent="." instance=ExtResource("68_jjvye")]
-transform = Transform3D(3.33981, 0, 2.20128, 0, 4, 0, -2.20128, 0, 3.33981, 133.947, 1.64514, -69.3158)
-
 [node name="GroundMarkings" type="Node3D" parent="."]
 
 [node name="WhiteLines" type="Node3D" parent="GroundMarkings"]
 
-[node name="WhiteLine" parent="GroundMarkings/WhiteLines" instance=ExtResource("69_0iedm")]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 540.56, 169.162, 1.715, 3.277)
+[node name="Group1" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.461, 0, 0)
 
-[node name="WhiteLine2" parent="GroundMarkings/WhiteLines" instance=ExtResource("69_0iedm")]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 178.5, 243.027, 1.715, 3.217)
+[node name="WhiteLine" parent="GroundMarkings/WhiteLines/Group1" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 540.56, -51.2993, 1.715, 3.277)
 
-[node name="WhiteLine3" parent="GroundMarkings/WhiteLines" instance=ExtResource("69_0iedm")]
-transform = Transform3D(-8.74228e-08, 0, 46, 0, 1, 0, -2, 0, -2.01072e-06, 265.927, 1.71543, 92.4897)
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group1" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 178.5, 22.5657, 1.715, 3.217)
 
-[node name="WhiteLine4" parent="GroundMarkings/WhiteLines" instance=ExtResource("69_0iedm")]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 181, 288.851, 1.715, 183.098)
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group1" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 46, 0, 1, 0, -2, 0, -2.01072e-06, 45.4657, 1.71543, 92.4897)
 
-[node name="WhiteLine5" parent="GroundMarkings/WhiteLines" instance=ExtResource("69_0iedm")]
-transform = Transform3D(-8.74228e-08, 0, 46, 0, 1, 0, -2, 0, -2.01072e-06, 265.927, 1.71543, -86.1796)
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group1" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 181, 68.3897, 1.715, 183.098)
 
-[node name="WhiteLine6" parent="GroundMarkings/WhiteLines" instance=ExtResource("69_0iedm")]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 181, 288.851, 1.715, -176.686)
+[node name="WhiteLine5" parent="GroundMarkings/WhiteLines/Group1" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 46, 0, 1, 0, -2, 0, -2.01072e-06, 45.4657, 1.71543, -86.1796)
 
-[node name="WhiteLine7" parent="GroundMarkings/WhiteLines" instance=ExtResource("69_0iedm")]
-transform = Transform3D(-8.74228e-08, 0, 119.68, 0, 1, 0, -2, 0, -5.23138e-06, 228.958, 1.715, 273.483)
+[node name="WhiteLine6" parent="GroundMarkings/WhiteLines/Group1" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 181, 68.3897, 1.715, -176.686)
 
-[node name="WhiteLine8" parent="GroundMarkings/WhiteLines" instance=ExtResource("69_0iedm")]
-transform = Transform3D(-8.74228e-08, 0, 119.68, 0, 1, 0, -2, 0, -5.23138e-06, 228.958, 1.715, -267.15)
+[node name="WhiteLine7" parent="GroundMarkings/WhiteLines/Group1" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 119.68, 0, 1, 0, -2, 0, -5.23138e-06, 8.4967, 1.715, 273.483)
 
-[node name="Right Arrows" type="Node3D" parent="GroundMarkings"]
+[node name="WhiteLine8" parent="GroundMarkings/WhiteLines/Group1" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 119.68, 0, 1, 0, -2, 0, -5.23138e-06, 8.4967, 1.715, -267.15)
 
-[node name="RightArrow" parent="GroundMarkings/Right Arrows" instance=ExtResource("70_sdmty")]
+[node name="Group2" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.745, 0, -37.18)
+
+[node name="WhiteLine1" parent="GroundMarkings/WhiteLines/Group2" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 132.82, 0, 1, 0, -2, 0, -5.80575e-06, 9.6968, 1.715, -87.0235)
+
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group2" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 132.82, 0, 1, 0, -2, 0, -5.80575e-06, 9.6968, 1.715, -267.15)
+
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group2" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 180, 75.968, 1.715, -176.966)
+
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group2" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 180, -56.519, 1.715, -176.966)
+
+[node name="Group3" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.6828, 0, 383.587)
+
+[node name="WhiteLine1" parent="GroundMarkings/WhiteLines/Group3" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 60.555, 0, 1, 0, -2, 0, -2.64694e-06, 45.813, 1.715, -87.023)
+
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group3" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 60.555, 0, 1, 0, -2, 0, -2.64694e-06, 45.825, 1.715, -267.15)
+
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group3" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 180, 75.968, 1.715, -176.966)
+
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group3" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 180, 15.731, 1.715, -176.966)
+
+[node name="Group4" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0934, 0, 383.587)
+
+[node name="WhiteLine1" parent="GroundMarkings/WhiteLines/Group4" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 119.37, 0, 1, 0, -2, 0, -5.21783e-06, 16.4, 1.715, -87.023)
+
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group4" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 119.29, 0, 1, 0, -2, 0, -5.21433e-06, 16.213, 1.715, -133.043)
+
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group4" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46.12, 75.968, 1.715, -110.151)
+
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group4" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46.12, -43.2995, 1.715, -110.151)
+
+[node name="Group5" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.147, 0, 383.587)
+
+[node name="WhiteLine1" parent="GroundMarkings/WhiteLines/Group5" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 119.37, 0, 1, 0, -2, 0, -5.21783e-06, 16.4, 1.715, -87.023)
+
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group5" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 119.29, 0, 1, 0, -2, 0, -5.21433e-06, 16.213, 1.715, -133.043)
+
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group5" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46.12, 75.968, 1.715, -110.151)
+
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group5" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46.12, -43.2995, 1.715, -110.151)
+
+[node name="Group6" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -362.265, 0, 218.004)
+
+[node name="WhiteLine1" parent="GroundMarkings/WhiteLines/Group6" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 119.37, 0, 1, 0, -2, 0, -5.21783e-06, 16.4, 1.715, -87.023)
+
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group6" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 119.29, 0, 1, 0, -2, 0, -5.21433e-06, 16.213, 1.715, -133.043)
+
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group6" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46.12, 75.968, 1.715, -110.151)
+
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group6" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46.12, -43.2995, 1.715, -110.151)
+
+[node name="Group7" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -383.055, 0, 90.9479)
+
+[node name="WhiteLine1" parent="GroundMarkings/WhiteLines/Group7" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 306, 0, 1, 0, -2, 0, -1.33757e-05, -76.894, 1.715, -87.023)
+
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group7" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 305.5, 0, 1, 0, -2, 0, -1.33538e-05, -76.873, 1.715, -133.043)
+
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group7" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46.12, 75.968, 1.715, -110.151)
+
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group7" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46.12, -229.726, 1.715, -110.151)
+
+[node name="Group8" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.947, 0, -64.747)
+
+[node name="WhiteLine1" parent="GroundMarkings/WhiteLines/Group8" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 47.605, 0, 1, 0, -2, 0, -2.08088e-06, -206.12, 1.715, -87.023)
+
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group8" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 245, 0, 1, 0, -2, 0, -1.07093e-05, -103.008, 1.715, -195.148)
+
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group8" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 90, -39.629, 1.715, -104.398)
+
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group8" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46.12, -229.726, 1.715, -110.151)
+
+[node name="WhiteLine5" parent="GroundMarkings/WhiteLines/Group8" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 27.5, -182.448, 1.715, -73.113)
+
+[node name="WhiteLine6" parent="GroundMarkings/WhiteLines/Group8" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 142.55, 0, 1, 0, -2, 0, -6.23106e-06, -111.085, 1.715, -59.602)
+
+[node name="WhiteLine7" parent="GroundMarkings/WhiteLines/Group8" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 59.25, 0, 1, 0, -2, 0, -2.5899e-06, -10.221, 1.715, -149.276)
+
+[node name="WhiteLine8" parent="GroundMarkings/WhiteLines/Group8" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 46, 19.389, 1.715, -172.08)
+
+[node name="Group9" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -286.141, 0, 165.111)
+
+[node name="WhiteLine1" parent="GroundMarkings/WhiteLines/Group9" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 72.5, -147.863, 1.715, -123.255)
+
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group9" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 224, 0, 1, 0, -2, 0, -9.79135e-06, -36.072, 1.715, -159.377)
+
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group9" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 72.5, 75.963, 1.715, -123.255)
+
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group9" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 224, 0, 1, 0, -2, 0, -9.79135e-06, -36.072, 1.715, -87.203)
+
+[node name="Group10" type="Node3D" parent="GroundMarkings/WhiteLines"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -146.309, 0, 76.184)
+
+[node name="WhiteLine1" parent="GroundMarkings/WhiteLines/Group10" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 36.825, -193.121, 1.715, -105.459)
+
+[node name="WhiteLine2" parent="GroundMarkings/WhiteLines/Group10" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 269.05, 0, 1, 0, -2, 0, -1.17605e-05, -58.498, 1.715, -123.734)
+
+[node name="WhiteLine3" parent="GroundMarkings/WhiteLines/Group10" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(2, 0, 0, 0, 2.025, 0, 0, 0, 36.825, 75.9473, 1.715, -105.459)
+
+[node name="WhiteLine4" parent="GroundMarkings/WhiteLines/Group10" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-8.74228e-08, 0, 269.05, 0, 1, 0, -2, 0, -1.17605e-05, -58.498, 1.715, -87.179)
+
+[node name="RightArrows" type="Node3D" parent="GroundMarkings"]
+
+[node name="RightArrow" parent="GroundMarkings/RightArrows" instance=ExtResource("70_sdmty")]
 transform = Transform3D(12.24, 0, 0, 0, 12.24, 0, 0, 0, 12.24, 150.946, 1.75, -286.138)
 
-[node name="RightArrow2" parent="GroundMarkings/Right Arrows" instance=ExtResource("70_sdmty")]
+[node name="RightArrow2" parent="GroundMarkings/RightArrows" instance=ExtResource("70_sdmty")]
 transform = Transform3D(-5.35027e-07, 0, -12.24, 0, 12.24, 0, 12.24, 0, -5.35027e-07, 297.405, 1.75, -286.138)
+
+[node name="LeftArrows" type="Node3D" parent="GroundMarkings"]
+
+[node name="LeftArrow" parent="GroundMarkings/LeftArrows" instance=ExtResource("71_m1yqu")]
+transform = Transform3D(-12.24, 0, -1.07005e-06, 0, 12.24, 0, 1.07005e-06, 0, -12.24, 150.946, 1.75, 289.164)
+
+[node name="LeftArrow2" parent="GroundMarkings/LeftArrows" instance=ExtResource("71_m1yqu")]
+transform = Transform3D(-5.35027e-07, 0, -12.24, 0, 12.24, 0, 12.24, 0, -5.35027e-07, 297.405, 1.75, 289.164)
+
+[node name="ForwardArrows" type="Node3D" parent="GroundMarkings"]
+
+[node name="ForwardArrow" parent="GroundMarkings/ForwardArrows" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(12.24, 0, 0, 0, 12.24, 0, 0, 0, 12.24, 297.405, 1.75, 98.7315)
+
+[node name="ForwardArrow2" parent="GroundMarkings/ForwardArrows" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(-12.24, 0, -1.07005e-06, 0, 12.24, 0, 1.07005e-06, 0, -12.24, 297.405, 1.75, -92.9515)
+
+[node name="ArrowLine" type="Node3D" parent="GroundMarkings/ForwardArrows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -281.939)
+
+[node name="ForwardArrow5" parent="GroundMarkings/ForwardArrows/ArrowLine" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(12.24, 0, 0, 0, 12.24, 0, 0, 0, 12.24, 105.933, 1.75, 80.4347)
+
+[node name="ForwardArrow6" parent="GroundMarkings/ForwardArrows/ArrowLine" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(-12.24, 0, -1.07005e-06, 0, 12.24, 0, 1.07005e-06, 0, -12.24, 105.933, 1.75, 266.339)
+
+[node name="ForwardArrow3" parent="GroundMarkings/ForwardArrows/ArrowLine" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(12.24, 0, 0, 0, 12.24, 0, 0, 0, 12.24, 105.933, 1.75, 362.374)
+
+[node name="ForwardArrow4" parent="GroundMarkings/ForwardArrows/ArrowLine" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(-12.24, 0, -1.07005e-06, 0, 12.24, 0, 1.07005e-06, 0, -12.24, 105.933, 1.75, 548.278)
+
+[node name="ArrowLine2" type="Node3D" parent="GroundMarkings/ForwardArrows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.777, 0, -281.939)
+
+[node name="ForwardArrow5" parent="GroundMarkings/ForwardArrows/ArrowLine2" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(12.24, 0, 0, 0, 12.24, 0, 0, 0, 12.24, 105.933, 1.75, 80.4347)
+
+[node name="ForwardArrow6" parent="GroundMarkings/ForwardArrows/ArrowLine2" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(-12.24, 0, -1.07005e-06, 0, 12.24, 0, 1.07005e-06, 0, -12.24, 105.933, 1.75, 266.339)
+
+[node name="ForwardArrow3" parent="GroundMarkings/ForwardArrows/ArrowLine2" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(12.24, 0, 0, 0, 12.24, 0, 0, 0, 12.24, 105.933, 1.75, 362.374)
+
+[node name="ForwardArrow4" parent="GroundMarkings/ForwardArrows/ArrowLine2" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(-12.24, 0, -1.07005e-06, 0, 12.24, 0, 1.07005e-06, 0, -12.24, 105.933, 1.75, 548.278)
+
+[node name="ArrowLine3" type="Node3D" parent="GroundMarkings/ForwardArrows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275.836, 0, -281.939)
+
+[node name="ForwardArrow5" parent="GroundMarkings/ForwardArrows/ArrowLine3" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(12.24, 0, 0, 0, 12.24, 0, 0, 0, 12.24, 105.933, 1.75, 80.4347)
+
+[node name="ForwardArrow6" parent="GroundMarkings/ForwardArrows/ArrowLine3" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(-12.24, 0, -1.07005e-06, 0, 12.24, 0, 1.07005e-06, 0, -12.24, 105.933, 1.75, 266.339)
+
+[node name="ForwardArrow3" parent="GroundMarkings/ForwardArrows/ArrowLine3" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(12.24, 0, 0, 0, 12.24, 0, 0, 0, 12.24, 105.933, 1.75, 362.374)
+
+[node name="ForwardArrow4" parent="GroundMarkings/ForwardArrows/ArrowLine3" instance=ExtResource("72_sbqwc")]
+transform = Transform3D(-12.24, 0, -1.07005e-06, 0, 12.24, 0, 1.07005e-06, 0, -12.24, 105.933, 1.75, 548.278)
+
+[node name="TurnAroundArrows" type="Node3D" parent="GroundMarkings"]
+
+[node name="TurnAroundArrow" parent="GroundMarkings/TurnAroundArrows" instance=ExtResource("77_8e3rw")]
+transform = Transform3D(-7.61958, 0, -9.57912, 0, 12.24, 0, 9.57912, 0, -7.61958, -192.096, 2, -226.417)
 
 [node name="TelephonePolesAndWires" type="Node3D" parent="."]
 
-[node name="TelephoneWire" parent="TelephonePolesAndWires" instance=ExtResource("72_cu7ju")]
-transform = Transform3D(0.23441, 0, 0.624072, 0, 0.3, 0, -0.187221, 0, 0.781366, 162.077, 40.4429, -290.467)
+[node name="TelphoneStuffGroup1" type="Node3D" parent="TelephonePolesAndWires"]
+transform = Transform3D(0.664735, 0, -0.747079, 0, 1, 0, 0.747079, 0, 0.664735, 130.298, 1.94977, -305.508)
 
-[node name="TelephoneWire2" parent="TelephonePolesAndWires" instance=ExtResource("72_cu7ju")]
-transform = Transform3D(0.296737, 0, 0.147085, 0, 0.3, 0, -0.0441253, 0, 0.989124, 169.592, 40.4429, -273.352)
+[node name="TelephonePole" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_l1j6o")]
+transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 0.0124359, -0.199027, 0.0428162)
 
-[node name="TelephonePole" parent="." instance=ExtResource("72_l1j6o")]
-transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 155.506, 1.64514, -298.419)
+[node name="TelephoneWire" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_cu7ju")]
+transform = Transform3D(-1.27938e-08, 0.0658262, 0.97563, 2.87735e-09, 0.292689, -0.21942, -0.3, 0, -4.37114e-08, 9.8835, 37.1858, 0.0316772)
+
+[node name="TelephoneWire2" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_cu7ju")]
+transform = Transform3D(-1.31134e-08, 0, 1, 0, 0.3, 0, -0.3, 0, -4.37114e-08, 29.0719, 35.1315, 0.0166016)
+
+[node name="TelephonePole2" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_l1j6o")]
+transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 58.1168, -0.199027, 0.0428162)
+
+[node name="TelephoneWire3" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_cu7ju")]
+transform = Transform3D(3.57746e-09, -0.0659539, -0.975534, 0, 0.29266, -0.219846, 0.3, 7.86492e-10, 1.16331e-08, 48.3262, 37.1858, 0.0316772)
+
+[node name="TelphoneStuffGroup2" type="Node3D" parent="TelephonePolesAndWires"]
+transform = Transform3D(0.0631738, 0, -0.998003, 0, 1, 0, 0.998003, 0, 0.0631738, -303.001, 1.94977, -303.111)
+
+[node name="TelephonePole" parent="TelephonePolesAndWires/TelphoneStuffGroup2" instance=ExtResource("72_l1j6o")]
+transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 0.0124359, -0.199027, 0.0428162)
+
+[node name="TelephoneWire" parent="TelephonePolesAndWires/TelphoneStuffGroup2" instance=ExtResource("72_cu7ju")]
+transform = Transform3D(0.011515, 0.294737, 0.182503, 0.0174418, 0.0540399, -0.981922, -0.299271, 0.0144901, -0.0502051, 2.02112, 28.4885, -0.466156)
+
+[node name="TelephoneWire2" parent="TelephonePolesAndWires/TelphoneStuffGroup2" instance=ExtResource("72_cu7ju")]
+transform = Transform3D(0.0146839, 0.291816, 0.226757, 0.018472, 0.0670975, -0.972721, -0.29907, 0.018472, -0.0489463, 6.04993, 9.56801, -1.40192)
+
+[node name="TelephonePole2" parent="TelephonePolesAndWires/TelphoneStuffGroup2" instance=ExtResource("72_l1j6o")]
+transform = Transform3D(0.420294, -0.140231, 0.0413874, 0.14621, 0.403327, -0.118214, -0.00025925, 0.12525, 0.42701, 58.1168, -0.199027, 0.0428162)
+
+[node name="TelephoneWire3" parent="TelephonePolesAndWires/TelphoneStuffGroup2" instance=ExtResource("72_cu7ju")]
+transform = Transform3D(-5.87478e-06, 0.00746128, -0.999689, -0.0004723, 0.299907, 0.0248709, 0.299999, 0.000472301, 1.94758e-05, 17.9811, 0.251871, -1.65198)
+
+[node name="Forklifts" type="Node3D" parent="."]
+
+[node name="forklift" parent="Forklifts" instance=ExtResource("68_jjvye")]
+transform = Transform3D(-2.85164, 0, 0.931731, 0, 3, 0, -0.931731, 0, -2.85164, 111.902, 1.64514, -77.8356)
+
+[node name="forklift2" parent="Forklifts" instance=ExtResource("68_jjvye")]
+transform = Transform3D(2.98619, 0, -0.287486, 0, 3, 0, 0.287486, 0, 2.98619, 254.85, 1.64514, -81.0311)
+
+[node name="forklift3" parent="Forklifts" instance=ExtResource("68_jjvye")]
+transform = Transform3D(2.98619, 0, -0.287486, 0, 3, 0, 0.287486, 0, 2.98619, -251.198, 1.64514, -247.569)
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/ConesSiloam/Area3D" to="ObjectiveNodesCargoYard/ConesSiloam" method="_on_area_3d_area_entered"]
@@ -5689,6 +7105,7 @@ transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 155.506, 1.64514,
 
 [editable path="CargoYardBase"]
 [editable path="ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen"]
 [editable path="ShippingCrates/Shipping Crates4/ShippingCrate1EndOpen"]
 [editable path="ShippingCrates/Shipping Crates6/ShippingCrate41"]
 [editable path="ShippingCrates/Shipping Crates6/ShippingCrate92"]
@@ -5709,6 +7126,14 @@ transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 155.506, 1.64514,
 [editable path="Barrels/BarrelGroup3/barrel9"]
 [editable path="Barrels/BarrelGroup3/barrel10"]
 [editable path="Barrels/BarrelGroup3/barrel11"]
+[editable path="Barrels/BarrelGroup4/barrel"]
+[editable path="Barrels/BarrelGroup4/barrel6"]
+[editable path="Barrels/BarrelGroup4/barrel11"]
+[editable path="Barrels/BarrelGroup4/barrel12"]
+[editable path="Barrels/BarrelGroup4/barrel13"]
+[editable path="Barrels/BarrelGroup4/barrel18"]
+[editable path="Barrels/BarrelGroup4/barrel23"]
+[editable path="Barrels/BarrelGroup4/barrel24"]
 [editable path="StreetLights/StreetLights1/StreetLight"]
 [editable path="ObjectiveNodesCargoYard/ODDCementPolePhotographable"]
 [editable path="ObjectiveNodesCargoYard/SeagullPhotographable"]

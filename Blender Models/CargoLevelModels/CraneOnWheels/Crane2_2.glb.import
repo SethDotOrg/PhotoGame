@@ -39,6 +39,24 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://Blender Models/CargoLevelModels/CraneOnWheels/CraneMaterials/Wheels.tres"
 }
+},
+"nodes": {
+"PATH:Cube": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Cube_001": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Cube_002": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Wheels": {
+"generate/physics": true,
+"physics/shape_type": 2
+}
 }
 }
 gltf/naming_version=1

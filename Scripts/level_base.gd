@@ -1,8 +1,10 @@
 extends Node3D
 
+@export var _seagull_animation_player: AnimationPlayer
 @export var _seagulls_animation_player: AnimationPlayer
 
 func _ready():
+	_seagull_animation_player.play("SeagullDive")
 	_seagulls_animation_player.play("Seagulls Flying")
 
 func get_objective_node():

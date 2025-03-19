@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpdcqcqxhq07l"]
+
+[ext_resource type="PackedScene" uid="uid://cpq6bfk25paq6" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate.glb" id="1_1flyu"]
+
+[node name="ShippingCrate" instance=ExtResource("1_1flyu")]

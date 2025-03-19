@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://1qbrpky4sa6s"]
+
+[ext_resource type="Texture2D" uid="uid://byxl3s0f7e2sj" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerPurpleShaded.png" id="1_w2at5"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_w2at5")
+texture_filter = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://dypfe3w45cfns"]
+[gd_scene load_steps=116 format=3 uid="uid://dypfe3w45cfns"]
 
 [ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_yns1f"]
 [ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="2_akalh"]
@@ -18,12 +18,17 @@
 [ext_resource type="PackedScene" uid="uid://bl5lktk7u4gqi" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate1EndOpen.glb" id="13_3vk75"]
 [ext_resource type="PackedScene" uid="uid://5hb27btt2hjw" path="res://Blender Models/CargoLevelModels/CraneNoWheels/Crane.glb" id="14_l4psf"]
 [ext_resource type="PackedScene" uid="uid://bnlpfm2ecj7ut" path="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneLedge.glb" id="15_tbkmi"]
-[ext_resource type="Material" uid="uid://dfeygaj1as0u7" path="res://Blender Models/CargoLevelModels/Shipping Crates/Material.tres" id="17_58ul0"]
+[ext_resource type="Material" uid="uid://dekb665ayobei" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerMaterialBlue.tres" id="15_wumhj"]
+[ext_resource type="Material" uid="uid://dhnd2joa8dxgs" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerMaterialRed.tres" id="16_08nvh"]
+[ext_resource type="Material" uid="uid://hob1dmamvwgw" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerMaterialOrange.tres" id="16_tive6"]
+[ext_resource type="Material" uid="uid://dfeygaj1as0u7" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerMaterialWhite.tres" id="17_58ul0"]
 [ext_resource type="PackedScene" uid="uid://dlpw2fnlp3aqs" path="res://Blender Models/CargoLevelModels/Sky/sky.glb" id="17_iayx8"]
 [ext_resource type="Script" path="res://Blender Models/CargoLevelModels/Sky/sky.gd" id="18_83fs5"]
 [ext_resource type="PackedScene" uid="uid://byshitbsiuqk5" path="res://Blender Models/CargoLevelModels/CraneNoWheels/CraneNoWheelsShaded.glb" id="18_cnadx"]
+[ext_resource type="Material" uid="uid://1qbrpky4sa6s" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerMaterialPurple.tres" id="18_d4uux"]
 [ext_resource type="Material" uid="uid://122f42jiv13a" path="res://Blender Models/CargoLevelModels/CraneOnWheels/CraneMaterials/Wheels.tres" id="18_rfvnh"]
 [ext_resource type="Texture2D" uid="uid://bxrjeuhc8oufc" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerWhiteShaded6.png" id="18_tfd2d"]
+[ext_resource type="Texture2D" uid="uid://byxl3s0f7e2sj" path="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerPurpleShaded.png" id="19_1nq6j"]
 [ext_resource type="PackedScene" uid="uid://dt16cfkgwdysk" path="res://Blender Models/CargoLevelModels/CementBarrier.glb" id="19_2canu"]
 [ext_resource type="PackedScene" uid="uid://1etcsseyybed" path="res://Blender Models/CargoLevelModels/HotDog/Hotdog.glb" id="19_a4kns"]
 [ext_resource type="PackedScene" uid="uid://cbnnktnukodf5" path="res://Blender Models/CargoLevelModels/CementPole.glb" id="20_yjj4n"]
@@ -114,13 +119,16 @@ shader_parameter/scroll_speed2 = Vector2(-0.04, -0.04)
 shader_parameter/blend_factor = 10.0
 shader_parameter/scale1 = Vector2(256, 256)
 shader_parameter/scale2 = Vector2(256, 256)
-shader_parameter/wave_strength = 0.25
+shader_parameter/wave_strength = 0.0
 shader_parameter/wave_scale = 0.02
 shader_parameter/pixelation_level = 512
-shader_parameter/FoamSize = 0.5
+shader_parameter/FoamSize = 0.0
 shader_parameter/WaterOpacity = 0.95
-shader_parameter/FoamGlowIntensity = 0.12
+shader_parameter/FoamGlowIntensity = 0.5
 shader_parameter/water_texture1 = ExtResource("6_ag68m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fa8p"]
+albedo_texture = ExtResource("19_1nq6j")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0t1yd"]
 transparency = 2
@@ -257,6 +265,34 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7mxyg")
 
+[sub_resource type="Animation" id="Animation_4y0u6"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_gyodg"]
+resource_name = "SeagullDive"
+length = 55.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SeagullHolder")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -130.568, 46.1152, 358.274, 1, 1, -70.6482, 1.29186, 323.679, 2, 1, -14.8633, -41.7603, 291.472, 2.7, 1, 20.2201, -63.1206, 271.216, 3.6, 1, 66.778, -67.1327, 244.336, 5, 1, 117.419, -42.1642, 215.098, 9, 1, 429.172, 64.2979, 35.1077, 14, 1, 812.671, 95.6668, -7.35001, 16.5, 1, 2393.32, 96.0526, 1752.4, 17.1, 1, -1892.71, 159.09, 1796.77, 46.6, 1, -976.77, 100.367, 1049.05)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SeagullHolder")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.965926, 0, -0.258819, 1, 1, 0.261445, 0.929871, -0.070054, -0.249158, 2, 1, 0.256722, 0.931186, -0.0687884, -0.249511, 2.7, 1, 0.114535, 0.959111, -0.0306894, -0.256994, 3.6, 1, -0.0936256, 0.961378, 0.0250868, -0.257601, 5, 1, -0.0910833, 0.961622, 0.0244056, -0.257667, 9, 1, -0.0838158, 0.962283, 0.0224583, -0.257844, 14, 1, -0.0747247, 0.963031, 0.0200223, -0.258045, 16.5, 1, -0.0701767, 0.963373, 0.0188036, -0.258137, 17.1, 1, -0.0701767, 0.963373, 0.0188036, -0.258137, 46.6, 1, -0.0337225, 0.965337, 0.00903583, -0.258663)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hocmm"]
+_data = {
+"RESET": SubResource("Animation_4y0u6"),
+"SeagullDive": SubResource("Animation_gyodg")
+}
+
 [sub_resource type="Animation" id="Animation_fsv8u"]
 resource_name = "RESET"
 tracks/0/type = "position_3d"
@@ -328,8 +364,9 @@ size = Vector3(15.4207, 4.50809, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ehmni"]
 size = Vector3(1.42786, 1, 1.6888)
 
-[node name="CargoLevel" type="Node3D" node_paths=PackedStringArray("_seagulls_animation_player")]
+[node name="CargoLevel" type="Node3D" node_paths=PackedStringArray("_seagull_animation_player", "_seagulls_animation_player")]
 script = ExtResource("1_yns1f")
+_seagull_animation_player = NodePath("Seagulls/SeagullAnimationPlayer")
 _seagulls_animation_player = NodePath("Seagulls/SeagullsAnimationPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -409,20 +446,35 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -81.7449, 1.6192, 3.18655)
 [node name="ShippingCrate" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.9326, 50.9357, 84.4177)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate" index="0"]
+material_override = ExtResource("15_wumhj")
+
 [node name="ShippingCrate2" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 1.72455, 84.4177)
 
 [node name="ShippingCrate3" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 1.72455, 84.4177)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate3" index="0"]
+material_override = ExtResource("16_tive6")
+
 [node name="ShippingCrate4" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 1.72455, 84.4177)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate4" index="0"]
+material_override = ExtResource("16_08nvh")
 
 [node name="ShippingCrate5" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 14.8319, 84.4177)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate5" index="0"]
+material_override = ExtResource("18_d4uux")
+
 [node name="ShippingCrate6" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 28.1289, 84.4177)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate6" index="0"]
+material_override = ExtResource("16_08nvh")
 
 [node name="ShippingCrate27" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 28.1445, 129.139)
@@ -430,11 +482,20 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.73
 [node name="ShippingCrate28" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 28.1445, 129.139)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate28" index="0"]
+material_override = SubResource("StandardMaterial3D_1fa8p")
+
 [node name="ShippingCrate29" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 28.1445, 129.139)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate29" index="0"]
+material_override = ExtResource("18_d4uux")
+
 [node name="ShippingCrate30" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 14.7728, 129.139)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate30" index="0"]
+material_override = ExtResource("15_wumhj")
 
 [node name="ShippingCrate31" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 14.7728, 129.139)
@@ -442,8 +503,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.67
 [node name="ShippingCrate32" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 14.7728, 129.139)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate32" index="0"]
+material_override = ExtResource("15_wumhj")
+
 [node name="ShippingCrate33" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 1.45729, 129.139)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate33" index="0"]
+material_override = ExtResource("16_08nvh")
 
 [node name="ShippingCrate34" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 1.45729, 129.139)
@@ -451,8 +518,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.67
 [node name="ShippingCrate35" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 1.45729, 129.139)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate35" index="0"]
+material_override = ExtResource("18_d4uux")
+
 [node name="ShippingCrate7" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 1.72455, -4.84681)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate7" index="0"]
+material_override = ExtResource("18_d4uux")
 
 [node name="ShippingCrate8" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 1.72455, -4.84681)
@@ -460,8 +533,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.65
 [node name="ShippingCrate9" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 1.72455, -4.84681)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate9" index="0"]
+material_override = ExtResource("16_08nvh")
+
 [node name="ShippingCrate36" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 1.45729, 39.8745)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate36" index="0"]
+material_override = ExtResource("18_d4uux")
 
 [node name="ShippingCrate37" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 1.45729, 39.8745)
@@ -469,14 +548,23 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.67
 [node name="ShippingCrate38" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 1.45729, 39.8745)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate38" index="0"]
+material_override = ExtResource("16_tive6")
+
 [node name="ShippingCrate10" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 2.02677, -94.4047)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate10" index="0"]
+material_override = ExtResource("15_wumhj")
 
 [node name="ShippingCrate11" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 2.02677, -94.4047)
 
 [node name="ShippingCrate12" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 2.02677, -94.4047)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate12" index="0"]
+material_override = ExtResource("17_58ul0")
 
 [node name="ShippingCrate39" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 1.75951, -49.6834)
@@ -487,8 +575,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.67
 [node name="ShippingCrate41" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 1.75951, -49.6834)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate41" index="0"]
+material_override = ExtResource("15_wumhj")
+
 [node name="ShippingCrate13" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 15.1057, -4.84681)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate13" index="0"]
+material_override = ExtResource("15_wumhj")
 
 [node name="ShippingCrate14" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 15.1057, -4.84681)
@@ -496,26 +590,50 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.65
 [node name="ShippingCrate15" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 15.1057, -4.84681)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate15" index="0"]
+material_override = ExtResource("16_tive6")
+
 [node name="ShippingCrate42" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 14.8385, 39.8745)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate42" index="0"]
+material_override = ExtResource("16_tive6")
 
 [node name="ShippingCrate43" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 14.8385, 39.8745)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate43" index="0"]
+material_override = ExtResource("16_08nvh")
+
 [node name="ShippingCrate44" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8926, 14.8385, 39.8745)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate44" index="0"]
+material_override = ExtResource("18_d4uux")
 
 [node name="ShippingCrate16" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 15.4079, -94.4047)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate16" index="0"]
+material_override = ExtResource("16_tive6")
+
 [node name="ShippingCrate17" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 15.4079, -94.4047)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate17" index="0"]
+material_override = ExtResource("18_d4uux")
 
 [node name="ShippingCrate18" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 15.4079, -94.4047)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate18" index="0"]
+material_override = ExtResource("16_tive6")
+
 [node name="ShippingCrate45" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7326, 15.1407, -49.6834)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate45" index="0"]
+material_override = ExtResource("16_08nvh")
 
 [node name="ShippingCrate46" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 15.1407, -49.6834)
@@ -526,20 +644,38 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.89
 [node name="ShippingCrate20" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 28.4173, -4.84681)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate20" index="0"]
+material_override = ExtResource("16_tive6")
+
 [node name="ShippingCrate21" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 28.4173, -4.84681)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate21" index="0"]
+material_override = ExtResource("16_tive6")
 
 [node name="ShippingCrate22" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.7097, 28.7196, -94.4047)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate22" index="0"]
+material_override = ExtResource("18_d4uux")
+
 [node name="ShippingCrate23" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6563, 28.7196, -94.4047)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate23" index="0"]
+material_override = ExtResource("15_wumhj")
 
 [node name="ShippingCrate24" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8695, 28.7196, -94.4047)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate24" index="0"]
+material_override = ExtResource("16_tive6")
+
 [node name="ShippingCrate52" parent="ShippingCrates/Shipping Crates1" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.6796, 28.4523, -49.6834)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates1/ShippingCrate52" index="0"]
+material_override = ExtResource("15_wumhj")
 
 [node name="Shipping Crates2" type="Node3D" parent="ShippingCrates"]
 
@@ -2153,6 +2289,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.6
 [node name="ShippingCrate3" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 1.83787, -5.80865)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate3" index="0"]
+surface_material_override/0 = ExtResource("16_tive6")
+
 [node name="ShippingCrate12" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 1.80192, -5.86145)
 
@@ -2174,8 +2313,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.93
 [node name="ShippingCrate37" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 28.5123, -5.80865)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate37" index="0"]
+material_override = ExtResource("15_wumhj")
+
 [node name="ShippingCrate38" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 28.4764, -5.86145)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate38" index="0"]
+material_override = ExtResource("18_d4uux")
 
 [node name="ShippingCrate39" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 28.4764, -5.86145)
@@ -2184,13 +2329,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.72
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 28.4764, -5.86145)
 
 [node name="ShippingCrate41" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 41.9151, -5.80865)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.2818, 40.9343, -5.80865)
 
 [node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate41" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.117996, 1.70897, 0.990723)
 
 [node name="ShippingCrate4" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 15.1632, -5.80865)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate4" index="0"]
+material_override = ExtResource("15_wumhj")
 
 [node name="ShippingCrate15" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -192.764, 1.80192, -5.86145)
@@ -2294,6 +2442,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.1
 [node name="ShippingCrate5" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 1.83787, -50.2544)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate5" index="0"]
+material_override = ExtResource("16_08nvh")
+
 [node name="ShippingCrate65" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 1.80192, -50.3072)
 
@@ -2363,11 +2514,20 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.93
 [node name="ShippingCrate84" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 28.4764, 38.5791)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate84" index="0"]
+material_override = ExtResource("16_tive6")
+
 [node name="ShippingCrate85" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 28.4764, 38.5791)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate85" index="0"]
+material_override = ExtResource("16_08nvh")
+
 [node name="ShippingCrate86" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 15.1632, 38.6319)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate86" index="0"]
+material_override = ExtResource("18_d4uux")
 
 [node name="ShippingCrate87" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.629, 28.5123, 38.7807)
@@ -2390,44 +2550,86 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.1
 [node name="ShippingCrate93" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 28.4764, 38.7279)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate93" index="0"]
+material_override = ExtResource("15_wumhj")
+
 [node name="ShippingCrate94" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 1.80192, 83.1578)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate94" index="0"]
+material_override = ExtResource("16_tive6")
 
 [node name="ShippingCrate95" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 1.80192, 83.1578)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate95" index="0"]
+material_override = ExtResource("16_08nvh")
+
 [node name="ShippingCrate96" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -145.108, 15.1937, 83.1578)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate96" index="0"]
+material_override = ExtResource("18_d4uux")
 
 [node name="ShippingCrate97" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -133.321, 15.1937, 83.1578)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate97" index="0"]
+material_override = ExtResource("18_d4uux")
+
 [node name="ShippingCrate98" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.629, 1.83787, 83.2213)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate98" index="0"]
+material_override = ExtResource("18_d4uux")
 
 [node name="ShippingCrate99" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.629, 15.1632, 83.2213)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate99" index="0"]
+material_override = ExtResource("16_tive6")
+
 [node name="ShippingCrate100" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74.246, 1.83787, 83.2213)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate100" index="0"]
+material_override = ExtResource("16_08nvh")
 
 [node name="ShippingCrate101" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 1.80192, 83.1685)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate101" index="0"]
+material_override = ExtResource("17_58ul0")
+
 [node name="ShippingCrate102" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 1.80192, 83.1685)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate102" index="0"]
+material_override = ExtResource("16_tive6")
 
 [node name="ShippingCrate103" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 1.80192, 83.1685)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate103" index="0"]
+material_override = ExtResource("18_d4uux")
+
 [node name="ShippingCrate104" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -109.778, 15.1937, 83.1685)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate104" index="0"]
+material_override = ExtResource("15_wumhj")
 
 [node name="ShippingCrate105" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 15.1937, 83.1685)
 
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate105" index="0"]
+material_override = ExtResource("15_wumhj")
+
 [node name="ShippingCrate106" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -85.938, 15.1937, 83.1685)
+
+[node name="Cube" parent="ShippingCrates/Shipping Crates6/ShippingCrate106" index="0"]
+material_override = ExtResource("16_08nvh")
 
 [node name="ShippingCrate107" parent="ShippingCrates/Shipping Crates6" instance=ExtResource("11_dt74d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -97.725, 28.4764, 83.1685)
@@ -4708,11 +4910,20 @@ texture = ExtResource("23_g8j8e")
 [node name="Seagulls" type="Node3D" parent="."]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 88.6711, 0)
 
-[node name="seagull6" parent="Seagulls" instance=ExtResource("22_e048c")]
-transform = Transform3D(-0.00655222, 0.00487685, -1.99998, 1.19413, 1.60439, 0, 1.60437, -1.19412, -0.00816792, -14.92, -42.3048, -18.5228)
+[node name="SeagullHolder" type="Node3D" parent="Seagulls"]
+transform = Transform3D(-0.866028, 0, -0.500001, 0, 1, 0, 0.500002, 0, -0.866027, -130.568, 46.1152, 358.274)
+
+[node name="seagull6" parent="Seagulls/SeagullHolder" instance=ExtResource("22_e048c")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="SeagullAnimationPlayer" type="AnimationPlayer" parent="Seagulls"]
+libraries = {
+"": SubResource("AnimationLibrary_hocmm")
+}
+speed_scale = 0.8
 
 [node name="Group1" type="Node3D" parent="Seagulls"]
-transform = Transform3D(0.999917, 0, -0.0131339, 0, 1, 0, 0.0131339, 0, 0.999917, 0, 0, 0)
+transform = Transform3D(0.999917, 0, -0.013134, 0, 1, 0, 0.013134, 0, 0.999917, 0, 0, 0)
 
 [node name="seagull" parent="Seagulls/Group1" instance=ExtResource("22_e048c")]
 transform = Transform3D(2, 0, 5.96046e-08, 0, 2, 0, -5.96046e-08, 0, 2, 0, 9.02932, 0)
@@ -7104,11 +7315,885 @@ transform = Transform3D(2.98619, 0, -0.287486, 0, 3, 0, 0.287486, 0, 2.98619, -2
 [connection signal="area_exited" from="ObjectiveNodesCargoYard/CraneSitArea" to="ObjectiveNodesCargoYard/CraneSitArea" method="_on_area_exited"]
 
 [editable path="CargoYardBase"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate2"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate3"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate4"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate5"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate6"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate27"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate28"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate29"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate30"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate31"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate32"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate33"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate34"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate35"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate7"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate8"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate9"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate36"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate37"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate38"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate10"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate11"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate12"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate39"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate40"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate41"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate13"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate14"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate15"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate42"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate43"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate44"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate16"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate17"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate18"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate45"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate46"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate47"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate20"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate21"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate22"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate23"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate24"]
+[editable path="ShippingCrates/Shipping Crates1/ShippingCrate52"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate2"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate3"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate4"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate5"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate6"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate7"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate8"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate9"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate10"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate11"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate12"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate13"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate14"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate15"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate16"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate17"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate19"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate20"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate21"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate22"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate23"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate24"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate25"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate26"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate27"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate28"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate29"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate30"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate31"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate32"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate33"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate34"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate35"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate40"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate41"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate42"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate43"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate44"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate45"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate46"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate48"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate49"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate50"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate51"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate52"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate53"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate36"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate37"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate38"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate39"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate47"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate54"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate55"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate56"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate57"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate58"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate59"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate60"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate61"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate62"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate63"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate67"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate68"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate69"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate70"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate71"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate72"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate73"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate74"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate75"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate76"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate77"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate78"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate79"]
+[editable path="ShippingCrates/Shipping Crates2/ShippingCrate80"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate2"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate3"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate4"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate5"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate6"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate7"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate8"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate10"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate11"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate12"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate13"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate14"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate15"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate16"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate17"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate18"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate19"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate20"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate21"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate22"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate24"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate25"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate26"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate28"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate29"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate30"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate32"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate33"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate34"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate35"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate36"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate37"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate38"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate39"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate40"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate41"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate42"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate43"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate44"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate45"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate46"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate47"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate48"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate49"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate50"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate51"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate52"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate53"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate55"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate56"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate57"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate54"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate58"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate59"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate60"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate61"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate62"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate63"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate64"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate65"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate66"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate67"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate68"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate69"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate70"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate71"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate72"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate73"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate74"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate75"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate76"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate77"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate78"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate79"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate80"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate81"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate82"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate84"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate85"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate86"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate87"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate88"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate89"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate90"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate91"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate92"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate93"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate94"]
 [editable path="ShippingCrates/Shipping Crates3/ShippingCrate2EndsOpen"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate95"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate96"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate9"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate23"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate27"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate31"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate83"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate97"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate99"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate100"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate98"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate101"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate102"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate103"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate104"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate105"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate106"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate107"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate108"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate109"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate110"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate111"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate112"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate113"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate114"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate115"]
+[editable path="ShippingCrates/Shipping Crates3/ShippingCrate116"]
 [editable path="ShippingCrates/Shipping Crates3/ShippingCrate1EndOpen"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate6"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate7"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate8"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate12"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate13"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate14"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate16"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate17"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate19"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate20"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate21"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate53"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate27"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate28"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate42"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate43"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate52"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate66"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate67"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate70"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate79"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate84"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate85"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate88"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate92"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate93"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate94"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate97"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate101"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate102"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate103"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate106"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate108"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate109"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate110"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate111"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate112"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate115"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate119"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate120"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate121"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate124"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate126"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate127"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate128"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate129"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate130"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate133"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate137"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate138"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate139"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate142"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate144"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate145"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate146"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate147"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate148"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate155"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate156"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate157"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate162"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate163"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate164"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate165"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate166"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate173"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate174"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate175"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate180"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate181"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate182"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate183"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate184"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate191"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate192"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate193"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate198"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate199"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate200"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate201"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate202"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate203"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate204"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate205"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate206"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate207"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate208"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate209"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate210"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate211"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate212"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate213"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate214"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate215"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate216"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate217"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate218"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate219"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate220"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate221"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate224"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate227"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate228"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate229"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate231"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate232"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate233"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate234"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate235"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate236"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate237"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate238"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate239"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate240"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate241"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate222"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate223"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate225"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate226"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate230"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate242"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate243"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate244"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate245"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate246"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate247"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate248"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate249"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate250"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate251"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate252"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate253"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate255"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate256"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate262"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate263"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate265"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate266"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate275"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate276"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate283"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate284"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate95"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate96"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate98"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate104"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate113"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate114"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate99"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate100"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate105"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate107"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate116"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate117"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate122"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate125"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate131"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate134"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate140"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate141"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate149"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate150"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate152"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate158"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate159"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate160"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate161"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate168"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate170"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate172"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate176"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate177"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate185"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate187"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate188"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate257"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate264"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate267"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate273"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate274"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate277"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate9"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate22"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate270"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate278"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate259"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate279"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate285"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate286"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate254"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate258"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate260"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate261"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate268"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate269"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate271"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate272"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate280"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate281"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate287"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate288"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate289"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate290"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate291"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate292"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate293"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate294"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate295"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate296"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate297"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate123"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate135"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate167"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate171"]
 [editable path="ShippingCrates/Shipping Crates4/ShippingCrate1EndOpen"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate282"]
+[editable path="ShippingCrates/Shipping Crates4/ShippingCrate298"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate9"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate10"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate11"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate23"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate24"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate25"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate26"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate27"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate28"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate29"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate30"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate31"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate32"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate33"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate2"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate3"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate12"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate13"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate14"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate34"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate35"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate36"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate38"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate39"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate40"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate42"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate4"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate5"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate15"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate37"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate41"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate43"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate44"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate6"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate16"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate46"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate47"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate48"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate7"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate17"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate45"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate8"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate19"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate49"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate50"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate51"]
+[editable path="ShippingCrates/Shipping Crates5/ShippingCrate52"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate9"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate10"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate11"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate23"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate24"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate25"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate26"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate27"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate28"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate29"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate31"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate32"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate2"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate3"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate12"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate13"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate14"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate34"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate35"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate36"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate37"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate38"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate39"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate40"]
 [editable path="ShippingCrates/Shipping Crates6/ShippingCrate41"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate4"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate15"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate16"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate17"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate45"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate46"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate47"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate48"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate49"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate50"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate51"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate52"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate53"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate18"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate19"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate20"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate54"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate55"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate56"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate57"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate58"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate59"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate60"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate21"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate22"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate30"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate33"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate42"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate43"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate44"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate61"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate62"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate63"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate64"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate5"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate65"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate66"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate67"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate68"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate6"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate69"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate70"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate71"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate72"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate73"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate74"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate75"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate76"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate7"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate8"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate77"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate78"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate79"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate80"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate81"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate82"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate83"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate84"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate85"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate86"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate87"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate88"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate89"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate90"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate91"]
 [editable path="ShippingCrates/Shipping Crates6/ShippingCrate92"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate93"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate94"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate95"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate96"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate97"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate98"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate99"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate100"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate101"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate102"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate103"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate104"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate105"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate106"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate107"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate108"]
+[editable path="ShippingCrates/Shipping Crates6/ShippingCrate109"]
+[editable path="ShippingCrates/Shipping Crates7/ShippingCrate"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate200"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate201"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate202"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate203"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate204"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate205"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate206"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate207"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate208"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate209"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate210"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate211"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate212"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate213"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate214"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate215"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate216"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate217"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate227"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate228"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate229"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate239"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate240"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate241"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate243"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate244"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate245"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate251"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate252"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate253"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate218"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate219"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate220"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate221"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate222"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate223"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate224"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate225"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate226"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate230"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate231"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate232"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate233"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate234"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate235"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate236"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate237"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate238"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate242"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate246"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate247"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate248"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate249"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate250"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate254"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate255"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate256"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate257"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate258"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate259"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate260"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate261"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate262"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate263"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate264"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate265"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate266"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate267"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate268"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate269"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate270"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate271"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate272"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate273"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate274"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate275"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate276"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate277"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate278"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate279"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate280"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate281"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate282"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate283"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate284"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate285"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate286"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate287"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate288"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate289"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate290"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate291"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate292"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate293"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate294"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate295"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate296"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate297"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate298"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate299"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate300"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate301"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate302"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate303"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate307"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate309"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate304"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate305"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate306"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate308"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate310"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate311"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate312"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate313"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate314"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate315"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate316"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate317"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate318"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate319"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate320"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate321"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate322"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate323"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate324"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate325"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate326"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate327"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate328"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate329"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate330"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate331"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate332"]
+[editable path="ShippingCrates/Shipping Crates8/ShippingCrate333"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate12"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate13"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate14"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate34"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate35"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate36"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate38"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate39"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate40"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate15"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate37"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate41"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate16"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate42"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate43"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate17"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate18"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate19"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate44"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate45"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate46"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate47"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate48"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate49"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate20"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate50"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate51"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate21"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate52"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate53"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate22"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate23"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate24"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate54"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate55"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate56"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate57"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate58"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate59"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate25"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate60"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate61"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate26"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate62"]
+[editable path="ShippingCrates/Shipping Crates9/ShippingCrate63"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate261"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate263"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate264"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate266"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate267"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate268"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate269"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate270"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate271"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate272"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate273"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate274"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate275"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate279"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate280"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate286"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate305"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate310"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate311"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate277"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate265"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate278"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate281"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate282"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate283"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate284"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate285"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate287"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate289"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate290"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate291"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate292"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate293"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate294"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate295"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate296"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate297"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate298"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate307"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate312"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate313"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate300"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate301"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate302"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate303"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate304"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate309"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate314"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate315"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate316"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate317"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate318"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate319"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate320"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate321"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate322"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate324"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate325"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate326"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate327"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate328"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate329"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate330"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate331"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate332"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate333"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate334"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate335"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate336"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate337"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate262"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate276"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate288"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate299"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate306"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate308"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate323"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate338"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate339"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate340"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate341"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate342"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate343"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate344"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate345"]
+[editable path="ShippingCrates/Shipping Crates10/ShippingCrate346"]
 [editable path="Cranes/Big Cranes/Crane1"]
 [editable path="Cranes/Big Cranes/Crane2"]
 [editable path="Cranes/Big Cranes/Crane3"]

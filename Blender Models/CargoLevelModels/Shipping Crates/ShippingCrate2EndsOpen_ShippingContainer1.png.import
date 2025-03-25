@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://co1eh6xgg3o4l"
-path.s3tc="res://.godot/imported/ShippingCrate2EndsOpen_ShippingContainer1.png-b4640dae598995db6aebb1596974f23e.s3tc.ctex"
+path="res://.godot/imported/ShippingCrate2EndsOpen_ShippingContainer1.png-b4640dae598995db6aebb1596974f23e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingCrate2EndsOpen_ShippingContainer1.png"
-dest_files=["res://.godot/imported/ShippingCrate2EndsOpen_ShippingContainer1.png-b4640dae598995db6aebb1596974f23e.s3tc.ctex"]
+dest_files=["res://.godot/imported/ShippingCrate2EndsOpen_ShippingContainer1.png-b4640dae598995db6aebb1596974f23e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

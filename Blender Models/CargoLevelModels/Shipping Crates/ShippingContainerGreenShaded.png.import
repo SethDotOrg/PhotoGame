@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cox5vuoln4fb8"
-path="res://.godot/imported/ShippingContainerOrangeShaded.png-45277d3bf76e045398f86cfaf90bf44c.ctex"
+uid="uid://m0vqtx1ubbtc"
+path="res://.godot/imported/ShippingContainerGreenShaded.png-80d3f01e2d1d8ff89c3db96447cfc506.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerOrangeShaded.png"
-dest_files=["res://.godot/imported/ShippingContainerOrangeShaded.png-45277d3bf76e045398f86cfaf90bf44c.ctex"]
+source_file="res://Blender Models/CargoLevelModels/Shipping Crates/ShippingContainerGreenShaded.png"
+dest_files=["res://.godot/imported/ShippingContainerGreenShaded.png-80d3f01e2d1d8ff89c3db96447cfc506.ctex"]
 
 [params]
 

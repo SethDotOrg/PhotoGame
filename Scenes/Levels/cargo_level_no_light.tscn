@@ -5668,13 +5668,19 @@ transform = Transform3D(-0.559093, 0, -0.514797, 0, 0.76, 0, 0.514797, 0, -0.559
 transform = Transform3D(-1.50022, 0, 1.32262, 0, 2, 0, -1.32262, 0, -1.50022, 306.176, -18.359, 13.18)
 
 [node name="CraneLedge" parent="Cranes/Small Cranes/BigSmallCrane" instance=ExtResource("15_tbkmi")]
-transform = Transform3D(0.743518, 0, -0.668715, 0, 1, 0, 0.668715, 0, 0.743518, 264.248, 44.3661, 6.39026)
+transform = Transform3D(1.03349, 0, -2.05296, 0, 1.145, 0, 0.929514, 0, 2.2826, 263.081, 44.3661, -0.352933)
 
 [node name="CraneLedge2" parent="Cranes/Small Cranes/BigSmallCrane" instance=ExtResource("15_tbkmi")]
-transform = Transform3D(-0.64635, 0, -0.763041, 0, 1, 0, 0.763041, 0, -0.64635, 279.799, 72.4743, 23.9956)
+transform = Transform3D(-0.64635, 0, -1.72447, 0, 1, 0, 0.763041, 0, -1.46075, 278.762, 72.4743, 23.1168)
 
 [node name="CraneLedge3" parent="Cranes/Small Cranes/BigSmallCrane" instance=ExtResource("15_tbkmi")]
-transform = Transform3D(0.738973, 0, -0.673735, 0, 1, 0, 0.673735, 0, 0.738973, 302.595, 94.9558, 40.0243)
+transform = Transform3D(0.738973, 0, -2.04142, 0, 1, 0, 0.673735, 0, 2.23909, 308.417, 84.3819, 44.167)
+
+[node name="CraneLedge4" parent="Cranes/Small Cranes/BigSmallCrane" instance=ExtResource("15_tbkmi")]
+transform = Transform3D(0.738973, 0, -2.04142, 0, 1, 0, 0.673735, 0, 2.23909, 337.237, 84.3819, 13.8886)
+
+[node name="CraneLedge5" parent="Cranes/Small Cranes/BigSmallCrane" instance=ExtResource("15_tbkmi")]
+transform = Transform3D(0.738973, 0, -2.04142, 0, 1, 0, 0.673735, 0, 2.23909, 342.501, 99.281, 8.11481)
 
 [node name="Big Cranes" type="Node3D" parent="Cranes"]
 
@@ -6776,7 +6782,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -608.33, 0, 0)
 transform = Transform3D(12.405, 0, 0, 0, 12.405, 0, 0, 0, 12.405, 262.545, 1.64514, 13.0947)
 
 [node name="BarrelGroup1" type="Node3D" parent="Barrels"]
-transform = Transform3D(-0.787097, 0, 0.61683, 0, 1, 0, -0.61683, 0, -0.787097, -0.466789, -1.49012e-07, 1.4074)
+transform = Transform3D(-0.787097, 0, 0.61683, 0, 1, 0, -0.61683, 0, -0.787097, 0.388136, -1.49012e-07, 1.00815)
 
 [node name="barrel" parent="Barrels/BarrelGroup1" instance=ExtResource("24_dg6fr")]
 

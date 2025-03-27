@@ -13,15 +13,19 @@ extends State
 @export var stairs_state: State
 @export var _camera_run_state: State
 
+@export var _wind_audio_player: AudioStreamPlayer
+
 func enter() -> void:
 	super()
 	parent._camera_controller.run_fov()
 	number_of_wall_jumps = 0
 	tried_mantle = false
+	_wind_audio_player.play()
 
 func exit() -> void:
 	super()
 	parent._camera_controller.reset_fov()
+	_wind_audio_player.stop()
 
 func process_input(event: InputEvent) -> State:
 	super(event)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=121 format=3 uid="uid://dypfe3w45cfns"]
+[gd_scene load_steps=125 format=3 uid="uid://dypfe3w45cfns"]
 
-[ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_yns1f"]
-[ext_resource type="AudioStream" uid="uid://dmabgja7if7eb" path="res://Music/Flowsate.mp3" id="2_akalh"]
+[ext_resource type="Script" path="res://Scripts/level_cargoyard.gd" id="1_lt5k1"]
+[ext_resource type="AudioStream" uid="uid://defn4l07rcrqq" path="res://Music/HighWalkingParks.mp3" id="2_swqnn"]
 [ext_resource type="Environment" uid="uid://p8q12f1chlum" path="res://Materials/Environments/daytime_no_lights.tres" id="3_dyf8h"]
 [ext_resource type="PackedScene" uid="uid://c037cxxtdf3ec" path="res://Blender Models/CargoLevelModels/CargoYardBase.glb" id="4_jxnhw"]
 [ext_resource type="Texture2D" uid="uid://dys3k3s1flelh" path="res://TexturePNG's/Seamless/CementBase3_2Seamless.jpg" id="5_74kqm"]
@@ -84,6 +84,7 @@
 [ext_resource type="PackedScene" uid="uid://gupa2tafq7nf" path="res://Blender Models/CargoLevelModels/TelephonePoleStuff/TelephonePole.glb" id="72_l1j6o"]
 [ext_resource type="PackedScene" uid="uid://drk5ncft2w2wy" path="res://Blender Models/CargoLevelModels/GroundMarkings/ForwardArrow.glb" id="72_sbqwc"]
 [ext_resource type="PackedScene" uid="uid://d1rxwhjgodyv8" path="res://Blender Models/CargoLevelModels/GroundMarkings/WhiteLine.glb" id="77_8e3rw"]
+[ext_resource type="AudioStream" uid="uid://buxel2c714e25" path="res://Sounds/Water/Water.mp3" id="85_ual3a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3aqie"]
 albedo_texture = ExtResource("5_74kqm")
@@ -379,14 +380,43 @@ size = Vector3(15.4207, 4.50809, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ehmni"]
 size = Vector3(1.42786, 1, 1.6888)
 
-[node name="CargoLevel" type="Node3D" node_paths=PackedStringArray("_seagull_animation_player", "_seagulls_animation_player")]
-script = ExtResource("1_yns1f")
+[sub_resource type="Animation" id="Animation_eko3r"]
+resource_name = "TelephoneWireSway"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0.099615, 0, 0, 0.995026, 1, 1, 0.167319, 0, 3.77856e-09, 0.985903, 1.5, 1, 0.167319, 0, 3.77856e-09, 0.985903, 2, 1, 0.099615, 0, 0, 0.995026, 2.5, 1, 0, 0, 0, 1, 3, 1, -0.0993197, 0, 0, 0.995056, 3.5, 1, -0.167629, 0, 0, 0.98585, 4, 1, -0.167629, 0, 0, 0.98585, 4.5, 1, -0.0993197, 0, 0, 0.995056)
+
+[sub_resource type="Animation" id="Animation_iqyye"]
+resource_name = "RESET"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26n6e"]
+_data = {
+"RESET": SubResource("Animation_iqyye"),
+"TelephoneWireSway": SubResource("Animation_eko3r")
+}
+
+[node name="CargoLevel" type="Node3D" node_paths=PackedStringArray("_seagull_animation_player", "_seagulls_animation_player", "_telephone_wire_animation_player")]
+script = ExtResource("1_lt5k1")
 _seagull_animation_player = NodePath("Seagulls/SeagullAnimationPlayer")
 _seagulls_animation_player = NodePath("Seagulls/SeagullsAnimationPlayer")
+_telephone_wire_animation_player = NodePath("TelephonePolesAndWires/TelphoneStuffGroup1/TelephoneWireAnimationPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("2_akalh")
+stream = ExtResource("2_swqnn")
 autoplay = true
 bus = &"Music"
 
@@ -7134,7 +7164,7 @@ libraries = {
 speed_scale = 0.8
 
 [node name="Group1" type="Node3D" parent="Seagulls"]
-transform = Transform3D(0.999917, 0, -0.013134, 0, 1, 0, 0.013134, 0, 0.999917, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="seagull" parent="Seagulls/Group1" instance=ExtResource("22_e048c")]
 transform = Transform3D(2, 0, 5.96046e-08, 0, 2, 0, -5.96046e-08, 0, 2, 0, 9.02932, 0)
@@ -9514,17 +9544,26 @@ transform = Transform3D(0.664735, 0, -0.747079, 0, 1, 0, 0.747079, 0, 0.664735, 
 [node name="TelephonePole" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_l1j6o")]
 transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 0.0124359, -0.199027, 0.0428162)
 
-[node name="TelephoneWire" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_cu7ju")]
-transform = Transform3D(-1.27938e-08, 0.0658262, 0.97563, 2.87735e-09, 0.292689, -0.21942, -0.3, 0, -4.37114e-08, 9.8835, 37.1858, 0.0316772)
-
-[node name="TelephoneWire2" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_cu7ju")]
-transform = Transform3D(-1.31134e-08, 0, 1, 0, 0.3, 0, -0.3, 0, -4.37114e-08, 29.0719, 35.1315, 0.0166016)
-
 [node name="TelephonePole2" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_l1j6o")]
-transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 58.1168, -0.199027, 0.0428162)
+transform = Transform3D(0.445, 0, 0, 0, 0.445, 0, 0, 0, 0.445, 58.1168, -0.199026, 0.0427856)
 
-[node name="TelephoneWire3" parent="TelephonePolesAndWires/TelphoneStuffGroup1" instance=ExtResource("72_cu7ju")]
-transform = Transform3D(3.57746e-09, -0.0659539, -0.975534, 0, 0.29266, -0.219846, 0.3, 7.86492e-10, 1.16331e-08, 48.3262, 37.1858, 0.0316772)
+[node name="Wire" type="Node3D" parent="TelephonePolesAndWires/TelphoneStuffGroup1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.0608, 0)
+
+[node name="TelephoneWire" parent="TelephonePolesAndWires/TelphoneStuffGroup1/Wire" instance=ExtResource("72_cu7ju")]
+transform = Transform3D(-1.49012e-08, 0.0658262, 0.97563, 2.87735e-09, 0.292689, -0.21942, -0.3, 0, -2.98023e-08, 9.88351, -1.875, 0.0316772)
+
+[node name="TelephoneWire2" parent="TelephonePolesAndWires/TelphoneStuffGroup1/Wire" instance=ExtResource("72_cu7ju")]
+transform = Transform3D(-1.49012e-08, 0, 1, 0, 0.3, 0, -0.3, 0, -2.98023e-08, 29.0719, -3.9293, 0.0166016)
+
+[node name="TelephoneWire3" parent="TelephonePolesAndWires/TelphoneStuffGroup1/Wire" instance=ExtResource("72_cu7ju")]
+transform = Transform3D(-1.49012e-08, -0.0659539, -0.975534, 0, 0.29266, -0.219846, 0.3, 0, 0, 48.3262, -1.875, 0.0316772)
+
+[node name="TelephoneWireAnimationPlayer" type="AnimationPlayer" parent="TelephonePolesAndWires/TelphoneStuffGroup1"]
+root_node = NodePath("../Wire")
+libraries = {
+"": SubResource("AnimationLibrary_26n6e")
+}
 
 [node name="TelphoneStuffGroup2" type="Node3D" parent="TelephonePolesAndWires"]
 transform = Transform3D(0.0631738, 0, -0.998003, 0, 1, 0, 0.998003, 0, 0.0631738, -303.001, 1.94977, -303.111)
@@ -9554,6 +9593,43 @@ transform = Transform3D(2.98619, 0, -0.287486, 0, 3, 0, 0.287486, 0, 2.98619, 25
 
 [node name="forklift3" parent="Forklifts" instance=ExtResource("68_jjvye")]
 transform = Transform3D(2.98619, 0, -0.287486, 0, 3, 0, 0.287486, 0, 2.98619, -251.198, 1.64514, -247.569)
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="Water" type="Node3D" parent="Sounds"]
+
+[node name="Water1" type="AudioStreamPlayer3D" parent="Sounds/Water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -314.648)
+stream = ExtResource("85_ual3a")
+volume_db = -6.0
+unit_size = 25.54
+autoplay = true
+bus = &"Environment"
+emission_angle_enabled = true
+
+[node name="Water2" type="AudioStreamPlayer3D" parent="Sounds/Water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -314.648, 0, 0)
+stream = ExtResource("85_ual3a")
+volume_db = -6.0
+unit_size = 25.54
+autoplay = true
+bus = &"Environment"
+
+[node name="Water3" type="AudioStreamPlayer3D" parent="Sounds/Water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 314.648)
+stream = ExtResource("85_ual3a")
+volume_db = -6.0
+unit_size = 25.54
+autoplay = true
+bus = &"Environment"
+
+[node name="Water4" type="AudioStreamPlayer3D" parent="Sounds/Water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 314.648, 0, 0)
+stream = ExtResource("85_ual3a")
+volume_db = -6.0
+unit_size = 25.54
+autoplay = true
+bus = &"Environment"
 
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/SecretCrane/SecretCraneArea3D" to="ObjectiveNodesCargoYard" method="_on_secret_crane_area_3d_area_entered"]
 [connection signal="area_entered" from="ObjectiveNodesCargoYard/ConesSiloam/Area3D" to="ObjectiveNodesCargoYard/ConesSiloam" method="_on_area_3d_area_entered"]

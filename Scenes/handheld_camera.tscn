@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyxhupj0f2jhb"]
+[gd_scene load_steps=5 format=3 uid="uid://dyxhupj0f2jhb"]
 
 [ext_resource type="Script" path="res://Scripts/HandheldCamera.gd" id="1_05dyf"]
 [ext_resource type="AudioStream" uid="uid://c0lgkfts6178c" path="res://Sounds/Camera/CameraShot.mp3" id="2_o73cf"]
+[ext_resource type="AudioStream" uid="uid://dd5pwmsbry8jy" path="res://Sounds/Camera/CameraHandling/Equip1.mp3" id="3_pcwph"]
+[ext_resource type="AudioStream" uid="uid://dewg4p0n3fcqr" path="res://Sounds/Camera/CameraHandling/Equip2.mp3" id="4_lyrtm"]
 
 [node name="HandheldCamera" type="Node3D"]
 script = ExtResource("1_05dyf")
@@ -20,3 +22,9 @@ debug_shape_custom_color = Color(0.917647, 0.709804, 0, 1)
 
 [node name="CameraSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_o73cf")
+
+[node name="CameraSoundHandle1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pcwph")
+
+[node name="CameraSoundHandle2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lyrtm")

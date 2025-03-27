@@ -7,6 +7,7 @@ extends Node3D
 func _ready():
 	_seagull_animation_player.play("SeagullDive")
 	_seagulls_animation_player.play("Seagulls Flying")
+	_telephone_wire_animation_player.play("TelephoneWireSway")
 
 func get_objective_node():
 	return get_node("LevelObjectives")

@@ -6,6 +6,8 @@ extends Node3D
 @onready var _subject_in_view_ray = $RotateNodeHorizontal/RotateNodeVertical/SubjectInViewRay
 
 @onready var _camera_sound_player = $CameraSound
+@onready var _camera_sound_handle_player_1 = $CameraSoundHandle1
+@onready var _camera_sound_handle_player_2 = $CameraSoundHandle2
 
 @export var _base_ui: BaseUI
 
@@ -75,3 +77,7 @@ func get_camera_rotation_horizontal():
 	return _rotate_node_horizontal.rotation.y
 func get_camera_rotation_vertical():
 	return _rotate_node_vertical.rotation.x
+
+func play_camera_handle_sounds():
+	_camera_sound_handle_player_1.play()
+	_camera_sound_handle_player_2.play()

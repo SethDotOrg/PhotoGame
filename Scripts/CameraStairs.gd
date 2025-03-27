@@ -13,6 +13,8 @@ var in_handheld_camera
 # Called when the node enters the scene tree for the first time.
 func enter():
 	super()
+	if GlobalVariables._in_handheld_camera == false: #if not already in a camera state
+		parent._handheld_camera.play_camera_handle_sounds() #then play the camera equip sound
 	in_handheld_camera = true
 	GlobalVariables._in_handheld_camera = true
 	number_of_wall_jumps = 0

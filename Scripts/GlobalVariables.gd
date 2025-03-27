@@ -6,7 +6,7 @@ enum {PROTOTYPE, CARGO}
 var _current_level: int
 #add more levels as they are made
 
-var _in_handheld_camera: bool
+var _in_handheld_camera: bool = false
 var _in_sit_area: bool
 var _jogging: bool = false
 var _number_of_wall_jumps: int
